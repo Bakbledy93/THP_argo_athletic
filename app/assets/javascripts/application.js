@@ -13,3 +13,17 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require javascripts/jquery.min.js
+//= require javascripts/pooper.min.js
+//= require javascripts/bootstrap.js
+//= require jabascripts/plugins.js
+//= require lib/loaders.css/loaders.css.js
+//= require javascripts/stickyfill.min.js
+//= require lib/is_js/is.min.js
+//= require lib/jtap/jquery.tap.js
+//= require javascripts/rellax.min.js
+//= require lib/fancybox/jquery.fancybox.min.js
+//= require lib/jquery.mb.ytplayer/jquery.mb.YTPlayer.min.js
+//= require lib/isotope-layout/isotope.pkgd.min.js
+//= require lib/isotope-packery/packery-mode.pkgd.min.js
+//= require javascripts/theme.js

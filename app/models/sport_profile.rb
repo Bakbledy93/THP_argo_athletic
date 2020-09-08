@@ -1,4 +1,4 @@
 class SportProfile < ApplicationRecord
-  belongs_to :profiles
-  belongs_to :sports
+  belongs_to :profile
+  belongs_to :sport
 end

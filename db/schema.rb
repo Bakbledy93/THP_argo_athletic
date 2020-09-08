@@ -10,19 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_08_165030) do
+ActiveRecord::Schema.define(version: 2020_09_08_204401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "joint_profile_sports", force: :cascade do |t|
-    t.bigint "profile_id"
-    t.bigint "sport_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["profile_id"], name: "index_joint_profile_sports_on_profile_id"
-    t.index ["sport_id"], name: "index_joint_profile_sports_on_sport_id"
-  end
 
   create_table "profiles", force: :cascade do |t|
     t.datetime "date_of_birth"
@@ -31,6 +22,15 @@ ActiveRecord::Schema.define(version: 2020_09_08_165030) do
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sport_profiles", force: :cascade do |t|
+    t.bigint "profile_id"
+    t.bigint "sport_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_sport_profiles_on_profile_id"
+    t.index ["sport_id"], name: "index_sport_profiles_on_sport_id"
   end
 
   create_table "sport_roles", force: :cascade do |t|

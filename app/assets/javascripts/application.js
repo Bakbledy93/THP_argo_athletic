@@ -9,21 +9,21 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
+// require loaders.css/loaders.css
 //
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require javascripts/jquery.min
-//= require javascripts/pooper.min
-//= require javascripts/bootstrap
-//= require jabascripts/plugins
-//= require lib/loaders.css/loaders.css
-//= require javascripts/stickyfill.min
-//= require lib/is_js/is.min
-//= require lib/jtap/jquery.tap
-//= require javascripts/rellax.min
-//= require lib/fancybox/jquery.fancybox.min
-//= require lib/jquery.mb.ytplayer/jquery.mb.YTPlayer.min
-//= require lib/isotope-layout/isotope.pkgd.min
-//= require lib/isotope-packery/packery-mode.pkgd.min
-//= require javascripts/theme
+//= require jquery.min
+//= require popper.min
+//= require bootstrap
+//= require plugins
+//= require stickyfill.min
+//= require is_js/is.min
+//= require jtap/jquery.tap
+//= require rellax.min
+//= require fancybox/jquery.fancybox.min
+//= require jquery.mb.ytplayer/jquery.mb.YTPlayer.min
+//= require isotope-layout/isotope.pkgd.min
+//= require isotope-packery/packery-mode.pkgd.min
+//= require theme

@@ -41,6 +41,8 @@ GEM
       activemodel (= 5.2.4.3)
       activesupport (= 5.2.4.3)
       arel (>= 9.0)
+    activerecord-import (1.0.6)
+      activerecord (>= 3.2)
     activestorage (5.2.4.3)
       actionpack (= 5.2.4.3)
       activerecord (= 5.2.4.3)
@@ -254,6 +256,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-import
   aws-sdk-s3
   better_errors
   binding_of_caller

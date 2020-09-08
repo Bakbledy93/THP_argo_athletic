@@ -82,4 +82,6 @@ gem 'aws-sdk-s3', require: false
 # Adds Mailtroap
 gem 'mailtrap'
 
+gem 'activerecord-import'
+
 

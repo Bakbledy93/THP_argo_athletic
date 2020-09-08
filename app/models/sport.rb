@@ -1,3 +1,18 @@
 class Sport < ApplicationRecord
-  belongs_to :profile
+  require 'csv'
+  require 'activerecord-import/base'
+  require 'activerecord-import/active_record/adapters/postgresql_adapter'
+
+  def self.my_import(file)
+    sports=[]
+    CSV.foreach("db/sports.csv", headers: true) do |row|
+      sports << Sport.new(row.to_h)
+    end
+    puts '*'*150
+    p sports
+    puts '*'*150
+
+    Sport.import sports, recursive: true
+  end
+
 end

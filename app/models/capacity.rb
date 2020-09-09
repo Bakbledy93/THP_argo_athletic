@@ -4,4 +4,5 @@ class Capacity < ApplicationRecord
   has_many :muscular_groups, through: :roles_muscular_group_capacities
 
   belongs_to :quality
+  has_many :training_methods
 end

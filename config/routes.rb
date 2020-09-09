@@ -53,4 +53,12 @@ resources :extypes, only: [:index] do
   collection {post :import}
 end
 
+resources :muscles, only: [:index] do
+  collection {post :import}
+end
+
+resources :variants, only: [:index] do
+  collection {post :import}
+end
+
 end

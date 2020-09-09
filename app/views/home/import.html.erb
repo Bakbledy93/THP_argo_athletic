@@ -72,3 +72,17 @@
   <p>Le tableau extypes est déjà importé.</p>
 <%end%>
 
+<h5>Import Muscle</h5>
+<%if Muscle.all.empty?%>
+  <%= link_to "Import", import_muscles_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
+<%else%>
+  <p>Le tableau muscles est déjà importé.</p>
+<%end%>
+
+<h5>Import Variant</h5>
+<%if Variant.all.empty?%>
+  <%= link_to "Import", import_variants_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
+<%else%>
+  <p>Le tableau variants est déjà importé.</p>
+<%end%>
+

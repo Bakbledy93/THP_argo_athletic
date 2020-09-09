@@ -41,4 +41,16 @@ Rails.application.routes.draw do
     collection {post :import}
   end
 
+resources :intensities, only: [:index] do
+  collection {post :import}
+end
+
+resources :levels, only: [:index] do
+  collection {post :import}
+end
+
+resources :extypes, only: [:index] do
+  collection {post :import}
+end
+
 end

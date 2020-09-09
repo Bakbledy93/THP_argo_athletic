@@ -1,2 +1,10 @@
-<h2>import sport</h2>
-  <%= link_to "Import", import_sports_path, class:"text-900 font-weight-bold ml-1 "%>
+<h2>Importer les CSV</h2>
+<br>
+
+
+<h5>Import sport</h5>
+<%if Sport.all == nil%>
+  <%= link_to "Import", import_sports_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white "%>
+<%else%>
+  <p>Le tableau sport est déjà importé.</p>
+<%end%>

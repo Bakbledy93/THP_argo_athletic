@@ -5,7 +5,7 @@ class Sport < ApplicationRecord
 
   def self.my_import(file)
     sports=[]
-    CSV.foreach(file.path, headers: true) do |row|
+    CSV.foreach("db/sports.csv", headers: true) do |row|
       sports << Sport.new(row.to_h)
     end
     puts '*'*150

@@ -9,7 +9,7 @@ resources :sports do
 end
 
 resources :home, only: [:index] do
-  collection {post :import}
+  collection {get :import}
 end
 
 end

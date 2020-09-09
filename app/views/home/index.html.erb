@@ -48,18 +48,20 @@
                     parfaire ta préparation physique.
                   </p>
                 </div>
-                <!-- presntation of options of authentification -->
-                <div class="overflow-hidden">
-                  <div class="mt-3 mt-lg-5" data-zanim-xs='{"delay":0.6}'>
-                    <!-- sign up option -->
-                    <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger"%>
-                    <h6 class="font-weight-normal mt-2 text-500">
-                      Déjà membre ?
-                    </h6>
-                    <!-- sign in option -->
-                    <%= button_to "Connexion", new_user_session_path, method: 'get', class:"btn btn-danger d-inline" %>
+                <% if !user_signed_in? %>
+                  <!-- presntation of options of authentification -->
+                  <div class="overflow-hidden">
+                    <div class="mt-3 mt-lg-5" data-zanim-xs='{"delay":0.6}'>
+                      <!-- sign up option -->
+                      <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger"%>
+                      <h6 class="font-weight-normal mt-2 text-500">
+                        Déjà membre ?
+                      </h6>
+                      <!-- sign in option -->
+                      <%= button_to "Connexion", new_user_session_path, method: 'get', class:"btn btn-danger d-inline" %>
+                    </div>
                   </div>
-                </div>
+                <% end %>
               </div>
             </div>
           </div>

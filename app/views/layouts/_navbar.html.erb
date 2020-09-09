@@ -35,6 +35,7 @@
                 <div class="col-sm-auto pr-4">
                   <a class="fancy-dropdown-item" href="page-about.html">Se connecter</a>
                   <a class="fancy-dropdown-item" href="page-contact.html">S'inscrire</a>
+                  <%= link_to "Logout", destroy_user_session_path, method: 'delete', class:"fancy-dropdown-item" %>
                 </div>
               </div>
             </div>

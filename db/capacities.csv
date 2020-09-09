@@ -1,0 +1,9 @@
+quality_id,name
+1,anaerobic_alactic
+1,anaerobic_lactic
+1,aerobic
+2,max_strength
+3,explosive_strength
+4,acyclic
+5,hypertrophy
+5,muscle_endurance

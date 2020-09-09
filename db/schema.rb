@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_08_213358) do
+ActiveRecord::Schema.define(version: 2020_09_09_103211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,22 @@ ActiveRecord::Schema.define(version: 2020_09_08_213358) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "quality_id"
+    t.index ["quality_id"], name: "index_capacities_on_quality_id"
+  end
+
+  create_table "exercises", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "muscles", force: :cascade do |t|
+    t.string "name"
+    t.bigint "muscular_group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["muscular_group_id"], name: "index_muscles_on_muscular_group_id"
   end
 
   create_table "muscular_groups", force: :cascade do |t|
@@ -31,7 +47,12 @@ ActiveRecord::Schema.define(version: 2020_09_08_213358) do
     t.datetime "date_of_birth"
     t.integer "height"
     t.integer "weight"
-    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "qualities", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,6 +92,23 @@ ActiveRecord::Schema.define(version: 2020_09_08_213358) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "training_method_exercises", force: :cascade do |t|
+    t.bigint "training_method_id"
+    t.bigint "exercise_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exercise_id"], name: "index_training_method_exercises_on_exercise_id"
+    t.index ["training_method_id"], name: "index_training_method_exercises_on_training_method_id"
+  end
+
+  create_table "training_methods", force: :cascade do |t|
+    t.string "name"
+    t.bigint "capacity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["capacity_id"], name: "index_training_methods_on_capacity_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -87,8 +125,13 @@ ActiveRecord::Schema.define(version: 2020_09_08_213358) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "capacities", "qualities"
+  add_foreign_key "muscles", "muscular_groups"
   add_foreign_key "roles_muscular_group_capacities", "capacities"
   add_foreign_key "roles_muscular_group_capacities", "muscular_groups"
   add_foreign_key "roles_muscular_group_capacities", "sport_roles"
+  add_foreign_key "training_method_exercises", "exercises"
+  add_foreign_key "training_method_exercises", "training_methods"
+  add_foreign_key "training_methods", "capacities"
   add_foreign_key "users", "profiles"
 end

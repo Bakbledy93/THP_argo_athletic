@@ -1,17 +1,16 @@
-<nav class="fancynavbar" data-zanim-lg='{"from":{"opacity":1,"x":70},"to":{"opacity":1,"x":0},"ease":"CubicBezier","duration":0.2,"delay":0.3}' data-zanim-xs='{"from":{"opacity":1,"y":-43},"to":{"opacity":1,"y":0},"ease":"CubicBezier","duration":0.2,"delay":0.3}'
+<nav class="fancynavbar" data-zanim-lg='{"from":{"opacity":1,"x":70},"to":{"opacity":1,"x":0},"ease":"CubicBezier"}' data-zanim-xs='{"from":{"opacity":1,"y":-43},"to":{"opacity":1,"y":0},"ease":"CubicBezier"}'
   data-zanim-trigger="scroll" data-exclusive="true">
   <div class="fancynavbar-togglerbar" data-onscroll-fade-in="data-onscroll-fade-in">
         <div class="fancynavbar-addon-item"><div class="fas fa-sign-in-alt"></div></div>
         <div class="fancynavbar-toggler">
-          <svg class="fancynavbar-toggler-icon" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg" data-zanim-lg='{"from":{"opacity":0,"x":45},"to":{"opacity":1,"x":0},"ease":"CubicBezier","duration":0.8,"delay":0.5}' data-zanim-trigger="scroll">
+          <svg class="fancynavbar-toggler-icon" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg" data-zanim-lg='{"from":{"opacity":0,"x":45},"to":{"opacity":1,"x":0},"ease":"CubicBezier"}' data-zanim-trigger="scroll">
             <path id="path-top" d="M20,25c0,0,22,0,30,0c16,0,18.89,40.71-.15,21.75C38.7,35.65,19.9,16.8,19.9,16.8"></path>
             <path id="path-middle" d="M20,32h30"></path>
             <path id="path-bottom" d="M19.9,46.98c0,0,18.8-18.85,29.95-29.95C68.89-1.92,66,38.78,50,38.78c-8,0-30,0-30,0"></path>
           </svg>
         </div>
-        <div class="fancynavbar-addon" data-zanim-lg='{"from":{"opacity":1,"x":45},"to":{"opacity":1,"x":0},"ease":"CubicBezier","duration":0.8,"delay":0.4}' data-zanim-trigger="scroll">
+        <div class="fancynavbar-addon" data-zanim-lg='{"from":{"opacity":1,"x":45},"to":{"opacity":1,"x":0},"ease":"CubicBezier"}' data-zanim-trigger="scroll">
           <a class="fancynavbar-addon-item" href="#"><span class="fab fa-twitter"></span></a>
-          <a class="fancynavbar-addon-item" href="#languageModal" data-toggle="modal"><span class="text-sans-serif ls font-weight-black fs--1 d-block">EN</span></a>
         </div>
       </div>
       <div class="fancynavbar-collapse">
@@ -21,27 +20,30 @@
             <div class="fancy-dropdown-menu">
               <div class="row pb-4 pt-3">
                 <div class="col-auto">
-                  <a class="fancy-dropdown-item" href="home-default.html">Concept</a>
-                  <a class="fancy-dropdown-item" href="home-default.html">Historique</a>
-                  <a class="fancy-dropdown-item" href="home-bicycle.html">Team</a>
+                  <a class="fancy-dropdown-item" href="#">Entrainement</a>
+                  <a class="fancy-dropdown-item" href="#">Chat</a>
                 </div>
               </div>
             </div>
           </li>
           <li class="fancynav-item fancy-dropdown">
-            <a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">Votre compte</span></a>
+            <a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">Compte</span></a>
             <div class="fancy-dropdown-menu">
               <div class="row pb-4 pt-3">
                 <div class="col-sm-auto pr-4">
-                  <a class="fancy-dropdown-item" href="page-about.html">Se connecter</a>
-                  <a class="fancy-dropdown-item" href="page-contact.html">S'inscrire</a>
-                  <%= link_to "Logout", destroy_user_session_path, method: 'delete', class:"fancy-dropdown-item" %>
+                  <% if user_signed_in? %>
+                    <a class="fancy-dropdown-item" href="#">Mon profil</a>
+                    <%= link_to "Se déconnecter", destroy_user_session_path, method: 'delete', class:"fancy-dropdown-item" %>
+                  <% else %>
+                    <%= link_to "S'inscrire", new_user_registration_path, method: 'get', class: "fancy-dropdown-item" %>
+                    <%= link_to "Se connecter", new_user_session_path, method: 'get', class: "fancy-dropdown-item" %>
+                  <% end %>
                 </div>
               </div>
             </div>
           </li>
           <li class="fancynav-item">
-            <a class="fancynav-link" href="page-contact.html"><span class="fancynav-link-content">Contact</span></a>
+            <a class="fancynav-link" href="#"><span class="fancynav-link-content">Contact</span></a>
           </li>
         </ul>
       </div>

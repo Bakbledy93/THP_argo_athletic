@@ -1,3 +1,6 @@
 class Sport < ApplicationRecord
-  belongs_to :profile
+  has_many :sport_profiles
+  has_many :profiles, through: :sport_profiles
+
+  has_many :sport_roles
 end

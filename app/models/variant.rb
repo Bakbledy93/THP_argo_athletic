@@ -7,4 +7,17 @@ class Variant < ApplicationRecord
 
   has_many :muscle_variants
   has_many :muscles, through: :muscle_variants
+
+  def self.my_import(file)
+    variants=[]
+    CSV.foreach("db/variants.csv", headers: true) do |row|
+      variants << Variant.new(row.to_h)
+    end
+    puts '*'*150
+    p variants
+    puts '*'*150
+
+    Variant.import variants, recursive: true
+  end
+  
 end

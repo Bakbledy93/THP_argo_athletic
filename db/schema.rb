@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_09_121727) do
+ActiveRecord::Schema.define(version: 2020_09_09_122728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,6 +131,15 @@ ActiveRecord::Schema.define(version: 2020_09_09_121727) do
     t.index ["training_method_id"], name: "index_training_method_exercises_on_training_method_id"
   end
 
+  create_table "training_method_levels", force: :cascade do |t|
+    t.bigint "level_id"
+    t.bigint "training_method_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["level_id"], name: "index_training_method_levels_on_level_id"
+    t.index ["training_method_id"], name: "index_training_method_levels_on_training_method_id"
+  end
+
   create_table "training_methods", force: :cascade do |t|
     t.string "name"
     t.bigint "capacity_id"
@@ -174,6 +183,8 @@ ActiveRecord::Schema.define(version: 2020_09_09_121727) do
   add_foreign_key "roles_muscular_group_capacities", "sport_roles"
   add_foreign_key "training_method_exercises", "exercises"
   add_foreign_key "training_method_exercises", "training_methods"
+  add_foreign_key "training_method_levels", "levels"
+  add_foreign_key "training_method_levels", "training_methods"
   add_foreign_key "training_methods", "capacities"
   add_foreign_key "users", "profiles"
   add_foreign_key "variants", "extypes"

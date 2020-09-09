@@ -36,4 +36,8 @@ resources :exercises, only: [:index] do
   collection {post :import}
 end
 
+resources :intensities, only: [:index] do
+  collection {post :import}
+end
+
 end

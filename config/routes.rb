@@ -24,4 +24,8 @@ resources :capacities, only: [:index] do
   collection {post :import}
 end
 
+resources :muscular_groups, only: [:index] do
+  collection {post :import}
+end
+
 end

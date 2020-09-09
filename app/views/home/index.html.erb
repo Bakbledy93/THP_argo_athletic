@@ -50,17 +50,15 @@
                 </div>
                 <!-- presntation of options of authentification -->
                 <div class="overflow-hidden">
-                  <!-- sign up option -->
                   <div class="mt-3 mt-lg-5" data-zanim-xs='{"delay":0.6}'>
+                    <!-- sign up option -->
                     <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger"%>
-                    <!-- sign in option -->
-                    <h6 class="font-weight-normal mt-2 text-500">Déjà membre ?
-                      <span class="d-inline ml-1">
-                        &xrarr;
-                      </span>
-                      <%= link_to "Connexion", new_user_session_path, class:"text-900 font-weight-bold ml-1" %>
+                    <h6 class="font-weight-normal mt-2 text-500">
+                      Déjà membre ?
                     </h6>
-                  </div>  
+                    <!-- sign in option -->
+                    <%= button_to "Connexion", new_user_session_path, method: 'get', class:"btn btn-danger d-inline" %>
+                  </div>
                 </div>
               </div>
             </div>

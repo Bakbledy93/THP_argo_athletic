@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_09_103211) do
+ActiveRecord::Schema.define(version: 2020_09_09_124646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,10 +23,46 @@ ActiveRecord::Schema.define(version: 2020_09_09_103211) do
     t.index ["quality_id"], name: "index_capacities_on_quality_id"
   end
 
+  create_table "exercise_variants", force: :cascade do |t|
+    t.bigint "exercise_id"
+    t.bigint "variant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exercise_id"], name: "index_exercise_variants_on_exercise_id"
+    t.index ["variant_id"], name: "index_exercise_variants_on_variant_id"
+  end
+
   create_table "exercises", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "extypes", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "intensities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "levels", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "muscle_variants", force: :cascade do |t|
+    t.bigint "variant_id"
+    t.bigint "muscle_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["muscle_id"], name: "index_muscle_variants_on_muscle_id"
+    t.index ["variant_id"], name: "index_muscle_variants_on_variant_id"
   end
 
   create_table "muscles", force: :cascade do |t|
@@ -101,6 +137,24 @@ ActiveRecord::Schema.define(version: 2020_09_09_103211) do
     t.index ["training_method_id"], name: "index_training_method_exercises_on_training_method_id"
   end
 
+  create_table "training_method_intensities", force: :cascade do |t|
+    t.bigint "intensity_id"
+    t.bigint "training_method_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["intensity_id"], name: "index_training_method_intensities_on_intensity_id"
+    t.index ["training_method_id"], name: "index_training_method_intensities_on_training_method_id"
+  end
+
+  create_table "training_method_levels", force: :cascade do |t|
+    t.bigint "level_id"
+    t.bigint "training_method_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["level_id"], name: "index_training_method_levels_on_level_id"
+    t.index ["training_method_id"], name: "index_training_method_levels_on_training_method_id"
+  end
+
   create_table "training_methods", force: :cascade do |t|
     t.string "name"
     t.bigint "capacity_id"
@@ -125,13 +179,30 @@ ActiveRecord::Schema.define(version: 2020_09_09_103211) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "variants", force: :cascade do |t|
+    t.string "name"
+    t.bigint "extype_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["extype_id"], name: "index_variants_on_extype_id"
+  end
+
   add_foreign_key "capacities", "qualities"
+  add_foreign_key "exercise_variants", "exercises"
+  add_foreign_key "exercise_variants", "variants"
+  add_foreign_key "muscle_variants", "muscles"
+  add_foreign_key "muscle_variants", "variants"
   add_foreign_key "muscles", "muscular_groups"
   add_foreign_key "roles_muscular_group_capacities", "capacities"
   add_foreign_key "roles_muscular_group_capacities", "muscular_groups"
   add_foreign_key "roles_muscular_group_capacities", "sport_roles"
   add_foreign_key "training_method_exercises", "exercises"
   add_foreign_key "training_method_exercises", "training_methods"
+  add_foreign_key "training_method_intensities", "intensities"
+  add_foreign_key "training_method_intensities", "training_methods"
+  add_foreign_key "training_method_levels", "levels"
+  add_foreign_key "training_method_levels", "training_methods"
   add_foreign_key "training_methods", "capacities"
   add_foreign_key "users", "profiles"
+  add_foreign_key "variants", "extypes"
 end

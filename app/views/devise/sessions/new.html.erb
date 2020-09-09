@@ -1,55 +1,62 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-
-      <section class="py-0" id="page-signin">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-6 px-0">
-              <div class="sticky-top vh-lg-100 py-9">
-                <div class="bg-holder" style="background-image:url(https://images.pexels.com/photos/221210/pexels-photo-221210.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right","delay":0.4}'></div>
-              </div>
-            </div>
-            
-            <div class="col-lg-6 bg-white py-6">
-              <div class="row h-100 align-items-center justify-content-center">
-                <div class="col-sm-8 col-md-6 col-lg-10 col-xl-8" data-zanim-xs='{"delay":0.5,"animation":"slide-right"}' data-zanim-trigger="scroll">
-                  <h3 class="display-4 fs-2">Perfect for Startups,
-                    <br/>freelancers &amp; companies.</h3>
-                  <h6 class="text-danger mt-3">Spécialement conçu pour les passionnés de sports</h6>
-                  <form class="mt-5">
-                    <div class="form-group">
-                      <%= f.email_field :email, class:"form-control border-300 bg-light", autofocus: true, placeholder: 'Votre email' %> 
-                    </div>
-                    <div class="form-group">
-                      <%= f.password_field :password, class:"form-control border-300 bg-light", autofocus: true, placeholder: 'Password' %> 
-                    </div>
-                    <div class="form-group">
-                      <%= f.submit :"Créer un compte", class:"btn btn-dark btn-block mt-3", autofocus: true %> 
-                    </div>
-                    
-                    <div class="form-group mb-0">
-                      <div class="row no-gutters">
-                        <div class="col-6 pr-1">
-                          <a class="btn btn-outline-danger btn-sm btn-block mt-2" href="#"><span class="fab fa-google-plus-g mr-2" data-fa-transform="grow-8"></span> google</a>
-                        </div>
-                        <div class="col-6 pl-1">
-                          <a class="btn btn-outline-primary btn-sm btn-block mt-2" href="#"><span class="fab fa-facebook mr-2" data-fa-transform="grow-8"></span> facebook</a>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                  <%= render "devise/shared/links" %>
-                </div>
-              </div>
-            </div>
+  <section class="py-0" id="page-signin">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6 px-0">
+          <div class="sticky-top vh-lg-100 py-9">
+            <div class="bg-holder" 
+                 style="background-image:url(https://images.pexels.com/photos/221210/pexels-photo-221210.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);" 
+                 data-zanim-trigger="scroll" 
+                 data-zanim-lg='{"animation":"zoom-out-slide-right"}'
+            ></div>
           </div>
         </div>
-        <!-- end of .container-->
-      </section>
-      <!-- <section> close ============================-->
-
-
-
-
+        <div class="col-lg-6 bg-white py-6">
+          <div class="row h-100 align-items-center justify-content-center">
+            <div class="col-sm-8 col-md-6 col-lg-10 col-xl-8"
+                 data-zanim-xs='{"animation":"slide-right"}'
+                 data-zanim-trigger="scroll"
+            >
+            <h3 class="display-4 fs-2">
+              Parfait pour les compétiteurs amateurs,
+              <br/>professionnels &amp; autres sportifs.
+            </h3>
+            <h6 class="text-danger mt-3">
+              Spécialement conçue pour les compétieurs pour leur préparation physique.
+            </h6>
+            <form class="mt-5">
+              <div class="form-group">
+                <%= f.email_field :email, class:"form-control border-300 bg-light", autofocus: true, placeholder: 'e-mail' %> 
+              </div>
+              <div class="form-group">
+                <%= f.password_field :password, class:"form-control border-300 bg-light", autofocus: true, placeholder: 'mot de passe' %> 
+              </div>
+              <div class="form-group">
+                <%= f.submit :"Connexion", class:"btn btn-dark btn-block mt-3", autofocus: true %> 
+              </div>
+              <div class="form-group mb-0">
+                <div class="row no-gutters">
+                  <div class="col-6 pr-1">
+                    <a class="btn btn-outline-danger btn-sm btn-block mt-2" href="#">
+                      <span class="fab fa-google-plus-g mr-2" data-fa-transform="grow-8">
+                      </span>
+                       google
+                    </a>
+                  </div>
+                  <div class="col-6 pl-1">
+                    <a class="btn btn-outline-primary btn-sm btn-block mt-2" href="#">
+                      <span class="fab fa-facebook mr-2" data-fa-transform="grow-8">
+                      </span>
+                      facebook
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <%= render "devise/shared/links" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 <% end %>
-
-

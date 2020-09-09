@@ -14,3 +14,10 @@
 <%else%>
   <p>Le tableau sport role est déjà importé.</p>
 <%end%>
+
+<h5>Import capacities</h5>
+<%if Capacity.all.empty?%>
+  <%= link_to "Import", import_capacities_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
+<%else%>
+  <p>Le tableau capacity est déjà importé.</p>
+<%end%>

@@ -16,4 +16,8 @@ resources :sport_roles, only: [:index] do
   collection {post :import}
 end
 
+resources :capacities, only: [:index] do
+  collection {post :import}
+end
+
 end

@@ -1,0 +1,2 @@
+class Extype < ApplicationRecord
+end

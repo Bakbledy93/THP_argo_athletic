@@ -1,23 +1,30 @@
 <h2>Importer les CSV</h2>
 <br>
 
-<h5>Import sport</h5>
+<h5>Import Sport</h5>
 <%if Sport.all.empty?%>
   <%= link_to "Import", import_sports_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
 <%else%>
-  <p>Le tableau sport est déjà importé.</p>
+  <p>Le tableau sports est déjà importé.</p>
 <%end%>
 
-<h5>Import sport roles</h5>
+<h5>Import Sport Role</h5>
 <%if SportRole.all.empty?%>
   <%= link_to "Import", import_sport_roles_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
 <%else%>
-  <p>Le tableau sport role est déjà importé.</p>
+  <p>Le tableau sport_roles est déjà importé.</p>
 <%end%>
 
-<h5>Import capacities</h5>
+<h5>Import Quality</h5>
+<%if Quality.all.empty?%>
+  <%= link_to "Import", import_qualities_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
+<%else%>
+  <p>Le tableau qualities est déjà importé.</p>
+<%end%>
+
+<h5>Import Capacity</h5>
 <%if Capacity.all.empty?%>
   <%= link_to "Import", import_capacities_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
 <%else%>
-  <p>Le tableau capacity est déjà importé.</p>
+  <p>Le tableau capacities est déjà importé.</p>
 <%end%>

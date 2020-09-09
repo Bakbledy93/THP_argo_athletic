@@ -14,6 +14,7 @@ class Capacity < ApplicationRecord
 
     Capacity.import capacities, recursive: true
   end
+  
   belongs_to :quality
   has_many :training_methods
 end

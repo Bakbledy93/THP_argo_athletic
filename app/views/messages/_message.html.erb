@@ -1,21 +1,20 @@
 <div class="message">
   <p>
-    # time the message is sent
+    <!-- time the message is sent -->
     <small>
       <em>
         Crée il y a 
           <%= time_ago_in_words(message.created_at)%>
       </em>
     </small>
-    # to translate, we need to look at config/locales/fr.yml 
  </p>
   <p>
-    # put avatar here if wanted
-    # name of the sender
+    <!-- put avatar code here if wanted -->
+    <!-- name of the sender -->
     <strong>
       <%= message.user.first_name.capitalize %>
     </strong>
-    # message name
+    <!-- message content -->
     <span class="content">
       <%= message.content %>
     </span>

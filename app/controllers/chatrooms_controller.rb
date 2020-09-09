@@ -3,6 +3,6 @@ class ChatroomsController < ApplicationController
     # display new message
     @message = Message.new
     # display all existing messages
-    @messages = Message.all
+    @messages = Message.most_recent
   end
 end

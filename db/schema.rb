@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_09_115817) do
+ActiveRecord::Schema.define(version: 2020_09_09_120243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2020_09_09_115817) do
     t.datetime "updated_at", null: false
     t.bigint "quality_id"
     t.index ["quality_id"], name: "index_capacities_on_quality_id"
+  end
+
+  create_table "exercise_variants", force: :cascade do |t|
+    t.bigint "exercise_id"
+    t.bigint "variant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exercise_id"], name: "index_exercise_variants_on_exercise_id"
+    t.index ["variant_id"], name: "index_exercise_variants_on_variant_id"
   end
 
   create_table "exercises", force: :cascade do |t|
@@ -140,6 +149,8 @@ ActiveRecord::Schema.define(version: 2020_09_09_115817) do
   end
 
   add_foreign_key "capacities", "qualities"
+  add_foreign_key "exercise_variants", "exercises"
+  add_foreign_key "exercise_variants", "variants"
   add_foreign_key "muscles", "muscular_groups"
   add_foreign_key "roles_muscular_group_capacities", "capacities"
   add_foreign_key "roles_muscular_group_capacities", "muscular_groups"

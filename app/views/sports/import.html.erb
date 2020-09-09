@@ -1,0 +1,4 @@
+<%= form_tag import_sports_path, :multipart=> true, do%>
+<%= file_field_tag :file %>
+<%= submit_tag "import from file"%>
+<%end%>

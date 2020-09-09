@@ -8,4 +8,8 @@ resources :sports do
   collection {post :import}
 end
 
+resources :home, only: [:index] do
+  collection {post :import}
+end
+
 end

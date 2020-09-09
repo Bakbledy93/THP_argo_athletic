@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   # route for communication
   mount ActionCable.server => '/cable'
+  get '/chat', to: 'chatrooms#show'
 
   resources :sports do
     collection {post :import}

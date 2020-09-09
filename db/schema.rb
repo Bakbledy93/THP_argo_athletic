@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_09_115549) do
+ActiveRecord::Schema.define(version: 2020_09_09_115817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,6 +131,14 @@ ActiveRecord::Schema.define(version: 2020_09_09_115549) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "variants", force: :cascade do |t|
+    t.string "name"
+    t.bigint "extype_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["extype_id"], name: "index_variants_on_extype_id"
+  end
+
   add_foreign_key "capacities", "qualities"
   add_foreign_key "muscles", "muscular_groups"
   add_foreign_key "roles_muscular_group_capacities", "capacities"
@@ -140,4 +148,5 @@ ActiveRecord::Schema.define(version: 2020_09_09_115549) do
   add_foreign_key "training_method_exercises", "training_methods"
   add_foreign_key "training_methods", "capacities"
   add_foreign_key "users", "profiles"
+  add_foreign_key "variants", "extypes"
 end

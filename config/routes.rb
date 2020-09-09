@@ -28,4 +28,12 @@ resources :muscular_groups, only: [:index] do
   collection {post :import}
 end
 
+resources :training_methods, only: [:index] do
+  collection {post :import}
+end
+
+resources :exercises, only: [:index] do
+  collection {post :import}
+end
+
 end

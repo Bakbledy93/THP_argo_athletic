@@ -35,3 +35,18 @@
 <%else%>
   <p>Le tableau muscular_groups est déjà importé.</p>
 <%end%>
+
+<h5>Import Training Method</h5>
+<%if TrainingMethod.all.empty?%>
+  <%= link_to "Import", import_training_methods_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
+<%else%>
+  <p>Le tableau training_methods est déjà importé.</p>
+<%end%>
+
+<h5>Import Exercice</h5>
+<%if Exercise.all.empty?%>
+  <%= link_to "Import", import_exercises_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
+<%else%>
+  <p>Le tableau exercises est déjà importé.</p>
+<%end%>
+

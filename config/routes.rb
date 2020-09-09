@@ -12,4 +12,8 @@ resources :home, only: [:index] do
   collection {get :import}
 end
 
+resources :sport_roles, only: [:index] do
+  collection {post :import}
+end
+
 end

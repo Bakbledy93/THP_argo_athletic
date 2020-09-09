@@ -57,4 +57,10 @@
   <p>Le tableau intensities est déjà importé.</p>
 <%end%>
 
+<h5>Import Level</h5>
+<%if Level.all.empty?%>
+  <%= link_to "Import", import_levels_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
+<%else%>
+  <p>Le tableau levels est déjà importé.</p>
+<%end%>
 

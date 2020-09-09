@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <title>Argo</title>
+    <title>Argo Athletic</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <!-- navbar -->
     <%= render "layouts/navbar" %>
+    <!-- jumbotron -->
     <%= yield %>
+    <!-- footer -->
     <%= render "layouts/footer" %>
   </body>
 </html>

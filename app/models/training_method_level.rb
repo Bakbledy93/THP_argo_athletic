@@ -1,0 +1,2 @@
+class TrainingMethodLevel < ApplicationRecord
+end

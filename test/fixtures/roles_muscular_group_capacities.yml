@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sport_role: one
+  muscular_group: one
+  capacity: one
+
+two:
+  sport_role: two
+  muscular_group: two
+  capacity: two

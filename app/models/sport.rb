@@ -15,4 +15,8 @@ class Sport < ApplicationRecord
     Sport.import sports, recursive: true
   end
 
+  has_many :sport_profiles
+  has_many :profiles, through: :sport_profiles
+
+  has_many :sport_roles
 end

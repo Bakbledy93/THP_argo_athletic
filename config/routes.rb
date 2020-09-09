@@ -44,4 +44,8 @@ resources :levels, only: [:index] do
   collection {post :import}
 end
 
+resources :extypes, only: [:index] do
+  collection {post :import}
+end
+
 end

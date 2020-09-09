@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_09_09_124646) do
+=======
+ActiveRecord::Schema.define(version: 2020_09_09_133116) do
+>>>>>>> UserEditingForms
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +89,8 @@ ActiveRecord::Schema.define(version: 2020_09_09_124646) do
     t.integer "weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "qualities", force: :cascade do |t|
@@ -173,9 +179,7 @@ ActiveRecord::Schema.define(version: 2020_09_09_124646) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.bigint "profile_id"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["profile_id"], name: "index_users_on_profile_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -193,6 +197,7 @@ ActiveRecord::Schema.define(version: 2020_09_09_124646) do
   add_foreign_key "muscle_variants", "muscles"
   add_foreign_key "muscle_variants", "variants"
   add_foreign_key "muscles", "muscular_groups"
+  add_foreign_key "profiles", "users"
   add_foreign_key "roles_muscular_group_capacities", "capacities"
   add_foreign_key "roles_muscular_group_capacities", "muscular_groups"
   add_foreign_key "roles_muscular_group_capacities", "sport_roles"
@@ -203,6 +208,5 @@ ActiveRecord::Schema.define(version: 2020_09_09_124646) do
   add_foreign_key "training_method_levels", "levels"
   add_foreign_key "training_method_levels", "training_methods"
   add_foreign_key "training_methods", "capacities"
-  add_foreign_key "users", "profiles"
   add_foreign_key "variants", "extypes"
 end

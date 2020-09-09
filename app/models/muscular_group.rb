@@ -2,6 +2,7 @@ class MuscularGroup < ApplicationRecord
   has_many :roles_muscular_group_capacities
   has_many :sport_roles, through: :roles_muscular_group_capacities
   has_many :capacities, through: :roles_muscular_group_capacities
+  has_many :muscles
 
   def self.my_import(file)
     muscular_groups=[]
@@ -14,5 +15,4 @@ class MuscularGroup < ApplicationRecord
 
     MuscularGroup.import muscular_groups, recursive: true
   end
-  
 end

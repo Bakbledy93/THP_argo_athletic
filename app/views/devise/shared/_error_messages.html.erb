@@ -1,5 +1,9 @@
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<% if notice %>
+  <p class="notice"><%= notice %></p>
+<% elsif alert %>
+  <p class="alert"><%= alert %></p>
+<% end %>
+
 <% if resource.errors.any? %>
   <div id="error_explanation">
     <h2>

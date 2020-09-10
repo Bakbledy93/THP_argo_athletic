@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     collection {post :import}
   end
 
-  resources :home, only: [:index] do
+  resources :home, only: [:index, :show] do
     collection {get :import}
   end
 

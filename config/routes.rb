@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   # get '/chat', to: 'chatrooms#show'
   # resources :messages, only: [:create]
 
+<<<<<<< HEAD
 
 
   resources :users do
@@ -32,6 +33,9 @@ Rails.application.routes.draw do
   resources :admins do
     collection {post :import}
   end
+=======
+  resources :profile, only: [:index, :show, :new, :create, :update]
+>>>>>>> development
 
   resources :sports do
     collection {post :import}

@@ -44,35 +44,24 @@
                     Compétiteur amateur, Argo Athletic est fait pour toi ! Argo Athletic te permet de parfaire ta préparation physique.
                   </p>
                 </div>
-                <!-- formulaire login -->
+                <!-- début login -->
 
-<div class="container">
-    <div class="row">
-            <div class="col-lg-6 px-0"><br>
-            <div class="form-login">
-            <h4 class="display-4 fs-2">Go, Argonaute</h4>
-            <input type="email" id="userName" class="form-control border-300 bg-light" placeholder="Votre email" />
-            <br>
-            <input type="password" id="userPassword" class="form-control border-300 bg-light" placeholder="Votre password" />
-            <br>
-            <div class="wrapper">
-            <span class="group-btn">     
-                <a href="#" class="btn btn-success btn-md">Connexion</a>
-            </span>
-            <br><br><br><h3 class="display-4 fs-2">Tu veux t'engager ?</h3>
-            <span class="group-btn">     
-                <a href="#" class="btn btn-dark btn-md">Inscris-toi</a>
-            </span>
-            
+    <% if !user_signed_in? %>
+                  <!-- presentation of options of authentification -->
+                  <div class="overflow-hidden">
+                    <div class="mt-3 mt-lg-5" data-zanim-xs='{"delay":0.6}'>
+                      <!-- sign up option -->
+                      <%= button_to "Inscrivez-vous", new_user_registration_path, method: 'get', class:"btn btn-danger btn-lg"%>
+                      <h6 class="font-weight-normal mt-2 text-500">
+                        Déjà membre ?
+                      </h6>
+                      <!-- sign in option -->
+                      <%= button_to "Connexion", new_user_session_path, method: 'get', class:"btn btn-danger d-inline btn-lg" %>
+                    </div>
+                  </div>
+                <% end %>
 
-            </div>
-            </div>
-        
-        </div>
-    </div>
-</div>
-
-                <!-- fin formulaire login -->
+                <!-- fin login -->
 
               </div>
             </div>
@@ -81,7 +70,7 @@
       </div>
     </section>
     <!-- section landing-singup -->
-    <section class="text-center bg-light" id="landing-signup" style="background-image:url(https://images.pexels.com/photos/401896/pexels-photo-401896.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
+    <section class="text-center bg-light" id="landing-signup">
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-8" data-zanim-timeline="{}" data-zanim-trigger="scroll">
@@ -97,75 +86,7 @@
         </div>
       </div>
     </section>
-    <!-- section landing-features -->
-    <section class="py-3" id="landing-features">
-      <div class="container-fluid">
-        <div class="row" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-          <div class="col-lg-6 col-xl-3 mt-3 mt-xl-0 pr-lg-2" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}'>
-            <div class="hoverbox min-vh-50 h-100 py-6">
-              <div class="bg-holder rounded" style="background-image:url(https://images.pexels.com/photos/3818834/pexels-photo-3818834.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
-              </div>
-              <div class="hoverbox-content d-flex bg-black justify-content-center rounded">
-                <div class="align-self-center px-4 px-lg-6 text-center"><span class="fa fa-signal text-white fs-2 mb-2"></span>
-                  <h4 class="mb-1 text-white">Programmes &amp; personnalisés</h4>
-                  <p class="px-3 text-sans-serif text-500">Argo Athletic vous propose un programme rien que pour vous.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-xl-3 mt-3 mt-xl-0 px-xl-2 pl-lg-2" data-zanim-xs='{"delay":0.2,"animation":"zoom-in"}'>
-            <div class="position-relative min-vh-50 h-100">
-              <div class="bg-holder rounded" style="background-image:url(https://images.pexels.com/photos/3817163/pexels-photo-3817163.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
-              </div>
-              <a class="position-absolute b-0 r-0 mb-3 mr-4" href="https://www.youtube.com/watch?v=GJNxNUi6BmA" data-fancybox="data-fancybox" data-options='{"youtube":{"start":6,"end":168}}'>
-                <svg width="45" height="45" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 274.19 274.19" data-zanim-svg='{"duration":2,"ease":"CubicBezier","trigger":"scroll"}'>
-                  <defs>
-                    <style>
-                      .play-path {
-                        fill: none;
-                        stroke: #ffffff;
-                        stroke-linecap: round;
-                        stroke-linejoin: round;
-                        stroke-width: 12px;
-                      }
-                    </style>
-                  </defs>
-                  <g>
-                    <path class="play-path" d="M208.31,29.4A129.12,129.12,0,1,1,137.1,8m-1.48,170.53L199.94,137,104.07,79.46v113"></path>
-                  </g>
-                </svg>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-6 col-xl-3 mt-3 mt-xl-0 px-xl-2 pr-lg-2" data-zanim-xs='{"delay":0.3,"animation":"zoom-in"}'>
-            <div class="position-relative min-vh-50 h-100 py-6 d-flex justify-content-center">
-              <div class="bg-holder overlay overlay-0 rounded" style="background-image:url(https://images.pexels.com/photos/4162593/pexels-photo-4162593.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);">
-              </div>
-              <div class="position-relative px-4 px-xl-5 text-center align-self-center w-100"><span class="far fa-compass text-300 fs-4 mb-4"></span>
-                <h4 class="mb-2 text-white">
-                  Préparez &amp; participez à la compétition
-                </h4>
-                <p class="text-sans-serif text-500">
-                  Argo vous prépare au mieux pour la compétition et fera de vous un champion.
-                </p>
-                <a class="btn btn-link text-danger font-weight-bold" href="#">
-                  Je me lance &xrarr;
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-xl-3 mt-3 mt-xl-0 pl-lg-2" data-zanim-xs='{"delay":0.4,"animation":"zoom-in"}'>
-            <div class="position-relative min-vh-50 h-100 py-6">
-              <div class="bg-holder rounded" style="background-image:url();">
-                <div class="bg-youtube" data-property='{"videoURL":"https://www.youtube.com/watch?v=wcWmiJw0UIc","startAt":0,"stopAt":60,"mute":true,"showYTLogo":false}'>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- section landing-banner -->
+    
     <section class="py-0 overflow-hidden" id="landing-banner">
       <div class="container-fluid">
         <div class="row">
@@ -182,13 +103,16 @@
                   </span>
                   <span class="d-block overflow-hidden">
                     <span class="d-inline-block" data-zanim-xs='{"delay":0.2}'>
-                      tous ls jours avec
+                      tous les jours avec
                     </span>
                   </span>
                   <span class="d-block overflow-hidden">
                     <span class="d-inline-block" data-zanim-xs='{"delay":0.3}'>
                       Argo Athletic
                     </span>
+                    <div>
+                    <%= button_to "Inscrivez-vous", new_user_registration_path, method: 'get', class:"btn btn-danger btn-lg "%>
+                    </div>
                   </span>
                 </h1>
               </div>
@@ -198,6 +122,8 @@
       </div>
     </section>
     <!-- section landing-features-1 -->
+    
+    
     <section  class="overflow-hidden bg-light" id="landing-features-1" style="background-image:url(https://images.pexels.com/photos/401896/pexels-photo-401896.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);" > 
       <div class="container">
         <div class="row align-items-center">
@@ -231,6 +157,78 @@
         </div>
       </div>
     </section>
+
+<!-- section landing-features -->
+    <section class="py-3" id="landing-features">
+      <div class="container-fluid">
+        <div class="row" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+          <div class="col-lg-6 col-xl-3 mt-3 mt-xl-0 pr-lg-2" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}'>
+            <div class="hoverbox min-vh-50 h-100 py-6">
+              <div class="bg-holder rounded" style="background-image:url(https://images.pexels.com/photos/3818834/pexels-photo-3818834.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
+              </div>
+              <div class="hoverbox-content d-flex bg-black justify-content-center rounded">
+                <div class="align-self-center px-4 px-lg-6 text-center"><span class="fa fa-signal text-white fs-2 mb-2"></span>
+                  <h4 class="mb-1 text-white">Programmes &amp; personnalisés</h4>
+                  <p class="px-3 text-sans-serif text-500">Argo Athletic vous propose un programme rien que pour vous.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-xl-3 mt-3 mt-xl-0 px-xl-2 pl-lg-2" data-zanim-xs='{"delay":0.2,"animation":"zoom-in"}'>
+            <div class="position-relative min-vh-50 h-100">
+              <div class="bg-holder rounded" style="background-image:url(https://images.pexels.com/photos/4162593/pexels-photo-4162593.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);">
+              </div>
+              <a class="position-absolute b-0 r-0 mb-3 mr-4" href="https://www.youtube.com/watch?v=GJNxNUi6BmA" data-fancybox="data-fancybox" data-options='{"youtube":{"start":6,"end":168}}'>
+                <svg width="45" height="45" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 274.19 274.19" data-zanim-svg='{"duration":2,"ease":"CubicBezier","trigger":"scroll"}'>
+                  <defs>
+                    <style>
+                      .play-path {
+                        fill: none;
+                        stroke: #ffffff;
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                        stroke-width: 12px;
+                      }
+                    </style>
+                  </defs>
+                  <g>
+                    <path class="play-path" d="M208.31,29.4A129.12,129.12,0,1,1,137.1,8m-1.48,170.53L199.94,137,104.07,79.46v113"></path>
+                  </g>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6 col-xl-3 mt-3 mt-xl-0 px-xl-2 pr-lg-2" data-zanim-xs='{"delay":0.3,"animation":"zoom-in"}'>
+            <div class="position-relative min-vh-50 h-100 py-6 d-flex justify-content-center">
+              <div class="bg-holder overlay overlay-0 rounded" style="background-image:url(https://images.pexels.com/photos/3817163/pexels-photo-3817163.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
+              </div>
+              <div class="position-relative px-4 px-xl-5 text-center align-self-center w-100"><span class="far fa-compass text-300 fs-4 mb-4"></span>
+                <h4 class="mb-2 text-white">
+                  Préparez &amp; participez à la compétition
+                </h4>
+                <p class="text-sans-serif text-500">
+                  Argo vous prépare au mieux pour la compétition et fera de vous un champion.
+                </p>
+                <div>
+                      <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger"%>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-xl-3 mt-3 mt-xl-0 pl-lg-2" data-zanim-xs='{"delay":0.4,"animation":"zoom-in"}'>
+            <div class="position-relative min-vh-50 h-100 py-6">
+              <div class="bg-holder rounded" style="background-image:url();">
+                <div class="bg-youtube" data-property='{"videoURL":"https://www.youtube.com/watch?v=wcWmiJw0UIc","startAt":0,"stopAt":60,"mute":true,"showYTLogo":false}'>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- section landing-banner -->   
+
+
     <!-- section landing-download -->
     <section class="py-8" id="landing-download">
       <div class="container">

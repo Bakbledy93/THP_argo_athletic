@@ -1,0 +1,198 @@
+<h1>Data from Database</h1>
+<h3>User Data + Profile</h3>
+<table class="table mb-5">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Email</th>
+      <th scope="col">Date of Birth</th>
+      <th scope="col">Height</th>
+      <th scope="col">Weight</th>
+      <th scope="col">Created at</th>
+      <th scope="col">Sport</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <th scope="row"><%= @user.id %></th>
+      <td><%= @user.email %></td>
+      <td><%= @user.profile.date_of_birth %></td>
+      <td><%= @user.profile.height %></td>
+      <td><%= @user.profile.weight %></td>
+      <td><%= @user.profile.created_at %></td>
+      <td><%= @user.profile.sports.first.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Sport + Sport Roles</h3>
+<table class="table mb-5">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Team Sport</th>
+      <th scope="col">Roles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sports.each do |sport| %>
+      <tr>
+        <th scope="row"><%= @user.id %></th>
+        <td><%= sport.name %></td>
+        <td><%= sport.team_sport %></td>
+      </tr>
+      <% sport.sport_roles.each do |role| %>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><%= role.name %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Jointure Role - Muscular Group - Capacity</h3>
+<table class="table mb-5">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Role</th>
+      <th scope="col">Muscular Group</th>
+      <th scope="col">Capacity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @rolesMuscularGroupCapacities.each do |data| %>
+      <tr>
+        <th scope="row"><%= @roles.find(data.sport_role_id).id %></th>
+        <td><%= @roles.find(data.sport_role_id).name %></td>
+        <td><%= @musculargroups.find(data.muscular_group_id).name %></td>
+        <td><%= @capacities.find(data.capacity_id).name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Training Method</h3>
+<table class="table mb-5">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Capacity</th>
+      <th scope="col">Quality</th>
+      <th scope="col">Level</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @trainingmethods.each do |method| %>
+      <tr>
+        <th scope="row"><%= method.id %></th>
+        <td><%= method.name %></td>
+        <td><%= method.capacity.name %></td>
+        <td><%= method.capacity.quality.name %></td>
+        <td></td>
+      </tr>
+        <% method.levels.each do |level| %>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><%= level.name %></td>
+          </tr>
+        <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Training Method Exercises</h3>
+<table class="table mb-5">
+  <thead>
+    <tr>
+      <th scope="col">Method id</th>
+      <th scope="col">Method name</th>
+      <th scope="col">Exercise</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @trainingmethodexercises.each do |methodex| %>
+      <tr>
+        <th scope="row"><%= methodex.id %></th>
+        <td><%= methodex.training_method.name %></td>
+        <td><%= methodex.exercise.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Exercises Variants</h3>
+<table class="table mb-5">
+  <thead>
+    <tr>
+      <th scope="col">Exercise</th>
+      <th scope="col">Variant</th>
+      <th scope="col">Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @exercisevariants.each do |exvariant| %>
+      <tr>
+        <th scope="row"><%= exvariant.exercise.name %></th>
+        <td><%= exvariant.variant.name %></td>
+        <td><%= exvariant.variant.extype.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Muscle Variants</h3>
+<table class="table mb-5">
+  <thead>
+    <tr>
+      <th scope="col">Exercise</th>
+      <th scope="col">Variant</th>
+      <th scope="col">Type</th>
+      <th scope="col">Muscles</th>
+      <th scope="col">Muscular Group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @musclevariants.each do |muscvar| %>
+      <% muscvar.variant.exercises.each do |ex| %>
+        <tr>
+          <th scope="row"><%= ex.name %></th>
+          <td><%= muscvar.variant.name %></td>
+          <td><%= muscvar.variant.extype.name %></td>
+          <td><%= muscvar.muscle.name %></td>
+          <td><%= muscvar.muscle.muscular_group.name %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Training Method Intensities</h3>
+<table class="table mb-5">
+  <thead>
+    <tr>
+      <th scope="col">Method id</th>
+      <th scope="col">Method</th>
+      <th scope="col">Intensity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @trainingmethodintensities.each do |methodintensity| %>
+      <tr>
+        <th scope="row"><%= methodintensity.id %></th>
+        <td><%= methodintensity.training_method.name %></td>
+        <td><%= methodintensity.intensity.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

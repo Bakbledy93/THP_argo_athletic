@@ -1,46 +1,12 @@
 <% if notice %>
-  <div id="notice_wrapper"
-       style="
-             position: absolute;
-             top: 0;
-             width: 100%;
-             z-index: 999;
-             background: rgba(135, 216, 211, 1); 
-            "
-  >
-    <p class="notice"
-       style="
-            padding: 2.5rem 0;
-            text-align: center;
-            margin: 0;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #FFFFFF;
-            letter-spacing: 1px;
-    ">
+  <div id="notice_wrapper">
+    <p class="notice">
       <%= notice %>
     </p>
   </div>
 <% elsif alert %>
-  <div id="notice_wrapper"
-    style="
-      position: absolute;
-      top: 0;
-      width: 100%;
-      z-index: 999;
-      background: rgba(135, 216, 211, 1);      
-     "
-  >
-    <p class="alert"
-      style="
-         padding: 1.75rem 0;
-         text-align: center;
-         margin: 0;
-         font-size: 1.25rem;
-         font-weight: 700;
-         color: #FFFFFF;
-         letter-spacing: 1px;
-    ">
+  <div id="notice_wrapper">
+    <p class="alert">
       <%= alert %>
     </p>
   </div>

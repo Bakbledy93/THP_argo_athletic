@@ -86,3 +86,11 @@
   <p>Le tableau variants est déjà importé.</p>
 <%end%>
 
+
+<h5>Import JT Role Muscular Group Capacity</h5>
+<%if RolesMuscularGroupCapacity.all.empty?%>
+  <%= link_to "Import", import_roles_muscular_group_capacities_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
+<%else%>
+  <p>Le tableau import_roles_muscular_group_capacities est déjà importé.</p>
+<%end%>
+

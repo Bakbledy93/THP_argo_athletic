@@ -10,6 +10,7 @@
       <th scope="col">Weight</th>
       <th scope="col">Created at</th>
       <th scope="col">Sport</th>
+      <th scope="col">Role</th>
     </tr>
   </thead>
   <tbody>
@@ -21,11 +22,75 @@
       <td><%= @user.profile.height %></td>
       <td><%= @user.profile.weight %></td>
       <td><%= @user.profile.created_at %></td>
-      <td><%= @user.profile.sports.first.name %></td>
+      <td><%= @user.profile.sport %></td>
+      <td><%= @user.profile.sport_role %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
+
+
+<h3>Options for Football / <%= RolesMuscularGroupCapacity.where(sport_role: 6).first.sport_role.name %></h3>
+<table class="table mb-5">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Role</th>
+      <th scope="col">Capacity</th>
+      <th scope="col">Quality</th>
+      <th scope="col">Muscular Group</th>
+      <th scope="col">Training Method</th>
+      <th scope="col">Exercises</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% RolesMuscularGroupCapacity.where(sport_role: 6).each do |r| %>
+      <tr>
+      <th scope="row"><%= r.id %></th>
+      <td><%= r.sport_role.name %></td>
+      <td><%= r.capacity.name %></td>
+      <td><%= r.capacity.quality.name %></td>
+      <td><%= r.muscular_group.name %></td>
+      <td></td>
+      </tr>
+      <% r.capacity.training_methods.each do |x| %>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><%= x.name %></td>
+          <td></td>
+        </tr>
+        <% x.exercises.each do |ex| %>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><%= ex.name %></td>
+            <td></td>
+          </tr>
+          <% ex.variants.each do |variant| %>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><%= variant.name %></td>
+              <td><%= variant.extype.name %></td>
+              <td></td>
+            </tr>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
 
 <h3>Sport + Sport Roles</h3>
 <table class="table mb-5">

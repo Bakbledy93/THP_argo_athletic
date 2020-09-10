@@ -26,4 +26,5 @@
 //= require jquery.mb.ytplayer/jquery.mb.YTPlayer.min
 //= require isotope-layout/isotope.pkgd.min
 //= require isotope-packery/packery-mode.pkgd.min
+//= require error.js
 //= require theme

@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
   namespace :admins do
     resources :users
+    resources :profile, only: [:index, :show, :new, :create, :update]
   end
 
   resources :profile, only: [:index, :show, :new, :create, :update]

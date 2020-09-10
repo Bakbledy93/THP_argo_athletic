@@ -13,4 +13,11 @@ class AdminsController < ApplicationController
 
   def destroy
   end
+
+  def import
+    @sport = Sport.all
+    @sportrole = SportRole.all
+    @quality = Quality.all
+  end
+
 end

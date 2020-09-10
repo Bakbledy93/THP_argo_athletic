@@ -22,7 +22,9 @@ Rails.application.routes.draw do
   # resources :messages, only: [:create]
 
   resources :users
-  resources :admins 
+  resources :admins do
+    collection {get :import}
+  end
 
   namespace :admins do
     resources :users

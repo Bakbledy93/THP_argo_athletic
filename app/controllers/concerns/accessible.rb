@@ -9,11 +9,11 @@ module Accessible
     if current_admin
       flash.clear
       # if you have rails_admin. You can redirect anywhere really
-      redirect_to(new_admin_session_path) and return
+      redirect_to(admins_path) and return
     elsif current_user
       flash.clear
       # The authenticated root path can be defined in your routes.rb in: devise_scope :user do...
-      redirect_to(authenticated_user_root_path) and return
+      redirect_to('/users#show') and return
     end
   end
 end

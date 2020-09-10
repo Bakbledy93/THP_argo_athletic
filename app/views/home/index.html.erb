@@ -13,7 +13,7 @@
       </div>
     </div>
     <!-- section landing-header -->
-    <section class="py-0" id="landing-header">
+    <section class="py-0" id="landing-features">
       <div class="container-fluid">
         <div class="row" data-zanim-timeline="{}" data-zanim-trigger="scroll">
           <div class="col-lg-6 px-0">
@@ -30,38 +30,50 @@
                   <!-- title of the application -->
                   <h2 class="font-weight-light text-uppercase fs-3 fs-lg-4" data-zanim-lg='{"delay":0.4}'>
                     Argo Athletic
-                    <br/>
-                    Au coeur du
-                    <span class="font-weight-black"> 
-                      sport
-                    </span>
-                  </h2>
+                    </h2>
+                    
+                    <h3 class="font-weight-black" data-zanim-lg='{"delay":0.4}' > 
+                      Au coeur du sport
+                    </h3>
+              
                 </div>
                 <!-- presentation of the description of the application -->
                 <div class="overflow-hidden">
                   <!-- description of the application -->
                   <p class="lead text-sans-serif font-weight-normal pr-xl-9 mt-4 text-500" data-zanim-lg='{"delay":0.5}'>
-                    Compétiteur amateur, Argo Athletic est fait pour toi !
-                  </p>
-                  <p class="lead text-sans-serif font-weight-normal pr-xl-9 mt-4 text-500" data-zanim-lg='{"delay":0.5}'>
-                    Argo Athletic te permet de
-                    parfaire ta préparation physique.
+                    Compétiteur amateur, Argo Athletic est fait pour toi ! Argo Athletic te permet de parfaire ta préparation physique.
                   </p>
                 </div>
-                <% if !user_signed_in? %>
-                  <!-- presntation of options of authentification -->
-                  <div class="overflow-hidden">
-                    <div class="mt-3 mt-lg-5" data-zanim-xs='{"delay":0.6}'>
-                      <!-- sign up option -->
-                      <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger"%>
-                      <h6 class="font-weight-normal mt-2 text-500">
-                        Déjà membre ?
-                      </h6>
-                      <!-- sign in option -->
-                      <%= button_to "Connexion", new_user_session_path, method: 'get', class:"btn btn-danger d-inline" %>
-                    </div>
-                  </div>
-                <% end %>
+                <!-- formulaire login -->
+
+<div class="container">
+    <div class="row">
+            <div class="col-lg-6 px-0"><br>
+            <div class="form-login">
+            <h4 class="display-4 fs-2">Go, Argonaute</h4>
+            <input type="email" id="userName" class="form-control border-300 bg-light" placeholder="Votre email" />
+            <br>
+            <input type="password" id="userPassword" class="form-control border-300 bg-light" placeholder="Votre password" />
+            <br>
+            <div class="wrapper">
+            <span class="group-btn">     
+                <a href="#" class="btn btn-success btn-md">Connexion</a>
+            </span>
+            <br><br><br><h3 class="display-4 fs-2">Tu veux t'engager ?</h3>
+            <span class="group-btn">     
+                <a href="#" class="btn btn-dark btn-md">Inscris-toi</a>
+            </span>
+            
+
+            </div>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+                <!-- fin formulaire login -->
+
               </div>
             </div>
           </div>
@@ -69,7 +81,7 @@
       </div>
     </section>
     <!-- section landing-singup -->
-    <section class="text-center bg-light" id="landing-signup">
+    <section class="text-center bg-light" id="landing-signup" style="background-image:url(https://images.pexels.com/photos/401896/pexels-photo-401896.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-8" data-zanim-timeline="{}" data-zanim-trigger="scroll">
@@ -186,7 +198,7 @@
       </div>
     </section>
     <!-- section landing-features-1 -->
-    <section class="overflow-hidden bg-light" id="landing-features-1">
+    <section  class="overflow-hidden bg-light" id="landing-features-1" style="background-image:url(https://images.pexels.com/photos/401896/pexels-photo-401896.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);" > 
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-7">

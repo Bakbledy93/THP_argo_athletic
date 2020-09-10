@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
-  get 'roles_muscular_group_capacities/import'
-  get 'sports/import'
+  # get 'roles_muscular_group_capacities/import'
+  # get 'sports/import'
   devise_for :users
 
   root to: 'home#index'
 
-  # route for communication
-  mount ActionCable.server => '/cable'
-  get '/chat', to: 'chatrooms#show'
-  resources :messages, only: [:create]
+  # # route for communication
+  # mount ActionCable.server => '/cable'
+  # get '/chat', to: 'chatrooms#show'
+  # resources :messages, only: [:create]
 
   resources :sports do
     collection {post :import}

@@ -22,8 +22,14 @@ Rails.application.routes.draw do
   # resources :messages, only: [:create]
 
   resources :users
+  resources :admins do
+    collection {get :import}
+  end
 
-  resources :admins 
+  namespace :admins do
+    resources :users
+    resources :profile, only: [:index, :show, :new, :create, :update]
+  end
 
   resources :profile, only: [:index, :show, :new, :create, :update]
 

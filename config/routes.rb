@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/index'
-  get 'users/show'
   devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions", passwords: "admins/passwords", registrations: "admins/registrations"}
   devise_for :users, path: 'users', controllers: { sessions: "users/sessions", passwords: "users/passwords", registrations: "users/registrations"}
 
@@ -23,19 +21,11 @@ Rails.application.routes.draw do
   # get '/chat', to: 'chatrooms#show'
   # resources :messages, only: [:create]
 
-<<<<<<< HEAD
+  resources :users
 
+  resources :admins 
 
-  resources :users do
-    collection {post :import}
-  end
-
-  resources :admins do
-    collection {post :import}
-  end
-=======
   resources :profile, only: [:index, :show, :new, :create, :update]
->>>>>>> development
 
   resources :sports do
     collection {post :import}

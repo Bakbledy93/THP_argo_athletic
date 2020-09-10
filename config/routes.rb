@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # get '/chat', to: 'chatrooms#show'
   # resources :messages, only: [:create]
 
-  resources :profile, only: [:index, :show]
+  resources :profile, only: [:index, :show, :new, :create, :update]
 
   resources :sports do
     collection {post :import}

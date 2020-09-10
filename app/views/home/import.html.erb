@@ -94,3 +94,9 @@
   <p>Le tableau import_roles_muscular_group_capacities est déjà importé.</p>
 <%end%>
 
+<% if user_signed_in? %>
+  <%=current_user.email%>
+<% elsif admin_signed_in? %>
+  <%=current_admin.email%>
+<% end %>
+

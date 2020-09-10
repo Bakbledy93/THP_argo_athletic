@@ -2,12 +2,28 @@ Rails.application.routes.draw do
   devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions", passwords: "admins/passwords", registrations: "admins/registrations"}
   devise_for :users, path: 'users', controllers: { sessions: "users/sessions", passwords: "users/passwords", registrations: "users/registrations"}
 
-  root to: 'home#index'
+
+  authenticated :user do
+    root to: 'users#show', as: :authenticated_user_root
+  end
+
+  authenticated :admin do
+    root to: 'admins#index', as: :authenticated_admin_root
+  end
+
+  unauthenticated do
+    root to: 'home#index'
+  end
+  
 
   # # route for communication
   # mount ActionCable.server => '/cable'
   # get '/chat', to: 'chatrooms#show'
   # resources :messages, only: [:create]
+
+  resources :users
+
+  resources :admins 
 
   resources :profile, only: [:index, :show, :new, :create, :update]
 

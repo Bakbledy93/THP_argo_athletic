@@ -1,0 +1,17 @@
+<h1>Formulaire de Profile</h1>
+<p>Actualise ton profile ici</p>
+
+<%= form_for @profile do |f| %>
+    <%= f.label :date_of_birth %>
+  <%= f.date_field :date_of_birth %>
+    <%= f.label :weight %>
+  <%= f.text_field :weight %>
+    <%= f.label :height %>
+  <%= f.text_field :height %> 
+    <%= f.label :sport %>
+  <%= f.select :sport, @sports_array %>
+    <%= f.label :sport_role %>
+  <%= f.select :sport_role, @roles_array %>
+
+  <%= f.submit%>
+<% end %>

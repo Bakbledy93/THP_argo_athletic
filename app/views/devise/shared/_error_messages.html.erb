@@ -27,14 +27,3 @@
     </ul>
   </div>
 <% end %>
-
-<!-- 4.5 seconds show then fade out  -->
-<script>
-  $(document).ready(function(){
-    setTimeout(function(){
-      $('#notice_wrapper').fadeOut("slow", function() {
-        $(this).remove();
-      })
-    }, 4500) ;
-  });
-</script>

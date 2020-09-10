@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'roles_muscular_group_capacities/import'
   get 'sports/import'
   devise_for :users
 
@@ -58,6 +59,10 @@ resources :muscles, only: [:index] do
 end
 
 resources :variants, only: [:index] do
+  collection {post :import}
+end
+
+resources :roles_muscular_group_capacities, only: [:index] do
   collection {post :import}
 end
 

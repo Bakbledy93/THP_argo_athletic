@@ -4,8 +4,6 @@ class Profile < ApplicationRecord
   has_many :sport_profiles
   has_many :sports, through: :sport_profiles
 
-  has_one_attached :avatar
-
   def self.sport_array_creator
     sports = Sport.all
     arr_sport = []

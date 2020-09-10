@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'admins/index'
+  get 'admins/show'
+  get 'admins/edit'
+  get 'admins/create'
+  get 'admins/destroy'
   devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions", passwords: "admins/passwords", registrations: "admins/registrations"}
   devise_for :users, path: 'users', controllers: { sessions: "users/sessions", passwords: "users/passwords", registrations: "users/registrations"}
 
@@ -8,6 +13,10 @@ Rails.application.routes.draw do
   # mount ActionCable.server => '/cable'
   # get '/chat', to: 'chatrooms#show'
   # resources :messages, only: [:create]
+
+  resources :admins do
+    collection {post :import}
+  end
 
   resources :sports do
     collection {post :import}

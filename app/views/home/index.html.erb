@@ -44,15 +44,13 @@
                     Compétiteur amateur, Argo Athletic est fait pour toi ! Argo Athletic te permet de parfaire ta préparation physique.
                   </p>
                 </div>
-                <!-- début login -->
-
-    <% if !user_signed_in? %>
+                <% if !user_signed_in? %>
                   <!-- presentation of options of authentification -->
                   <div class="overflow-hidden">
                     <div class="mt-3 mt-lg-5" data-zanim-xs='{"delay":0.6}'>
                       <!-- sign up option -->
-                      <%= button_to "Inscrivez-vous", new_user_registration_path, method: 'get', class:"btn btn-danger btn-lg"%>
-                      <h6 class="font-weight-normal mt-2 text-500">
+                        <%= button_to "Inscrivez-vous", new_user_registration_path, method: 'get', class:"btn btn-danger btn-lg"%>
+                        <h6 class="font-weight-normal mt-2 text-500">
                         Déjà membre ?
                       </h6>
                       <!-- sign in option -->
@@ -60,9 +58,6 @@
                     </div>
                   </div>
                 <% end %>
-
-                <!-- fin login -->
-
               </div>
             </div>
           </div>
@@ -86,7 +81,8 @@
         </div>
       </div>
     </section>
-    
+
+    <!-- section landing-banner -->       
     <section class="py-0 overflow-hidden" id="landing-banner">
       <div class="container-fluid">
         <div class="row">
@@ -111,7 +107,7 @@
                       Argo Athletic
                     </span>
                     <div>
-                    <%= button_to "Inscrivez-vous", new_user_registration_path, method: 'get', class:"btn btn-danger btn-lg "%>
+                      <%= button_to "Inscrivez-vous", new_user_registration_path, method: 'get', class:"btn btn-danger btn-lg "%>
                     </div>
                   </span>
                 </h1>
@@ -122,8 +118,6 @@
       </div>
     </section>
     <!-- section landing-features-1 -->
-    
-    
     <section  class="overflow-hidden bg-light" id="landing-features-1" style="background-image:url(https://images.pexels.com/photos/401896/pexels-photo-401896.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);" > 
       <div class="container">
         <div class="row align-items-center">
@@ -157,8 +151,7 @@
         </div>
       </div>
     </section>
-
-<!-- section landing-features -->
+    <!-- section landing-features -->
     <section class="py-3" id="landing-features">
       <div class="container-fluid">
         <div class="row" data-zanim-timeline="{}" data-zanim-trigger="scroll">
@@ -226,9 +219,6 @@
         </div>
       </div>
     </section>
-    <!-- section landing-banner -->   
-
-
     <!-- section landing-download -->
     <section class="py-8" id="landing-download">
       <div class="container">

@@ -33,7 +33,10 @@
                 <div class="col-sm-auto pr-4">
                   <% if user_signed_in? %>
                     <a class="fancy-dropdown-item" href="#">Mon profil</a>
-                    <%= link_to "Se déconnecter", destroy_user_session_path, method: 'delete', class:"fancy-dropdown-item" %>
+                    <%= link_to "Se déconnecter", destroy_user_session_path, method: 'delete', class:"fancy-dropdown-item" %>                  
+                  <% elsif admin_signed_in? %>
+                    <a class="fancy-dropdown-item" href="#">Dashboard Admin</a>
+                    <%= link_to "Se déconnecter", destroy_admin_session_path, method: 'delete', class:"fancy-dropdown-item" %>
                   <% else %>
                     <%= link_to "S'inscrire", new_user_registration_path, method: 'get', class: "fancy-dropdown-item" %>
                     <%= link_to "Se connecter", new_user_session_path, method: 'get', class: "fancy-dropdown-item" %>

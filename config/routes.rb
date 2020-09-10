@@ -22,8 +22,11 @@ Rails.application.routes.draw do
   # resources :messages, only: [:create]
 
   resources :users
-
   resources :admins 
+
+  namespace :admins do
+    resources :users
+  end
 
   resources :profile, only: [:index, :show, :new, :create, :update]
 

@@ -6,4 +6,11 @@ class User < ApplicationRecord
 
   has_one :profile
   has_many :messages, dependent: :destroy
+
+  after_create :welcome_send
+
+  def welcome_send
+    UserMailer.welcome_email(self).deliver_now
+  end
+  
 end

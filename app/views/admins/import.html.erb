@@ -94,6 +94,13 @@
   <p>Le tableau import_roles_muscular_group_capacities est déjà importé.</p>
 <%end%>
 
+<h5>Import JT Training Method Exercise</h5>
+<%if @methodexercises.empty?%>
+  <%= link_to "Import", import_training_method_exercises_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
+<%else%>
+  <p>Le tableau training_method_exercises est déjà importé.</p>
+<%end%>
+
 <% if user_signed_in? %>
   <%=current_user.email%>
 <% elsif admin_signed_in? %>

@@ -22,17 +22,19 @@ Rails.application.routes.draw do
   # get '/chat', to: 'chatrooms#show'
   # resources :messages, only: [:create]
 
-  resources :users
+  resources :users do
+    resources :profile, only: [:index, :show, :new, :create, :update, :edit]
+  end
+
   resources :admins do
     collection {get :import}
   end
 
   namespace :admins do
     resources :users
-    resources :profile, only: [:index, :show, :new, :create, :update]
+    resources :profile, only: [:index, :show, :new, :create, :update, :edit]
   end
 
-  resources :profile, only: [:index, :show, :new, :create, :update]
 
   resources :sports do
     collection {post :import}

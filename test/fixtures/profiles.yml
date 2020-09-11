@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sport_id: 
+  sport_role_id: 
+  date_of_birth: 2020-09-08 15:31:09
+  height: 
+  weight: 
+  type: 
+  fitness_result_id: 
+
+two:
+  sport_id: 
+  sport_role_id: 
+  date_of_birth: 2020-09-08 15:31:09
+  height: 
+  weight: 
+  type: 
+  fitness_result_id: 

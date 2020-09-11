@@ -18,12 +18,11 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -68,7 +67,7 @@ gem 'binding_of_caller'
 # Adds table_print
 gem 'table_print'
 # Adds faker
-gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'faker'
 # Adds letter_opener
 gem 'letter_opener'
 # Adds devise
@@ -81,5 +80,11 @@ gem 'dotenv-rails'
 gem 'aws-sdk-s3', require: false
 # Adds Mailtroap
 gem 'mailtrap'
-
-
+# Adds activerecord-import
+gem 'activerecord-import'
+# Adds gravatar_image_tag
+gem 'gravatar_image_tag'
+# Adds bootstrap-saas-extras
+gem 'bootstrap-sass-extras'
+# Adds bootstrap-cdn-rails
+gem 'bootstrap-cdn-rails'

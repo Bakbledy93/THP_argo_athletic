@@ -1,0 +1,22 @@
+<div class="message">
+  <p>
+    <!-- time the message is sent -->
+    <small>
+      <em>
+        Crée il y a 
+          <%= time_ago_in_words(message.created_at)%>
+      </em>
+    </small>
+ </p>
+  <p>
+    <!-- put avatar code here if wanted -->
+    <!-- name of the sender -->
+    <strong>
+      <%= message.user.first_name.capitalize %>
+    </strong>
+    <!-- message content -->
+    <span class="content">
+      <%= message.content %>
+    </span>
+  </p>
+</div>

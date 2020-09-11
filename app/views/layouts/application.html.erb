@@ -1,15 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <title>Argo</title>
+    <title>Argo Athletic</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'false' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'false' %>
+    <%= boostrap_css_include_tag %>
+    <%= boostrap_js_include_tag %>
+    <%= fontawesome_css_include_tag %>
+    <%= bootswatch_css_include_tag %>
   </head>
-
   <body>
+    <!-- navbar -->
+    <%= render "layouts/navbar" %>
+    <!-- bootstrap flash -->
+    <%= bootstrap_flash %>
+    <!-- jumbotron -->
     <%= yield %>
+    <!-- footer -->
+    <%= render "layouts/footer" %>
   </body>
 </html>

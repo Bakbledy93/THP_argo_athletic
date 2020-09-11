@@ -1,0 +1,48 @@
+<h1>
+  Utilisateur
+</h1>
+<%= link_to "Editer profil", edit_user_registration_path %> 
+<dl>
+  <dt>
+    Photo de profil
+  </dt>
+  <dd>
+    <%= image_tag user_avatar(current_user, 20), class: "rounded-circle", alt:"image de profil" %>
+  </dd>
+  <dt>
+    Adresse e-mail
+  </dt>
+  <dd>
+    <%= current_user.email%>
+  </dd>
+  <dt>
+    Prénom
+  </dt>
+  <% if !current_user.first_name.blank? %>
+    <dd>
+      <%= current_user.first_name %>
+    </dd>
+  <% else %>
+    <dd>
+      <em>
+        Aucun prénom n'a été renseigné
+      </em>
+    </dd>
+  <% end %>
+  <dt>
+   Nom
+  </dt>
+  <% if !current_user.last_name.blank? %>
+    <dd>
+      <%= current_user.last_name %>
+    </dd>
+  <% else %>
+    <dd>
+      <em>
+        Aucun nom n'a été renseigné
+      </em>
+    </dd>
+  <% end %>
+</dl>
+
+<%= link_to "Editer Profile Sportif", edit_user_profile_path(id: @profile, user_id: @id)%>

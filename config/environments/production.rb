@@ -23,8 +23,8 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
-  # config.assets.css_compressor = :sass
+  config.assets.js_compressor = Uglifier.new(harmony: true)
+  config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
@@ -91,4 +91,6 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.web_socket_server_url = "wss://thp-argo-dev.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://thp-argo-dev.herokuapp.com', 'http://thp-argo-dev.herokuapp.com']
 end

@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions", passwords: "admins/passwords", registrations: "admins/registrations"}
-  devise_for :users, path: 'users', controllers: { sessions: "users/sessions", passwords: "users/passwords", registrations: "users/registrations"}
-
+  devise_for :users, path: 'users', controllers: { sessions: "users/sessions", passwords: "users/passwords", registrations: "users/registrations"
 
   authenticated :user do
     root to: 'users#show', as: :authenticated_user_root
@@ -17,6 +16,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :profile, only: [:index, :show, :new, :create, :update, :edit]
+    collection {get :workout_program}
   end
 
   resources :admins do

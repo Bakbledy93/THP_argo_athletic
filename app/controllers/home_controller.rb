@@ -23,6 +23,7 @@ class HomeController < ApplicationController
     @muscles = Muscle.all
     @trainingmethodintensities = TrainingMethodIntensity.all
     @intensities = Intensity.all
+    @current_user_role_id = SportRole.where(name: @user.profile.sport_role).first.id
     puts "* "*30
 
     puts "* "*30

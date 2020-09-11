@@ -53,17 +53,36 @@ ID:
       <td><%= r.capacity.name %></td>
       <td><%= r.capacity.quality.name %></td>
       <td><%= r.muscular_group.name %></td>
-      <td>Possibilités: <%= r.capacity.training_methods.count %></td>
-      </tr>
-      <% r.capacity.training_methods.each do |method| %>
+      <td><%= r.capacity.training_methods %></td>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><%= method.name %></td>
+        <% r.capacity.training_methods.each do |method| %>
+          <% method %>
+        <% end %>
       </tr>
+      <tr>xxx</tr>
+      </tr>
+      <% r.capacity.training_methods.each do |x| %>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><%= x.name %></td>
+          <td></td>
+        </tr>
+        <% x.exercises.each do |ex| %>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><%= ex.name %></td>
+            <td></td>
+          </tr>
+
+        <% end %>
       <% end %>
     <% end %>
   </tbody>

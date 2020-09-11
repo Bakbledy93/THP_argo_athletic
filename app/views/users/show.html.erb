@@ -1,4 +1,37 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-
-<%= current_user.email%>
+<h1>Page Utilisateur</h1>
+<dl>
+  <dt>
+    Adresse e-mail
+  </dt>
+  <dd>
+    <%= current_user.email%>
+  </dd>
+  <dt>
+    Prénom
+  </dt>
+  <% if !current_user.first_name.blank? %>
+    <dd>
+      <%= current_user.first_name %>
+    </dd>
+  <% else %>
+    <dd>
+      <em>
+        Aucun prénom n'a été renseigné
+      </em>
+    </dd>
+  <% end %>
+  <dt>
+   Nom
+  </dt>
+  <% if !current_user.last_name.blank? %>
+    <dd>
+      <%= current_user.first_name %>
+    </dd>
+  <% else %>
+    <dd>
+      <em>
+        Aucun nom n'a été renseigné
+      </em>
+    </dd>
+  <% end %>
+</dl>

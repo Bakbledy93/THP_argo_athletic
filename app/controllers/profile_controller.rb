@@ -21,7 +21,7 @@ class ProfileController < ApplicationController
       flash[:error] = @profile.errors.full_messages
     else
       flash[:error] = @profile.errors.full_messages
-      redirect_to profile_path(params[:id])
+      redirect_to user_profile_path(params[:id])
     end
   end
 
@@ -30,6 +30,6 @@ class ProfileController < ApplicationController
     @profile = Profile.find(params[:id])
     @profile.update(params.require(:profile).permit(:weight, :height, :sport, :sport_role))
     flash[:error] = "Le Profil à été mis à jour"
-    redirect_to profile_path(params[:id])
+    redirect_to user_profile_path(params[:id])
   end
 end

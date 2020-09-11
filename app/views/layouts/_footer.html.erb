@@ -54,11 +54,11 @@
           </div>
           <div class="row">
             <div class="col-12 overflow-hidden text-center border-top border-bottom border-900 py-4 mt-5">
-              <a class="text-sans-serif text-uppercase text-warning font-weight-black fs-1" href="#">
+              <div class="text-sans-serif text-uppercase text-warning font-weight-black fs-1">
                 <div data-zanim-xs='{"delay":0.1,"from":{"opacity":0,"letter-spacing":"0.8em"},"to":{"letter-spacing":"0.2em","opacity":1}}' data-zanim-trigger="scroll">
-                  Découvrir l'entreprise
+                  Argo Athletic
                 </div>
-              </a>
+              </div>
             </div>
           </div>
         </div>
@@ -82,7 +82,11 @@
             <p class="fs--1 text-uppercase ls font-weight-bold mb-0">
               Copyright &copy; Argo Athletic&trade;
               <!-- link to admin new session path -->
-              <%= link_to "inc.", new_admin_session_path, method: :get %>
+              <%= link_to "inc.", 
+                  new_admin_session_path,
+                  class: "text-600",
+                  method: :get
+              %>
             </p>
           </div>
           <div class="col-lg-4 text-lg-right order-lg-2 mt-2 mt-lg-0">

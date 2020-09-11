@@ -1,9 +1,10 @@
 <h1>
   Utilisateur
 </h1>
+<%= link_to "Editer porfil", edit_user_registration_path %> 
 <dl>
   <dt>
-    Image de profil
+    Photo de profil
   </dt>
   <dd>
     <%= image_tag user_avatar(current_user, 20), class: "rounded-circle", alt:"image de profil" %>

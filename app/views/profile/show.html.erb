@@ -1,7 +1,7 @@
 <h1>Formulaire de Profile</h1>
 <p>Actualise ton profile ici</p>
 
-<%= form_for @profile, url: edit_user_profile_path do |f| %>
+<%= form_for @profile, url: user_profile_path do |f| %>
     <%= f.label :date_of_birth %>
   <%= f.date_field :date_of_birth %>
     <%= f.label :weight %>

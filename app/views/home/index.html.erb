@@ -93,6 +93,7 @@
                    data-zanim-trigger="scroll" data-rellax-percentage="0.5"
                    style="background-image: url(<%= image_path 'https://images.pexels.com/photos/414029/pexels-photo-414029.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' %>)">
               </div>
+              <!-- promoting the app and remind for sign up -->
               <div class="position-relative py-11 px-3 px-lg-9">
                 <h1 class="text-white fs-2 fs-sm-4 fs-md-5 parallax display-4" data-rellax-percentage="0.5" data-rellax-speed="2">
                   <span class="d-block overflow-hidden">
@@ -109,8 +110,9 @@
                     <span class="d-inline-block" data-zanim-xs='{"delay":0.3}'>
                       Argo Athletic
                     </span>
+                    <!-- secondary button for sign up -->
                     <div>
-                    <%= button_to "Inscrivez-vous", new_user_registration_path, method: 'get', class:"btn btn-danger btn-lg "%>
+                      <%= button_to "Inscrivez-vous", new_user_registration_path, method: 'get', class:"btn btn-danger btn-lg "%>
                     </div>
                   </span>
                 </h1>
@@ -121,7 +123,11 @@
       </div>
     </section>
     <!-- section landing-features-1 -->
-    <section  class="overflow-hidden bg-light" id="landing-features-1" style="background-image:url(https://images.pexels.com/photos/401896/pexels-photo-401896.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);" > 
+    <!-- third background image -->
+    <section  class="overflow-hidden bg-light" 
+              id="landing-features-1"
+              style="background-image:url(<%= image_path 'https://images.pexels.com/photos/401896/pexels-photo-401896.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)'%>) 
+    >
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-7">

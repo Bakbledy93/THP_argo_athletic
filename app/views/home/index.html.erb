@@ -18,6 +18,7 @@
         <div class="row" data-zanim-timeline="{}" data-zanim-trigger="scroll">
           <div class="col-lg-6 px-0">
             <div class="h-100 py-9" data-zanim-lg='{"animation":"slide-right","from":{"opacity":1},"delay":0.4}' data-zanim-trigger="scroll">
+              <!-- first background image -->
               <div class="bg-holder"
                    data-zanim-trigger="scroll" data-zanim-lg='{"animation":"slide-right","delay":0}'
                    style="background-image: url(<%= image_path 'https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' %>)">
@@ -32,10 +33,10 @@
                   <!-- title of the application -->
                   <h2 class="font-weight-light text-uppercase fs-3 fs-lg-4" data-zanim-lg='{"delay":0.4}'>
                     Argo Athletic
-                    </h2>  
-                    <h3 class="font-weight-black" data-zanim-lg='{"delay":0.4}' > 
-                      Au coeur du sport
-                    </h3>
+                  </h2>  
+                  <h3 class="font-weight-black" data-zanim-lg='{"delay":0.4}' > 
+                    Au coeur du sport
+                  </h3>
                 </div>
                 <!-- presentation of the description of the application -->
                 <div class="overflow-hidden">
@@ -87,7 +88,10 @@
         <div class="row">
           <div class="col px-3" data-zanim-timeline="{}" data-zanim-trigger="scroll">
             <div class="position-relative overflow-hidden rounded">
-              <div class="bg-holder overlay parallax rounded" style="background-image:url(https://images.pexels.com/photos/414029/pexels-photo-414029.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);" data-rellax-percentage="0.5">
+              <!-- second background image -->
+              <div class="bg-holder overlay parallax rounded"
+                   data-zanim-trigger="scroll" data-rellax-percentage="0.5"
+                   style="background-image: url(<%= image_path 'https://images.pexels.com/photos/414029/pexels-photo-414029.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' %>)">
               </div>
               <div class="position-relative py-11 px-3 px-lg-9">
                 <h1 class="text-white fs-2 fs-sm-4 fs-md-5 parallax display-4" data-rellax-percentage="0.5" data-rellax-speed="2">

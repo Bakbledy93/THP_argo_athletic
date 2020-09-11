@@ -4,9 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :profile
+  has_one :profile, dependent: :destroy
   has_many :messages, dependent: :destroy
 
+  has_one_attached :avatar
+  
   after_create :welcome_send
 
   def welcome_send

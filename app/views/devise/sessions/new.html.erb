@@ -1,4 +1,3 @@
-<h2>Sign in</h2>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <section class="py-0" id="page-signin">
     <div class="container-fluid">
@@ -27,8 +26,11 @@
             </h6>
             <form class="mt-5">
               <div class="form-group">
-                <%= f.email_field :email, class:"form-control border-300 bg-light", autofocus: true, placeholder: 'e-mail' %> 
-              </div>
+                <%= render "devise/shared/error_messages", resource: resource %>
+                <div class="field <% if resource.errors[:email].present? %>error<% end %>">
+                  <%= f.label :email, "E-mail:" %>
+                  <%= f.email_field :email, class:"form-control border-300 bg-light", autofocus: true, placeholder: 'e-mail' %> 
+                </div>
               <div class="form-group">
                 <%= f.password_field :password, class:"form-control border-300 bg-light", autofocus: true, placeholder: 'mot de passe' %> 
               </div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'training_method_exercises/import'
   devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions", passwords: "admins/passwords", registrations: "admins/registrations"}
   devise_for :users, path: 'users', controllers: { sessions: "users/sessions", passwords: "users/passwords", registrations: "users/registrations"}
 
@@ -22,8 +23,14 @@ Rails.application.routes.draw do
   # resources :messages, only: [:create]
 
   resources :users
+  resources :admins do
+    collection {get :import}
+  end
 
-  resources :admins 
+  namespace :admins do
+    resources :users
+    resources :profile, only: [:index, :show, :new, :create, :update]
+  end
 
   resources :profile, only: [:index, :show, :new, :create, :update]
 
@@ -80,6 +87,10 @@ resources :variants, only: [:index] do
 end
 
 resources :roles_muscular_group_capacities, only: [:index] do
+  collection {post :import}
+end
+
+resources :training_method_exercises, only: [:index] do
   collection {post :import}
 end
 

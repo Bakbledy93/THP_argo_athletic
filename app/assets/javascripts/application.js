@@ -13,7 +13,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require jquery.min
 //= require popper.min
 //= require bootstrap
@@ -26,4 +25,5 @@
 //= require jquery.mb.ytplayer/jquery.mb.YTPlayer.min
 //= require isotope-layout/isotope.pkgd.min
 //= require isotope-packery/packery-mode.pkgd.min
+//= require error.js
 //= require theme

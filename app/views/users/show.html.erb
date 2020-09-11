@@ -1,4 +1,46 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-
-<%= current_user.email%>
+<h1>
+  Utilisateur
+</h1>
+<%= link_to "Editer porfil", edit_user_registration_path %> 
+<dl>
+  <dt>
+    Photo de profil
+  </dt>
+  <dd>
+    <%= image_tag user_avatar(current_user, 20), class: "rounded-circle", alt:"image de profil" %>
+  </dd>
+  <dt>
+    Adresse e-mail
+  </dt>
+  <dd>
+    <%= current_user.email%>
+  </dd>
+  <dt>
+    Prénom
+  </dt>
+  <% if !current_user.first_name.blank? %>
+    <dd>
+      <%= current_user.first_name %>
+    </dd>
+  <% else %>
+    <dd>
+      <em>
+        Aucun prénom n'a été renseigné
+      </em>
+    </dd>
+  <% end %>
+  <dt>
+   Nom
+  </dt>
+  <% if !current_user.last_name.blank? %>
+    <dd>
+      <%= current_user.first_name %>
+    </dd>
+  <% else %>
+    <dd>
+      <em>
+        Aucun nom n'a été renseigné
+      </em>
+    </dd>
+  <% end %>
+</dl>

@@ -3,7 +3,7 @@
 
 <%= form_for @profile, url: user_profile_path do |f| %>
     <%= f.label :date_of_birth %>
-  <%= f.date_field :date_of_birth %>
+  <%= f.date_field :date_of_birth, as: :date %>
     <%= f.label :weight %>
   <%= f.text_field :weight %>
     <%= f.label :height %>

@@ -26,4 +26,5 @@
 //= require isotope-layout/isotope.pkgd.min
 //= require isotope-packery/packery-mode.pkgd.min
 //= require error.js
+//= require mouse.js
 //= require theme

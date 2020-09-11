@@ -18,7 +18,9 @@
         <div class="row" data-zanim-timeline="{}" data-zanim-trigger="scroll">
           <div class="col-lg-6 px-0">
             <div class="h-100 py-9" data-zanim-lg='{"animation":"slide-right","from":{"opacity":1},"delay":0.4}' data-zanim-trigger="scroll">
-              <div class="bg-holder" style="background-image:url(https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"slide-right","delay":0}'>
+              <div class="bg-holder"
+                   data-zanim-trigger="scroll" data-zanim-lg='{"animation":"slide-right","delay":0}'
+                   style="background-image: url(<%= image_path 'https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' %>)">
               </div>
             </div>
           </div>

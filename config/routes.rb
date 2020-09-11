@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
-  get 'workoutprograms/show'
-  get 'workoutprograms/new'
-  get 'workoutprograms/edit'
-  get 'workoutprograms/update'
   get 'training_method_exercises/import'
   devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions", passwords: "admins/passwords", registrations: "admins/registrations"}
   devise_for :users, path: 'users', controllers: { sessions: "users/sessions", passwords: "users/passwords", registrations: "users/registrations"}
 
+  resources :workoutprograms, only: [:show, :new, :create, :update, :edit]
 
   authenticated :user do
     root to: 'users#show', as: :authenticated_user_root

@@ -1,5 +1,13 @@
-<h1>Page Utilisateur</h1>
+<h1>
+  Utilisateur
+</h1>
 <dl>
+  <dt>
+    Image de profil
+  </dt>
+  <dd>
+    <%= image_tag user_avatar(current_user, 20), class: "rounded-circle", alt:"image de profil" %>
+  </dd>
   <dt>
     Adresse e-mail
   </dt>

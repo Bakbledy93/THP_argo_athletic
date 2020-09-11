@@ -1,109 +1,142 @@
-<h2>Importer les CSV</h2>
-<br>
-
+<section>
+<div class="container">
+<h1 class="text-center">Gestion de la BDD</h1><br>
+<div class="row align-items-center justify-content-between">
 <h5>Import Sport</h5>
 <%if @sports.empty?%>
   <%= link_to "Import", import_sports_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
 <%else%>
   <p>Le tableau sports est déjà importé.</p>
 <%end%>
+</div>
 
+<div class="row align-items-center justify-content-between">
 <h5>Import Sport Role</h5>
 <%if @sportrole.empty?%>
   <%= link_to "Import", import_sport_roles_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
 <%else%>
   <p>Le tableau sport_roles est déjà importé.</p>
 <%end%>
+</div>
 
+<div class="row align-items-center justify-content-between">
 <h5>Import Quality</h5>
 <%if @quality.empty?%>
   <%= link_to "Import", import_qualities_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
 <%else%>
   <p>Le tableau qualities est déjà importé.</p>
 <%end%>
+</div>
 
+<div class="row align-items-center justify-content-between">
 <h5>Import Capacity</h5>
 <%if @capacity.empty?%>
   <%= link_to "Import", import_capacities_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
 <%else%>
   <p>Le tableau capacities est déjà importé.</p>
 <%end%>
+</div>
 
+<div class="row align-items-center justify-content-between">
 <h5>Import Muscular Group</h5>
 <%if @muscular_group.empty?%>
   <%= link_to "Import", import_muscular_groups_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
 <%else%>
   <p>Le tableau muscular_groups est déjà importé.</p>
 <%end%>
+</div>
 
+<div class="row align-items-center justify-content-between">
 <h5>Import Training Method</h5>
 <%if @training_method .empty?%>
   <%= link_to "Import", import_training_methods_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
 <%else%>
   <p>Le tableau training_methods est déjà importé.</p>
 <%end%>
+</div>
 
+<div class="row align-items-center justify-content-between">
 <h5>Import Exercice</h5>
 <%if @exercises.empty?%>
   <%= link_to "Import", import_exercises_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
 <%else%>
   <p>Le tableau exercises est déjà importé.</p>
 <%end%>
+</div>
 
+<div class="row align-items-center justify-content-between">
 <h5>Import Intensity</h5>
 <%if @intensities.empty?%>
   <%= link_to "Import", import_intensities_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
 <%else%>
   <p>Le tableau intensities est déjà importé.</p>
 <%end%>
+</div>
 
+<div class="row align-items-center justify-content-between">
 <h5>Import Level</h5>
 <%if @levels.empty?%>
   <%= link_to "Import", import_levels_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
 <%else%>
   <p>Le tableau levels est déjà importé.</p>
 <%end%>
+</div>
 
 
+<div class="row align-items-center justify-content-between">
 <h5>Import Extype</h5>
 <%if @extypes.empty?%>
   <%= link_to "Import", import_extypes_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
 <%else%>
   <p>Le tableau extypes est déjà importé.</p>
 <%end%>
+</div>
 
+
+<div class="row align-items-center justify-content-between">
 <h5>Import Muscle</h5>
 <%if @muscles.empty?%>
   <%= link_to "Import", import_muscles_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
 <%else%>
   <p>Le tableau muscles est déjà importé.</p>
 <%end%>
+</div>
 
+<div class="row align-items-center justify-content-between">
 <h5>Import Variant</h5>
 <%if @variants.empty?%>
   <%= link_to "Import", import_variants_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
 <%else%>
   <p>Le tableau variants est déjà importé.</p>
 <%end%>
+</div>
 
 
+<div class="row align-items-center justify-content-between">
 <h5>Import JT Role Muscular Group Capacity</h5>
 <%if @roles.empty?%>
   <%= link_to "Import", import_roles_muscular_group_capacities_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
 <%else%>
   <p>Le tableau import_roles_muscular_group_capacities est déjà importé.</p>
 <%end%>
+</div>
 
+<div class="row align-items-center justify-content-between">
 <h5>Import JT Training Method Exercise</h5>
 <%if @methodexercises.empty?%>
   <%= link_to "Import", import_training_method_exercises_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
 <%else%>
   <p>Le tableau training_method_exercises est déjà importé.</p>
 <%end%>
-
+</div>
+<br><br>
+<div class="row align-items-center justify-content-between">
 <% if user_signed_in? %>
   <%=current_user.email%>
 <% elsif admin_signed_in? %>
   <%=current_admin.email%>
 <% end %>
+</div>
 
+</div>
+</section>

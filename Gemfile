@@ -86,3 +86,5 @@ gem 'activerecord-import'
 gem 'gravatar_image_tag'
 # Adds bootstrap-saas-extras
 gem 'bootstrap-sass-extras'
+# Adds bootstrap-cdn-rails
+gem 'bootstrap-cdn-rails'

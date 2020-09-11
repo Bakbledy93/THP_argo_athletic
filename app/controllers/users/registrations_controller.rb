@@ -60,4 +60,5 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
   include Accessible
+  skip_before_action :check_user, except: [:new, :create]
 end

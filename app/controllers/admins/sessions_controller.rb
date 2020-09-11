@@ -25,5 +25,5 @@ class Admins::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
   include Accessible
-  skip_before_action :check_user, except: [:new, :create]
+  skip_before_action :check_user, only: :destroy
 end

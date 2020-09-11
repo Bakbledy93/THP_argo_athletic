@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  exercise: MyString
+  training_method: MyString
+  level: MyString
+  repetition: MyString
+  recuperation: MyString
+
+two:
+  exercise: MyString
+  training_method: MyString
+  level: MyString
+  repetition: MyString
+  recuperation: MyString

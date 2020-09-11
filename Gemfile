@@ -67,7 +67,7 @@ gem 'binding_of_caller'
 # Adds table_print
 gem 'table_print'
 # Adds faker
-gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'faker'
 # Adds letter_opener
 gem 'letter_opener'
 # Adds devise
@@ -82,3 +82,5 @@ gem 'aws-sdk-s3', require: false
 gem 'mailtrap'
 # Adds activerecord-import
 gem 'activerecord-import'
+# Adds gravatar_image_tag
+gem 'gravatar_image_tag'

@@ -9,35 +9,24 @@
               <div class="bg-holder" 
                   style="background-image:url(https://images.pexels.com/photos/186076/pexels-photo-186076.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);" 
                   data-zanim-trigger="scroll"
-                  data-zanim-lg='{"animation":"zoom-out-slide-right"}'
-              ></div>
+                  data-zanim-lg='{"animation":"zoom-out-slide-right"}'>
+              </div>
             </div>
           </div>
+
           <div class="col-lg-6 bg-white py-6">
             <div class="row h-100 align-items-center justify-content-center">
               <div class="col-sm-8 col-md-6 col-lg-10 col-xl-8"
                   data-zanim-xs='{"animation":"slide-right"}'
                   data-zanim-trigger="scroll">
 
-                  <h2>
-                  Editer mon compte <%= resource_name.to_s.humanize %>
-                  </h2>
+                <h2>
+                Editer mon compte <%= resource_name.to_s.humanize %>
+                </h2>
 
                 <h6 class="text-danger mt-3">
                   Spécialement conçue pour les compétieurs pour leur préparation physique.
                 </h6>
-                <div class="form-group">
-                <div class="row">
-                  <div class="col-sm-4">
-                    <%= image_tag user_avatar(resource, 100), class: "rounded-circle" %>
-                  </div>
-        
-                  <div class="col-sm-8">
-                    <%= f.file_field :avatar %>
-                  </div>
-                </div>
-              </div>
-              <form class="mt-5">
                 <div class="row mb-4">
                   <div class="col">
                     <%= f.text_field :first_name,
@@ -47,6 +36,7 @@
                     %> 
                   </div>
                 </div>
+
                 <div class="row mb-4">
                   <div class="col">
                     <%= f.text_field :last_name,
@@ -56,6 +46,7 @@
                     %> 
                   </div>
                 </div>
+
                 <div class="row mb-4">
                   <div class="col">
                     <%= f.email_field :email,
@@ -65,6 +56,7 @@
                     %> 
                   </div>
                 </div>
+
                 <div class="row mb-4">
                   <div class="col">
                     <%= f.label :new_password %>
@@ -81,6 +73,7 @@
                     %>
                   </div>
                 </div>  
+
                 <div class="col">
                   <%= f.label :current_password %>
                   <%= f.password_field :current_password,
@@ -88,6 +81,7 @@
                       autocomplete: "current-password" 
                   %>
                 </div>
+
                 <div class="row mb-4 align-items-center">
                   <div class="col-auto">
                     <%= f.submit :"Editer mon Compte",
@@ -102,28 +96,27 @@
                         nos conditions d&rsquo;utilisation.
                       </a>
                     </p>
-                  </div>
-            <div class="row mb-4 align-items-center">
-                <div class="col-auto">
-                      <br><br>
-                      <h3 class="display-4 fs-2">
-                          Supprimer mon compte
-                      </h3>
-                  <%= button_to "Supprimer mon compte", registration_path(resource_name),class:"btn btn-danger btn-block mt-3", 
-                      data: { confirm: "Etes-vous sur ?" }, method: :delete %>
-                  <div class="btn btn-block">
-                      <%= link_to "Retour", :root %>
-                  </div>
-              </div>
-            </div>
-    </section>
-
                 </div>
-              </form>
+                
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
+
       <!-- cancelling account -->
     
 <% end %>
+<div class="row mb-4 align-items-center">
+                  <div class="col-auto">
+                      <br><br>
+                      <h3 class="display-4 fs-2">
+                          Supprimer mon compte
+                      </h3>
+                    <%= button_to "Supprimer mon compte", registration_path(resource_name),class:"btn btn-danger btn-block mt-3", 
+                      data: { confirm: "Etes-vous sur ?" }, method: :delete %>
+                  <div class="btn btn-block">
+                      <%= link_to "Retour", :root %>
+                  </div>
+                </div>

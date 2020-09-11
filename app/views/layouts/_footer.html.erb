@@ -82,7 +82,11 @@
             <p class="fs--1 text-uppercase ls font-weight-bold mb-0">
               Copyright &copy; Argo Athletic&trade;
               <!-- link to admin new session path -->
-              <%= link_to "inc.", new_admin_session_path, method: :get %>
+              <%= link_to "inc.", 
+                  new_admin_session_path,
+                  class: "text-600",
+                  method: :get
+              %>
             </p>
           </div>
           <div class="col-lg-4 text-lg-right order-lg-2 mt-2 mt-lg-0">

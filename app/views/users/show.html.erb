@@ -1,7 +1,7 @@
 <h1>
   Utilisateur
 </h1>
-<%= link_to "Editer porfil", edit_user_registration_path %> 
+<%= link_to "Editer profil", edit_user_registration_path %> 
 <dl>
   <dt>
     Photo de profil
@@ -34,7 +34,7 @@
   </dt>
   <% if !current_user.last_name.blank? %>
     <dd>
-      <%= current_user.first_name %>
+      <%= current_user.last_name %>
     </dd>
   <% else %>
     <dd>
@@ -44,3 +44,5 @@
     </dd>
   <% end %>
 </dl>
+
+<%= link_to "Editer Profile Sportif", edit_user_profile_path(id: @profile, user_id: @id)%>

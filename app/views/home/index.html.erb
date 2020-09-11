@@ -30,12 +30,10 @@
                   <!-- title of the application -->
                   <h2 class="font-weight-light text-uppercase fs-3 fs-lg-4" data-zanim-lg='{"delay":0.4}'>
                     Argo Athletic
-                    </h2>
-                    
+                    </h2>  
                     <h3 class="font-weight-black" data-zanim-lg='{"delay":0.4}' > 
                       Au coeur du sport
                     </h3>
-              
                 </div>
                 <!-- presentation of the description of the application -->
                 <div class="overflow-hidden">
@@ -44,9 +42,7 @@
                     Compétiteur amateur, Argo Athletic est fait pour toi ! Argo Athletic te permet de parfaire ta préparation physique.
                   </p>
                 </div>
-                <!-- début login -->
-
-    <% if !user_signed_in? %>
+                <% if !user_signed_in? %>
                   <!-- presentation of options of authentification -->
                   <div class="overflow-hidden">
                     <div class="mt-3 mt-lg-5" data-zanim-xs='{"delay":0.6}'>
@@ -60,9 +56,6 @@
                     </div>
                   </div>
                 <% end %>
-
-                <!-- fin login -->
-
               </div>
             </div>
           </div>
@@ -86,7 +79,7 @@
         </div>
       </div>
     </section>
-    
+    <!-- section landing-banner -->
     <section class="py-0 overflow-hidden" id="landing-banner">
       <div class="container-fluid">
         <div class="row">
@@ -122,8 +115,6 @@
       </div>
     </section>
     <!-- section landing-features-1 -->
-    
-    
     <section  class="overflow-hidden bg-light" id="landing-features-1" style="background-image:url(https://images.pexels.com/photos/401896/pexels-photo-401896.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);" > 
       <div class="container">
         <div class="row align-items-center">
@@ -157,8 +148,7 @@
         </div>
       </div>
     </section>
-
-<!-- section landing-features -->
+    <!-- section landing-features -->
     <section class="py-3" id="landing-features">
       <div class="container-fluid">
         <div class="row" data-zanim-timeline="{}" data-zanim-trigger="scroll">
@@ -182,17 +172,11 @@
           </div>
           <div class="col-lg-6 col-xl-3 mt-3 mt-xl-0 px-xl-2 pr-lg-2" data-zanim-xs='{"delay":0.3,"animation":"zoom-in"}'>
             <div class="position-relative min-vh-50 h-100 py-6 d-flex justify-content-center">
-              <div class="bg-holder overlay overlay-0 rounded" style="background-image:url(https://images.pexels.com/photos/3817163/pexels-photo-3817163.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
-              </div>
-              <div class="position-relative px-4 px-xl-5 text-center align-self-center w-100"><span class="far fa-compass text-300 fs-4 mb-4"></span>
-                <h4 class="mb-2 text-white">
-                  Préparez &amp; participez à la compétition
-                </h4>
-                <p class="text-sans-serif text-500">
-                  Argo vous prépare au mieux pour la compétition et fera de vous un champion.
-                </p>
+            <div class="bg-holder rounded" style="background-image:url(https://images.pexels.com/photos/3772226/pexels-photo-3772226.jpeg?cs=srgb&dl=pexels-sergio-souza-3772226.jpg&fm=jpg);">
+            </div>
+              <div class="position-relative px-4 px-xl-5 text-center align-self-center w-100">
                 <div>
-                      <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger"%>
+                  <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger" %>
                 </div>
               </div>
             </div>
@@ -200,42 +184,41 @@
           <div class="col-lg-6 col-xl-3 mt-3 mt-xl-0 pl-lg-2" data-zanim-xs='{"delay":0.4,"animation":"zoom-in"}'>
             <div class="position-relative min-vh-50 h-100 py-6">
               <div class="bg-holder rounded" style="background-image:url();">
-            
+                <div class="bg-holder overlay overlay-0 rounded" style="background-image:url(https://images.pexels.com/photos/3817163/pexels-photo-3817163.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- section landing-banner -->   
-
-
     <!-- section landing-download -->
     <section class="py-8" id="landing-download">
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-7 text-center text-md-left">
             <h2 class="font-weight-light">
-              Précommandez
+              Argo APP
               <span class="font-weight-black">
-                Argo APP 
+                bientot disponible sur
               </span> 
             </h2>
             <h4 class="font-weight-normal text-500">
-              Aucune connexion internet requise et pas besoin de carte bancaire
             </h4>
           </div>
           <div class="col-md-5 text-center mt-4 mt-md-0">
-            <a class="btn btn-outline-dark mx-2 mt-2 mt-xl-0" href="#">
+            <div>
               <span class="fab fa-apple mr-3" data-fa-transform="grow-8">
               </span>
               app store
-            </a>
-            <a class="btn btn-outline-dark mx-2 mt-2 mt-xl-0" href="#">
+            </div>
+            <br>
+            <br>
+            <div>
               <span class="fab fa-google-play mr-3" data-fa-transform="grow-8">
               </span>
               play store
-            </a>
+            </div>
           </div>
         </div>
       </div>

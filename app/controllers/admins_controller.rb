@@ -28,6 +28,7 @@ class AdminsController < ApplicationController
     @muscles = Muscle.all
     @variants = Variant.all
     @roles = RolesMuscularGroupCapacity.all
+    @methodexercises = TrainingMethodExercise.all
   end
 
 end

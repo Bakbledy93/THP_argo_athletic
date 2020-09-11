@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'thp.argo@gmail.com'
+  default from: 'argo.sender@yopmail.com'
   
   layout 'mailer'
 end

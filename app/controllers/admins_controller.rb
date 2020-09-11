@@ -1,18 +1,16 @@
 class AdminsController < ApplicationController
+  before_action :authenticate_admin, only: [:index, :import]
+
+  def authenticate_admin
+    unless current_admin
+      flash[:danger] = "Unauthorized section"
+      redirect_to root_path
+    end
+  end
+
   def index
   end
 
-  def show
-  end
-
-  def edit
-  end
-
-  def create
-  end
-
-  def destroy
-  end
 
   def import
     @sports = Sport.all

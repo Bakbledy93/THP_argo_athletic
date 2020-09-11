@@ -1,4 +1,13 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user, only: [:index, :new, :edit]
+
+  def authenticate_user
+    unless current_user
+      flash[:danger] = "Unauthorized page"
+      redirect_to root_page
+    end
+  end
+
   def index
   end
 
@@ -9,7 +18,6 @@ class UsersController < ApplicationController
     p @id
     p @profile
     puts '*'*150
-
   end
 
   def edit

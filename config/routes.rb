@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     collection {get :workout_program}
   end
 
-  resources :admins do
+  resources :admins do [:index]
     collection {get :import}
   end
 

@@ -22,6 +22,7 @@
     </div>
     <div class="fancynavbar-collapse">
       <ul class="fancynavbar-nav">
+      <!--
         <li class="fancynav-item fancy-dropdown">
           <a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)">
             <span class="fancynav-link-content">
@@ -31,12 +32,17 @@
             <div class="fancy-dropdown-menu">
               <div class="row pb-4 pt-3">
                 <div class="col-auto">
-                  <p class="fancy-dropdown-item">(Bientot)Entrainement</p>
-                  <p class="fancy-dropdown-item">(Bientot)Chat</p>
+                  <p class="fancy-dropdown-item">
+                    (Bientot)Entrainement
+                  </p>
+                  <p class="fancy-dropdown-item">
+                    (Bientot)Chat
+                  </p>
                 </div>
               </div>
             </div>
         </li>
+        -->
           <li class="fancynav-item fancy-dropdown">
             <a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)">
               <span class="fancynav-link-content">
@@ -46,29 +52,47 @@
             <div class="fancy-dropdown-menu">
               <div class="row pb-4 pt-3">
                 <div class="col-sm-auto pr-4">
+                  <!-- user -->
                   <% if user_signed_in? %>
-                    <li class="nav-item dropdown">
-                    <%= link_to root_path, class: "fancy-dropdown-item" do %>
-                      <%= image_tag user_avatar(current_user, 20), class: "rounded-circle" %>
-                    <% end %>
-                    <%= link_to "Se déconnecter", destroy_user_session_path, method: 'delete', class:"fancy-dropdown-item" %>                  
+                    <!-- user -->
+                      <!-- picture -->
+                        <%= image_tag user_avatar(current_user, 20), 
+                            class: "rounded-circle" 
+                        %>
+                        <!-- dashboard -->
+                        <%= link_to "Dashboard",
+                            authenticated_user_root_path,
+                            method: 'get',
+                            class:"fancy-dropdown-item"
+                        %>            
+                      <!-- log out option -->
+                      <%= link_to "Se déconnecter",
+                          destroy_user_session_path,
+                          method: 'delete',
+                          class:"fancy-dropdown-item"
+                      %>                  
+                  <!-- admin -->
                   <% elsif admin_signed_in? %>
-                    <p class="fancy-dropdown-item" href="#">(Bientot)Dashboard Admin</p>
-                    <%= link_to "Se déconnecter", destroy_admin_session_path, method: 'delete', class:"fancy-dropdown-item" %>
+                      <!-- admin -->
+                        <!-- dashboard -->
+                        <%= link_to "Dashboard",
+                            authenticated_admin_root_path,
+                            method: 'get', class:"fancy-dropdown-item" 
+                        %>
+                        <!-- sign out -->
+                        <%= link_to "Se déconnecter",
+                            destroy_admin_session_path,
+                            method: 'delete',
+                            class:"fancy-dropdown-item" 
+                        %>
                   <% else %>
-                    <%= link_to "S'inscrire", new_user_registration_path, method: 'get', class: "fancy-dropdown-item" %>
-                    <%= link_to "Se connecter", new_user_session_path, method: 'get', class: "fancy-dropdown-item" %>
+                      <!-- unknown visitor -->
+                      <%= link_to "S'inscrire", new_user_registration_path, method: 'get', class: "fancy-dropdown-item" %>
+                      <%= link_to "Se connecter", new_user_session_path, method: 'get', class: "fancy-dropdown-item" %>
                   <% end %>
                 </div>
               </div>
             </div>
-          </li>
-          <li class="fancynav-item">
-            <p class="fancynav-link" href="#">
-              <span class="fancynav-link-content">
-              (Bientot)Contact
-              </span>
-            </p>
           </li>
       </ul>
     </div>

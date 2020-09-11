@@ -84,3 +84,5 @@ gem 'mailtrap'
 gem 'activerecord-import'
 # Adds gravatar_image_tag
 gem 'gravatar_image_tag'
+# Adds bootstrap-saas-extras
+gem 'bootstrap-sass-extras'

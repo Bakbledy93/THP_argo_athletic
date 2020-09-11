@@ -26,6 +26,17 @@
                 <h6 class="text-danger mt-3">
                   Spécialement conçue pour les compétieurs pour leur préparation physique.
                 </h6>
+                <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <%= image_tag user_avatar(resource, 100), class: "rounded-circle" %>
+                  </div>
+        
+                  <div class="col-sm-8">
+                    <%= f.file_field :avatar %>
+                  </div>
+                </div>
+              </div>
               <form class="mt-5">
                 <div class="row mb-4">
                   <div class="col">

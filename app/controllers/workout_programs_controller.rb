@@ -24,7 +24,7 @@ class WorkoutProgramsController < ApplicationController
     @workout_program = WorkoutProgram.create!(workout_program_params)
 
     flash[:info] = "The Workout Program was Created"
-    redirect_to workout_program_path(@workout_program)
+    redirect_to user_path(current_user.id)
   end
 
   def edit

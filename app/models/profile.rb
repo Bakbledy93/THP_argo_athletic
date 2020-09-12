@@ -3,6 +3,7 @@ class Profile < ApplicationRecord
   
   has_many :sport_profiles
   has_many :sports, through: :sport_profiles
+  has_many :workout_programs
 
   def self.sport_array_creator
     sports = Sport.all

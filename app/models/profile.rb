@@ -22,4 +22,5 @@ class Profile < ApplicationRecord
     end
     arr_sport_roles
   end
+
 end

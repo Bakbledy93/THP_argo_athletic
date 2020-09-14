@@ -2,14 +2,14 @@
 <html lang="fr">
   <head>
     <title>Argo Athletic</title>
-
+    <%= display_meta_tags %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     
     <!-- css here -->
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'true' %>
   </head>
-  
+
   <body>
     <!-- navbar -->
     <%= render "layouts/navbar" %>

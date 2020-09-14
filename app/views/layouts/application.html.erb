@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <title>Argo Athletic</title>
+    <%= display_meta_tags site: 'Argo Athletic' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'false' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'false' %>
-    <%= boostrap_css_include_tag %>
-    <%= boostrap_js_include_tag %>
-    <%= fontawesome_css_include_tag %>
-    <%= bootswatch_css_include_tag %>
+    
+    <!-- css here -->
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'true' %>
   </head>
+
   <body>
     <!-- navbar -->
     <%= render "layouts/navbar" %>
@@ -20,5 +18,8 @@
     <%= yield %>
     <!-- footer -->
     <%= render "layouts/footer" %>
+    <!-- js here -->
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'true' %>
+    <%= boostrap_js_include_tag %>
   </body>
 </html>

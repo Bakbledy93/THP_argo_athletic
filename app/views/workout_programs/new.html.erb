@@ -1,0 +1,24 @@
+<h1 class="hidden">
+  <%= title 'Ajouter Programmes' %>
+</h1>
+<h1>WorkoutPrograms#new</h1>
+<p>Find me in app/views/workout_programs/new.html.erb</p>
+
+<h3>Add WorkoutPrograms</h3>
+<%= form_with(model: @workout_program, local:true, class:"mt-5") do |form| %>
+  <div class="row mb-4">
+    <div class="col">
+      <p>Profile Id: <%= @profile_id %></p>
+      <%= form.hidden_field :profile_id, value: @profile_id.to_i %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <p>First Name: <%= current_user.first_name %></p>
+  </div>
+  <p>Exercise: <%= form.select :exercise, @exercises_name_arr %></p>
+  <p>TrainingMethod: <%= form.select :training_method, @training_methods_name_arr %></p>
+  <p>Level: <%= form.select :level, @levels_name_arr %></p>
+
+  <%= form.submit 'New Program', :class => 'btn btn-info m-5' %>
+<% end %>

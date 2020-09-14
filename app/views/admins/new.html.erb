@@ -1,0 +1,48 @@
+
+<h1 class="hidden">
+<%= title 'Ajouter Admin' %>
+</h1>
+
+<div class="row d-flex flex-column justify-content-center m-5">
+
+  <h3>Add New Admin</h3>
+
+  <%= form_with(model: @admin, local:true, class:"mt-5") do |f| %>
+
+    <form class="mt-5">
+      <div class="row mb-4">
+        <div class="col">
+          <%= f.email_field :email,
+              class:"form-control border-300 bg-light",
+              autofocus: true,
+              placeholder: 'e-mail' 
+          %> 
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col">
+          <%= f.password_field :password,
+              class:"form-control border-300 bg-light",
+              placeholder: "mot de passe" 
+          %> 
+        </div>
+        <div class="col">
+          <%= f.password_field :password_confirmation,
+              class:"form-control border-300 bg-light",
+              placeholder: "mot de passe"
+          %>
+        </div>
+      </div>  
+      <div class="row mb-4 align-items-center">
+        <div class="col-auto">
+          <%= f.submit :"New Admin",
+              class:"btn btn-dark btn-block mt-3",
+              autofocus: true 
+          %>                      
+        </div>
+      </div>
+    </form>
+
+  <% end %>
+</div>
+

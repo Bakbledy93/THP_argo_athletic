@@ -276,6 +276,25 @@
             <%end%>
         </td>
       </tr>
+      <tr>
+        <th scope="row">15</th>
+        <td>JT Methods Levels</td>
+        <td>
+            <%= form_tag import_training_method_levels_path, multipart: true do%>
+              <%= file_field_tag :file%> 
+        </td>
+        <td>
+            <%= submit_tag "Import from file"%>
+            <%end%>
+        </td>      
+        <td>
+            <%if !@methodlevels.empty?%>
+            <i class="fas fa-check"></i>
+            <%else%>
+            <i class="fas fa-times-circle"></i>
+            <%end%>
+        </td>
+      </tr>
     </tbody>
   </table>
 </section>

@@ -60,6 +60,7 @@ class AdminsController < ApplicationController
     @variants = Variant.all
     @roles = RolesMuscularGroupCapacity.all
     @methodexercises = TrainingMethodExercise.all
+    @methodlevels = TrainingMethodLevel.all
     @tables = Admin.all_tables
     p @tables
   end

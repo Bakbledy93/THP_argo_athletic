@@ -90,4 +90,8 @@ Rails.application.routes.draw do
     collection {post :import}
   end
 
+  resources :training_method_levels, only: [:index] do
+    collection {post :import}
+  end
+
 end

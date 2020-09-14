@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <%= display_meta_tags %>
+    <%= display_meta_tags site: 'Argo Athletic' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     
@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <h1><%= title 'Accueil' %></h1>
     <!-- navbar -->
     <%= render "layouts/navbar" %>
     <!-- bootstrap flash -->

@@ -88,3 +88,5 @@ gem 'gravatar_image_tag'
 gem 'bootstrap-sass-extras'
 # Adds bootstrap-cdn-rails
 gem 'bootstrap-cdn-rails'
+# Adds meta-tags
+gem 'meta-tags'

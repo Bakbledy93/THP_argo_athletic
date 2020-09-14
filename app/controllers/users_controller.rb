@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def authenticate_user
     unless current_user
-      flash[:danger] = "Unauthorized page"
+      flash[:danger] = "Accès non autroisée"
       redirect_to root_page
     end
   end
@@ -18,6 +18,11 @@ class UsersController < ApplicationController
     p @id
     p @profile
     puts '*'*150
+    set_meta_tags title: current_user.email,
+                  site: 'Argo Athletic',
+                  reverse: false,
+                  description: 'page utilisateur',
+                  keywords: ['user', 'users']
   end
 
   def edit

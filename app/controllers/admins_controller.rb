@@ -10,6 +10,7 @@ class AdminsController < ApplicationController
   end
 
   def index
+    @admins = Admin.all
   end
 
   def new
@@ -17,7 +18,15 @@ class AdminsController < ApplicationController
   end
 
   def create
-    @admin = Admin.create!(params[:email, :password])
+    @admin = Admin.create!(admin_params)
+    if @admin.valid?
+      redirect_to root_path
+      flash[:success] = "A new Admin was successfully created"
+    else
+      flash[:danger] = "Unauthorized action"
+      redirect_to new_admin_path
+    end
+
   end
 
   def update
@@ -55,6 +64,6 @@ class AdminsController < ApplicationController
 
 
   def admin_params
-    params.permit(:email, :password)
+    params.require(:admin).permit(:email, :password)
   end
 end

@@ -1,5 +1,6 @@
 class AdminsController < ApplicationController
   before_action :authenticate_admin, only: [:index, :import]
+  # skip_before_action :authenticate_admin, only: [:new]
 
   def authenticate_admin
     unless current_admin
@@ -12,11 +13,17 @@ class AdminsController < ApplicationController
   end
 
   def new
-
+    @admin = Admin.new
   end
 
   def create
+    @admin = Admin.create!(params[:email, :password])
+  end
 
+  def update
+    @admin.update(admin_params)
+
+    redirect_to root_path
   end
 
 
@@ -44,5 +51,10 @@ class AdminsController < ApplicationController
 
   def all_classes 
     ActiveRecord::Base.connection.class
+  end
+
+
+  def admin_params
+    params.permit(:email, :password)
   end
 end

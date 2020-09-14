@@ -295,6 +295,44 @@
             <%end%>
         </td>
       </tr>
+      <tr>
+        <th scope="row">16</th>
+        <td>JT Methods Intensities</td>
+        <td>
+            <%= form_tag import_training_method_intensities_path, multipart: true do%>
+              <%= file_field_tag :file%> 
+        </td>
+        <td>
+            <%= submit_tag "Import from file"%>
+            <%end%>
+        </td>      
+        <td>
+            <%if !@methodintensities.empty?%>
+            <i class="fas fa-check"></i>
+            <%else%>
+            <i class="fas fa-times-circle"></i>
+            <%end%>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">17</th>
+        <td>JT Exercise Variant</td>
+        <td>
+            <%= form_tag import_exercise_variants_path, multipart: true do%>
+              <%= file_field_tag :file%> 
+        </td>
+        <td>
+            <%= submit_tag "Import from file"%>
+            <%end%>
+        </td>      
+        <td>
+            <%if !@exercisevariants.empty?%>
+            <i class="fas fa-check"></i>
+            <%else%>
+            <i class="fas fa-times-circle"></i>
+            <%end%>
+        </td>
+      </tr>
     </tbody>
   </table>
 </section>

@@ -61,6 +61,8 @@ class AdminsController < ApplicationController
     @roles = RolesMuscularGroupCapacity.all
     @methodexercises = TrainingMethodExercise.all
     @methodlevels = TrainingMethodLevel.all
+    @methodintensities = TrainingMethodIntensity.all
+    @exercisevariants = ExerciseVariant.all
     @tables = Admin.all_tables
     p @tables
   end

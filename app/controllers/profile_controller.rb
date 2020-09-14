@@ -17,7 +17,7 @@ class ProfileController < ApplicationController
   end
 
   def create
-    @profile = Profile.create(params.require(:profile).permit(:weight, :height, :sport, :sport_role, :date_of_birth))
+    @profile = Profile.create(params.require(:profile).permit(:first_name, :last_name, :weight, :height, :sport, :sport_role, :date_of_birth))
     if @profile.valid?
       redirect_to root_path
       flash[:error] = @profile.errors.full_messages

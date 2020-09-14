@@ -1,142 +1,283 @@
 <section>
-<div class="container">
-<h1 class="text-center">Gestion de la BDD</h1><br>
-<div class="row align-items-center justify-content-between">
-<h5>Import Sport</h5>
-<%if @sports.empty?%>
-  <%= link_to "Import", import_sports_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
-<%else%>
-  <p>Le tableau sports est déjà importé.</p>
-<%end%>
-</div>
-
-<div class="row align-items-center justify-content-between">
-<h5>Import Sport Role</h5>
-<%if @sportrole.empty?%>
-  <%= link_to "Import", import_sport_roles_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
-<%else%>
-  <p>Le tableau sport_roles est déjà importé.</p>
-<%end%>
-</div>
-
-<div class="row align-items-center justify-content-between">
-<h5>Import Quality</h5>
-<%if @quality.empty?%>
-  <%= link_to "Import", import_qualities_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
-<%else%>
-  <p>Le tableau qualities est déjà importé.</p>
-<%end%>
-</div>
-
-<div class="row align-items-center justify-content-between">
-<h5>Import Capacity</h5>
-<%if @capacity.empty?%>
-  <%= link_to "Import", import_capacities_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
-<%else%>
-  <p>Le tableau capacities est déjà importé.</p>
-<%end%>
-</div>
-
-<div class="row align-items-center justify-content-between">
-<h5>Import Muscular Group</h5>
-<%if @muscular_group.empty?%>
-  <%= link_to "Import", import_muscular_groups_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
-<%else%>
-  <p>Le tableau muscular_groups est déjà importé.</p>
-<%end%>
-</div>
-
-<div class="row align-items-center justify-content-between">
-<h5>Import Training Method</h5>
-<%if @training_method .empty?%>
-  <%= link_to "Import", import_training_methods_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
-<%else%>
-  <p>Le tableau training_methods est déjà importé.</p>
-<%end%>
-</div>
-
-<div class="row align-items-center justify-content-between">
-<h5>Import Exercice</h5>
-<%if @exercises.empty?%>
-  <%= link_to "Import", import_exercises_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
-<%else%>
-  <p>Le tableau exercises est déjà importé.</p>
-<%end%>
-</div>
-
-<div class="row align-items-center justify-content-between">
-<h5>Import Intensity</h5>
-<%if @intensities.empty?%>
-  <%= link_to "Import", import_intensities_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
-<%else%>
-  <p>Le tableau intensities est déjà importé.</p>
-<%end%>
-</div>
-
-<div class="row align-items-center justify-content-between">
-<h5>Import Level</h5>
-<%if @levels.empty?%>
-  <%= link_to "Import", import_levels_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
-<%else%>
-  <p>Le tableau levels est déjà importé.</p>
-<%end%>
-</div>
-
-
-<div class="row align-items-center justify-content-between">
-<h5>Import Extype</h5>
-<%if @extypes.empty?%>
-  <%= link_to "Import", import_extypes_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
-<%else%>
-  <p>Le tableau extypes est déjà importé.</p>
-<%end%>
-</div>
-
-
-<div class="row align-items-center justify-content-between">
-<h5>Import Muscle</h5>
-<%if @muscles.empty?%>
-  <%= link_to "Import", import_muscles_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
-<%else%>
-  <p>Le tableau muscles est déjà importé.</p>
-<%end%>
-</div>
-
-<div class="row align-items-center justify-content-between">
-<h5>Import Variant</h5>
-<%if @variants.empty?%>
-  <%= link_to "Import", import_variants_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
-<%else%>
-  <p>Le tableau variants est déjà importé.</p>
-<%end%>
-</div>
-
-
-<div class="row align-items-center justify-content-between">
-<h5>Import JT Role Muscular Group Capacity</h5>
-<%if @roles.empty?%>
-  <%= link_to "Import", import_roles_muscular_group_capacities_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
-<%else%>
-  <p>Le tableau import_roles_muscular_group_capacities est déjà importé.</p>
-<%end%>
-</div>
-
-<div class="row align-items-center justify-content-between">
-<h5>Import JT Training Method Exercise</h5>
-<%if @methodexercises.empty?%>
-  <%= link_to "Import", import_training_method_exercises_path, class:"text-900 font-weight-bold ml-1 btn btn-primary text-white ", method: :post%>
-<%else%>
-  <p>Le tableau training_method_exercises est déjà importé.</p>
-<%end%>
-</div>
-<br><br>
-<div class="row align-items-center justify-content-between">
-<% if user_signed_in? %>
-  <%=current_user.email%>
-<% elsif admin_signed_in? %>
-  <%=current_admin.email%>
-<% end %>
-</div>
-
-</div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Table</th>
+        <th scope="col">File path</th>
+        <th scope="col">Import File</th>
+        <th scope="col">Import checking</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Sport</td>
+        <td>
+            <%= form_tag import_sports_path, multipart: true do%>
+              <%= file_field_tag :file%> 
+        </td>
+        <td>
+            <%= submit_tag "Import from file"%>
+            <%end%>
+        </td>
+        <td>
+            <%if !@sports.empty?%>
+            <i class="fas fa-check"></i>
+            <%else%>
+            <i class="fas fa-times-circle"></i>
+            <%end%>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Sport Roles</td>
+        <td>
+            <%= form_tag import_sport_roles_path, multipart: true do%>
+              <%= file_field_tag :file%> 
+        </td>
+        <td>
+            <%= submit_tag "Import from file"%>
+            <%end%>
+        </td>
+        <td>
+            <%if !@sportrole.empty?%>
+            <i class="fas fa-check"></i>
+            <%else%>
+            <i class="fas fa-times-circle"></i>
+            <%end%>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Qualities</td>
+        <td>
+            <%= form_tag import_qualities_path, multipart: true do%>
+              <%= file_field_tag :file%> 
+        </td>
+        <td>
+            <%= submit_tag "Import from file"%>
+            <%end%>
+        </td>
+        <td>
+            <%if !@quality.empty?%>
+            <i class="fas fa-check"></i>
+            <%else%>
+            <i class="fas fa-times-circle"></i>
+            <%end%>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>Capacities</td>
+        <td>
+            <%= form_tag import_capacities_path, multipart: true do%>
+              <%= file_field_tag :file%> 
+        </td>
+        <td>
+            <%= submit_tag "Import from file"%>
+            <%end%>
+        </td>
+        <td>
+            <%if !@quality.empty?%>
+            <i class="fas fa-check"></i>
+            <%else%>
+            <i class="fas fa-times-circle"></i>
+            <%end%>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td>Muscular Groups</td>
+        <td>
+            <%= form_tag import_muscular_groups_path, multipart: true do%>
+              <%= file_field_tag :file%> 
+        </td>
+        <td>
+            <%= submit_tag "Import from file"%>
+            <%end%>
+        </td>
+        <td>
+            <%if !@muscular_group.empty?%>
+            <i class="fas fa-check"></i>
+            <%else%>
+            <i class="fas fa-times-circle"></i>
+            <%end%>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">6</th>
+        <td>Training Methods</td>
+        <td>
+            <%= form_tag import_training_methods_path, multipart: true do%>
+              <%= file_field_tag :file%> 
+        </td>
+        <td>
+            <%= submit_tag "Import from file"%>
+            <%end%>
+        </td>
+        <td>
+            <%if !@training_method.empty?%>
+            <i class="fas fa-check"></i>
+            <%else%>
+            <i class="fas fa-times-circle"></i>
+            <%end%>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">7</th>
+        <td>Training Exercises</td>
+        <td>
+            <%= form_tag import_exercises_path, multipart: true do%>
+              <%= file_field_tag :file%> 
+        </td>
+        <td>
+            <%= submit_tag "Import from file"%>
+            <%end%>
+        </td>
+        <td>
+            <%if !@exercises.empty?%>
+            <i class="fas fa-check"></i>
+            <%else%>
+            <i class="fas fa-times-circle"></i>
+            <%end%>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">8</th>
+        <td>Intensity</td>
+        <td>
+            <%= form_tag import_intensities_path, multipart: true do%>
+              <%= file_field_tag :file%> 
+        </td>
+        <td>
+            <%= submit_tag "Import from file"%>
+            <%end%>
+        </td>
+        <td>
+            <%if !@intensities.empty?%>
+            <i class="fas fa-check"></i>
+            <%else%>
+            <i class="fas fa-times-circle"></i>
+            <%end%>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">9</th>
+        <td>Levels</td>
+        <td>
+            <%= form_tag import_levels_path, multipart: true do%>
+              <%= file_field_tag :file%> 
+        </td>
+        <td>
+            <%= submit_tag "Import from file"%>
+            <%end%>
+        </td>
+        <td>
+            <%if !@levels.empty?%>
+            <i class="fas fa-check"></i>
+            <%else%>
+            <i class="fas fa-times-circle"></i>
+            <%end%>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">10</th>
+        <td>Exercises types</td>
+        <td>
+            <%= form_tag import_extypes_path, multipart: true do%>
+              <%= file_field_tag :file%> 
+        </td>
+        <td>
+            <%= submit_tag "Import from file"%>
+            <%end%>
+        </td>
+        <td>
+            <%if !@extypes.empty?%>
+            <i class="fas fa-check"></i>
+            <%else%>
+            <i class="fas fa-times-circle"></i>
+            <%end%>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">11</th>
+        <td>Muscles</td>
+        <td>
+            <%= form_tag import_muscles_path, multipart: true do%>
+              <%= file_field_tag :file%> 
+        </td>
+        <td>
+            <%= submit_tag "Import from file"%>
+            <%end%>
+        </td>
+        <td>
+            <%if !@muscles.empty?%>
+            <i class="fas fa-check"></i>
+            <%else%>
+            <i class="fas fa-times-circle"></i>
+            <%end%>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">12</th>
+        <td>Variants</td>
+        <td>
+            <%= form_tag import_variants_path, multipart: true do%>
+              <%= file_field_tag :file%> 
+        </td>
+        <td>
+            <%= submit_tag "Import from file"%>
+            <%end%>
+        </td>
+        <td>
+            <%if !@variants.empty?%>
+            <i class="fas fa-check"></i>
+            <%else%>
+            <i class="fas fa-times-circle"></i>
+            <%end%>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">13</th>
+        <td>JT Roles MG Capacities</td>
+        <td>
+            <%= form_tag import_roles_muscular_group_capacities_path, multipart: true do%>
+              <%= file_field_tag :file%> 
+        </td>
+        <td>
+            <%= submit_tag "Import from file"%>
+            <%end%>
+        </td>
+        <td>
+            <%if !@roles.empty?%>
+            <i class="fas fa-check"></i>
+            <%else%>
+            <i class="fas fa-times-circle"></i>
+            <%end%>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">14</th>
+        <td>JT Methods Exercises</td>
+        <td>
+            <%= form_tag import_training_method_exercises_path, multipart: true do%>
+              <%= file_field_tag :file%> 
+        </td>
+        <td>
+            <%= submit_tag "Import from file"%>
+            <%end%>
+        </td>      
+        <td>
+            <%if !@methodexercises.empty?%>
+            <i class="fas fa-check"></i>
+            <%else%>
+            <i class="fas fa-times-circle"></i>
+            <%end%>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </section>
+
+

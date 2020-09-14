@@ -28,7 +28,6 @@ Rails.application.routes.draw do
     resources :profile, only: [:index, :show, :new, :create, :update, :edit]
   end
 
-
   resources :sports do
     collection {post :import}
   end
@@ -61,32 +60,32 @@ Rails.application.routes.draw do
     collection {post :import}
   end
 
-resources :intensities, only: [:index] do
-  collection {post :import}
-end
+  resources :intensities, only: [:index] do
+    collection {post :import}
+  end
 
-resources :levels, only: [:index] do
-  collection {post :import}
-end
+  resources :levels, only: [:index] do
+    collection {post :import}
+  end
 
-resources :extypes, only: [:index] do
-  collection {post :import}
-end
+  resources :extypes, only: [:index] do
+    collection {post :import}
+  end
 
-resources :muscles, only: [:index] do
-  collection {post :import}
-end
+  resources :muscles, only: [:index] do
+    collection {post :import}
+  end
 
-resources :variants, only: [:index] do
-  collection {post :import}
-end
+  resources :variants, only: [:index] do
+    collection {post :import}
+  end
 
-resources :roles_muscular_group_capacities, only: [:index] do
-  collection {post :import}
-end
+  resources :roles_muscular_group_capacities, only: [:index] do
+    collection {post :import}
+  end
 
-resources :training_method_exercises, only: [:index] do
-  collection {post :import}
-end
+  resources :training_method_exercises, only: [:index] do
+    collection {post :import}
+  end
 
 end

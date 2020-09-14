@@ -13,6 +13,7 @@ class AdminsController < ApplicationController
 
 
   def import
+    @admin = current_admin
     @sports = Sport.all
     @sportrole = SportRole.all
     @quality = Quality.all
@@ -27,6 +28,13 @@ class AdminsController < ApplicationController
     @variants = Variant.all
     @roles = RolesMuscularGroupCapacity.all
     @methodexercises = TrainingMethodExercise.all
+    @tables = Admin.all_tables
+    p @tables
   end
 
+  private
+
+  def all_classes 
+    ActiveRecord::Base.connection.class
+  end
 end

@@ -28,4 +28,7 @@ class HomeController < ApplicationController
     puts "* "*30
   end
 
+  def contact
+  end
+
 end

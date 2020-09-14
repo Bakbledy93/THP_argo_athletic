@@ -34,8 +34,11 @@ Rails.application.routes.draw do
     collection {post :import}
   end
 
-  resources :home, only: [:index, :show] do
+  
+  resources :home, only: [:index, :show, :perso] do
     collection {get :import}
+    collection {get :contact}
+    collection {get :terms}
   end
 
   resources :sport_roles, only: [:index] do

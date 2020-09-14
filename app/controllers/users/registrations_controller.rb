@@ -37,8 +37,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
-
-  # protected
+  include Accessible
+  skip_before_action :check_user, except: [:new, :create]
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -59,6 +60,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  include Accessible
-  skip_before_action :check_user, except: [:new, :create]
+
+  def after_sign_in_path_for(resource)
+    edit_user_profile_path(id: current_user.profile.id, user_id: current_user.id)
+  end
+
 end

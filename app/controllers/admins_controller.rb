@@ -1,6 +1,5 @@
 class AdminsController < ApplicationController
   before_action :authenticate_admin, only: [:index, :import, :show]
-  # skip_before_action :authenticate_admin, only: [:new]
 
   def authenticate_admin
     unless current_admin
@@ -22,12 +21,17 @@ class AdminsController < ApplicationController
   end
 
   def create
-    @admin = Admin.create!(admin_params)
-    if @admin.valid?
-      redirect_to root_path
-      flash[:success] = "A new Admin was successfully created"
-    else
-      flash[:danger] = "Unauthorized action"
+    begin
+      @admin = Admin.create!(admin_params)
+      if @admin.valid?
+        redirect_to root_path
+        flash[:success] = "A new Admin was successfully created"
+      else
+        flash[:danger] = "Unauthorized action"
+        redirect_to new_admin_path
+      end
+    rescue
+      flash[:danger] = "Email not valid"
       redirect_to new_admin_path
     end
 

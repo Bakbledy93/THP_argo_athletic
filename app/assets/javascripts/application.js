@@ -16,6 +16,7 @@
 //= require jquery.min
 //= require popper.min
 //= require bootstrap
+//= require bootstrap.min
 //= require plugins
 //= require stickyfill.min
 //= require is_js/is.min

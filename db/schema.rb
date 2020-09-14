@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_11_162624) do
+ActiveRecord::Schema.define(version: 2020_09_12_070832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -229,6 +229,18 @@ ActiveRecord::Schema.define(version: 2020_09_11_162624) do
     t.index ["extype_id"], name: "index_variants_on_extype_id"
   end
 
+  create_table "workout_programs", force: :cascade do |t|
+    t.string "exercise"
+    t.string "training_method"
+    t.string "level"
+    t.string "repetition"
+    t.string "recuperation"
+    t.bigint "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_workout_programs_on_profile_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "capacities", "qualities"
   add_foreign_key "exercise_variants", "exercises"
@@ -248,4 +260,5 @@ ActiveRecord::Schema.define(version: 2020_09_11_162624) do
   add_foreign_key "training_method_levels", "training_methods"
   add_foreign_key "training_methods", "capacities"
   add_foreign_key "variants", "extypes"
+  add_foreign_key "workout_programs", "profiles"
 end

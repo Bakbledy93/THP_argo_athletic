@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions", passwords: "admins/passwords", registrations: "admins/registrations"}
   devise_for :users, path: 'users', controllers: { sessions: "users/sessions", passwords: "users/passwords", registrations: "users/registrations"}
 
+  resources :workout_programs, only: [:index, :show, :new, :create, :edit, :update]
+
   authenticated :user do
     root to: 'users#show', as: :authenticated_user_root
   end
@@ -27,7 +29,6 @@ Rails.application.routes.draw do
     resources :users
     resources :profile, only: [:index, :show, :new, :create, :update, :edit]
   end
-
 
   resources :sports do
     collection {post :import}
@@ -61,32 +62,32 @@ Rails.application.routes.draw do
     collection {post :import}
   end
 
-resources :intensities, only: [:index] do
-  collection {post :import}
-end
+  resources :intensities, only: [:index] do
+    collection {post :import}
+  end
 
-resources :levels, only: [:index] do
-  collection {post :import}
-end
+  resources :levels, only: [:index] do
+    collection {post :import}
+  end
 
-resources :extypes, only: [:index] do
-  collection {post :import}
-end
+  resources :extypes, only: [:index] do
+    collection {post :import}
+  end
 
-resources :muscles, only: [:index] do
-  collection {post :import}
-end
+  resources :muscles, only: [:index] do
+    collection {post :import}
+  end
 
-resources :variants, only: [:index] do
-  collection {post :import}
-end
+  resources :variants, only: [:index] do
+    collection {post :import}
+  end
 
-resources :roles_muscular_group_capacities, only: [:index] do
-  collection {post :import}
-end
+  resources :roles_muscular_group_capacities, only: [:index] do
+    collection {post :import}
+  end
 
-resources :training_method_exercises, only: [:index] do
-  collection {post :import}
-end
+  resources :training_method_exercises, only: [:index] do
+    collection {post :import}
+  end
 
 end

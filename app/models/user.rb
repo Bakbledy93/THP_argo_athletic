@@ -11,6 +11,8 @@ class User < ApplicationRecord
   
   after_create :welcome_send, :profile_creation
 
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end

@@ -1,5 +1,5 @@
 class AdminsController < ApplicationController
-  before_action :authenticate_admin, only: [:index, :import]
+  before_action :authenticate_admin, only: [:index, :import, :show]
   # skip_before_action :authenticate_admin, only: [:new]
 
   def authenticate_admin
@@ -15,6 +15,10 @@ class AdminsController < ApplicationController
 
   def new
     @admin = Admin.new
+  end
+
+  def show
+    redirect_to root_path
   end
 
   def create

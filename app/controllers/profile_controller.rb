@@ -30,7 +30,7 @@ class ProfileController < ApplicationController
   def update
     @sports = Sport.all
     @profile = Profile.find(params[:id])
-    @profile.update(params.require(:profile).permit(:weight, :height, :sport, :sport_role, :date_of_birth))
+    @profile.update(params.require(:profile).permit(:first_name, :last_name, :weight, :height, :sport, :sport_role, :date_of_birth))
     flash[:error] = "Le Profil à été mis à jour"
     redirect_to user_path(params[:id])
   end

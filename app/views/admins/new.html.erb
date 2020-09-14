@@ -1,0 +1,73 @@
+<h1>Admins#new</h1>
+<p>Find me in app/views/admins/new.html.erb</p>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "admins/shared/error_messages", resource: resource %>
+    <section class="py-0" id="page-signup">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-6 px-0">
+            <div class="sticky-top vh-lg-100 py-9">
+              <div class="bg-holder" 
+                   style="background-image:url(<%= image_path 'https://images.pexels.com/photos/186076/pexels-photo-186076.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260' %>)" 
+                   data-zanim-trigger="scroll"
+                   data-zanim-lg='{"animation":"zoom-out-slide-right"}'
+              ></div>
+            </div>
+          </div>
+          <div class="col-lg-6 bg-white py-6">
+            <div class="row h-100 align-items-center justify-content-center">
+              <div class="col-sm-8 col-md-6 col-lg-10 col-xl-8"
+                   data-zanim-xs='{"animation":"slide-right"}'
+                   data-zanim-trigger="scroll"
+              >
+                <h3 class="display-4 fs-2">
+        
+                </h3>
+                <h6 class="text-danger mt-3">
+                  Connexion Admin
+                </h6>
+              <form class="mt-5">
+                <div class="row mb-4">
+                  <div class="col">
+                    <%= f.email_field :email,
+                        class:"form-control border-300 bg-light",
+                        autofocus: true,
+                        placeholder: 'e-mail' 
+                    %> 
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <div class="col">
+                    <%= f.password_field :password,
+                        class:"form-control border-300 bg-light",
+                        placeholder: "mot de passe" 
+                    %> 
+                  </div>
+                  <div class="col">
+                    <%= f.password_field :password_confirmation,
+                        class:"form-control border-300 bg-light",
+                        placeholder: "mot de passe"
+                    %>
+                  </div>
+                </div>  
+                <div class="row mb-4 align-items-center">
+                  <div class="col-auto">
+                    <%= f.submit :"Inscription",
+                        class:"btn btn-dark btn-block mt-3",
+                        autofocus: true 
+                    %>                      
+                  </div>
+                  <div class="col-sm">
+                    <p class="fs--1 text-700 mb-0 text-sans-serif mt-2 mt-lg-0">
+                      En validant votre compte, vous acceptez nos conditions d&rsquo;utilisation.
+                    </p>
+                  </div>
+                </div>
+              </form>
+              <%= render "admins/shared/links" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<% end %>

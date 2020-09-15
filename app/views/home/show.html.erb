@@ -78,11 +78,12 @@
     </tr>
   </thead>
   <tbody>
-    <% @rolesMuscularGroupCapacities.where(sport_role_id: @role_id).each do |data| %>
+    <%# @rolesMuscularGroupCapacities.where(sport_role_id: @role_id).each do |data| %>
+    <% @rolesMuscularGroupCapacities.where(sport_role_id: @role_id).where(muscular_group_id: @inferior_member_id).each do |data| %>
         <% @trainingmethods.where(capacity_id: data.capacity.id).each do |training| %>
           <% training.exercises.each do |ex| %>
-            <% ex.variants.each do |variant| %>
-              <% ex.muscles.each do |muscle| %>
+            <% ex.muscles.where(muscular_group_id: @inferior_member_id).each do |muscle| %>
+              <%# ex.variants.each do |variant| %>
                 <% training.levels.where(id:1).each do |level| %>
                   <tr>
                     <th scope="row"><%= @role_id %></th>
@@ -93,17 +94,20 @@
                     <td><%= training.name %></td>
                     <td><%= ex.name %></td>
                     <td><%= muscle.name %></td>
-                    <td><%= variant.name %></td>
+                    <td><%#= variant.name %></td>
                     <td><%= level.name %></td>
                   </tr>
                 <% end %>
-              <% end %>
+              <%# end %>
             <% end %>
           <% end %>
       <% end %>
     <% end %>
   </tbody>
 </table>
+
+
+
 
 <h3>Training Method</h3>
 <table class="table mb-5">

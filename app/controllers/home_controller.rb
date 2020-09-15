@@ -24,9 +24,10 @@ class HomeController < ApplicationController
     @muscles = Muscle.all
     @trainingmethodintensities = TrainingMethodIntensity.all
     @intensities = Intensity.all
-    puts "* "*30
 
-    puts "* "*30
+    ##Filtres
+    @inferior_member = MuscularGroup.where(name: "inferior_member")
+    @inferior_member_id = @inferior_member.sample.id
   end
 
   def contact

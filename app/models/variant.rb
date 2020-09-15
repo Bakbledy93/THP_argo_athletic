@@ -4,10 +4,6 @@ class Variant < ApplicationRecord
   has_many :exercise_variants
   has_many :exercises ,through: :exercise_variants
 
-
-  has_many :muscle_variants
-  has_many :muscles, through: :muscle_variants
-
   def self.my_import(file)
     variants=[]
     CSV.foreach("db/variants.csv", headers: true) do |row|

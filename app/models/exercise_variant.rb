@@ -1,6 +1,7 @@
 class ExerciseVariant < ApplicationRecord
   belongs_to :exercise
   belongs_to :variant
+  belongs_to :muscle
 
   def self.my_import(file)
     exercise_variants=[]

@@ -90,3 +90,5 @@ gem 'bootstrap-sass-extras'
 gem 'bootstrap-cdn-rails'
 # Adds meta-tags
 gem 'meta-tags'
+# Reset DB ID
+gem 'activerecord-reset-pk-sequence'

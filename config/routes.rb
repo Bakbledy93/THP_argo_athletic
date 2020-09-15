@@ -105,4 +105,11 @@ Rails.application.routes.draw do
     collection {post :import}
   end
 
+  resources :charges do
+    collection {post :subscribe}
+    collection {get :success}
+    collection {get :new_card}
+    collection {post :create_card}
+  end
+
 end

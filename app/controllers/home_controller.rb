@@ -21,7 +21,6 @@ class HomeController < ApplicationController
     @exercises = Exercise.all
     @exercisevariants = ExerciseVariant.all
     @variants = Variant.all
-    @musclevariants = MuscleVariant.all
     @muscles = Muscle.all
     @trainingmethodintensities = TrainingMethodIntensity.all
     @intensities = Intensity.all

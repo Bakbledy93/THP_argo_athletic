@@ -25,7 +25,7 @@
       <td><%= @user.profile.height %></td>
       <td><%= @user.profile.weight %></td>
       <td><%= @user.profile.created_at %></td>
-      <td><%#= @user.profile.sports.first.name %></td>
+      <td><%= @user.profile.sports %></td>
     </tr>
     <% end %>
   </tbody>
@@ -174,31 +174,7 @@
   </tbody>
 </table>
 
-<h3>Muscle Variants</h3>
-<table class="table mb-5">
-  <thead>
-    <tr>
-      <th scope="col">Exercise</th>
-      <th scope="col">Variant</th>
-      <th scope="col">Type</th>
-      <th scope="col">Muscles</th>
-      <th scope="col">Muscular Group</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @musclevariants.each do |muscvar| %>
-      <% muscvar.variant.exercises.each do |ex| %>
-        <tr>
-          <th scope="row"><%= ex.name %></th>
-          <td><%= muscvar.variant.name %></td>
-          <td><%= muscvar.variant.extype.name %></td>
-          <td><%= muscvar.muscle.name %></td>
-          <td><%= muscvar.muscle.muscular_group.name %></td>
-        </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
+
 
 <h3>Training Method Intensities</h3>
 <table class="table mb-5">

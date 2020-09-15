@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_14_140437) do
+ActiveRecord::Schema.define(version: 2020_09_15_081321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,7 +61,9 @@ ActiveRecord::Schema.define(version: 2020_09_14_140437) do
     t.bigint "variant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "muscle_id"
     t.index ["exercise_id"], name: "index_exercise_variants_on_exercise_id"
+    t.index ["muscle_id"], name: "index_exercise_variants_on_muscle_id"
     t.index ["variant_id"], name: "index_exercise_variants_on_variant_id"
   end
 
@@ -94,15 +96,6 @@ ActiveRecord::Schema.define(version: 2020_09_14_140437) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "muscle_variants", force: :cascade do |t|
-    t.bigint "variant_id"
-    t.bigint "muscle_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["muscle_id"], name: "index_muscle_variants_on_muscle_id"
-    t.index ["variant_id"], name: "index_muscle_variants_on_variant_id"
   end
 
   create_table "muscles", force: :cascade do |t|
@@ -145,6 +138,7 @@ ActiveRecord::Schema.define(version: 2020_09_14_140437) do
     t.bigint "capacity_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "priority"
     t.index ["capacity_id"], name: "index_roles_muscular_group_capacities_on_capacity_id"
     t.index ["muscular_group_id"], name: "index_roles_muscular_group_capacities_on_muscular_group_id"
     t.index ["sport_role_id"], name: "index_roles_muscular_group_capacities_on_sport_role_id"
@@ -244,9 +238,8 @@ ActiveRecord::Schema.define(version: 2020_09_14_140437) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "capacities", "qualities"
   add_foreign_key "exercise_variants", "exercises"
+  add_foreign_key "exercise_variants", "muscles"
   add_foreign_key "exercise_variants", "variants"
-  add_foreign_key "muscle_variants", "muscles"
-  add_foreign_key "muscle_variants", "variants"
   add_foreign_key "muscles", "muscular_groups"
   add_foreign_key "profiles", "users"
   add_foreign_key "roles_muscular_group_capacities", "capacities"

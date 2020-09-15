@@ -125,7 +125,7 @@
                   <div class="chart-area">
                     
                     <div class="profile-userbuttons"><br>
-                      <div><%= link_to "Compte utilisateur", edit_user_registration_path, class:"btn btn-primary" %></div><br><br>
+                      <div><%= link_to "Compte utilisateur", edit_user_registration_path, class:"btn btn-primary" %></div><br>
                       <div><%= link_to "Editer Profile Sportif", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-success"%></div><br>
                       <div><%= link_to "Créer mon Program", new_workout_program_path, class:"btn btn-warning"%></div><br>
                     </div>
@@ -146,19 +146,19 @@
                   <div> 
         Adresse e-mail : <%= current_user.email%>
         </div>
-        <div>Prénom
-        <% if !current_user.first_name.blank? %>
-          <%= current_user.first_name %>
+        <div>Prénom : 
+        <% if !current_user.profile.first_name.blank? %>
+          <%= current_user.profile.first_name %>
         <% else %>
-          <%= link_to "Mettre jour son compte", edit_user_registration_path, class:"link-primary" %>     
+          <%= link_to "Mettre jour son compte", edit_user_profile_path(id: @profile, user_id: @id), class:"link-primary" %>     
         <% end %>
         </div>
         <div>
-        Nom
-        <% if !current_user.last_name.blank? %>
-        <%= current_user.last_name %>
+        Nom : 
+        <% if !current_user.profile.last_name.blank? %>
+        <%= current_user.profile.last_name %>
         <% else %>
-        <%= link_to "Mettre jour son compte", edit_user_registration_path, class:" link-primary" %>
+        <%= link_to "Mettre jour son compte", edit_user_profile_path(id: @profile, user_id: @id), class:" link-primary" %>
         <% end %>
         </div>
         <div>Photo de profil : </div><br>

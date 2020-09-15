@@ -14,7 +14,7 @@
   </div>
 
   <div class="form-group">
-    <p>First Name: <%= current_user.first_name %></p>
+    <p>First Name: <%= current_user.profile.first_name %></p>
   </div>
   <p>Exercise: <%= form.select :exercise, @exercises_name_arr %></p>
   <p>TrainingMethod: <%= form.select :training_method, @training_methods_name_arr %></p>

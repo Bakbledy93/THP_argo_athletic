@@ -71,6 +71,7 @@
       <th scope="col">Capacity</th>
       <th scope="col">Training Method</th>
       <th scope="col">Exercise</th>
+      <th scope="col">Muscle</th>
       <th scope="col">Variant</th>
       <th scope="col">Level</th>
       
@@ -80,20 +81,23 @@
     <% @rolesMuscularGroupCapacities.where(sport_role_id: @role_id).each do |data| %>
         <% @trainingmethods.where(capacity_id: data.capacity.id).each do |training| %>
           <% training.exercises.each do |ex| %>
-          <% ex.variants.each do |variant| %>
-            <% training.levels.where(id:1).each do |level| %>
-              <tr>
-                <th scope="row"><%= @role_id %></th>
-                <td><%= @role %></td>
-                <td><%= @musculargroups.find(data.muscular_group_id).name %></td>
-                <td><%= @capacities.find(data.capacity_id).quality.name %></td>
-                <td><%= @capacities.find(data.capacity_id).name %></td>
-                <td><%= training.name %></td>
-                <td><%= ex.name %></td>
-                <td><%= variant.name %></td>
-                <td><%= level.name %></td>
-              </tr>
-            <% end %>
+            <% ex.variants.each do |variant| %>
+              <% ex.muscles.each do |muscle| %>
+                <% training.levels.where(id:1).each do |level| %>
+                  <tr>
+                    <th scope="row"><%= @role_id %></th>
+                    <td><%= @role %></td>
+                    <td><%= @musculargroups.find(data.muscular_group_id).name %></td>
+                    <td><%= @capacities.find(data.capacity_id).quality.name %></td>
+                    <td><%= @capacities.find(data.capacity_id).name %></td>
+                    <td><%= training.name %></td>
+                    <td><%= ex.name %></td>
+                    <td><%= muscle.name %></td>
+                    <td><%= variant.name %></td>
+                    <td><%= level.name %></td>
+                  </tr>
+                <% end %>
+              <% end %>
             <% end %>
           <% end %>
       <% end %>

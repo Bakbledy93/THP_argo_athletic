@@ -4,8 +4,6 @@ class Exercise < ApplicationRecord
 
   has_many :exercise_variants
   has_many :variants ,through: :exercise_variants
-
-  has_many :exercise_variants
   has_many :muscles ,through: :exercise_variants
 
   def self.my_import(file)

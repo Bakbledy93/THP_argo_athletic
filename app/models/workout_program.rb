@@ -32,4 +32,8 @@ class WorkoutProgram < ApplicationRecord
     puts data_array << current_user.profile.name
   end
 
+  def self.get_priority
+    return 1
+  end
+
 end

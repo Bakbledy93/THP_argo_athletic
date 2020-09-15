@@ -15,12 +15,44 @@ class WorkoutProgramsController < ApplicationController
     @exercises_name_arr = WorkoutProgram.array_name_creator(Exercise)
     @training_methods_name_arr = WorkoutProgram.array_name_creator(TrainingMethod)
     @levels_name_arr = WorkoutProgram.array_name_creator(Level)
-    # @repetitions_name_arr = WorkoutProgram.array_name_creator(Repetition)
-    # @recuperations_name_arr = WorkoutProgram.array_name_creator(Recuperation)
     @user = current_user
-    puts " #"*30
-    puts @user
-    puts " #"*30
+
+    ##################################
+
+
+    @role = @user.profile.sport_role
+    @role_id = SportRole.where(name: @role).first.id
+
+    @priority = WorkoutProgram.get_priority
+    @data = RolesMuscularGroupCapacity.where(sport_role_id: @role_id).where(priority: @priority)
+    
+    @mg_id = @data.first.muscular_group_id
+    @mg = MuscularGroup.find(@mg_id)
+    @cap_id = @data.first.capacity_id
+    @cap = Capacity.find(@cap_id)
+    @qual = @cap.quality
+    
+    @training_methods = TrainingMethod.where(capacity_id: @cap_id)
+    @muscles = Muscle.where(muscular_group_id: @mg_id)
+    
+    arr1 = []
+    @training_methods.sample.exercises.uniq.each do |t|
+      arr1 << t.name
+    end
+
+    arr2 = []
+    @muscles.each do |m|
+      m.exercises.each do |x|
+        arr2  << x.name
+      end 
+    end
+
+    @exercises = arr1 & arr2
+
+    puts "& - "*30
+    puts @exercises
+    puts "& - "*30
+
   end
 
   def create

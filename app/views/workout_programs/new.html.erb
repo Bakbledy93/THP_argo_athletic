@@ -26,13 +26,23 @@
   <p><b>Training Method / Exercises: </b></p>
 
     <h5><b>* Training Method : </b><%= @training_methods.sample.name %></h5>
-    <% @exercises.each do |ex| %>
-      <%# ex.variants.each do |var| %>       
+    <% @exercises_arr.each do |ex| %>  
+    <% @variants_arr.each do |var| %>   
         <p><b>+ Exercises: </b><%= ex %></p>
-        <!--<p><b>~~ Variant: </b><%#= ex.variants.uniq.sample.name %></p>-->
-      <%# end %>
+        <p><b>~~ Variant: </b><%= var %></p>
     <% end %>
-<h3>t</h3>
+    <% end %>
+
+<h3>UNTIL</h3>
+    <% i = 0 %>
+    <% until i >= @exercises_arr.length do %>
+      <p><b>+ Exercises: </b><%= @exercises_arr[i] %></p>
+      <p><b>~~ Variant: </b><%= @variants_arr[i] %></p>
+      <% i += 1 %>
+    <% end %>
+
+
+<h3>TEST</h3>
     <% @muscles.all.each do |m| %>   
       <% m.exercises.uniq.each do |e| %>
         <p><b>+ Muscles: </b><%= m.name%></p>

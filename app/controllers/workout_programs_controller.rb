@@ -47,10 +47,17 @@ class WorkoutProgramsController < ApplicationController
       end 
     end
 
-    @exercises = arr1 & arr2
-
+    @exercises_arr = arr1 & arr2
+    @variants_arr = []
+    @exercises_arr.each do |ex|
+      puts "ex : "
+      puts ex
+      puts "var :"
+      @variants_arr << Exercise.where(name: ex).first.variants.uniq.sample.name 
+    end
+    puts @variants_arr
     puts "& - "*30
-    puts @exercises
+    puts @exercises_arr
     puts "& - "*30
 
   end

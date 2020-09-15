@@ -81,7 +81,7 @@ class WorkoutProgramsController < ApplicationController
   private
 
   def workout_program_params
-    params.require(:workout_program).permit(:exercise, :training_method, :level, :repetition, :recuperation, :profile_id)
+    params.require(:workout_program).permit(:exercise, :training_method, :level, :profile_id, :repetition)
   end
 
   def current_workout_program

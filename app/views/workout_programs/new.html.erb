@@ -16,70 +16,54 @@
 
   <div class="form-group">
     <h4>First Name: <%= @profile.first_name %> <%= @profile.last_name %> </h4>
-  </div>
-  <p><b>Sport: </b><%= @profile.sport %></p>
-  <p><b>Role: </b><%= @profile.sport_role %></p>
-  <p><b>Level: </b><%= form.select :level, @levels_name_arr %></p>
-  <p><b>Muscular Group: </b><%= @mg.name %></p>
-  <p><b>Quality: </b><%= @cap.name %></p>
-  <p><b>Capacity: </b><%= @qual.name %></p>
-  <p><b>Training Method / Exercises: </b></p>
+  
+    <p><b>Sport: </b><%= @profile.sport %></p>
+    <p><b>Role: </b><%= @profile.sport_role %></p>
 
-    <h5><b>* Training Method : </b><%= @training_methods.sample.name %></h5>
-    <% @exercises_arr.each do |ex| %>  
-    <% @variants_arr.each do |var| %>   
-        <p><b>+ Exercises: </b><%= ex %></p>
-        <p><b>~~ Variant: </b><%= var %></p>
-    <% end %>
-    <% end %>
+    <%# Form data %>
+    <p>
+      <b>Level: </b>
+      <%= form.select :level, @levels_name_arr %>
+    </p>
+    <p>
+      <b>Muscular Group: </b>
+      <%= @mg.name %>
+    </p>
+    <p>
+      <b>Quality: </b>
+      <%= @cap.name %>
+    </p>
+    <p>
+    <b>Capacity: 
+      </b><%= @qual.name %>
+      </p>
+    <p>
+      <b>Training Method / Exercises: </b>
+    </p>
 
-<h3>UNTIL</h3>
+    <h5>
+      <b>* Training Method : </b>
+      <%= form.hidden_field :training_method, value: @training_methods.sample.name %>
+      <%= @training_methods.sample.name %>
+    </h5>
+    <h5>
+      <b>* Exercises : </b>
+      <%= form.hidden_field :exercise, value: @exercises_arr %>
+    </h5>
+        <h5>
+      <b>* Variants : </b>
+      <%= form.hidden_field :repetition, value: @variants_arr %>
+    </h5>
+
+    <%# exercise.split(" ")## %>
+    
     <% i = 0 %>
     <% until i >= @exercises_arr.length do %>
       <p><b>+ Exercises: </b><%= @exercises_arr[i] %></p>
       <p><b>~~ Variant: </b><%= @variants_arr[i] %></p>
       <% i += 1 %>
     <% end %>
-
-
-<h3>TEST</h3>
-    <% @muscles.all.each do |m| %>   
-      <% m.exercises.uniq.each do |e| %>
-        <p><b>+ Muscles: </b><%= m.name%></p>
-        <p><b>+ Exercises: </b><%= e.name%></p>
-        <p><b>+ Exercises Id: </b><%= e.id%></p>
-      <% end %>
-    <% end %>
-
-  <br>
-  ########################
-        <p><b>~~ Variant: </b><%#= ex.variants.uniq.sample.name %></p>
-
-  <br>
-
-  <% @training_methods.each do |t| %>
-    <h5><b>* Training Method :</b><%= t.name %></h5>
-    <% t.exercises.each do |ex| %>
-      <p><b>  + Exercises: </b><%= ex.name %></p>
-      <% ex.variants.uniq.each do |v| %>
-        <p><b>~~ Variants: </b><%= v.name %></p>
-      <% end %>
-    <% end %>
-  <% end %>
-  
-  <br>
-  ########################
-  <br>
-  
-  <%= @data.first.capacity_id %>
-  <% @data.each do |data| %>
-    <p>x: <%= data %></p>
-  <% end %>
-    <br>
-  ########################
-  <p>Exercise: <%#= form.select :exercise, @exercises_name_arr %></p>
-  <p>TrainingMethod: <%#= form.select :training_method, @training_methods_name_arr %></p>
-  ########################
+  </div>
   <br>
   <%= form.submit 'New Program', :class => 'btn btn-info m-5' %>
 <% end %>

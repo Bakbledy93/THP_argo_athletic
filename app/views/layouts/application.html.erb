@@ -13,7 +13,7 @@
     <%= favicon_link_tag asset_path('argo-logo.png') %>
 
     <!-- css here -->
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'true' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body class="has-sidemenu overflow-hidden-x">
@@ -26,7 +26,7 @@
     <!-- footer -->
     <%= render "layouts/footer" %>
     <!-- js here -->
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'true' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= boostrap_js_include_tag %>
   </body>
 </html>

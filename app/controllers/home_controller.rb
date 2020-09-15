@@ -11,6 +11,8 @@ class HomeController < ApplicationController
     @sports = Sport.all
     @musculargroups = MuscularGroup.all
     @roles = SportRole.all
+    @role = @user.profile.sport_role
+    @role_id = SportRole.where(name: @role).sample.id
     @capacities = Capacity.all
     @rolesMuscularGroupCapacities = RolesMuscularGroupCapacity.all
     @trainingmethods = TrainingMethod.all

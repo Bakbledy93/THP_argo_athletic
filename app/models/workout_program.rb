@@ -21,10 +21,15 @@ class WorkoutProgram < ApplicationRecord
 
   def self.array_name_creator(model)
     array = []
-    model.all.each do |data|
+    model.first(3).each do |data|
       array << data.name
     end
     array
+  end
+
+  def self.get_data_from_user
+    data_array = []
+    puts data_array << current_user.profile.name
   end
 
 end

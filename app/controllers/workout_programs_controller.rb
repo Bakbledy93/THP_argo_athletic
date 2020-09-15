@@ -9,7 +9,7 @@ class WorkoutProgramsController < ApplicationController
   end
 
   def new
-    @profile_id = current_user.profile.id
+    @profile = current_user.profile
     @workout_program = WorkoutProgram.new
     @profiles_id_arr = WorkoutProgram.array_id_creator(Profile)
     @exercises_name_arr = WorkoutProgram.array_name_creator(Exercise)
@@ -17,7 +17,10 @@ class WorkoutProgramsController < ApplicationController
     @levels_name_arr = WorkoutProgram.array_name_creator(Level)
     # @repetitions_name_arr = WorkoutProgram.array_name_creator(Repetition)
     # @recuperations_name_arr = WorkoutProgram.array_name_creator(Recuperation)
-
+    @user = current_user
+    puts " #"*30
+    puts @user
+    puts " #"*30
   end
 
   def create

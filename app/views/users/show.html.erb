@@ -45,9 +45,9 @@
               <div class="overflow-hidden">
                 <p data-zanim-xs='{"delay":0.3}'>The ability to switch perspective lets you see clearly, and to know where to take t</p>
                 <p data-zanim-xs='{"delay":0.3}'>Jour 1 - Jour 2 - Jour 3 - Jour 4 -</p>
-                <%= link_to "Jour 1", workout_program_path(id: @profile, user_id: @ex1), class:"btn btn-outline-dark btn-sm mt-3"%>
-                <%= link_to "Jour 2", workout_program_path(id: @profile, user_id: @ex2), class:"btn btn-outline-dark btn-sm mt-3"%>
-                <%= link_to "Jour 3", workout_program_path(id: @profile, user_id: @ex3), class:"btn btn-outline-dark btn-sm mt-3"%>
+                <%= link_to "Jour 1", workout_program_path(program_id: @ex1, day: 1), class:"btn btn-outline-dark btn-sm mt-3"%>
+                <%= link_to "Jour 2", workout_program_path(program_id: @ex2, day: 2), class:"btn btn-outline-dark btn-sm mt-3"%>
+                <%= link_to "Jour 3", workout_program_path(program_id: @ex3, day: 3), class:"btn btn-outline-dark btn-sm mt-3"%>
 
               </div>
             </div>

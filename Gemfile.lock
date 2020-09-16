@@ -257,7 +257,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actioncable
   activerecord-import
   activerecord-reset-pk-sequence
   aws-sdk-s3

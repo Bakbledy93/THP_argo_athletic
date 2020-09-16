@@ -49,8 +49,7 @@
                   <%= link_to "Jour 2", workout_program_path(program_id: @ex2, day: 2), class:"btn btn-outline-dark btn-sm mt-3"%>
                   <%= link_to "Jour 3", workout_program_path(program_id: @ex3, day: 3), class:"btn btn-outline-dark btn-sm mt-3"%>
                 <% else %>
-                  <p data-zanim-xs='{"delay":0.3}'>Merci de créer votre programme d'entraînement. Cliquez sur le button "Créer mon Programme"</p>
-
+                  <p data-zanim-xs='{"delay":0.3}'>Merci de créer votre programme d'entraînement. Cliquez sur le button "Créer mon Programme"</p>                
                 <% end %>
               </div>
             </div>
@@ -60,9 +59,15 @@
                 <h4 class="mt-4" data-zanim-xs='{"delay":0.2}'>VOTRE COMPTE</h4>
               </div>
               <div class="overflow-hidden">
-                <p data-zanim-xs='{"delay":0.3}'>Nom Prénom</p>
-                <p data-zanim-xs='{"delay":0.3}'>Adresse mail</p>
-                <p data-zanim-xs='{"delay":0.3}'>Inscrits depuis</p>
+                <p data-zanim-xs='{"delay":0.3}'>
+                  <%= current_user.profile.first_name %>
+                  <%= current_user.profile.last_name %>  
+                </p>
+                <p data-zanim-xs='{"delay":0.3}'><%= current_user.email %></p>
+                <p data-zanim-xs='{"delay":0.3}'>
+                  <span>Inscrit depuis: </span>
+                  <%= current_user.created_at %>
+                </p>
                 <div><%= link_to "Compte utilisateur", edit_user_registration_path, class:"btn btn-primary btn-sm" %></div>
                 <div>
                   <%= link_to "Editer Profile Sportif", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-dark btn-sm mt-3"%>

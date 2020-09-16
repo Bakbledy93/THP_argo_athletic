@@ -21,9 +21,9 @@ class ProfileController < ApplicationController
     @profile = Profile.create(params.require(:profile).permit(:first_name, :last_name, :weight, :height, :sport, :sport_role, :date_of_birth))
     if @profile.valid?
       redirect_to root_path
-      flash[:error] = @profile.errors.full_messages
+      flash[:alert] = @profile.errors.full_messages
     else
-      flash[:error] = @profile.errors.full_messages
+      flash[:alert] = @profile.errors.full_messages
       redirect_to user_path(params[:id])
     end
   end
@@ -32,7 +32,7 @@ class ProfileController < ApplicationController
     @sports = Sport.all
     @profile = Profile.find(params[:id])
     @profile.update(params.require(:profile).permit(:first_name, :last_name, :weight, :height, :sport, :sport_role, :date_of_birth, :level))
-    flash[:error] = "Le Profil à été mis à jour"
+    flash[:alert] = "Le Profil à été mis à jour"
     redirect_to user_path(params[:id])
   end
 end

@@ -9,6 +9,10 @@ class WorkoutProgramsController < ApplicationController
     @current_program_id = params[:program_id]
     @day = params[:day]
     @program = WorkoutProgram.find(@current_program_id).exercise[1..-2].split(",")
+    @variant = WorkoutProgram.find(@current_program_id).variant[1..-2].split(",")
+    @repetition  = WorkoutProgram.find(@current_program_id).repetition
+    @recuperation  = WorkoutProgram.find(@current_program_id).recuperation
+    @serie  = WorkoutProgram.find(@current_program_id).serie
   end
 
   def new

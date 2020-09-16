@@ -36,8 +36,7 @@
                     <h3>Jour <%= @day %></h3>
                     <p>Once the Blueprint is approved, we create wireframes and a design comp for your review. This process involves various reviews, approvals, and close communication between you and our creative team. We begin with the Homepage to set
                       style, image and branding standards, then move toward interior layouts.</p>
-                    <a class="btn btn-outline-dark btn-sm mt-3" href="#">Voir la séance</a>
-
+                    <%= link_to "Retour", user_path(:id), class:"btn btn-outline-dark btn-sm mt-3" %>
                   </div>
                 </div>
               </div>
@@ -49,9 +48,17 @@
                   <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">01</span>
                     <h3>Exercice 1</h3>
                     <h4><%= @program[0] %></h4>
+                    <h5>Variant: <%= @variant[0] %></h5>
                     <p>Once the Blueprint is approved, we create wireframes and a design comp for your review. This process involves various reviews, approvals, and close communication between you and our creative team. We begin with the Homepage to set
                       style, image and branding standards, then move toward interior layouts.</p>
-                    <a class="btn btn-outline-dark btn-sm mt-3" href="#">Voir la séance</a>
+              
+                    <p><b>Repetitions : </b><%= @repetition %></p>
+                    <p><b>Series : </b><%= @serie %></p>
+                    <p><b>Temps de répos : </b><%= @recuperation %> min</p>
+       
+                    <%= link_to "Retour", user_path(:id), class:"btn btn-outline-dark btn-sm mt-3" %>
+
+                
                 </div>
               </div>
               <div class="row">
@@ -62,9 +69,13 @@
                   <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">02</span>
                     <h3>Exercice 2</h3>
                     <h4><%= @program[1] %></h4>
+                    <h5>Variant: <%= @variant[1] %></h5>
                     <p>With the blueprint &amp; design comps as our guide, the development team begins to create your website with the state of the earth tools. Our entire team works to add content, final design elements, review, &amp; test your website
                       for quality.</p>
-                  <a class="btn btn-outline-dark btn-sm mt-3" href="#">Voir la séance</a>
+                    <p><b>Repetitions : </b><%= @repetition %></p>
+                    <p><b>Series : </b><%= @serie %></p>
+                    <p><b>Temps de répos : </b><%= @recuperation %> min</p>
+                    <%= link_to "Retour", user_path(:id), class:"btn btn-outline-dark btn-sm mt-3" %>
                   </div>
                 </div>
               </div>
@@ -76,8 +87,12 @@
                   <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">03</span>
                     <h3>Exercice 3</h3>
                     <h4><%= @program[2] %></h4>
+                    <h5>Variant: <%= @variant[2] %></h5>
+                    <p><b>Repetitions : </b><%= @repetition %></p>
+                    <p><b>Series : </b><%= @serie %></p>
+                    <p><b>Temps de répos : </b><%= @recuperation %> min</p>
                     <p>After testing and review, we present your new website. Upon your approval, your website will be launched, promoted and optimized for search engines such as Google &amp; Bing.</p>
-                      <a class="btn btn-outline-dark btn-sm mt-3" href="#">Voir la séance</a>                 
+                    <%= link_to "Retour", user_path(:id), class:"btn btn-outline-dark btn-sm mt-3" %>
                   </div>
                 </div>
               </div>
@@ -90,9 +105,13 @@
                   <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">04</span>
                     <h3>Exercice 4</h3>
                     <h4><%= @program[3] %></h4>
+                    <h5>Variant: <%= @variant[3] %></h5>
+                    <p><b>Repetitions : </b><%= @repetition %></p>
+                    <p><b>Series : </b><%= @serie %></p>
+                    <p><b>Temps de répos : </b><%= @recuperation %> min</p>
                     <p>With the blueprint &amp; design comps as our guide, the development team begins to create your website with the state of the earth tools. Our entire team works to add content, final design elements, review, &amp; test your website
                       for quality.</p>
-                  <a class="btn btn-outline-dark btn-sm mt-3" href="#">Voir la séance</a>
+                    <%= link_to "Retour", user_path(:id), class:"btn btn-outline-dark btn-sm mt-3" %>
                   </div>
                 </div>
             </div>

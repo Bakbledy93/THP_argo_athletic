@@ -116,7 +116,7 @@
                 <%=customer_card_details.exp_year%>
                 <br>
               </p>
-              <%= link_to "Supprimer", delete_card_charges, method: :post%>
+              <%= link_to "Supprimer", delete_card_charges_path, method: :post%>
               <%else%>
                 <%= form_tag create_card_charges_path, id: "billing-create-payment-method" do  %>
                   <%= link_to "Ajouter une carte", new_card_charges_path, remote: true, class: "btn btn-success" %>

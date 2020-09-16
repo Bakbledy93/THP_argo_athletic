@@ -22,7 +22,6 @@
     </div>
     <div class="fancynavbar-collapse">
       <ul class="fancynavbar-nav">
-      <!--
         <li class="fancynav-item fancy-dropdown">
           <a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)">
             <span class="fancynav-link-content">
@@ -32,17 +31,16 @@
             <div class="fancy-dropdown-menu">
               <div class="row pb-4 pt-3">
                 <div class="col-auto">
-                  <p class="fancy-dropdown-item">
-                    (Bientot)Entrainement
-                  </p>
-                  <p class="fancy-dropdown-item">
-                    (Bientot)Chat
-                  </p>
+                  <!-- chat -->
+                  <%= link_to "Chat",
+                    chat_path,
+                    method: 'get',
+                    class:"fancy-dropdown-item"
+                  %>          
                 </div>
               </div>
             </div>
         </li>
-        -->
           <li class="fancynav-item fancy-dropdown">
             <a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)">
               <span class="fancynav-link-content">

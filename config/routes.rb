@@ -115,4 +115,8 @@ Rails.application.routes.draw do
 
   # communication'path route (unseen route)
   mount ActionCable.server => '/cable'
+  # to change to resources
+  get '/chat', to: 'chatrooms#show'
+  # message create path
+  resources :messages, only: [:create]
 end

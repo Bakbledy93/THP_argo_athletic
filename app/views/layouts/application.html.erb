@@ -7,7 +7,7 @@
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= viewport_meta_tag(:maximum_scale => "1.0") %>
 
     <!-- favicon -->
     <%= favicon_link_tag asset_path('argo-logo.png') %>
@@ -21,15 +21,14 @@
     <%= render "layouts/preloader" %>
     <!-- navbar -->
     <%= render "layouts/navbar" %>
-    <!-- bootstrap flash -->
-    <%= bootstrap_flash %>
+    <!-- flash messages -->
+    <%= render "layouts/flash_messages" %>
     <!-- jumbotron -->
     <%= yield %>
     <!-- footer -->
     <%= render "layouts/footer" %>
     <!-- js here -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= boostrap_js_include_tag %>
     <%= javascript_include_tag 'https://checkout.stripe.com/checkout.js' %>
   </body>
 </html>

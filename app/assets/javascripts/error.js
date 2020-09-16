@@ -3,12 +3,13 @@ function fade_after_time(fade_out_time) {
 
   $(document).ready(function(){
     setTimeout(function(){
-      $('#notice_wrapper').fadeOut("slow", function() {
+      $('#flash-wrapper').fadeOut("slow", function() {
         $(this).remove();
       })
     }, fade_out_time) ;
   });
 }
+
 
 /* main */
 

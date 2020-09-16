@@ -5,3 +5,28 @@
     </div>
   </div>
 </div>
+
+        <div class="card box-shadow text-center" style="width: 18rem;">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Titan</h4>
+          </div>
+          <div class="card-body">
+            <h1><option value="<%= @plan_1.id %>"><%= @plan_1.amount/100 %>/€ <%= @plan_1.nickname %> mois</option></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Programme personnalisé</li>
+              <li>Exercices illimités</li>
+              <li>Nutrition sportive</li>
+              <li>Récupération</li>
+            </ul>
+            <%if current_user.stripe_id.nil?%>
+            <%= form_tag create_card_charges_path, id: "billing-create-payment-method" do  %>
+              <%= link_to "M'abonner", new_card_charges_path, remote: true, class: "btn btn-success" %>
+            <% end %>
+            <%else%>
+            <%= form_tag subscribe_charges_path do  %>
+              <%= link_to "M'abonner", subscribe_charges_path(:plan_id => @plan_1.id),method: :post, class: "btn btn-success" %>
+            <%end%>    
+            <%end%>      
+          </div>
+        </div>
+

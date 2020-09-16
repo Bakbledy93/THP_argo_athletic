@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <%= display_meta_tags site: 'Argo Athletic' %>
+    <!-- meta data -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <%= viewport_meta_tag(:maximum_scale => "1.0") %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <%= viewport_meta_tag(:maximum_scale => "1.0") %>
-
+    <!-- title -->
+    <%= display_meta_tags site: 'Argo Athletic' %>
     <!-- favicon -->
     <%= favicon_link_tag asset_path('argo-logo.png') %>
 

@@ -10,6 +10,7 @@ function fade_after_time(fade_out_time) {
   });
 }
 
+
 /* main */
 
 // variable that defines in seconds the fade out time

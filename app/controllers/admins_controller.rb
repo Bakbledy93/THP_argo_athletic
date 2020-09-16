@@ -3,7 +3,7 @@ class AdminsController < ApplicationController
 
   def authenticate_admin
     unless current_admin
-      flash[:danger] = "Unauthorized section"
+      flash[:alert] = "Unauthorized section"
       redirect_to root_path
     end
   end
@@ -25,13 +25,13 @@ class AdminsController < ApplicationController
       @admin = Admin.create!(admin_params)
       if @admin.valid?
         redirect_to root_path
-        flash[:success] = "A new Admin was successfully created"
+        flash[:notice] = "A new Admin was successfully created"
       else
-        flash[:danger] = "Unauthorized action"
+        flash[:alert] = "Unauthorized action"
         redirect_to new_admin_path
       end
     rescue
-      flash[:danger] = "Email not valid"
+      flash[:alert] = "Email not valid"
       redirect_to new_admin_path
     end
 

@@ -1,25 +1,20 @@
-#notice_wrapper {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 999;
-    background: rgba(135, 216, 211, 1); 
+#flash-wrapper {
+  position: absolute;
+  border-radius: 45%;
+  width: 100%;
+  top: 0%;
+  left: 59%;
+  width: 30%;
+  z-index: 999;
 }
-.notice {
-    padding: 2.5rem 0;
-    text-align: center;
-    margin: 0;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #FFFFFF;
-    letter-spacing: 1px;
-}
-.alert {
-    padding: 2.5rem 0;
-    text-align: center;
-    margin: 0;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #FFFFFF;
-    letter-spacing: 1px;
+
+#flash-message {
+  padding: 2.5rem 0;
+  text-align: center;
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  background: black; 
+  color: white;
+  letter-spacing: 1px;
 }

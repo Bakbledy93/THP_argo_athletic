@@ -59,9 +59,15 @@
                 <h4 class="mt-4" data-zanim-xs='{"delay":0.2}'>VOTRE COMPTE</h4>
               </div>
               <div class="overflow-hidden">
-                <p data-zanim-xs='{"delay":0.3}'>Nom Prénom</p>
-                <p data-zanim-xs='{"delay":0.3}'>Adresse mail</p>
-                <p data-zanim-xs='{"delay":0.3}'>Inscrits depuis</p>
+                <p data-zanim-xs='{"delay":0.3}'>
+                  <%= current_user.profile.first_name %>
+                  <%= current_user.profile.last_name %>  
+                </p>
+                <p data-zanim-xs='{"delay":0.3}'><%= current_user.email %></p>
+                <p data-zanim-xs='{"delay":0.3}'>
+                  <span>Inscrit depuis: </span>
+                  <%= current_user.created_at %>
+                </p>
                 <div><%= link_to "Compte utilisateur", edit_user_registration_path, class:"btn btn-primary btn-sm" %></div>
                 <div>
                   <%= link_to "Editer Profile Sportif", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-dark btn-sm mt-3"%>

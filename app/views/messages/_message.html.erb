@@ -3,16 +3,18 @@
     <!-- time the message is sent -->
     <small>
       <em>
-        Crée il y a 
+        Envoyé il y a 
           <%= time_ago_in_words(message.created_at)%>
       </em>
     </small>
  </p>
   <p>
-    <!-- put avatar code here if wanted -->
+    <%= image_tag user_avatar(current_user, 20), 
+        class: "rounded-circle" 
+    %>
     <!-- name of the sender -->
     <strong>
-      <%= message.user.profile.first_name %>
+      <%= message.user.profile.first_name %> :
     </strong>
     <!-- message content -->
     <span class="content">

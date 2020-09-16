@@ -99,34 +99,40 @@
           </div>
         <% end %>  
       </div>
+    
+      <div class="d-flex justify-content-center">
+
+        <div class="card" style="width: 18rem;">
+          <div class="card-header">
+            <h5>Carte de paiment</h5>
+          </div>
+          <div class="card-body">
+            <% unless current_user.stripe_id.nil? or customer_card_id.nil?  %>
+              <p class="card-text">Card :  **** **** ****  <%=customer_card_details.last4%>
+              <%if customer_card_details.brand == 'Visa'%>
+                <i class="fab fa-cc-visa"></i>
+              <%elsif customer_card_details.brand == 'Mastercard'%>
+                <i class="fab fa-cc-mastercard"></i>
+              <%end%>
+                <br></p>
+                <p class="card-text">exp :            
+                  <%=customer_card_details.exp_month%>/
+                  <%=customer_card_details.exp_year%>
+                  <br>
+                </p>
+                <%= link_to "Supprimer", delete_card_charges_path, method: :post, class:"btn btn-danger btn-sm mt-3" %>
+              <%else%>
+                <%= form_tag create_card_charges_path, id: "billing-create-payment-method" do  %>
+                <%= link_to "Ajouter une carte", new_card_charges_path, remote: true, class: "btn btn-success" %>
+              <% end %>
+            <%end%>
+          </div>
+        </div>
+      </div>
+
     </section>
 
-    <div class="card" style="width: 18rem;">
-      <div class="card-header">
-        Carte de paiment
-      </div>
-      <div class="card-body">
-        <% unless current_user.stripe_id.nil? or customer_card_id.nil?  %>
-          <p class="card-text">Card :  **** **** ****  <%=customer_card_details.last4%>
-          <%if customer_card_details.brand == 'Visa'%>
-            <i class="fab fa-cc-visa"></i>
-          <%elsif customer_card_details.brand == 'Mastercard'%>
-            <i class="fab fa-cc-mastercard"></i>
-          <%end%>
-            <br></p>
-            <p class="card-text">exp :            
-              <%=customer_card_details.exp_month%>/
-              <%=customer_card_details.exp_year%>
-              <br>
-            </p>
-            <%= link_to "Supprimer", delete_card_charges_path, method: :post%>
-          <%else%>
-            <%= form_tag create_card_charges_path, id: "billing-create-payment-method" do  %>
-            <%= link_to "Ajouter une carte", new_card_charges_path, remote: true, class: "btn btn-success" %>
-          <% end %>
-        <%end%>
-      </div>
-    </div>
+
   <br>
   <br>
 

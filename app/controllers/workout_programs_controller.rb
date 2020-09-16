@@ -127,7 +127,7 @@ class WorkoutProgramsController < ApplicationController
   end
 
   def current_workout_program
-    @workout_program = WorkoutProgram.find(params[:id])
+    # @workout_program = WorkoutProgram.find(params[:id])
   end
 
   def create_workout_program

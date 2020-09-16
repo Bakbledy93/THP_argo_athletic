@@ -8,9 +8,12 @@ module ApplicationCable
     def disconnect
 
     end
+
     protected
+
+    # return current user if found
     def find_current_user
-      if user_signed_in?
+      if current_user = User.find_by(id: cookies.signed[:user_id])
         current_user
       else
         reject_unauthorized_connection

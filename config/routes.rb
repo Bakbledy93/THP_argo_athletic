@@ -113,4 +113,6 @@ Rails.application.routes.draw do
     collection {post :delete_card}
   end
 
+  # communication'path route (unseen route)
+  mount ActionCable.server => '/cable'
 end

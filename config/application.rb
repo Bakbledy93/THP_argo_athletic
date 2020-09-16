@@ -15,7 +15,7 @@ module Argo
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-    config.action_cable.mount_path = "/cable"
+    config.action_cable.mount_path = '/cable'
     config.assets.initialize_on_precompile = false
 
   end

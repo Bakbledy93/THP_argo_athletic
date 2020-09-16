@@ -103,7 +103,7 @@
             Carte de paiment
           </div>
             <div class="card-body">
-            <% unless current_user.stripe_id.nil?%>
+            <% unless customer_card_id.nil?%>
               <p class="card-text">Card :  **** **** ****  <%=customer_card_details.last4%>
               <%if customer_card_details.brand == 'Visa'%>
                 <i class="fab fa-cc-visa"></i>
@@ -116,9 +116,11 @@
                 <%=customer_card_details.exp_year%>
                 <br>
               </p>
-              <a href="#" class="">Supprimer <i class="far fa-trash-alt"></i></a>
+              <%= link_to "Supprimer", delete_card_charges, method: :post%>
               <%else%>
-              <%= link_to "Ajouter une carte", new_card_charges_path, remote: true, class: "btn btn-success" %>
+                <%= form_tag create_card_charges_path, id: "billing-create-payment-method" do  %>
+                  <%= link_to "Ajouter une carte", new_card_charges_path, remote: true, class: "btn btn-success" %>
+                <% end %>
               <%end%>
             </div>
           </div><br>

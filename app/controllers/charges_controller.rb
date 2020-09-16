@@ -38,6 +38,18 @@ class ChargesController < ApplicationController
     end
   end
 
+  def destroy
+  end
+
+  def delete_card
+    puts     Stripe::Customer.retrieve(current_user.stripe_id).default_source
+    Stripe::Customer.delete_source(
+      current_user.stripe_id,
+      Stripe::Customer.retrieve(current_user.stripe_id).default_source,
+    )
+    redirect_to edit_user_registration_path
+  end
+
   def success
     @plans = Stripe::Plan.list.data
   end

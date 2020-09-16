@@ -110,6 +110,7 @@ Rails.application.routes.draw do
     collection {get :success}
     collection {get :new_card}
     collection {post :create_card}
+    collection {post :delete_card}
   end
 
 end

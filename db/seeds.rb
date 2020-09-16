@@ -7,3 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+puts'seed begins'
+
+puts'destroy DB'
+User.destroy_all
+User.reset_pk_sequence
+
+
+puts'creating user'
+1.times do |x|
+  user = User.create!(
+    email: "user@user.com",
+    password:"azerty",
+    password_confirmation:"azerty",
+  )
+end
+
+puts 'Seed done'

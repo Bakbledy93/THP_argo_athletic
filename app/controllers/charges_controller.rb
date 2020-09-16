@@ -5,7 +5,7 @@ class ChargesController < ApplicationController
 
   def index
     @user=current_user.email
-   end
+  end
 
   def new_card
     respond_to do |format|
@@ -52,6 +52,16 @@ class ChargesController < ApplicationController
 
   def success
     @plans = Stripe::Plan.list.data
+    @plan_1 = Stripe::Plan.retrieve(
+      'price_1HRfEKJz7TPSTY9W03MPLnl9',
+    )
+    @plan_2 = Stripe::Plan.retrieve(
+      'price_1HRfEKJz7TPSTY9WoWHNHTUt',
+    )
+    puts '*'*150
+    puts @plan_1
+    puts '*'*150
+    puts @plan_2
   end
 
   def subscribe
@@ -74,7 +84,7 @@ class ChargesController < ApplicationController
     subscription = Stripe::Subscription.create({
       customer: customer,
       items: [{plan: plan_id}], })
- #we are creating a new subscription with the plan_id we took from our form
+#we are creating a new subscription with the plan_id we took from our form
 
     subscription.save
     redirect_to success_path

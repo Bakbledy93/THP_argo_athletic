@@ -4,7 +4,7 @@
 <!-- form for registration -->
   <%= render "devise/shared/error_messages", resource: resource %>
     
-    <section class="py-0" id="page-signup">
+    <section class="py-0 lg-mr-5" id="page-signup">
       <div class="container-fluid">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <div class="row">
@@ -18,7 +18,7 @@
               </div>
             </div>
 
-            <div class="col-lg-6 bg-white py-6">
+            <div class="col-lg-5 bg-white py-6">
               <div class="row h-100 align-items-center justify-content-center">
                 <div class="col-sm-8 col-md-6 col-lg-10 col-xl-8"
                     data-zanim-xs='{"animation":"slide-right"}'
@@ -87,48 +87,84 @@
                             data: { confirm: "Etes-vous sur ?" }, method: :delete %>
                         
                           <%= link_to "Retour", user_path(current_user.id), class:"btn btn-dark mt-3" %>
+
                         </div>
                       </div>
                     </div>
+
+                    <div class="col mb-4 align-items-left">
+                      <div class="col-auto">
+                        <br>
+                        <div class="btn btn-block">
+                          <!-- Button trigger modal -->
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Editer Données de Paiement
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
 
                 </div>
               </div>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="d-flex justify-content-center">
+
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-header">
+                            <h5>Carte de paiment</h5>
+                          </div>
+                          <div class="card-body">
+                            <% unless current_user.stripe_id.nil? or customer_card_id.nil?  %>
+                              <p class="card-text">Card :  **** **** ****  <%=customer_card_details.last4%>
+                              <%if customer_card_details.brand == 'Visa'%>
+                                <i class="fab fa-cc-visa"></i>
+                              <%elsif customer_card_details.brand == 'Mastercard'%>
+                                <i class="fab fa-cc-mastercard"></i>
+                              <%end%>
+                                <br></p>
+                                <p class="card-text">exp :            
+                                  <%=customer_card_details.exp_month%>/
+                                  <%=customer_card_details.exp_year%>
+                                  <br>
+                                </p>
+                                <%= link_to "Supprimer", delete_card_charges_path, method: :post, class:"btn btn-danger btn-sm mt-3" %>
+                              <%else%>
+                                <%= form_tag create_card_charges_path, id: "billing-create-payment-method" do  %>
+                                <%= link_to "Ajouter une carte", new_card_charges_path, remote: true, class: "btn btn-success" %>
+                              <% end %>
+                            <%end%>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
             </div>
 
           </div>
         <% end %>  
       </div>
     
-      <div class="d-flex justify-content-center">
 
-        <div class="card" style="width: 18rem;">
-          <div class="card-header">
-            <h5>Carte de paiment</h5>
-          </div>
-          <div class="card-body">
-            <% unless current_user.stripe_id.nil? or customer_card_id.nil?  %>
-              <p class="card-text">Card :  **** **** ****  <%=customer_card_details.last4%>
-              <%if customer_card_details.brand == 'Visa'%>
-                <i class="fab fa-cc-visa"></i>
-              <%elsif customer_card_details.brand == 'Mastercard'%>
-                <i class="fab fa-cc-mastercard"></i>
-              <%end%>
-                <br></p>
-                <p class="card-text">exp :            
-                  <%=customer_card_details.exp_month%>/
-                  <%=customer_card_details.exp_year%>
-                  <br>
-                </p>
-                <%= link_to "Supprimer", delete_card_charges_path, method: :post, class:"btn btn-danger btn-sm mt-3" %>
-              <%else%>
-                <%= form_tag create_card_charges_path, id: "billing-create-payment-method" do  %>
-                <%= link_to "Ajouter une carte", new_card_charges_path, remote: true, class: "btn btn-success" %>
-              <% end %>
-            <%end%>
-          </div>
-        </div>
-      </div>
 
     </section>
 

@@ -21,8 +21,8 @@
     <%= render "layouts/preloader" %>
     <!-- navbar -->
     <%= render "layouts/navbar" %>
-    <!-- bootstrap flash -->
-    <%= bootstrap_flash %>
+    <!-- flash messages -->
+    <%= render_flash_messages dismissible: true %>
     <!-- jumbotron -->
     <%= yield %>
     <!-- footer -->

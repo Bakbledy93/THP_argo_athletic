@@ -9,34 +9,27 @@ class WorkoutProgramsController < ApplicationController
   end
 
   def new
-    @profile = current_user.profile
     @workout_program = WorkoutProgram.new
-    @profiles_id_arr = WorkoutProgram.array_id_creator(Profile)
-    @exercises_name_arr = WorkoutProgram.array_name_creator(Exercise)
-    @training_methods_name_arr = WorkoutProgram.array_name_creator(TrainingMethod)
-    @levels_name_arr = WorkoutProgram.array_name_creator(Level)
     @user = current_user
-
-    ##################################
-
-
+    @profile = current_user.profile
+    # @priority = WorkoutProgram.get_priority
     @level = @user.profile.level
     @sport = @user.profile.sport
     @role = @user.profile.sport_role
     @role_id = SportRole.where(name: @role).first.id
+    @repetitions = Level.where(name: @level).first.repetitions
+    @recuperation = Level.where(name: @level).first.recuperations
+    @serie = Level.where(name: @level).first.series
 
-    @priority = WorkoutProgram.get_priority
-    @data = RolesMuscularGroupCapacity.where(sport_role_id: @role_id).where(priority: @priority)
-    
-    @mg_id = @data.first.muscular_group_id
-    @mg = MuscularGroup.find(@mg_id)
-    @cap_id = @data.first.capacity_id
-    @cap = Capacity.find(@cap_id)
-    @qual = @cap.quality
-    
+    @rolesMGcap = RolesMuscularGroupCapacity.where(sport_role_id: @role_id).where(priority: 1)
+    @rolesMGcap2 = RolesMuscularGroupCapacity.where(sport_role_id: @role_id).where(priority: 2)
+    @rolesMGcap3 = RolesMuscularGroupCapacity.where(sport_role_id: @role_id).where(priority: 2)
+    @cap_id = @rolesMGcap.first.capacity_id
     @training_methods = TrainingMethod.where(capacity_id: @cap_id)
+    @mg_id = @rolesMGcap.first.muscular_group_id
+
     @muscles = Muscle.where(muscular_group_id: @mg_id)
-    
+
     arr1 = []
     @training_methods.sample.exercises.uniq.each do |t|
       arr1 << t.name
@@ -50,6 +43,7 @@ class WorkoutProgramsController < ApplicationController
     end
 
     @exercises_arr = arr1 & arr2
+
     @variants_arr = []
     @exercises_arr.each do |ex|
       puts "ex : "
@@ -57,21 +51,30 @@ class WorkoutProgramsController < ApplicationController
       puts "var :"
       @variants_arr << Exercise.where(name: ex).first.variants.uniq.sample.name 
     end
-    puts @variants_arr
-    puts "& - "*30
-    puts @exercises_arr
-    puts "& - "*30
+    ##################################
+    
+    
+    # @profiles_id_arr = WorkoutProgram.array_id_creator(Profile)
+    # @exercises_name_arr = WorkoutProgram.array_name_creator(Exercise)
+    # @training_methods_name_arr = WorkoutProgram.array_name_creator(TrainingMethod)
+    # @levels_name_arr = WorkoutProgram.array_name_creator(Level)
+    
 
-    @repetitions = Level.where(name: @level).first.repetitions
-    @recuperation = Level.where(name: @level).first.recuperations
-    @serie = Level.where(name: @level).first.series
+    # @mg = MuscularGroup.find(@mg_id)
+    
+    # @cap = Capacity.find(@cap_id)
+    # @qual = @cap.quality
+
+    ##################################
 
   end
 
   def create
     @workout_program = WorkoutProgram.create!(workout_program_params)
+    @workout_program = WorkoutProgram.create!(workout_program_params)
+    @workout_program = WorkoutProgram.create!(workout_program_params)
 
-    flash[:notice] = "The Workout Program was Created"
+    flash[:notice] = "Le programme d'entraînement à été crée"
     redirect_to user_path(current_user.id)
   end
 

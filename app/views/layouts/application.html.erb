@@ -19,10 +19,10 @@
   <body class="has-sidemenu overflow-hidden-x">
     <!-- preloader -->
     <%= render "layouts/preloader" %>
+    <!-- flash messages -->
+    <%= render "layouts/error_messages" %>
     <!-- navbar -->
     <%= render "layouts/navbar" %>
-    <!-- flash messages -->
-    <%= render_flash_messages dismissible: true %>
     <!-- jumbotron -->
     <%= yield %>
     <!-- footer -->

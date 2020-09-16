@@ -92,3 +92,5 @@ gem 'bootstrap-cdn-rails'
 gem 'meta-tags'
 # Reset DB ID
 gem 'activerecord-reset-pk-sequence'
+# Adds Stripe
+gem 'stripe'

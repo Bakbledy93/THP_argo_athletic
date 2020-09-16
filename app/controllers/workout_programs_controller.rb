@@ -8,7 +8,7 @@ class WorkoutProgramsController < ApplicationController
   def show
     @current_program_id = params[:program_id]
     @day = params[:day]
-    @program = WorkoutProgram.find(@current_program_id)
+    @program = WorkoutProgram.find(@current_program_id).exercise[1..-2].split(",")
   end
 
   def new

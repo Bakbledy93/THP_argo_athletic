@@ -20,4 +20,11 @@ module ApplicationHelper
     customer_subscription.plan.amount
   end
 
+  def plan_1
+    Stripe::Plan.retrieve(
+      'price_1HRfEKJz7TPSTY9W03MPLnl9',
+    ).id
+  end
+
+
 end

@@ -25,9 +25,58 @@
                   Spécialement conçue pour les compétieurs pour leur préparation physique.
                 </h6>
               <form class="mt-5">
+                <h5>Vous allez créer votre programme d'entrainement avec les données: </h5>
+                <h4>Niveau</h4>
+                <h5><%= @niveau %></h5>
+
+                <h4>Sport</h4>
+                <h5><%= @sport %></h5>
+
+                <h4>Role</h4>
+                <h5><%= @role%></h5>
+
+                <%# Form data %>
+
+                <%= form.hidden_field :training_method, value: @training_methods.sample.name %>
+                <%= form.hidden_field :exercise, value: @exercises_arr %>
+                <%= form.hidden_field :level, value:  @level %>
+                <%#= form.hidden_field :repetition, value:  %>
+                <%#= form.hidden_field :recuperation, value:  %>
+                <%#= form.hidden_field :profile_id, value:  %>
+                <%#= form.hidden_field :serie, value:  %>
+                <%= @repetitions %>
+                    <p>
+                      <h5>Level: </h5>
+                      
+                    </p>
+                    <h5>
+                      <b>Training Method: </b>
+                      <p><%#= @training_methods.sample.name %></p>
+                    </h5>
+                    
+                    <h5>
+                      <b>* Exercises : </b>
+                      <p><%= @exercises_arr %></p>
+                    </h5>
+
+                    <h5>
+                      <b>* Level : </b>
+                      <p><%= @levels_name_arr %></p>
+                      
+                    </h5>
+                    
+                    
+                    
+                    <h5>
+                      <b>* Variants : </b>
+                    </h5>
+
+                    <%# /Form data %>
+
+
                 <div class="row mb-4">
                   <div class="col">Exercice
-                <%= form.select :exercise, @exercises_name_arr, 
+                <%#= form.select :exercise, @exercises_name_arr, 
                         class:"form-control border-300 bg-light",
                         autofocus: true                     
                     %> 
@@ -35,13 +84,13 @@
                 </div>
                 <div class="row mb-4">
                   <div class="col">Training Method
-                    <%= form.select :training_method, @training_methods_name_arr,
+                    <%#= form.select :training_method, @training_methods_name_arr,
                         class:"form-control border-300 bg-light",
                         placeholder: "Training" 
                     %> 
                   </div>
                   <div class="col">Level
-                    <%= form.select :level, @levels_name_arr,
+                    <%#= form.select :level, @levels_name_arr,
                         class:"form-control border-300 bg-light",
                         placeholder: "Level"
                     %>

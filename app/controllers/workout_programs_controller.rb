@@ -20,6 +20,8 @@ class WorkoutProgramsController < ApplicationController
     ##################################
 
 
+    @level = @user.profile.level
+    @sport = @user.profile.sport
     @role = @user.profile.sport_role
     @role_id = SportRole.where(name: @role).first.id
 
@@ -59,6 +61,8 @@ class WorkoutProgramsController < ApplicationController
     puts "& - "*30
     puts @exercises_arr
     puts "& - "*30
+
+    @repetitions = Level.where(name: @level)
 
   end
 

@@ -25,7 +25,7 @@ class ChargesController < ApplicationController
       card_token = params[:stripeToken]
       #it's the stripeToken that we added in the hidden input
       if card_token.nil?
-        format.html { redirect_to charges_path, error: "Oops"}
+        format.html {redirect_to request.referrer, error: "Oops"}
       end
       #checking if a card was giving.
 
@@ -34,7 +34,7 @@ class ChargesController < ApplicationController
       #we're attaching the card to the stripe customer
       customer.save
 
-      format.html { redirect_to success_charges_path }
+      format.html {redirect_to request.referrer}
     end
   end
 
@@ -83,9 +83,18 @@ class ChargesController < ApplicationController
       customer: customer,
       items: [{plan: plan_id}], })
 #we are creating a new subscription with the plan_id we took from our form
-
+    puts '*'*150
+    puts subscription.id
+    puts '*'*150
+    current_user.update(:sub_id => subscription.id)
     subscription.save
     redirect_to root_path
+  end
+
+  def cancel_subscription
+    Stripe::Subscription.delete(current_user.sub_id)
+    current_user.update(:sub_id => nil)
+    redirect_to edit_user_registration_path
   end
 
 end

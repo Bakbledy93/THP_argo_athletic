@@ -111,6 +111,7 @@ Rails.application.routes.draw do
     collection {post :create_card}
     collection {post :delete_card}
     collection {post :subscribe}
+    collection {post :cancel_subscription}
   end
 
 end

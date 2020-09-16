@@ -144,9 +144,37 @@
 
     <%# Form data %>
     <p>
-      <b>Level: </b>
-      <%= form.select :level, @levels_name_arr %>
+      <h5>Level: </h5>
+      
     </p>
+    <h5>
+      <b>Training Method: </b>
+      <p><%= @training_methods.sample.name %></p>
+      <%= form.hidden_field :training_method, value: @training_methods.sample.name %>
+    </h5>
+    
+    <h5>
+      <b>* Exercises : </b>
+      <p><%= @exercises_arr %></p>
+      <%= form.hidden_field :exercise, value: @exercises_arr %>
+    </h5>
+
+    <h5>
+      <b>* Level : </b>
+      <p><%= @levels_name_arr %></p>
+      <%= form.select :level, @levels_name_arr %>
+      
+    </h5>
+    
+    
+    
+    <h5>
+      <b>* Variants : </b>
+      <%= form.hidden_field :repetition, value: @variants_arr %>
+    </h5>
+
+    <%# /Form data %>
+
     <p>
       <b>Muscular Group: </b>
       <%= @mg.name %>
@@ -158,24 +186,21 @@
     <p>
     <b>Capacity: 
       </b><%= @qual.name %>
-      </p>
+    </p>
     <p>
       <b>Training Method / Exercises: </b>
     </p>
 
     <h5>
-      <b>* Training Method : </b>
-      <%= form.hidden_field :training_method, value: @training_methods.sample.name %>
+      <b>* Training Method <span>(1 de <%= @training_methods.count %> )</span>: </b>
+      
       <%= @training_methods.sample.name %>
+      <p>Repetitions: <%= @training_methods.sample.levels.where(name: "regular").first.repetitions %></p>
+      <p>Recuperation: <%= @training_methods.sample.levels.where(name: "regular").first.recuperations %></p>
+      <p>Series: <%= @training_methods.sample.levels.where(name: "regular").first.series %></p>
+      <%= @levels_name_arr %>
     </h5>
-    <h5>
-      <b>* Exercises : </b>
-      <%= form.hidden_field :exercise, value: @exercises_arr %>
-    </h5>
-        <h5>
-      <b>* Variants : </b>
-      <%= form.hidden_field :repetition, value: @variants_arr %>
-    </h5>
+
 
     <%# exercise.split(" ")## %>
     

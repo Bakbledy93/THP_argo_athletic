@@ -27,7 +27,7 @@
               <form class="mt-5">
                 <h5>Vous allez créer votre programme d'entrainement avec les données: </h5>
                 <h4>Niveau</h4>
-                <h5><%= @niveau %></h5>
+                <h5><%= @level %></h5>
 
                 <h4>Sport</h4>
                 <h5><%= @sport %></h5>
@@ -40,11 +40,13 @@
                 <%= form.hidden_field :training_method, value: @training_methods.sample.name %>
                 <%= form.hidden_field :exercise, value: @exercises_arr %>
                 <%= form.hidden_field :level, value:  @level %>
-                <%#= form.hidden_field :repetition, value:  %>
-                <%#= form.hidden_field :recuperation, value:  %>
-                <%#= form.hidden_field :profile_id, value:  %>
-                <%#= form.hidden_field :serie, value:  %>
-                <%= @repetitions %>
+                <%= form.hidden_field :repetition, value: @repetitions %>
+                <%= form.hidden_field :recuperation, value: @recuperation %>
+                <%= form.hidden_field :profile_id, value: @profile.id %>
+                <%= form.hidden_field :serie, value: @serie %>
+                <%= form.hidden_field :variant, value: @variants_arr %>
+  <%= @exercises_arr%>
+  <%= @variants_arr%>
                     <p>
                       <h5>Level: </h5>
                       

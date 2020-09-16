@@ -62,7 +62,9 @@ class WorkoutProgramsController < ApplicationController
     puts @exercises_arr
     puts "& - "*30
 
-    @repetitions = Level.where(name: @level)
+    @repetitions = Level.where(name: @level).first.repetitions
+    @recuperation = Level.where(name: @level).first.recuperations
+    @serie = Level.where(name: @level).first.series
 
   end
 
@@ -85,7 +87,7 @@ class WorkoutProgramsController < ApplicationController
   private
 
   def workout_program_params
-    params.require(:workout_program).permit(:exercise, :training_method, :level, :repetition, :recuperation, :profile_id, :serie)
+    params.require(:workout_program).permit(:exercise, :training_method, :level, :repetition, :recuperation, :profile_id, :serie, :variant)
   end
 
   def current_workout_program

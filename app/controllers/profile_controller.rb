@@ -10,6 +10,7 @@ class ProfileController < ApplicationController
     @profile = Profile.find(params[:id])
     @sports_array = Profile.sport_array_creator
     @roles_array = Profile.sport_role_array_creator
+    @levels_array = Profile.level_array_creator
   end
 
   def new

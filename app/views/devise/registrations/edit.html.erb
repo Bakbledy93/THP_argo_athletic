@@ -103,7 +103,7 @@
             Carte de paiment
           </div>
             <div class="card-body">
-            <% unless customer_card_id.nil?%>
+            <% unless current_user.stripe_id.nil? or customer_card_id.nil?  %>
               <p class="card-text">Card :  **** **** ****  <%=customer_card_details.last4%>
               <%if customer_card_details.brand == 'Visa'%>
                 <i class="fab fa-cc-visa"></i>

@@ -10,6 +10,7 @@ class ProfileController < ApplicationController
     @profile = Profile.find(params[:id])
     @sports_array = Profile.sport_array_creator
     @roles_array = Profile.sport_role_array_creator
+    @levels_array = Profile.level_array_creator
   end
 
   def new
@@ -30,7 +31,7 @@ class ProfileController < ApplicationController
   def update
     @sports = Sport.all
     @profile = Profile.find(params[:id])
-    @profile.update(params.require(:profile).permit(:first_name, :last_name, :weight, :height, :sport, :sport_role, :date_of_birth))
+    @profile.update(params.require(:profile).permit(:first_name, :last_name, :weight, :height, :sport, :sport_role, :date_of_birth, :level))
     flash[:alert] = "Le Profil à été mis à jour"
     redirect_to user_path(params[:id])
   end

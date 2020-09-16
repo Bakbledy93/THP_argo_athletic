@@ -23,4 +23,13 @@ class Profile < ApplicationRecord
     arr_sport_roles
   end
 
+  def self.level_array_creator
+    levels = Level.all
+    arr_levels = []
+    levels.each do |level|
+      arr_levels << level.name
+    end
+    arr_levels
+  end
+
 end

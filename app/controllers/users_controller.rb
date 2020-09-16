@@ -17,9 +17,11 @@ class UsersController < ApplicationController
     @profile_id = current_user.profile.id
     @workoutprogram = WorkoutProgram.where(profile_id: @profile_id)
     @exist_program = check_if_exists(@workoutprogram)
-    @ex1 = @workoutprogram.first.id
-    @ex2 = @workoutprogram.second.id
-    @ex3 = @workoutprogram.third.id
+    if @exist_program == true
+      @ex1 = @workoutprogram.first.id
+      @ex2 = @workoutprogram.second.id
+      @ex3 = @workoutprogram.third.id
+    end
     puts '*'*150
     p @id
     p @profile

@@ -11,6 +11,8 @@ class HomeController < ApplicationController
     @sports = Sport.all
     @musculargroups = MuscularGroup.all
     @roles = SportRole.all
+    @role = @user.profile.sport_role
+    @role_id = SportRole.where(name: @role).sample.id
     @capacities = Capacity.all
     @rolesMuscularGroupCapacities = RolesMuscularGroupCapacity.all
     @trainingmethods = TrainingMethod.all
@@ -19,13 +21,13 @@ class HomeController < ApplicationController
     @exercises = Exercise.all
     @exercisevariants = ExerciseVariant.all
     @variants = Variant.all
-    @musclevariants = MuscleVariant.all
     @muscles = Muscle.all
     @trainingmethodintensities = TrainingMethodIntensity.all
     @intensities = Intensity.all
-    puts "* "*30
 
-    puts "* "*30
+    ##Filtres
+    @inferior_member = MuscularGroup.where(name: "inferior_member")
+    @inferior_member_id = @inferior_member.sample.id
   end
 
   def contact

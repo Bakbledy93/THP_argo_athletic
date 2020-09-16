@@ -29,8 +29,12 @@
               </div>
               <div class="overflow-hidden">
                 <p data-zanim-xs='{"delay":0.3}'>The ability to switch perspective lets you see clearly, and to know where to take the next step. With sparrow, you can work on a portfolio, business website, or shop.</p>
-              <div><%= link_to "Créer mon Programme", new_workout_program_path, class:"btn btn-warning btn-sm"%></div><br>
-              <div><%= link_to "voir mon Programme", workout_program_path, class:"btn btn-warning btn-sm"%></div>
+              <% if @exist_program == true %>
+                <div><%= link_to "voir mon Programme", workout_program_path, class:"btn btn-warning btn-sm"%></div>
+              <% else %>
+                <div><%= link_to "Créer mon Programme", new_workout_program_path, class:"btn btn-warning btn-sm"%></div><br>
+
+              <% end %>
               </div>
             </div>
             <div class="col-4" data-zanim-timeline='{"delay":0.3}' data-zanim-trigger="scroll">
@@ -41,7 +45,9 @@
               <div class="overflow-hidden">
                 <p data-zanim-xs='{"delay":0.3}'>The ability to switch perspective lets you see clearly, and to know where to take t</p>
                 <p data-zanim-xs='{"delay":0.3}'>Jour 1 - Jour 2 - Jour 3 - Jour 4 -</p>
-              <div><%= link_to "Editer Profile Sportif", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-success btn-sm"%></div>
+                <%= link_to "Jour 1", workout_program_path(program_id: @ex1, day: 1), class:"btn btn-outline-dark btn-sm mt-3"%>
+                <%= link_to "Jour 2", workout_program_path(program_id: @ex2, day: 2), class:"btn btn-outline-dark btn-sm mt-3"%>
+                <%= link_to "Jour 3", workout_program_path(program_id: @ex3, day: 3), class:"btn btn-outline-dark btn-sm mt-3"%>
 
               </div>
             </div>
@@ -55,6 +61,9 @@
                 <p data-zanim-xs='{"delay":0.3}'>Adresse mail</p>
                 <p data-zanim-xs='{"delay":0.3}'>Inscrits depuis</p>
                 <div><%= link_to "Compte utilisateur", edit_user_registration_path, class:"btn btn-primary btn-sm" %></div>
+                <div>
+                  <%= link_to "Editer Profile Sportif", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-dark btn-sm mt-3"%>
+                </div>
               </div>
             </div>
             <div class="col-lg-6 px-lg-6 pt-6" data-zanim-timeline='{"delay":0.4}' data-zanim-trigger="scroll">

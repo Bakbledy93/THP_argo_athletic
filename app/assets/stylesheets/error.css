@@ -1,18 +1,19 @@
-#notice_wrapper {
-    position: absolute;
-    border-radius: 25px;
-    top: 40%;
-    left: 60%;
-    width: 25%;
-    z-index: 999;
-    background: rgba(135, 216, 211, 0.85); 
+#flash-wrapper {
+  position: absolute;
+  border-radius: 25px;
+  top: 0%;
+  left: 60%;
+  width: 30%;
+  z-index: 999;
+  background: rgba(135, 216, 211, 0.85); 
 }
-.notice .alert {
-    padding: 2.5rem 0;
-    text-align: center;
-    margin: 0;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #FFFFFF;
-    letter-spacing: 1px;
+
+#flash-message {
+  padding: 2.5rem 0;
+  text-align: center;
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 1px;
 }

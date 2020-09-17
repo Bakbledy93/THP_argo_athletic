@@ -105,7 +105,11 @@
                   
                     <%# <div class="col-sm">
                       <p class="fs--1 text-700 mb-0 text-sans-serif mt-2 mt-lg-0">
-                        En validant votre compte, vous acceptez nos conditions d&rsquo;utilisation.
+                        En validant votre compte, vous acceptez<%= link_to "Nos conditions d'utilisation", 
+                  terms_home_index_path,
+                    class: "text-sans-serif text-uppercase text-warning font-weight-black fs-1",
+                    method: :get
+                %>
                       </p>
                     </div> %>
 

@@ -63,7 +63,23 @@ module WorkoutProgramHelper
     RolesMuscularGroupCapacity.where(sport_role_id: role_id).where(priority: priority)
   end
 
+  # def training_method_array_creation(priority)
+  #   @rolesMGcap = roleMGcap_definition(@role_id, priority)
+  #   @cap_id = @rolesMGcap.first.capacity_id
+  #   @training_methods = TrainingMethod.where(capacity_id: @cap_id)
+  #   @mg_id = @rolesMGcap.first.muscular_group_id
+  #   @muscles = Muscle.where(muscular_group_id: @mg_id)
+  # end
+
+  # def muscles_array_creation(priority)
+  #   @rolesMGcap = roleMGcap_definition(@role_id, priority)
+  #   @mg_id = @rolesMGcap.first.muscular_group_id
+  #   @muscles = Muscle.where(muscular_group_id: @mg_id)
+  # end
+
   def muscles_training_methods_definition
+
+
     @rolesMGcap1 = roleMGcap_definition(@role_id, 1)
     @cap_id1 = @rolesMGcap1.first.capacity_id
     @training_methods1 = TrainingMethod.where(capacity_id: @cap_id1)
@@ -86,15 +102,29 @@ module WorkoutProgramHelper
   def creating_array_exercises(training_method, muscles)
 
     ex_array_A = []
-    training_method.sample.exercises.uniq.each do |t|
-      ex_array_A << t.name
+    begin
+      training_method.sample.exercises.uniq.each do |t|
+        ex_array_A << t.name
+      end
+    rescue
+      retry if ex_array_A.length < 5
+      puts "Retrying method "*10
+      puts "Retrying method "*10
+      puts "Retrying method "*10
     end
 
     ex_array_B = []
-    muscles.each do |m|
-      m.exercises.each do |x|
-        ex_array_B  << x.name
-      end 
+    begin
+      muscles.each do |m|
+        m.exercises.each do |x|
+          ex_array_B  << x.name
+        end 
+      end
+    rescue
+      retry if ex_array_B.length < 5
+      puts "Retrying muscles "*10
+      puts "Retrying muscles "*10
+      puts "Retrying muscles "*10
     end
 
     ex_array = ex_array_A & ex_array_B

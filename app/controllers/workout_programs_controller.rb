@@ -1,6 +1,6 @@
 class WorkoutProgramsController < ApplicationController
   before_action :current_workout_program, only: [:show, :edit, :update]
-  # include WorkoutProgramHelper
+  include WorkoutProgramHelper
 
   def index
     @workout_programs = WorkoutProgram.all

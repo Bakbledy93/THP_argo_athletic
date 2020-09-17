@@ -40,8 +40,6 @@
           <h5 class="card-title">ENTRAINEMENT DU JOUR</h5>
           <%if current_user.sub_id.present?%>
                 <% if @exist_program == true %>
-                  <%= link_to "voir mon Programme", workout_programs_path, class:"btn btn-outline-dark btn-sm"%>
-                  <%= link_to "effacer mon Programme", workout_program_path, method: 'delete', class:"btn btn-dark btn-sm mt-3"%>
                 <p data-zanim-xs='{"delay":0.3}'>Merci de créer votre programme d'entraînement. Cliquez sur le button "Créer mon Programme"</p>
                   <%= link_to "Jour 1", workout_program_path(program_id: @ex1, day: 1), class:"btn btn-lg btn-outline-dark mt-3"%>
                   <%= link_to "Jour 2", workout_program_path(program_id: @ex2, day: 2), class:"btn btn-lg btn-outline-dark mt-3"%>
@@ -69,8 +67,8 @@
               you can work on a portfolio, business website, or shop.</p>
                 <%if current_user.sub_id.present?%>
                     <% if @exist_program == true %>
-                      <%= link_to "voir mon Programme", workout_programs_path, class:"btn btn-warning btn-sm"%>
-                      <%# <%= link_to "supprimer programme", workout_programs_path, class:"btn btn-warning btn-sm"%> %>
+                      <%= link_to "voir mon Programme", workout_programs_path, class:"btn btn-warning btn-sm mb-3"%>
+                      <%= link_to "Suprimer  Programme", workout_program_path, method: 'delete', class:"btn btn-dark btn-sm"%>
                     <% else %>
                       <%if current_user.profile.sport_role.nil? && current_user.profile.level.nil? %>
                         <div><%= link_to "Créer mon Programme", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-warning btn-sm"%></div><br>

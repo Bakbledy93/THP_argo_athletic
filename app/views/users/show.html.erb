@@ -41,7 +41,7 @@
           </p>
           <div><%= link_to "Compte utilisateur", edit_user_registration_path, class:"btn btn-outline-dark btn-sm" %></div>
           <div>
-            <%= link_to "Editer Profile Sportif", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-dark btn-sm mt-3"%>
+            <%= link_to "Editer Profile Sportif", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-dark btn-sm mt-3 audioButton"%>
           </div>
         </div>
       </div>
@@ -57,16 +57,16 @@
           you can work on a portfolio, business website, or shop.</p>
             <%if current_user.sub_id.present?%>
                 <% if @exist_program == true %>
-                  <%= link_to "voir mon Programme", workout_programs_path, class:"btn btn-warning btn-sm"%>
+                  <%= link_to "voir mon Programme", workout_programs_path, class:"btn btn-warning btn-sm audioButton"%>
                 <% else %>
                   <%if current_user.profile.sport_role.nil? && current_user.profile.level.nil? %>
-                  <div><%= link_to "Créer mon Programme", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-warning btn-sm"%></div><br>
+                  <div><%= link_to "Créer mon Programme", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-warning btn-sm audioButton"%></div><br>
                   <%else%>
-                    <div><%= link_to "Créer mon Programme", new_workout_program_path, class:"btn btn-warning btn-sm"%></div><br>
+                    <div><%= link_to "Créer mon Programme", new_workout_program_path, class:"btn btn-warning btn-sm audioButton"%></div><br>
                   <%end%>
                 <%end%>
               <%else%>
-                  <div><%= link_to "Créer mon Programme", success_charges_path, class:"btn btn-warning btn-sm"%></div><br>
+                  <div><%= link_to "Créer mon Programme", success_charges_path, class:"btn btn-warning btn-sm audioButton"%></div><br>
               <%end%>
         </div>
       </div>
@@ -82,9 +82,9 @@
           <%if current_user.sub_id.present?%>
             <% if @exist_program == true %>
             <p data-zanim-xs='{"delay":0.3}'>Merci de créer votre programme d'entraînement. Cliquez sur le button "Créer mon Programme"</p>
-              <%= link_to "Jour 1", workout_program_path(program_id: @ex1, day: 1), class:"btn btn-lg btn-outline-dark mt-3"%>
-              <%= link_to "Jour 2", workout_program_path(program_id: @ex2, day: 2), class:"btn btn-lg btn-outline-dark mt-3"%>
-              <%= link_to "Jour 3", workout_program_path(program_id: @ex3, day: 3), class:"btn btn-lg btn-outline-dark mt-3"%>
+              <%= link_to "Jour 1", workout_program_path(program_id: @ex1, day: 1), class:"btn btn-lg btn-outline-dark mt-3 audioButton"%>
+              <%= link_to "Jour 2", workout_program_path(program_id: @ex2, day: 2), class:"btn btn-lg btn-outline-dark mt-3 audioButton"%>
+              <%= link_to "Jour 3", workout_program_path(program_id: @ex3, day: 3), class:"btn btn-lg btn-outline-dark mt-3 audioButton"%>
             <% else %>
               <p data-zanim-xs='{"delay":0.3}'>Merci de créer votre programme d'entraînement. Cliquez sur le button "Créer mon Programme"</p>                
             <% end %>

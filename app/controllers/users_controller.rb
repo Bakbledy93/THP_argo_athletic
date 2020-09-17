@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def authenticate_user
     unless current_user
       flash[:alert] = "Accès non autorisée"
-      redirect_to root_page
+      redirect_to root_path
     end
   end
 

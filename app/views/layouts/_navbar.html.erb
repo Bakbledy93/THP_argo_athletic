@@ -3,7 +3,7 @@
     <div class="fancynavbar-addon-item">
 
     </div>
-    <div class="fancynavbar-toggler">
+    <div class="fancynavbar-toggler audioButton">
       <svg class="fancynavbar-toggler-icon" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg" data-zanim-lg='{"from":{"opacity":0,"x":45},"to":{"opacity":1,"x":0},"ease":"CubicBezier"}' data-zanim-trigger="scroll">
         <path id="path-top" d="M20,25c0,0,22,0,30,0c16,0,18.89,40.71-.15,21.75C38.7,35.65,19.9,16.8,19.9,16.8">
         </path>
@@ -14,37 +14,16 @@
       </svg>
     </div>
     <div class="fancynavbar-addon" data-zanim-lg='{"from":{"opacity":1,"x":45},"to":{"opacity":1,"x":0},"ease":"CubicBezier"}' data-zanim-trigger="scroll">
-      <a class="fancynavbar-addon-item" href="https://twitter.com/home">
-        <span class="fab fa-twitter">
+      <div>
+        <span class="">
         </span>
-      </a>
+      </div>
     </div>
     </div>
-    <div class="fancynavbar-collapse">
+    <div class="fancynavbar-collapse audioButton">
       <ul class="fancynavbar-nav">
-      <!--
-        <li class="fancynav-item fancy-dropdown">
-          <a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)">
-            <span class="fancynav-link-content">
-              Argo
-            </span>
-          </a>
-            <div class="fancy-dropdown-menu">
-              <div class="row pb-4 pt-3">
-                <div class="col-auto">
-                  <p class="fancy-dropdown-item">
-                    (Bientot)Entrainement
-                  </p>
-                  <p class="fancy-dropdown-item">
-                    (Bientot)Chat
-                  </p>
-                </div>
-              </div>
-            </div>
-        </li>
-        -->
           <li class="fancynav-item fancy-dropdown">
-            <a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)">
+            <a class="fancynav-link fancy-dropdown-toggle audioButton" href="JavaScript:void(0)">
               <span class="fancynav-link-content">
                 Compte
               </span>
@@ -63,13 +42,13 @@
                         <%= link_to "Dashboard",
                             authenticated_user_root_path,
                             method: 'get',
-                            class:"fancy-dropdown-item"
+                            class:"fancy-dropdown-item audioButton"
                         %>            
                       <!-- log out option -->
                       <%= link_to "Se déconnecter",
                           destroy_user_session_path,
                           method: 'delete',
-                          class:"fancy-dropdown-item"
+                          class:"fancy-dropdown-item audioButton"
                       %>                  
                   <!-- admin -->
                   <% elsif admin_signed_in? %>
@@ -77,18 +56,18 @@
                         <!-- dashboard -->
                         <%= link_to "Dashboard",
                             authenticated_admin_root_path,
-                            method: 'get', class:"fancy-dropdown-item" 
+                            method: 'get', class:"fancy-dropdown-item audioButton" 
                         %>
                         <!-- sign out -->
                         <%= link_to "Se déconnecter",
                             destroy_admin_session_path,
                             method: 'delete',
-                            class:"fancy-dropdown-item" 
+                            class:"fancy-dropdown-item audioButton" 
                         %>
                   <% else %>
                       <!-- unknown visitor -->
-                      <%= link_to "S'inscrire", new_user_registration_path, method: 'get', class: "fancy-dropdown-item" %>
-                      <%= link_to "Se connecter", new_user_session_path, method: 'get', class: "fancy-dropdown-item" %>
+                      <%= link_to "S'inscrire", new_user_registration_path, method: 'get', class: "fancy-dropdown-item audioButton" %>
+                      <%= link_to "Se connecter", new_user_session_path, method: 'get', class: "fancy-dropdown-item audioButton" %>
                   <% end %>
                 </div>
               </div>

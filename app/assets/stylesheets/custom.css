@@ -2,6 +2,35 @@
   display: none;
 }
 
+.fancy-feature{
+  font-weight: bold;
+  transition: all 500ms;
+}
+.fancy-feature:hover{
+  font-size:20px;
+  font-size-adjust: 20px;
+}
+
+.fancy-feature-button:hover {
+  background-color: #000;
+  /*  Making button bigger on hover  */
+  padding: 20px 60px;
+  transform: scale(1.0);
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.flex-item {
+  border-radius: 3px;
+  width: 200px;
+  height: 100px; 
+}
+
 .on-top {
   position: absolute;
   z-index: 999;

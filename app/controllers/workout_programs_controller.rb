@@ -3,6 +3,52 @@ class WorkoutProgramsController < ApplicationController
 
   def index
     @workout_programs = WorkoutProgram.all
+    @workout_program = WorkoutProgram.where(profile_id: current_user.profile.id)
+    @program1 = []
+    @program2 = []
+    @program3 = []
+    @variant1 = []
+    @variant2 = []
+    @variant3 = []
+
+    i = 0
+    3.times do |ex|
+      @program1 << ex_creator(@workout_program.first, i)
+      @variant1 << var_creator(@workout_program.first, i)
+      i += 1
+    end
+
+    i = 0
+    3.times do |ex|
+      @program2 << ex_creator(@workout_program.second, i)
+      @variant2 << var_creator(@workout_program.second, i)
+      i += 1
+    end
+
+    i = 0
+    3.times do |ex|
+      @program3 << ex_creator(@workout_program.third, i)
+      @variant3 << var_creator(@workout_program.third, i)
+      i += 1
+    end
+    
+    @workout_program_2_1 = @workout_program.second.exercise[1...-1].split(',')[0][1...-1].humanize
+    @workout_program_2_2 = @workout_program.second.exercise[1...-1].split(',')[1][2...-1].humanize
+    @workout_program_2_3 = @workout_program.second.exercise[1...-1].split(',')[2][2...-1].humanize
+    
+    @workout_program_3_1 = @workout_program.third.exercise[1...-1].split(',')[0][1...-1].humanize
+    @workout_program_3_2 = @workout_program.third.exercise[1...-1].split(',')[1][2...-1].humanize
+    @workout_program_3_3 = @workout_program.third.exercise[1...-1].split(',')[2][2...-1].humanize
+  
+  
+  end
+
+  def ex_creator(program, i)
+    program.exercise.split(',')[i][2...-1].humanize
+  end
+
+  def var_creator(program, i)
+    program.variant.split(',')[i][2...-1].humanize
   end
 
   def show
@@ -70,9 +116,6 @@ class WorkoutProgramsController < ApplicationController
   end
 
   def create
-    # @workout_program1 = WorkoutProgram.new
-    # @workout_program2 = WorkoutProgram.new
-    # @workout_program = WorkoutProgram.new
     @user = current_user
     @profile = current_user.profile
     @profile_id = current_user.profile.id

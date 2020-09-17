@@ -22,10 +22,10 @@ class User < ApplicationRecord
     puts email
     puts User.find_by(email: email).id
     
-    Profile.create(
-      user_id: User.find_by(email: email).id,
-      validates: false
+    p = Profile.new(
+      user_id: User.find_by(email: email).id
     )
+    p.save(validate: false)
   end
   
 end

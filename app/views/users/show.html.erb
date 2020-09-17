@@ -57,7 +57,7 @@
           you can work on a portfolio, business website, or shop.</p>
             <%if current_user.sub_id.present?%>
                 <% if @exist_program == true %>
-                  <div><%= link_to "voir mon Programme", workout_program_path, class:"btn btn-warning btn-sm"%></div>
+                  <%= link_to "voir mon Programme", workout_programs_path, class:"btn btn-warning btn-sm"%>
                 <% else %>
                   <%if current_user.profile.sport_role.nil? && current_user.profile.level.nil? %>
                   <div><%= link_to "Créer mon Programme", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-warning btn-sm"%></div><br>

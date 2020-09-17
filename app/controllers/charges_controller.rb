@@ -62,6 +62,7 @@ class ChargesController < ApplicationController
   end
 
   def subscribe
+    @plan_id = params[:plan_id]
     customer = Stripe::Customer.new current_user.stripe_id
     #we define our customer
     subscriptions = Stripe::Subscription.list(customer: customer.id)

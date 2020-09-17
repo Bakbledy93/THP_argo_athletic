@@ -1,0 +1,43 @@
+          <%= form_for @user, url: admins_user_path do |f| %>
+
+              <h2>
+                Editer compte <%= @user.email %>
+              </h2>
+
+              <div class="row mb-4">
+                <div class="col">
+                  <%= f.email_field :email,
+                      class:"form-control border-300 bg-light",
+                      autofocus: true,
+                      placeholder: 'e-mail' 
+                  %> 
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                <div class="col">
+                  <%= f.label :password %>
+                  <%= f.password_field :password,
+                      class:"form-control border-300 bg-light",
+                      autocomplete: "new-password" 
+                  %> 
+                </div>
+                <div class="col">
+                  <%= f.label :password_confirmation %>
+                  <%= f.password_field :password_confirmation,
+                      class:"form-control border-300 bg-light",
+                      autocomplete: "new-password" 
+                  %>
+                </div>
+              </div>  
+
+              <div class="col mb-4 align-items-center">
+                <div class="col-sm btn btn-block">
+                  <%= f.submit :"Editer mon Compte",
+                      class:"btn btn-success mt-3",
+                      autofocus: true 
+                  %>
+                </div>  
+              <%= link_to "Retour", admins_users_path, class:"btn btn-outline-dark btn-block mt-3" %>            
+
+                <%end%>

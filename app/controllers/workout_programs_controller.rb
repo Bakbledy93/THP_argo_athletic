@@ -1,15 +1,11 @@
 class WorkoutProgramsController < ApplicationController
   before_action :current_workout_program, only: [:show, :edit, :update]
+  include WorkoutProgramHelper
 
   def index
     @workout_programs = WorkoutProgram.all
     @workout_program = WorkoutProgram.where(profile_id: current_user.profile.id)
-    @program1 = []
-    @program2 = []
-    @program3 = []
-    @variant1 = []
-    @variant2 = []
-    @variant3 = []
+    declaring_variables_array
 
     i = 0
     3.times do |ex|
@@ -43,13 +39,7 @@ class WorkoutProgramsController < ApplicationController
   
   end
 
-  def ex_creator(program, i)
-    program.exercise.split(',')[i][2...-1].humanize
-  end
 
-  def var_creator(program, i)
-    program.variant.split(',')[i][2...-1].humanize
-  end
 
   def show
     @current_program_id = params[:program_id]
@@ -119,7 +109,6 @@ class WorkoutProgramsController < ApplicationController
     @user = current_user
     @profile = current_user.profile
     @profile_id = current_user.profile.id
-    # @priority = WorkoutProgram.get_priority
     @level = @user.profile.level
     @sport = @user.profile.sport
     @role = @user.profile.sport_role
@@ -127,19 +116,6 @@ class WorkoutProgramsController < ApplicationController
     @repetitions = Level.where(name: @level).first.repetitions
     @recuperation = Level.where(name: @level).first.recuperations
     @serie = Level.where(name: @level).first.series
-
-    puts " *"*25
-    puts "User: #{@user}"
-    puts "profile: #{@profile}"
-    puts "profile_id: #{@profile_id}"
-    puts "level: #{@level}"
-    puts "sport: #{@sport}"
-    puts "role: #{@role}"
-    puts "role_id: #{@role_id}"
-    puts "repetitions: #{@repetitions}"
-    puts "recuperation: #{@recuperation}"
-    puts "serie: #{@serie}"
-    puts " *"*25
 
 
     @rolesMGcap1 = RolesMuscularGroupCapacity.where(sport_role_id: @role_id).where(priority: 1)
@@ -168,40 +144,10 @@ class WorkoutProgramsController < ApplicationController
     @var_array2 = creating_array_variants(@ex_array2)
     @var_array3 = creating_array_variants(@ex_array3)
 
-    puts " *"*25
-    puts "rolesMGcap1: #{@rolesMGcap1}"
-    puts "rolesMGcap1: #{@rolesMGcap1.count}"
-    puts "rolesMGcap1: #{@cap_id1}"
-    puts "rolesMGcap1: #{@training_methods1}"
-    puts "rolesMGcap1: #{@mg_id1}"
-    puts " *"*25
-    puts "rolesMGcap2: #{@rolesMGcap2}"
-    puts "rolesMGcap2: #{@rolesMGcap2.count}"
-    puts "rolesMGcap2: #{@cap_id2}"
-    puts "rolesMGcap1: #{@training_methods2}"
-    puts "rolesMGcap1: #{@mg_id2}"
-    puts " *"*25
-    puts "rolesMGcap3: #{@rolesMGcap3}"
-    puts "rolesMGcap3: #{@rolesMGcap3.count}"
-    puts "rolesMGcap3: #{@cap_id3}"
-    puts "rolesMGcap1: #{@training_methods3}"
-    puts "rolesMGcap1: #{@mg_id3}"
-    puts " *"*25
-    puts "ex_array1: #{@ex_array1}"
-    puts "ex_array2: #{@ex_array2}"
-    puts "ex_array3: #{@ex_array3}"
-    puts "var_array1: #{@var_array1}"
-    puts "var_array2: #{@var_array2}"
-    puts "var_array3: #{@var_array3}"
-    puts " *"*25
-
-
     create_workout_program
 
     flash[:notice] = "Le programme d'entraînement à été crée"
     redirect_to user_path(current_user.id)
-
-    # @workout_program = WorkoutProgram.create!(workout_program_params)
 
   end
 

@@ -7,12 +7,15 @@ class Profile < ApplicationRecord
 
   validates :first_name,
     presence: true,
-    format: { with: /\A\D+\z/, message: "Numbers are not allowed" }
+    format: { with: /\A[a-z ]+\z/i , message: "Les numéros et les caractères spéciaux ne sont pas autorisés" }
+  validates :last_name,
+    presence: true,
+    format: { with: /\A[a-z ]+\z/i , message: "Les numéros et les caractères spéciaux ne sont pas autorisés" }
   validates :weight, 
     presence: true,
     numericality: {only_float: true}
-  validates :last_name, presence: true
   validates :date_of_birth, presence: true
+  validate :validate_birth_date
 
   def self.sport_array_creator
     sports = Sport.all
@@ -39,6 +42,16 @@ class Profile < ApplicationRecord
       arr_levels << level.name
     end
     arr_levels
+  end
+
+  def validate_birth_date
+    if date_of_birth.present? && date_of_birth > 18.years.ago.to_date
+      errors.add(:date_of_birth, "Il faut avoir 18 ans")
+      puts "* # "*15
+      puts date_of_birth
+      puts date_of_birth.to_date
+      puts "* # "*15
+    end
   end
 
 end

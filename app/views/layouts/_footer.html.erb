@@ -56,11 +56,11 @@
             <div class="col-12 overflow-hidden text-center border-top border-bottom border-900 py-4 mt-5">
               <div data-zanim-xs='{"delay":0.1,"from":{"opacity":0,"letter-spacing":"0.8em"},"to":{"letter-spacing":"0.2em","opacity":1}}' data-zanim-trigger="scroll">
                 <!-- contact link -->
-                  <%= link_to "Nous contacter", 
-                      contact_home_index_path,
-                      class: "text-sans-serif text-uppercase text-warning font-weight-black fs-1",
-                      method: :get
-                  %>
+                <%= link_to "Nous contacter", 
+                    contact_home_index_path,
+                    class: "text-sans-serif text-uppercase text-warning font-weight-black fs-1",
+                    method: :get
+                %>
               </div>
             </div>
           </div>
@@ -71,6 +71,10 @@
           <div class="row align-items-center">
             <div class="col-lg-4 order-lg-2">
               <div class="indicator indicator-up" data-fancyscroll="data-fancyscroll">
+                <%= link_to "Haut", 
+                    "#top",
+                    class: "on-top fs--1 text-uppercase ls font-weight-bold mb-0"
+                %>
                 <span class="indicator-arrow indicator-arrow-one" 
                       data-zanim-xs='{"from":{"opacity":0,"y":15},"to":{"opacity":1,"y":-5,"scale":1},"ease":"Back.easeOut","duration":0.4,"delay":0.9}'
                 >

@@ -11,8 +11,8 @@
             <div class="h-100 py-9" data-zanim-lg='{"animation":"slide-right","from":{"opacity":1},"delay":0.4}' data-zanim-trigger="scroll">
               <!-- first background image -->
               <div class="bg-holder"
-                   data-zanim-trigger="scroll" data-zanim-lg='{"animation":"slide-right","delay":0}'
-                   style="background-image: url(<%= image_path 'https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' %>)">
+                  data-zanim-trigger="scroll" data-zanim-lg='{"animation":"slide-right","delay":0}'
+                  style="background-image: url(<%= image_path 'https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' %>)">
               </div>
             </div>
           </div>
@@ -22,9 +22,9 @@
               <div class="col-11 col-sm-10">
                 <div class="overflow-hidden">
                   <!-- title of the application -->
-                  <h2 class="font-weight-light text-uppercase fs-3 fs-lg-4" data-zanim-lg='{"delay":0.4}'>
+                  <h1 class="text-uppercase fs-3 fs-lg-4" data-zanim-lg='{"delay":0.4}'>
                     Argo Athletic
-                  </h2>  
+                  </h1>  
                   <h3 class="font-weight-black" data-zanim-lg='{"delay":0.4}' > 
                     L'application de Performance Training.
                   </h3>
@@ -79,6 +79,108 @@
         </div>
       </div>
     </section>
+
+
+    <section  class="overflow-hidden bg-light " 
+              id="landing-features-1"
+              style="background-image: url(<%= image_path 'https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' %>)">>
+       <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-7">
+            <div class="row bg-white rounded py-7 py-xl-9 px-5 px-md-0 text-sans-serif">
+              <div class="col-lg-6 px-lg-6 pt-6 pt-lg-0" data-zanim-timeline='{"delay":0.2}' data-zanim-trigger="scroll">  </div>
+               <div class="container text-center">
+                 <div><img class="rounded-soft img-fluid" src="https://www.arlyo.com/down/argo.ico" alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' /></div>
+                  <h3>2,5€/semaine</h3>
+                    <ul class="list">
+                      <li>Programme personnalisé</li>
+                      <li>Exercices illimités</li>
+                      <li>Nutrition sportive</li>
+                      <li>Récupération</li>
+                    </ul>
+              <div>
+                <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger" %>
+              </div>
+              
+                  </div>
+                </div>
+              </div> 
+            </div>
+
+
+        <div class="position-md-absolute r-0 t-0 parallax w-md-50" data-rellax-speed="5" data-rellax-percentage="0.5">
+
+            <%= image_tag 'https://images.pexels.com/photos/4162495/pexels-photo-4162495.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260', 
+                class: "shadow-lg rounded img-fluid" 
+            %>
+        </div>
+      </div> 
+    </section>
+
+
+  <section class="py-3" id="landing-features">
+      <div class="container-fluid">
+        <div class="row" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+          <div class="col-lg-6 col-xl-3 mt-3 mt-xl-0 pr-lg-2" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}'>
+            <div class="hoverbox min-vh-50 h-100 py-6">
+              <!-- fourth background image -->
+              <div class="bg-holder rounded"
+                   style="background-image: url(<%= image_path 'https://images.pexels.com/photos/3818834/pexels-photo-3818834.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' %>)"
+              >
+              </div>
+              <div class="hoverbox-content d-flex bg-black justify-content-center rounded">
+                <div class="align-self-center px-4 px-lg-6 text-center">
+                  <span class="fa fa-signal text-white fs-2 mb-2">
+                  </span>
+                  <h4 class="mb-1 text-white">
+                    Programmes &amp; personnalisés
+                  </h4>
+                  <p class="px-3 text-sans-serif text-500">
+                    Argo Athletic vous propose un programme rien que pour vous.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-xl-3 mt-3 mt-xl-0 px-xl-2 pl-lg-2" data-zanim-xs='{"delay":0.2,"animation":"zoom-in"}'>
+            <div class="position-relative min-vh-50 h-100">
+              <!-- fifth background image -->
+              <div class="bg-holder rounded"
+                   style="background-image: url(<%= image_path 'https://images.pexels.com/photos/4162593/pexels-photo-4162593.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260' %>)"
+              >
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-xl-3 mt-3 mt-xl-0 px-xl-2 pr-lg-2" data-zanim-xs='{"delay":0.3,"animation":"zoom-in"}'>
+            <div class="position-relative min-vh-50 h-100 py-6 d-flex justify-content-center">
+              <!-- sixth background image -->
+              <div class="bg-holder rounded"
+                   style="background-image: url(<%= image_path 'https://images.pexels.com/photos/3772226/pexels-photo-3772226.jpeg?cs=srgb&dl=pexels-sergio-souza-3772226.jpg&fm=jpg' %>)"
+              >
+              </div>
+              <div class="position-relative px-4 px-xl-5 text-center align-self-center w-100">
+                <div>
+                  <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger" %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-xl-3 mt-3 mt-xl-0 pl-lg-2" data-zanim-xs='{"delay":0.4,"animation":"zoom-in"}'>
+            <div class="position-relative min-vh-50 h-100 py-6">
+              <div class="bg-holder rounded">
+                <!-- seventh and last background image -->
+                <div class="bg-holder overlay overlay-0 rounded"
+                style="background-image: url(<%= image_path 'https://images.pexels.com/photos/3817163/pexels-photo-3817163.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' %>)"
+                >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
     <!-- section landing-banner -->
     <section class="py-0 overflow-hidden" id="landing-banner">
       <div class="container-fluid">
@@ -120,177 +222,10 @@
         </div>
       </div>
     </section>
-    <!-- section landing-features-1 -->
-    <!-- third background image -->
-    <section  class="overflow-hidden bg-light" 
-              id="landing-features-1"
-              style="background-image:url(<%= image_path 'https://images.pexels.com/photos/401896/pexels-photo-401896.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)'%>) 
-    >
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-7">
-            <div class="row bg-white rounded py-7 py-xl-9 px-5 px-md-0 text-sans-serif">
-              <div class="col-md-9 col-lg-6 offset-md-1 offset-lg-2" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-                <div class="overflow-hidden">
-                <div class="overflow-hidden">
-                  <h4 class="mb-sm-1 mb-md-2" data-zanim-xs='{"delay":0.4}'>
-                    Performance Training
-                  </h4>
-                </div>
-                <div class="overflow-hidden">
-                  <p class="mb-4 mb-lg-6" data-zanim-xs='{"delay":0.5}'>
-                    Concentres-toi sur l'essentiel. Des plans d'entrainements spécifiquement conçus en fonction de tes objectifs et exigences.
-                  </p>
-                </div>
-                  <h4 class="mb-sm-1 mb-md-2" data-zanim-xs='{"delay":0.1}'>
-                    Fitness Testing - en développement
-                  </h4>
-                </div>
-                <div class="overflow-hidden">
-                  <p class="mb-4 mb-lg-6" data-zanim-xs='{"delay":0.2}'>
-                    S'évaluer facilement. Connaitre ses forces et les points à améliorer.
-                  </p>
-                </div>
-                <div class="overflow-hidden">
-                  <h4 class="mb-sm-1 mb-md-2" data-zanim-xs='{"delay":0.7}'>
-                    Track and Analyze - en développement
-                  </h4>
-                </div>
-                <div class="overflow-hidden">
-                  <p class="mb-0" data-zanim-xs='{"delay":0.8}'>
-                    Chaque détail à son importance. Suis ta progression et mesures tes efforts tout au long du programme.
-                  </p>
-                </div>
-                <div class="overflow-hidden">
-                  <h4 class="mb-sm-1 mb-md-2" data-zanim-xs='{"delay":0.7}'>
-                    360° XP - en développement
-                  </h4>
-                </div>
-                <div class="overflow-hidden">
-                  <p class="mb-0" data-zanim-xs='{"delay":0.8}'>
-                    La performance au coeur des fonctionnalités d'Argo Athletic : MindSet, Sport Nutrition, Rehab Ex..
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="position-md-absolute r-0 t-0 parallax w-md-50" data-rellax-speed="5" data-rellax-percentage="0.5">
-            <!-- image to show push ups -->
-            <%= image_tag 'https://images.pexels.com/photos/4162495/pexels-photo-4162495.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260', 
-                class: "shadow-lg rounded img-fluid" 
-            %>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- section landing-features -->
-    <section class="py-3" id="landing-features">
-      <div class="container-fluid">
-        <div class="row" data-zanim-timeline="{}" data-zanim-trigger="scroll">
-          <!-- first card -->
-          <div class="col-lg-6 col-xl-3 mt-3 mt-xl-0 pr-lg-2" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}'>
-            <div class="hoverbox min-vh-50 h-100 py-6">
-              <!-- fourth background image -->
-              <div class="bg-holder rounded"
-                   style="background-image: url(<%= image_path 'https://images.pexels.com/photos/3818834/pexels-photo-3818834.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' %>)"
-              >
-              </div>
-              <div class="hoverbox-content d-flex bg-black justify-content-center rounded">
-                <div class="align-self-center px-4 px-lg-6 text-center">
-                  <span class="fa fa-signal text-white fs-2 mb-2">
-                  </span>
-                  <h4 class="mb-1 text-white">
-                    Programmes &amp; personnalisés
-                  </h4>
-                  <p class="px-3 text-sans-serif text-500">
-                    Argo Athletic vous propose un programme rien que pour vous.
-                  </p>
-                  <div>
-                    <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger" %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- second card -->
-          <div class="col-lg-6 col-xl-3 mt-3 mt-xl-0 px-xl-2 pl-lg-2" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}'>
-            <div class="position-relative hoverbox min-vh-50 h-100">
-              <!-- fifth background image -->
-              <div class="bg-holder rounded"
-                 style="background-image: url(<%= image_path 'https://images.pexels.com/photos/4162593/pexels-photo-4162593.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260' %>)"
-              >
-              </div>
-              <div class="hoverbox-content d-flex bg-black justify-content-center rounded">
-                <div class="align-self-center px-4 px-lg-6 text-center">
-                  <span class="fa fa-signal text-white fs-2 mb-2">
-                  </span>
-                  <h4 class="mb-1 text-white">
-                    Programmes &amp; personnalisés
-                  </h4>
-                  <p class="px-3 text-sans-serif text-500">
-                    Argo Athletic vous propose un programme rien que pour vous.
-                  </p>
-                  <div>
-                    <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger" %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- third card -->
-          <div class="col-lg-6 col-xl-3 mt-3 mt-xl-0 px-xl-2 pr-lg-2" data-zanim-xs='{"delay":0.3,"animation":"zoom-in"}'>
-            <div class="position-relative hoverbox min-vh-50 h-100 py-6 d-flex justify-content-center">
-              <!-- sixth background image -->
-              <div class="bg-holder rounded"
-                 style="background-image: url(<%= image_path 'https://images.pexels.com/photos/3772226/pexels-photo-3772226.jpeg?cs=srgb&dl=pexels-sergio-souza-3772226.jpg&fm=jpg' %>)"
-              >
-              </div>
-              <div class="hoverbox-content d-flex bg-black justify-content-center rounded">
-                <div class="align-self-center px-4 px-lg-6 text-center">
-                  <span class="fa fa-signal text-white fs-2 mb-2">
-                  </span>
-                  <h4 class="mb-1 text-white">
-                    Programmes &amp; personnalisés
-                  </h4>
-                  <p class="px-3 text-sans-serif text-500">
-                    Argo Athletic vous propose un programme rien que pour vous.
-                  </p>
-                  <div>
-                    <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger" %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- fourth card -->
-          <div class="col-lg-6 col-xl-3 mt-3 mt-xl-0 pl-lg-2" data-zanim-xs='{"delay":0.4,"animation":"zoom-in"}'>
-            <div class="position-relative hoverbox min-vh-50 h-100 py-6">
-              <!-- sixth background image -->
-              <div class="bg-holder rounded"
-                 style="background-image: url(<%= image_path 'https://images.pexels.com/photos/3817163/pexels-photo-3817163.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' %>)"
-              >
-              </div>
-              <div class="hoverbox-content d-flex bg-black justify-content-center rounded">
-                <div class="align-self-center px-4 px-lg-6 text-center">
-                  <span class="fa fa-signal text-white fs-2 mb-2">
-                  </span>
-                  <h4 class="mb-1 text-white">
-                    Programmes &amp; personnalisés
-                  </h4>
-                  <p class="px-3 text-sans-serif text-500">
-                    Argo Athletic vous propose un programme rien que pour vous.
-                  </p>
-                  <div>
-                    <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger" %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- section landing-download -->
+    
+
+
+
     <section class="py-8" id="landing-download">
       <div class="container">
         <div class="row align-items-center justify-content-center">

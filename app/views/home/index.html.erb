@@ -36,7 +36,7 @@
                   Ton sport. Tes objectifs. Notre engagement. 
                   </p>
                   <p class="lead text-sans-serif font-weight-normal pr-xl-9 mt-4 text-500" data-zanim-lg='{"delay":0.5}'>
-                    Entraînes-toi avec Argo Athletic et progresse dans ton sport avec des programmes construits automatiquement autour de tes objectifs !
+                    Entraîne-toi avec Argo Athletic et progresse dans ton sport avec des programmes construits automatiquement autour de tes objectifs !
                   </p>
                 </div>
                 <% if !user_signed_in? %>
@@ -79,8 +79,6 @@
         </div>
       </div>
     </section>
-
-
     <section  class="overflow-hidden bg-light " 
               id="landing-features-1"
               style="background-image: url(<%= image_path 'background-index-image.png' %>)">
@@ -110,8 +108,6 @@
         </div>
       </div> 
     </section>
-
-
     <section class="py-3" id="landing-features">
       <div class="container-fluid">
         <div class="row" data-zanim-timeline="{}" data-zanim-trigger="scroll">
@@ -120,7 +116,7 @@
             <div class="hoverbox min-vh-50 h-100 py-6">
               <!-- fourth background image -->
               <div class="bg-holder rounded"
-                  style="background-image: url(<%= image_path 'https://images.pexels.com/photos/3818834/pexels-photo-3818834.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' %>)"
+                  style="background-image: url(<%= image_path 'first-card-index.png' %>)"
               >
               </div>
               <div class="hoverbox-content d-flex bg-black justify-content-center rounded">
@@ -131,7 +127,7 @@
                     Performance Training
                   </h4>
                   <p class="px-3 text-sans-serif text-500">
-                    Concentres-toi sur l'essentiel. Des plans d'entrainements spécifiquement conçus en fonction de tes objectifs et exigences.
+                    Concentre-toi sur l'essentiel. Des plans d'entraînements spécifiquement conçus en fonction de tes objectifs et exigences.
                   </p>
                   <div>
                     <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger" %>
@@ -145,7 +141,7 @@
             <div class="position-relative hoverbox min-vh-50 h-100">
               <!-- fifth background image -->
               <div class="bg-holder rounded"
-                style="background-image: url(<%= image_path 'https://images.pexels.com/photos/4162593/pexels-photo-4162593.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260' %>)"
+                style="background-image: url(<%= image_path 'second-card-index.png' %>)"
               >
               </div>
               <div class="hoverbox-content d-flex bg-black justify-content-center rounded">
@@ -170,7 +166,7 @@
             <div class="position-relative hoverbox min-vh-50 h-100 py-6 d-flex justify-content-center">
               <!-- sixth background image -->
               <div class="bg-holder rounded"
-                style="background-image: url(<%= image_path 'https://images.pexels.com/photos/3772226/pexels-photo-3772226.jpeg?cs=srgb&dl=pexels-sergio-souza-3772226.png&fm=jpg' %>)"
+                style="background-image: url(<%= image_path 'third-card-index.png' %>)"
               >
               </div>
               <div class="hoverbox-content d-flex bg-black justify-content-center rounded">
@@ -195,7 +191,7 @@
             <div class="position-relative hoverbox min-vh-50 h-100 py-6">
               <!-- sixth background image -->
               <div class="bg-holder rounded"
-                style="background-image: url(<%= image_path 'https://images.pexels.com/photos/3817163/pexels-photo-3817163.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' %>)"
+                style="background-image: url(<%= image_path 'fourth-card-index.png' %>)"
               >
               </div>
               <div class="hoverbox-content d-flex bg-black justify-content-center rounded">
@@ -218,8 +214,6 @@
         </div>
       </div>
     </section>
-
-
     <!-- section landing-banner -->
     <section class="py-0 overflow-hidden" id="landing-banner">
       <div class="container-fluid">
@@ -229,7 +223,7 @@
               <!-- second background image -->
               <div class="bg-holder overlay parallax rounded"
                 data-zanim-trigger="scroll" data-rellax-percentage="0.5"
-                style="background-image: url(<%= image_path 'https://images.pexels.com/photos/414029/pexels-photo-414029.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' %>)"
+                style="background-image: url(<%= image_path 'second-background-index.png' %>)"
               >
               </div>
               <!-- promoting the app and remind for sign up -->
@@ -261,42 +255,16 @@
         </div>
       </div>
     </section>
-    
-
-
-
     <section class="py-8" id="landing-download">
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-7 text-center text-md-left">
-            <h2 class="font-weight-light">
-              Argo APP
-              <span class="font-weight-black">
-                bientot disponible sur
-              </span> 
+            <h2 class="font-weight-black">
+              L'Argo app sera bientôt disponible sur
             </h2>
-            <h4 class="font-weight-normal text-500">
-            </h4>
           </div>
           <!-- app store and google play icons -->
-          <div class="col-md-5 text-center mt-4 mt-md-0">
-            <div>
-              <span class="fab fa-apple mr-3" data-fa-transform="grow-8">
-              </span>
-              <div class="font-weight-black">
-                app store
-              </div>
-            </div>
-            <br>
-            <br>
-            <div>
-              <span class="fab fa-google-play mr-3" data-fa-transform="grow-8">
-              </span>
-              <div class="font-weight-black">
-                play store
-              </div>
-            </div>
-          </div>
+          <%= image_tag ("play-app-store.png") %>
         </div>
       </div>
     </section>

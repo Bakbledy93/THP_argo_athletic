@@ -124,62 +124,37 @@
     <!-- third background image -->
     <section  class="overflow-hidden bg-light" 
               id="landing-features-1"
-              style="background-image:url(<%= image_path 'https://images.pexels.com/photos/401896/pexels-photo-401896.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)'%>) 
-    >
-      <div class="container">
+              style="">
+       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-7">
             <div class="row bg-white rounded py-7 py-xl-9 px-5 px-md-0 text-sans-serif">
               <div class="col-md-9 col-lg-6 offset-md-1 offset-lg-2" data-zanim-timeline="{}" data-zanim-trigger="scroll">
                 <div class="overflow-hidden">
-                <div class="overflow-hidden">
-                  <h4 class="mb-sm-1 mb-md-2" data-zanim-xs='{"delay":0.4}'>
-                    Performance Training
-                  </h4>
-                </div>
-                <div class="overflow-hidden">
-                  <p class="mb-4 mb-lg-6" data-zanim-xs='{"delay":0.5}'>
-                    Concentres-toi sur l'essentiel. Des plans d'entrainements spécifiquement conçus en fonction de tes objectifs et exigences.
-                  </p>
-                </div>
-                  <h4 class="mb-sm-1 mb-md-2" data-zanim-xs='{"delay":0.1}'>
-                    Fitness Testing - en développement
-                  </h4>
-                </div>
-                <div class="overflow-hidden">
-                  <p class="mb-4 mb-lg-6" data-zanim-xs='{"delay":0.2}'>
-                    S'évaluer facilement. Connaitre ses forces et les points à améliorer.
-                  </p>
-                </div>
-                <div class="overflow-hidden">
-                  <h4 class="mb-sm-1 mb-md-2" data-zanim-xs='{"delay":0.7}'>
-                    Track and Analyze - en développement
-                  </h4>
-                </div>
-                <div class="overflow-hidden">
-                  <p class="mb-0" data-zanim-xs='{"delay":0.8}'>
-                    Chaque détail à son importance. Suis ta progression et mesures tes efforts tout au long du programme.
-                  </p>
-                </div>
-                <div class="overflow-hidden">
-                  <h4 class="mb-sm-1 mb-md-2" data-zanim-xs='{"delay":0.7}'>
-                    360° XP - en développement
-                  </h4>
-                </div>
-                <div class="overflow-hidden">
-                  <p class="mb-0" data-zanim-xs='{"delay":0.8}'>
-                    La performance au coeur des fonctionnalités d'Argo Athletic : MindSet, Sport Nutrition, Rehab Ex..
-                  </p>
+                <div class="card box-shadow text-center" style="width: 18rem;">
+                  <div class="card-header">
+                    <h2 class="my-0 font-weight-normal">TITAN</h2>
+                  </div>
+                  <div class="card-body">
+                    <h3>2,5€/semaine</h3>
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li>Programme personnalisé</li>
+                      <li>Exercices illimités</li>
+                      <li>Nutrition sportive</li>
+                      <li>Récupération</li>
+                    </ul>
+                    <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger" %>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="position-md-absolute r-0 t-0 parallax w-md-50" data-rellax-speed="5" data-rellax-percentage="0.5">
+        </div>
+        <div class="position-md-absolute r-0 t-0 parallax w-md-50" data-rellax-speed="5" data-rellax-percentage="0.5">
             <!-- image to show push ups -->
             <%= image_tag 'https://images.pexels.com/photos/4162495/pexels-photo-4162495.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260', 
                 class: "shadow-lg rounded img-fluid" 
             %>
-          </div>
         </div>
       </div>
     </section>
@@ -200,10 +175,10 @@
                   <span class="fa fa-signal text-white fs-2 mb-2">
                   </span>
                   <h4 class="mb-1 text-white">
-                    Programmes &amp; personnalisés
+                    Performance Training
                   </h4>
                   <p class="px-3 text-sans-serif text-500">
-                    Argo Athletic vous propose un programme rien que pour vous.
+                    Concentres-toi sur l'essentiel. Des plans d'entrainements spécifiquement conçus en fonction de tes objectifs et exigences.
                   </p>
                   <div>
                     <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger" %>
@@ -222,13 +197,13 @@
               </div>
               <div class="hoverbox-content d-flex bg-black justify-content-center rounded">
                 <div class="align-self-center px-4 px-lg-6 text-center">
-                  <span class="fa fa-signal text-white fs-2 mb-2">
+                  <span class="fa fa-clipboard-check text-white fs-2 mb-2">
                   </span>
                   <h4 class="mb-1 text-white">
-                    Programmes &amp; personnalisés
+                    Fitness Testing - en développement
                   </h4>
                   <p class="px-3 text-sans-serif text-500">
-                    Argo Athletic vous propose un programme rien que pour vous.
+                    S'évaluer facilement. Connaitre ses forces et les points à améliorer.
                   </p>
                   <div>
                     <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger" %>
@@ -247,13 +222,13 @@
               </div>
               <div class="hoverbox-content d-flex bg-black justify-content-center rounded">
                 <div class="align-self-center px-4 px-lg-6 text-center">
-                  <span class="fa fa-signal text-white fs-2 mb-2">
+                  <span class="fa fa-chart-line text-white fs-2 mb-2">
                   </span>
                   <h4 class="mb-1 text-white">
-                    Programmes &amp; personnalisés
+                    Tracking and Analysis - en développement
                   </h4>
                   <p class="px-3 text-sans-serif text-500">
-                    Argo Athletic vous propose un programme rien que pour vous.
+                    Chaque détail à son importance. Suis ta progression et mesures tes efforts tout au long du programme.
                   </p>
                   <div>
                     <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger" %>
@@ -272,13 +247,13 @@
               </div>
               <div class="hoverbox-content d-flex bg-black justify-content-center rounded">
                 <div class="align-self-center px-4 px-lg-6 text-center">
-                  <span class="fa fa-signal text-white fs-2 mb-2">
+                  <span class="fa fa-globe-europe text-white fs-2 mb-2">
                   </span>
                   <h4 class="mb-1 text-white">
-                    Programmes &amp; personnalisés
+                    360° XP - en développement
                   </h4>
                   <p class="px-3 text-sans-serif text-500">
-                    Argo Athletic vous propose un programme rien que pour vous.
+                    La performance au coeur des fonctionnalités d'Argo Athletic : MindSet, Sport Nutrition, Rehab Ex..
                   </p>
                   <div>
                     <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger" %>

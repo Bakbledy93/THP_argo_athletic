@@ -1,27 +1,27 @@
 <hr class="special-black-border title-border">
 <!-- connection link -->
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Déjà membre?", new_user_session_path, class: "btn btn-dark btn-block mt-3 fancy-feature-button" %>
+  <%= link_to "Déjà membre?", new_user_session_path, class: "btn btn-dark btn-block mt-3 fancy-feature-button audioButton" %>
 <% end %>
 <!-- registration link -->
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Pas encore membre?", new_user_registration_path, class: "btn btn-dark btn-block mt-3 fancy-feature-button" %>
+  <%= link_to "Pas encore membre?", new_user_registration_path, class: "btn btn-dark btn-block mt-3 fancy-feature-button audioButton" %>
 <% end %>
 <!-- password recovery link -->
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Mot de passe oublié?", new_user_password_path(resource_name), class: "btn btn-dark btn-block mt-3 fancy-feature-button" %>
+  <%= link_to "Mot de passe oublié?", new_user_password_path(resource_name), class: "btn btn-dark btn-block mt-3 fancy-feature-button audioButton" %>
 <% end %>
 <!-- account confirmation not received link -->
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Confirmation d'inscription non reçue?", new_user_confirmation_path(resource_name), class: "btn btn-dark btn-block mt-3 fancy-feature-button" %>
+  <%= link_to "Confirmation d'inscription non reçue?", new_user_confirmation_path(resource_name), class: "btn btn-dark btn-block mt-3 fancy-feature-button audioButton" %>
 <% end %>
 <!-- instrcutions not received link -->
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to "Instructions de récuparation non reçues?", new_unlock_path(resource_name), class: "btn btn-dark btn-block mt-3 fancy-feature-button" %>
+  <%= link_to "Instructions de récuparation non reçues?", new_unlock_path(resource_name), class: "btn btn-dark btn-block mt-3 fancy-feature-button audioButton" %>
 <% end %>
 <!-- authentification <ith social media link -->
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Se connecter avec #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-dark btn-block mt-3 fancy-feature-button" %><br />
+    <%= link_to "Se connecter avec #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-dark btn-block mt-3 fancy-feature-button audioButton" %><br />
   <% end %>
 <% end %>

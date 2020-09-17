@@ -21,13 +21,13 @@ Rails.application.routes.draw do
     collection {get :workout_program}
   end
 
-  resources :admins do [:index]
-    collection {get :import}
+  namespace :admins do
+    resources :users, only: [:index, :show, :new, :create, :update, :edit]
+    resources :profile, only: [:index, :show, :new, :create, :update, :edit]
   end
 
-  namespace :admins do
-    resources :users
-    resources :profile, only: [:index, :show, :new, :create, :update, :edit]
+  resources :admins do [:index]
+    collection {get :import}
   end
 
   resources :sports do

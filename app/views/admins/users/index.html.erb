@@ -1,0 +1,28 @@
+<table class="table">
+<%x=1%>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Email</th>
+      <th scope="col">Stripe_id</th>
+      <th scope="col">Sub_id</th>
+      <th scope="col">Edit User</th>
+      <th scope="col">Edit Profile</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%@users.each do |user|%>
+    <%x+=1%>
+    <tr>
+      <th scope="row"><%=x%></th>
+      <td><%=user.email%></td>
+      <td><%=user.stripe_id%></td>
+      <td><%=user.sub_id%></td>
+      <td><%= link_to "Edite compte", edit_admins_user_path(user.id), class:"btn btn-warning btn-sm"%></td>
+      <td><%= link_to "Edite profile", edit_admins_profile_path(user.profile.id), class:"btn btn-warning btn-sm"%></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+
+<%= link_to "Retour", root_path, class:"btn btn-outline-dark btn-block mt-3" %>            

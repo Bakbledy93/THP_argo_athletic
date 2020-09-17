@@ -1,6 +1,6 @@
  <section class="py-0" id="page-shop" data-zanim-xs='{"delay":0.4,"animation":"zoom-out"}' data-zanim-trigger="scroll">
   <div class="bg-holder" style="background-image:url(https://images.pexels.com/photos/4429141/pexels-photo-4429141.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);"></div>
-  <!--/.bg-holder-->
+
   <div class="container">
     <div class="row">
       <div class="col-9 pt-11 pb-5">
@@ -17,58 +17,17 @@
       </div>
     </div>
   </div>
-  <!-- end of .container-->
+
 </section>
 <section class="text-center" id="software-features">
   <div class="container">
     <div class="row justify-content-between">
-      <div class="col-lg-4 mb-5" data-zanim-timeline='{"delay":0.2}' data-zanim-trigger="scroll">
-        <img class="rounded-soft img-fluid" src="https://images.pexels.com/photos/1030794/pexels-photo-1030794.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' />
-        <div class="overflow-hidden">
-          <h4 class="mt-4" data-zanim-xs='{"delay":0.2}'>VOTRE PROGRAMME : JUMP</h4>
-        </div>
-        <div class="overflow-hidden">
-          <p data-zanim-xs='{"delay":0.3}'>The ability to switch perspective lets you see clearly, and to know where to take the next step. With sparrow, you can work on a portfolio, business website, or shop.</p>
-            <%if current_user.sub_id.present?%>
-                <% if @exist_program == true %>
-                  <div><%= link_to "voir mon Programme", workout_program_path, class:"btn btn-warning btn-sm"%></div>
-                <% else %>
-                  <%if current_user.profile.sport_role.nil? && current_user.profile.level.nil? %>
-                  <div><%= link_to "Créer mon Programme", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-warning btn-sm"%></div><br>
-                  <%else%>
-                    <div><%= link_to "Créer mon Programme", new_workout_program_path, class:"btn btn-warning btn-sm"%></div><br>
-                  <%end%>
-                <%end%>
-              <%else%>
-                  <div><%= link_to "Créer mon Programme", success_charges_path, class:"btn btn-warning btn-sm"%></div><br>
-              <%end%>
-        </div>
-      </div>
 
-      <div class="col-lg-4 mb-5" data-zanim-timeline='{"delay":0.3}' data-zanim-trigger="scroll">
-        <img class="rounded-soft img-fluid" src="https://images.pexels.com/photos/421160/pexels-photo-421160.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' />
+<div class="col-lg-4 mb-5" data-zanim-timeline='{"delay":0.1}' data-zanim-trigger="scroll">
+        <img class="rounded-soft img-fluid" src="https://images.pexels.com/photos/1174170/pexels-photo-1174170.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
+        alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' />
         <div class="overflow-hidden">
-          <h4 class="mt-4" data-zanim-xs='{"delay":0.2}'>VOTRE ENTRAINEMENT</h4>
-        </div>
-        <div class="overflow-hidden">
-          <%# <p data-zanim-xs='{"delay":0.3}'>Jour 1 - Jour 2 - Jour 3 - Jour 4 -</p> %>
-          <%if current_user.sub_id.present?%>
-            <% if @exist_program == true %>
-            <p data-zanim-xs='{"delay":0.3}'>Merci de créer votre programme d'entraînement. Cliquez sur le button "Créer mon Programme"</p>
-              <%= link_to "Jour 1", workout_program_path(program_id: @ex1, day: 1), class:"btn btn-lg btn-outline-dark mt-3"%>
-              <%= link_to "Jour 2", workout_program_path(program_id: @ex2, day: 2), class:"btn btn-lg btn-outline-dark mt-3"%>
-              <%= link_to "Jour 3", workout_program_path(program_id: @ex3, day: 3), class:"btn btn-lg btn-outline-dark mt-3"%>
-            <% else %>
-              <p data-zanim-xs='{"delay":0.3}'>Merci de créer votre programme d'entraînement. Cliquez sur le button "Créer mon Programme"</p>                
-            <% end %>
-          <%end%>
-        </div>
-      </div>
-
-      <div class="col-lg-4 mb-5" data-zanim-timeline='{"delay":0.1}' data-zanim-trigger="scroll">
-        <img class="rounded-soft img-fluid" src="https://images.pexels.com/photos/1174170/pexels-photo-1174170.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' />
-        <div class="overflow-hidden">
-          <h4 class="mt-4" data-zanim-xs='{"delay":0.2}'>VOTRE COMPTE</h4>
+          <h4 class="mt-4" data-zanim-xs='{"delay":0.2}'>VOTRE PROFIL SPORTIF</h4>
         </div>
         <div class="overflow-hidden">
           <p data-zanim-xs='{"delay":0.3}'>
@@ -87,31 +46,54 @@
         </div>
       </div>
 
-      <div class="col-lg-6 px-lg-6 pt-6" data-zanim-timeline='{"delay":0.4}' data-zanim-trigger="scroll">
-        <img class="rounded-soft img-fluid" src="assets/img/illustration/04.jpg" alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' />
+      <div class="col-lg-4 mb-5" data-zanim-timeline='{"delay":0.2}' data-zanim-trigger="scroll">
+        <img class="rounded-soft img-fluid" src="https://images.pexels.com/photos/1030794/pexels-photo-1030794.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" 
+        alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' />
         <div class="overflow-hidden">
-          <h4 class="mt-4" data-zanim-xs='{"delay":0.2}'>Option 1</h4>
+          <h4 class="mt-4" data-zanim-xs='{"delay":0.2}'>VOTRE PROGRAMME</h4>
         </div>
         <div class="overflow-hidden">
-          <p data-zanim-xs='{"delay":0.3}'>Everything is connected. Wherever you have related sections stored in separate pages, you lose control over the design. With sparrow you can easily join any section to create a simple, yet powerful website.</p>
+          <p data-zanim-xs='{"delay":0.3}'>The ability to switch perspective lets you see clearly, and to know where to take the next step. With sparrow, 
+          you can work on a portfolio, business website, or shop.</p>
+            <%if current_user.sub_id.present?%>
+                <% if @exist_program == true %>
+                  <div><%= link_to "voir mon Programme", workout_program_path, class:"btn btn-warning btn-sm"%></div>
+                <% else %>
+                  <%if current_user.profile.sport_role.nil? && current_user.profile.level.nil? %>
+                  <div><%= link_to "Créer mon Programme", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-warning btn-sm"%></div><br>
+                  <%else%>
+                    <div><%= link_to "Créer mon Programme", new_workout_program_path, class:"btn btn-warning btn-sm"%></div><br>
+                  <%end%>
+                <%end%>
+              <%else%>
+                  <div><%= link_to "Créer mon Programme", success_charges_path, class:"btn btn-warning btn-sm"%></div><br>
+              <%end%>
         </div>
       </div>
 
-      <div class="col-lg-6 px-lg-6 pt-6" data-zanim-timeline='{"delay":0.4}' data-zanim-trigger="scroll">
-        <img class="rounded-soft img-fluid" src="assets/img/illustration/04.jpg" alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' />
+      <div class="col-lg-4 mb-5" data-zanim-timeline='{"delay":0.3}' data-zanim-trigger="scroll">
+        <img class="rounded-soft img-fluid" src="https://images.pexels.com/photos/421160/pexels-photo-421160.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" 
+        alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' />
         <div class="overflow-hidden">
-          <h4 class="mt-4" data-zanim-xs='{"delay":0.2}'>Option 2</h4>
+          <h4 class="mt-4" data-zanim-xs='{"delay":0.2}'>VOTRE ENTRAINEMENT</h4>
         </div>
         <div class="overflow-hidden">
-          <p data-zanim-xs='{"delay":0.3}'>Everything is connected. Wherever you have related sections stored in separate pages, you lose control over the design. With sparrow you can easily join any section to create a simple, yet powerful website.</p>
+          <%# <p data-zanim-xs='{"delay":0.3}'>Jour 1 - Jour 2 - Jour 3 - Jour 4 -</p> %>
+          <%if current_user.sub_id.present?%>
+            <% if @exist_program == true %>
+            <p data-zanim-xs='{"delay":0.3}'>Merci de créer votre programme d'entraînement. Cliquez sur le button "Créer mon Programme"</p>
+              <%= link_to "Jour 1", workout_program_path(program_id: @ex1, day: 1), class:"btn btn-lg btn-outline-dark mt-3"%>
+              <%= link_to "Jour 2", workout_program_path(program_id: @ex2, day: 2), class:"btn btn-lg btn-outline-dark mt-3"%>
+              <%= link_to "Jour 3", workout_program_path(program_id: @ex3, day: 3), class:"btn btn-lg btn-outline-dark mt-3"%>
+            <% else %>
+              <p data-zanim-xs='{"delay":0.3}'>Merci de créer votre programme d'entraînement. Cliquez sur le button "Créer mon Programme"</p>                
+            <% end %>
+          <%end%>
         </div>
       </div>
-
+      
     </div>
   </div>
-  <!-- end of .container-->
-</section>
-<!-- <section> close ============================-->
-<!-- ============================================-->
-
+  
+  </section>
 

@@ -85,8 +85,15 @@ class ChargesController < ApplicationController
   end
 
   def cancel_subscription
+    #Deleting Trainings linked to current_user
+    @user_id = current_user.id
+    @profile_id = Profile.where(user_id: @user_id).first.id
+    WorkoutProgram.all.where(profile_id: @profile_id).destroy_all
+
+    #Deleting Stripe Subscription
     Stripe::Subscription.delete(current_user.sub_id)
     current_user.update(:sub_id => nil)
+
     redirect_to edit_user_registration_path
   end
 

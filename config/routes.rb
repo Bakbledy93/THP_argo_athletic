@@ -106,11 +106,12 @@ Rails.application.routes.draw do
   end
 
   resources :charges do
-    collection {post :subscribe}
     collection {get :success}
     collection {get :new_card}
     collection {post :create_card}
     collection {post :delete_card}
+    collection {post :subscribe}
+    collection {post :cancel_subscription}
   end
 
 end

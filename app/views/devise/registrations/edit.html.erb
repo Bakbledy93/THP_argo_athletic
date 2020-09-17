@@ -159,10 +159,26 @@
 
 
             </div>
-
           </div>
-        <% end %>  
-      </div>
+    <br>
+<br>
+  <%end%>
+    <div class="card" style="width: 18rem;">
+          <div class="card-header">
+            Abonnement
+          </div>
+            <div class="card-body">
+            <%if current_user.sub_id.present?%>
+              Souscription : <%=customer_subscription_time%><br>
+              Prix : <%= customer_subscription_price/100%>€/mois<br>
+              <%= link_to "Supprimer", cancel_subscription_charges_path, method: :post%>
+              <%else%>
+                  <%= link_to "M'abonner", success_charges_path, class: "btn btn-success" %>
+              <%end%>
+            </div>
+          </div>
+
+      <!-- cancelling account -->
     
 
 

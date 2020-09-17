@@ -96,5 +96,3 @@ gem 'activerecord-reset-pk-sequence'
 gem 'flash_rails_messages'
 # Adds Stripe
 gem 'stripe'
-# Adds turbolinks
-gem 'turbolinks'

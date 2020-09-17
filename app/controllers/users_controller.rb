@@ -34,6 +34,8 @@ class UsersController < ApplicationController
   end
 
   def edit
+    puts " Edit "*25
+    flash[:alert] = "User not found."
   end
 
   def check_if_exists(data)

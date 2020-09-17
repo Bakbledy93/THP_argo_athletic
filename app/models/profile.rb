@@ -5,14 +5,14 @@ class Profile < ApplicationRecord
   has_many :sports, through: :sport_profiles
   has_many :workout_programs
 
-  validates :first_name, 
-    presence: true
-  #   length: { minimum: 3 }
-  #   # format: { with: /\A\D+\z/}
-  # validates :weight, 
-  #   presence: true
-  # validates :last_name, presence: true
-  # validates :date_of_birth, presence: true
+  validates :first_name,
+    presence: true,
+    format: { with: /\A\D+\z/, message: "Numbers are not allowed" }
+  validates :weight, 
+    presence: true,
+    numericality: {only_float: true}
+  validates :last_name, presence: true
+  validates :date_of_birth, presence: true
 
   def self.sport_array_creator
     sports = Sport.all

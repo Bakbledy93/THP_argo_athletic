@@ -70,7 +70,9 @@ class WorkoutProgramsController < ApplicationController
   end
 
   def create
-    @workout_program = WorkoutProgram.new
+    # @workout_program1 = WorkoutProgram.new
+    # @workout_program2 = WorkoutProgram.new
+    # @workout_program = WorkoutProgram.new
     @user = current_user
     @profile = current_user.profile
     @profile_id = current_user.profile.id
@@ -83,19 +85,33 @@ class WorkoutProgramsController < ApplicationController
     @recuperation = Level.where(name: @level).first.recuperations
     @serie = Level.where(name: @level).first.series
 
+    puts " *"*25
+    puts "User: #{@user}"
+    puts "profile: #{@profile}"
+    puts "profile_id: #{@profile_id}"
+    puts "level: #{@level}"
+    puts "sport: #{@sport}"
+    puts "role: #{@role}"
+    puts "role_id: #{@role_id}"
+    puts "repetitions: #{@repetitions}"
+    puts "recuperation: #{@recuperation}"
+    puts "serie: #{@serie}"
+    puts " *"*25
+
+
     @rolesMGcap1 = RolesMuscularGroupCapacity.where(sport_role_id: @role_id).where(priority: 1)
     @cap_id1 = @rolesMGcap1.first.capacity_id
     @training_methods1 = TrainingMethod.where(capacity_id: @cap_id1)
     @mg_id1 = @rolesMGcap1.first.muscular_group_id
     @muscles1 = Muscle.where(muscular_group_id: @mg_id1)
 
-    @rolesMGcap2 = RolesMuscularGroupCapacity.where(sport_role_id: @role_id).where(priority: 2)
+    @rolesMGcap2 = RolesMuscularGroupCapacity.where(sport_role_id: @role_id).where(priority: 1)
     @cap_id2 = @rolesMGcap2.first.capacity_id
     @training_methods2 = TrainingMethod.where(capacity_id: @cap_id2)
     @mg_id2 = @rolesMGcap2.first.muscular_group_id
     @muscles2 = Muscle.where(muscular_group_id: @mg_id2)
 
-    @rolesMGcap3 = RolesMuscularGroupCapacity.where(sport_role_id: @role_id).where(priority: 3)
+    @rolesMGcap3 = RolesMuscularGroupCapacity.where(sport_role_id: @role_id).where(priority: 1)
     @cap_id3 = @rolesMGcap3.first.capacity_id
     @training_methods3 = TrainingMethod.where(capacity_id: @cap_id3)
     @mg_id3 = @rolesMGcap3.first.muscular_group_id
@@ -108,6 +124,34 @@ class WorkoutProgramsController < ApplicationController
     @var_array1 = creating_array_variants(@ex_array1)
     @var_array2 = creating_array_variants(@ex_array2)
     @var_array3 = creating_array_variants(@ex_array3)
+
+    puts " *"*25
+    puts "rolesMGcap1: #{@rolesMGcap1}"
+    puts "rolesMGcap1: #{@rolesMGcap1.count}"
+    puts "rolesMGcap1: #{@cap_id1}"
+    puts "rolesMGcap1: #{@training_methods1}"
+    puts "rolesMGcap1: #{@mg_id1}"
+    puts " *"*25
+    puts "rolesMGcap2: #{@rolesMGcap2}"
+    puts "rolesMGcap2: #{@rolesMGcap2.count}"
+    puts "rolesMGcap2: #{@cap_id2}"
+    puts "rolesMGcap1: #{@training_methods2}"
+    puts "rolesMGcap1: #{@mg_id2}"
+    puts " *"*25
+    puts "rolesMGcap3: #{@rolesMGcap3}"
+    puts "rolesMGcap3: #{@rolesMGcap3.count}"
+    puts "rolesMGcap3: #{@cap_id3}"
+    puts "rolesMGcap1: #{@training_methods3}"
+    puts "rolesMGcap1: #{@mg_id3}"
+    puts " *"*25
+    puts "ex_array1: #{@ex_array1}"
+    puts "ex_array2: #{@ex_array2}"
+    puts "ex_array3: #{@ex_array3}"
+    puts "var_array1: #{@var_array1}"
+    puts "var_array2: #{@var_array2}"
+    puts "var_array3: #{@var_array3}"
+    puts " *"*25
+
 
     create_workout_program
 
@@ -148,6 +192,9 @@ class WorkoutProgramsController < ApplicationController
       serie: @serie, 
       variant: @var_array1 
     )
+    puts " *"*25
+    @workout_program1
+    puts " *"*25
     @workout_program2 = WorkoutProgram.create!(
       exercise: @ex_array2, 
       training_method: @training_methods2.sample.name, 
@@ -158,6 +205,9 @@ class WorkoutProgramsController < ApplicationController
       serie: @serie, 
       variant: @var_array2 
     )
+    puts " *"*25
+    @workout_program2
+    puts " *"*25
     @workout_program3 = WorkoutProgram.create!(
       exercise: @ex_array3, 
       training_method: @training_methods3.sample.name, 
@@ -168,6 +218,9 @@ class WorkoutProgramsController < ApplicationController
       serie: @serie, 
       variant: @var_array3 
     )
+    puts " *"*25
+    @workout_program3
+    puts " *"*25
   end
 
 

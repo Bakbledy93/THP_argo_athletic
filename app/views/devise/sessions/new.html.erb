@@ -23,13 +23,13 @@
                  data-zanim-xs='{"animation":"slide-right"}'
                  data-zanim-trigger="scroll"
             >
-            <h3 class="display-4 fs-2 center">
+            <h1 class="display-4 fs-2 center">
               Argo Athletic
-            </h3>
+            </h1>
             <h6 class="text-danger mt-3">
               Spécialement conçue pour les compétieurs pour leur préparation physique.
             </h6>
-            <form class="mt-5">
+            <div class="mt-5">
               <div class="form-group">
                 <div class="field <% if resource.errors[:email].present? %>error<% end %>">
                   <%= f.label :email, "E-mail" %><em class="required-label">*</em>
@@ -38,12 +38,13 @@
               <div class="form-group">
                 <div class="field <% if resource.errors[:password].present? %>error<% end %>">
                   <%= f.label :password, "Mot de passe" %><em class="required-label">*</em>                
-                  <%= f.password_field :password, class:"form-control border-300 bg-light", autofocus: true, placeholder: 'mot de passe', required: true %> 
+                  <%= f.password_field :password, class:"form-control border-300 bg-light", placeholder: 'mot de passe', required: true %> 
               </div>
               <div class="form-group">
-                <%= f.submit :"Connexion", class:"btn btn-dark btn-block mt-3", autofocus: true %> 
+                <%= f.submit :"Connexion", class:"btn btn-dark btn-block mt-3" %> 
               </div>
-            </form>
+            </div>
+            <!-- links to other forms -->
             <%= render "devise/shared/links" %>
           </div>
         </div>

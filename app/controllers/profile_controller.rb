@@ -29,10 +29,17 @@ class ProfileController < ApplicationController
   end
 
   def update
+    @id = current_user.id
+    @weight = params[:weight]
     @sports = Sport.all
     @profile = Profile.find(params[:id])
-    @profile.update(params.require(:profile).permit(:first_name, :last_name, :weight, :height, :sport, :sport_role, :date_of_birth, :level))
-    flash[:alert] = "Le Profil à été mis à jour"
-    redirect_to user_path(params[:id])
+    if @profile.valid?
+      @profile.update(params.require(:profile).permit(:first_name, :last_name, :weight, :height, :sport, :sport_role, :date_of_birth, :level))
+      flash[:alert] = "Le Profil à été mis à jour"
+      redirect_to user_path(params[:id])
+    else
+      flash[:error] = "S'il vous plait, completez tous les champs du formulaire avec le format correct"
+      redirect_to edit_user_profile_path(id: @profile, user_id: @id)
+    end
   end
 end

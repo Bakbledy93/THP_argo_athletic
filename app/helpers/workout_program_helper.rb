@@ -7,7 +7,6 @@ module WorkoutProgramHelper
     @variant1 = []
     @variant2 = []
     @variant3 = []
-    
   end
 
   def ex_creator(program, i)

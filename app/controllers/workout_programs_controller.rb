@@ -1,6 +1,6 @@
 class WorkoutProgramsController < ApplicationController
   before_action :current_workout_program, only: [:show, :edit, :update]
-  include WorkoutProgramHelper
+  # include WorkoutProgramHelper
 
   def index
     @workout_programs = WorkoutProgram.all
@@ -52,56 +52,57 @@ class WorkoutProgramsController < ApplicationController
   end
 
   def new
-    @workout_program = WorkoutProgram.new
     @user = current_user
-    @profile = current_user.profile
-    @profile_id = current_user.profile.id
+    # @workout_program = WorkoutProgram.new
+    # @profile = current_user.profile
+    # @profile_id = current_user.profile.id
     # @priority = WorkoutProgram.get_priority
     @level = @user.profile.level
     @sport = @user.profile.sport
     @role = @user.profile.sport_role
-    @role_id = SportRole.where(name: @role).first.id
-    @repetitions = Level.where(name: @level).first.repetitions
-    @recuperation = Level.where(name: @level).first.recuperations
-    @serie = Level.where(name: @level).first.series
 
-    @rolesMGcap1 = RolesMuscularGroupCapacity.where(sport_role_id: @role_id).where(priority: 1)
-    @cap_id1 = @rolesMGcap1.first.capacity_id
-    @training_methods1 = TrainingMethod.where(capacity_id: @cap_id1)
-    @mg_id1 = @rolesMGcap1.first.muscular_group_id
-    @muscles1 = Muscle.where(muscular_group_id: @mg_id1)
+    # @role_id = SportRole.where(name: @role).first.id
+    # @repetitions = Level.where(name: @level).first.repetitions
+    # @recuperation = Level.where(name: @level).first.recuperations
+    # @serie = Level.where(name: @level).first.series
 
-    @rolesMGcap2 = RolesMuscularGroupCapacity.where(sport_role_id: @role_id).where(priority: 2)
-    @cap_id2 = @rolesMGcap2.first.capacity_id
-    @training_methods2 = TrainingMethod.where(capacity_id: @cap_id2)
-    @mg_id2 = @rolesMGcap2.first.muscular_group_id
-    @muscles2 = Muscle.where(muscular_group_id: @mg_id2)
+    # @rolesMGcap1 = RolesMuscularGroupCapacity.where(sport_role_id: @role_id).where(priority: 1)
+    # @cap_id1 = @rolesMGcap1.first.capacity_id
+    # @training_methods1 = TrainingMethod.where(capacity_id: @cap_id1)
+    # @mg_id1 = @rolesMGcap1.first.muscular_group_id
+    # @muscles1 = Muscle.where(muscular_group_id: @mg_id1)
 
-    @rolesMGcap3 = RolesMuscularGroupCapacity.where(sport_role_id: @role_id).where(priority: 3)
-    @cap_id3 = @rolesMGcap3.first.capacity_id
-    @training_method = TrainingMethod.where(capacity_id: @cap_id3)
-    @mg_id3 = @rolesMGcap3.first.muscular_group_id
-    @muscles3 = Muscle.where(muscular_group_id: @mg_id3)
+    # @rolesMGcap2 = RolesMuscularGroupCapacity.where(sport_role_id: @role_id).where(priority: 2)
+    # @cap_id2 = @rolesMGcap2.first.capacity_id
+    # @training_methods2 = TrainingMethod.where(capacity_id: @cap_id2)
+    # @mg_id2 = @rolesMGcap2.first.muscular_group_id
+    # @muscles2 = Muscle.where(muscular_group_id: @mg_id2)
+
+    # @rolesMGcap3 = RolesMuscularGroupCapacity.where(sport_role_id: @role_id).where(priority: 3)
+    # @cap_id3 = @rolesMGcap3.first.capacity_id
+    # @training_method = TrainingMethod.where(capacity_id: @cap_id3)
+    # @mg_id3 = @rolesMGcap3.first.muscular_group_id
+    # @muscles3 = Muscle.where(muscular_group_id: @mg_id3)
 
 
-    ex_array_A = []
-    @training_methods1.sample.exercises.uniq.each do |t|
-      ex_array_A << t.name
-    end
+    # ex_array_A = []
+    # @training_methods1.sample.exercises.uniq.each do |t|
+    #   ex_array_A << t.name
+    # end
 
-    ex_array_B = []
-    @muscles1.each do |m|
-      m.exercises.each do |x|
-        ex_array_B  << x.name
-      end 
-    end
+    # ex_array_B = []
+    # @muscles1.each do |m|
+    #   m.exercises.each do |x|
+    #     ex_array_B  << x.name
+    #   end 
+    # end
 
-    @ex_array1 = ex_array_A & ex_array_B
+    # @ex_array1 = ex_array_A & ex_array_B
 
-    @var_array1 = []
-    @ex_array1.each do |ex|
-      @var_array1 << Exercise.where(name: ex).first.variants.uniq.sample.name 
-    end
+    # @var_array1 = []
+    # @ex_array1.each do |ex|
+    #   @var_array1 << Exercise.where(name: ex).first.variants.uniq.sample.name 
+    # end
 
   end
 
@@ -116,7 +117,18 @@ class WorkoutProgramsController < ApplicationController
     @repetitions = Level.where(name: @level).first.repetitions
     @recuperation = Level.where(name: @level).first.recuperations
     @serie = Level.where(name: @level).first.series
-
+    # puts " / / "*30
+    # puts @user 
+    # puts @profile 
+    # puts @profile_id
+    # puts @level 
+    # puts @sport 
+    # puts @role 
+    # puts @role_id 
+    # puts @repetitions 
+    # puts @recuperation 
+    # puts @serie 
+    # puts " / / "*30
 
     @rolesMGcap1 = RolesMuscularGroupCapacity.where(sport_role_id: @role_id).where(priority: 1)
     @cap_id1 = @rolesMGcap1.first.capacity_id
@@ -143,6 +155,14 @@ class WorkoutProgramsController < ApplicationController
     @var_array1 = creating_array_variants(@ex_array1)
     @var_array2 = creating_array_variants(@ex_array2)
     @var_array3 = creating_array_variants(@ex_array3)
+    # puts " X / "*30
+    # puts @ex_array1
+    # puts @ex_array2
+    # puts @ex_array3
+    # puts @var_array1
+    # puts @var_array2
+    # puts @var_array3
+    # puts " X / "*30
 
     create_workout_program
 
@@ -155,9 +175,17 @@ class WorkoutProgramsController < ApplicationController
   end
 
   def update
-    @workout_program.update(workout_program_params)
+    # @workout_program.update(workout_program_params)
 
-    redirect_to workout_program_path(@workout_program)
+    # redirect_to workout_program_path(@workout_program)
+  end
+
+  def destroy
+    @workout_program = WorkoutProgram.where(profile_id: current_user.profile.id)
+    @workout_program.destroy_all
+
+    flash[:notice] = "Le programme d'entraînement à été suprimé. Merci de créer un nouveau programme"
+    redirect_to user_path(current_user.id)
   end
 
   private

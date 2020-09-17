@@ -57,7 +57,8 @@
           you can work on a portfolio, business website, or shop.</p>
             <%if current_user.sub_id.present?%>
                 <% if @exist_program == true %>
-                  <%= link_to "voir mon Programme", workout_programs_path, class:"btn btn-warning btn-sm"%>
+                  <%= link_to "voir mon Programme", workout_programs_path, class:"btn btn-outline-dark btn-sm"%>
+                  <%= link_to "effacer mon Programme", workout_program_path, method: 'delete', class:"btn btn-dark btn-sm mt-3"%>
                 <% else %>
                   <%if current_user.profile.sport_role.nil? && current_user.profile.level.nil? %>
                   <div><%= link_to "Créer mon Programme", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-warning btn-sm"%></div><br>
@@ -78,7 +79,6 @@
           <h4 class="mt-4" data-zanim-xs='{"delay":0.2}'>VOTRE ENTRAINEMENT</h4>
         </div>
         <div class="overflow-hidden">
-          <%# <p data-zanim-xs='{"delay":0.3}'>Jour 1 - Jour 2 - Jour 3 - Jour 4 -</p> %>
           <%if current_user.sub_id.present?%>
             <% if @exist_program == true %>
             <p data-zanim-xs='{"delay":0.3}'>Merci de créer votre programme d'entraînement. Cliquez sur le button "Créer mon Programme"</p>

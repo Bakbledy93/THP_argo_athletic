@@ -2,6 +2,15 @@
   display: none;
 }
 
+.fancy-feature{
+  font-weight: bold;
+  transition: all 500ms;
+}
+.fancy-feature:hover{
+  font-size:20px;
+  font-size-adjust: 20px;
+}
+
 .on-top {
   position: absolute;
   z-index: 999;

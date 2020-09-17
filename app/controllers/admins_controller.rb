@@ -1,5 +1,5 @@
 class AdminsController < ApplicationController
-  before_action :authenticate_admin, only: [:index, :import, :show]
+  before_action :authenticate_admin, only: [:index, :import, :show, :new, :edit]
 
   def authenticate_admin
     unless current_admin
@@ -18,7 +18,7 @@ class AdminsController < ApplicationController
   end
 
   def new
-    @admin = Admin.new
+    @admin = Admin.new   
   end
 
   def show

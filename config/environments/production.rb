@@ -92,7 +92,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.web_socket_server_url = "wss://thp-argo-dev.herokuapp.com/cable"
-  config.action_cable.allowed_request_origins = ['https://thp-argo-dev.herokuapp.com', 'http://thp-argo-dev.herokuapp.com']
-  config.action_mailer.default_url_options = { :host => 'heroku.com' }
+  config.action_cable.allowed_request_origins = ['https://thp-argo-dev2.herokuapp.com', 'http://thp-argo-dev2.herokuapp.com']
+  config.action_mailer.default_url_options = { :host => 'thp-argo-dev2.herokuapp.com' }
 
 end

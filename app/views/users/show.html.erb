@@ -20,16 +20,17 @@
   </div>
 
 </section>
+<br>
     <div class="fancy-tab">
 	<div class="nav-bar nav-bar-center">
 		<div class="nav-bar-item active"><span class="fas fa-home fs-2"></span><br>Home</div>
-		<div class="nav-bar-item"><span class="fas fa-user fs-2"></span><br>Profile Sport</div>
+		<div class="nav-bar-item"><span class="fas fa-user fs-2"></span><br>Profile</div>
 	</div>
 
 	<div class="tab-contents">
 		<div class="tab-content active">
 
-    <div class="container">
+    <div class="container mb-4">
 
         <div class="card-deck">
       <div class="card">
@@ -47,7 +48,6 @@
                   <p data-zanim-xs='{"delay":0.3}'>Merci de créer votre programme d'entraînement. Cliquez sur le button "Créer mon Programme"</p>                
                 <% end %>
                 <%else%>
-                  <>
                   <p data-zanim-xs='{"delay":0.3}'>Passes au niveau supérieur en profitant d'entrainement spécialement conçu pour toi !</p>
                   <%= link_to "S'abonner", success_charges_path, class:"btn btn-success btn-sm"%>
                   </><br>
@@ -68,6 +68,7 @@
                 <%if current_user.sub_id.present?%>
                     <% if @exist_program == true %>
                       <%= link_to "voir mon Programme", workout_programs_path, class:"btn btn-warning btn-sm"%>
+                      <%# <%= link_to "supprimer programme", workout_programs_path, class:"btn btn-warning btn-sm"%> %>
                     <% else %>
                       <%if current_user.profile.sport_role.nil? && current_user.profile.level.nil? %>
                         <div><%= link_to "Créer mon Programme", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-warning btn-sm"%></div><br>
@@ -91,18 +92,56 @@
 
 		</div>
 		<div class="tab-content">
-    <div class="container">
-      <div class="row">
+    <div class="container mb-4">
+      <div class="row mb-4">
 
             <div class="col-sm-8">
             <div class="card">
               <div class="card-header">
-                Profile Sport
+              <h6>PROFILE SPORT</h6>
               </div>
               <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <p>Sport :
+                <%unless current_user.profile.sport.nil?%>
+                <%current_user.profile.sport%>
+                <%else%>
+                <span class="font-italic">Renseignes ton profil</span>
+                <%end%>
+                </p>
+
+                <p>Poste :
+                <%unless current_user.profile.sport_role.nil?%>
+                <%current_user.profile.sport_role%>
+                <%else%>
+                <span class="font-italic">Renseignes ton profil</span>
+                <%end%>
+                </p>
+
+
+                <p>Taille :
+                <%unless current_user.profile.height.nil?%>
+                <%current_user.profile.height%> cm
+                <%else%>
+                <span class="font-italic">Renseignes ton profil</span>
+                <%end%>
+                </p>
+
+                <p>Poids :
+                <%unless current_user.profile.weight.nil?%>
+                <%current_user.profile.weight%> kg
+                <%else%>
+                <span class="font-italic">Renseignes ton profil</span>
+                <%end%>
+                </p>
+
+                <p>Niveau :
+                <%unless current_user.profile.level.nil?%>
+                <%current_user.profile.level%> kg
+                <%else%>
+                <span class="font-italic">Renseignes ton profil</span>
+                <%end%>
+                </p>
+
               </div>
             </div>
           </div>
@@ -110,24 +149,62 @@
           <div class="col-sm-4">
             <div class="card" style="width: 18rem;">
               <div class="card-header">
-                Compteur
+                <h6>COMPTEUR</h6>
               </div>
               <div class="card-body text-center">
                 <h1 class="card-title text-center"><span data-countup="659">0</span></h1>
                 <p>Entrainements effectués</p>
+                <h1 class="card-title text-center"><span data-countup="1350">0</span></h1>
+                <p>Kilomètres parcourus</p>
               </div>
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-sm">col-sm</div>
-          <div class="col-sm">col-sm</div>
-          <div class="col-sm">col-sm</div>
+          <div class="col-sm">
+
+            <div class="card" style="width: 18rem;">
+              <div class="card-header">
+                <h6>EDITER PROFIL SPORT</h6>
+              </div>
+              <div class="card-body text-center">
+                <%= link_to "Modifier son profil sport", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-warning btn-sm"%>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-sm">
+          
+            <div class="card" style="width: 18rem;">
+              <div class="card-header">
+                <h6>EDITER COMPTE UTILISATEUR</h6>
+              </div>
+              <div class="card-body text-center">
+                <%= link_to "Modifier son compte utilisateur", edit_user_registration_path, class:"btn btn-warning btn-sm"%>
+              </div>
+            </div>
+          
+          </div>
+          <div class="col-sm">
+
+            <div class="card" style="width: 18rem;">
+              <div class="card-header">
+                <h6>DECONNEXION</h6>
+              </div>
+              <div class="card-body text-center">
+                <%= link_to "Déconnexion", destroy_admin_session_path, method: 'delete', class:"btn btn-warning btn-sm"%>
+              </div>
+            </div>
+          
+          </div>
         </div>
       </div>
     </div>
 	</div>
 </div>
+
+
+
 
 
 

@@ -1,7 +1,7 @@
 <hr class="special-black-border title-border">
 <!-- connection link -->
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Déjà membre?", new_user_session_path, class: "btn btn-dark btn-block mt-3" %>
+  <%= link_to "Déjà membre?", new_user_session_path, class: "btn btn-dark btn-block mt-3 " %>
 <% end %>
 <!-- registration link -->
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>

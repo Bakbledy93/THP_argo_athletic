@@ -11,6 +11,13 @@
   font-size-adjust: 20px;
 }
 
+.fancy-feature-button:hover {
+  background-color: #000;
+  /*  Making button bigger on hover  */
+  padding: 20px 60px;
+  transform: scale(1.0);
+}
+
 .on-top {
   position: absolute;
   z-index: 999;

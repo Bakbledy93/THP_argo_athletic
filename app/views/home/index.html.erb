@@ -42,14 +42,17 @@
                 <% if !user_signed_in? %>
                   <!-- presentation of options of authentification -->
                   <div class="overflow-hidden">
-                    <div class="mt-3 mt-lg-5" data-zanim-xs='{"delay":0.6}'>
+                    <div class="mt-3 mt-lg-5 text-center" data-zanim-xs='{"delay":0.6}'>
+                      <h6 class="font-weight-normal mt-2 text-500">
+                        Nouveau ?
+                      </h6>
                       <!-- sign up option -->
-                      <%= button_to "Inscrivez-vous", new_user_registration_path, method: 'get', class:"btn btn-danger btn-lg"%>
+                      <%= button_to "Inscrivez-vous", new_user_registration_path, method: 'get', class:"btn btn-danger btn-lg fancy-feature-button"%>
                       <h6 class="font-weight-normal mt-2 text-500">
                         Déjà membre ?
                       </h6>
                       <!-- sign in option -->
-                      <%= button_to "Connexion", new_user_session_path, method: 'get', class:"btn btn-danger d-inline btn-lg" %>
+                      <%= button_to "Connexion", new_user_session_path, method: 'get', class:"btn btn-danger d-inline btn-lg fancy-feature-button" %>
                     </div>
                   </div>
                 <% end %>
@@ -96,7 +99,7 @@
                       <p class="fancy-feature">Exercices illimités</p>
                       <p class="fancy-feature">Nutrition sportive</p>
                       <p class="fancy-feature">Récupération</p>
-                    <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger btn-lg" %>
+                    <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger btn-lg fancy-feature-button" %>
                   </div>
                 </div>
               </div> 
@@ -124,13 +127,13 @@
                   <span class="fa fa-signal text-white fs-2 mb-2">
                   </span>
                   <h4 class="mb-1 text-white">
-                    Performance Training
+                    Performance Training (disponible)
                   </h4>
                   <p class="px-3 text-sans-serif text-500">
-                    Concentre-toi sur l'essentiel. Des plans d'entraînements spécifiquement conçus en fonction de tes objectifs et exigences.
+                    Concentre-toi sur l'essentiel. Des plans d'entraînements conçus en fonction de ton profil.
                   </p>
                   <div>
-                    <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger" %>
+                    <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger fancy-feature-button" %>
                   </div>
                 </div>
               </div>
@@ -149,13 +152,13 @@
                   <span class="fa fa-clipboard-check text-white fs-2 mb-2">
                   </span>
                   <h4 class="mb-1 text-white">
-                    Fitness Testing - en développement
+                    Fitness Testing (bientôt disponible)
                   </h4>
                   <p class="px-3 text-sans-serif text-500">
                     S'évaluer facilement. Connaitre ses forces et les points à améliorer.
                   </p>
                   <div>
-                    <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger" %>
+                    <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger fancy-feature-button" %>
                   </div>
                 </div>
               </div>
@@ -174,13 +177,13 @@
                   <span class="fa fa-chart-line text-white fs-2 mb-2">
                   </span>
                   <h4 class="mb-1 text-white">
-                    Tracking and Analysis - en développement
+                    Tracking and Analysis (bientôt disponible)
                   </h4>
                   <p class="px-3 text-sans-serif text-500">
-                    Chaque détail à son importance. Suis ta progression et mesures tes efforts tout au long du programme.
+                    Chaque détail a son importance. Suis ta progression tout au long du programme.
                   </p>
                   <div>
-                    <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger" %>
+                    <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger fancy-feature-button" %>
                   </div>
                 </div>
               </div>
@@ -199,13 +202,13 @@
                   <span class="fa fa-globe-europe text-white fs-2 mb-2">
                   </span>
                   <h4 class="mb-1 text-white">
-                    360° XP - en développement
+                    360° XP (bientôt disponible)
                   </h4>
                   <p class="px-3 text-sans-serif text-500">
-                    La performance au coeur des fonctionnalités d'Argo Athletic : MindSet, Sport Nutrition, Rehab Ex..
+                    La performance au coeur des fonctionnalités d'Argo Athletic : MindSet & Sport Nutrition.
                   </p>
                   <div>
-                    <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger" %>
+                    <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger fancy-feature-button" %>
                   </div>
                 </div>
               </div>
@@ -227,7 +230,7 @@
               >
               </div>
               <!-- promoting the app and remind for sign up -->
-              <div class="position-relative py-11 px-3 px-lg-9">
+              <div class="position-relative py-11 px-3 px-lg-9 text-center">
                 <h1 class="text-white fs-2 fs-sm-4 fs-md-5 parallax display-4" data-rellax-percentage="0.5" data-rellax-speed="2">
                   <span class="d-block overflow-hidden">
                     <span class="d-inline-block" data-zanim-xs='{"delay":0.1}'>
@@ -245,7 +248,7 @@
                     </span>
                     <!-- secondary button for sign up -->
                     <div>
-                      <%= button_to "Inscrivez-vous", new_user_registration_path, method: 'get', class:"btn btn-danger btn-lg "%>
+                      <%= button_to "Inscription", new_user_registration_path, method: 'get', class:"btn btn-danger btn-lg fancy-feature-button"%>
                     </div>
                   </span>
                 </h1>

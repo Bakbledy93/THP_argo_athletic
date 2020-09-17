@@ -23,30 +23,31 @@
                  data-zanim-xs='{"animation":"slide-right"}'
                  data-zanim-trigger="scroll"
             >
-            <h1 class="display-4 fs-2 center">
-              Argo Athletic
-            </h1>
-            <h6 class="text-danger mt-3">
-              Spécialement conçue pour les compétieurs pour leur préparation physique.
-            </h6>
-            <div class="mt-5">
+            <div class="card text-center border-light">
+              <h2 class="display-4 fs-2 card-title">
+                Argo Athletic
+                <hr class="special-black-border striped-border">
+                Connexion
+              </h2>
+              <h6 class="text-danger mt-3">
+                Connecte toi pour commencer ta préparation physique sans plus tarder. 
+              </h6>
               <div class="form-group">
                 <div class="field <% if resource.errors[:email].present? %>error<% end %>">
                   <%= f.label :email, "E-mail" %><em class="required-label">*</em>
                   <%= f.email_field :email, class:"form-control border-300 bg-light", autofocus: true, placeholder: 'e-mail', pattern: '[^@]+@[^@]+\.[a-zA-Z]{2,6}', required: true %> 
                 </div>
-              <div class="form-group">
+              </div>
+             <div class="form-group">
                 <div class="field <% if resource.errors[:password].present? %>error<% end %>">
                   <%= f.label :password, "Mot de passe" %><em class="required-label">*</em>                
                   <%= f.password_field :password, class:"form-control border-300 bg-light", placeholder: 'mot de passe', required: true %> 
+                </div>
               </div>
-              <div class="form-group">
-                <%= f.submit :"Connexion", class:"btn btn-dark btn-block mt-3" %> 
-              </div>
+              <%= f.submit :"Connexion", class:"btn btn-danger btn-block mt-3" %> 
             </div>
             <!-- links to other forms -->
             <%= render "devise/shared/links" %>
-          </div>
         </div>
       </div>
     </div>

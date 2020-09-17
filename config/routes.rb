@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     collection {get :import}
     collection {get :contact}
     collection {get :terms}
+    collection {get :team}
   end
 
   resources :sport_roles, only: [:index] do

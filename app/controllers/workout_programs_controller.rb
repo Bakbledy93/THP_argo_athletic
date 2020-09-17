@@ -95,7 +95,7 @@ class WorkoutProgramsController < ApplicationController
     @mg_id2 = @rolesMGcap2.first.muscular_group_id
     @muscles2 = Muscle.where(muscular_group_id: @mg_id2)
 
-    @rolesMGcap3 = RolesMuscularGroupCapacity.where(sport_role_id: @role_id).where(priority: 2)
+    @rolesMGcap3 = RolesMuscularGroupCapacity.where(sport_role_id: @role_id).where(priority: 3)
     @cap_id3 = @rolesMGcap3.first.capacity_id
     @training_methods3 = TrainingMethod.where(capacity_id: @cap_id3)
     @mg_id3 = @rolesMGcap3.first.muscular_group_id

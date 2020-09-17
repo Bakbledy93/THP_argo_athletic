@@ -23,7 +23,8 @@ class User < ApplicationRecord
     puts User.find_by(email: email).id
     
     Profile.create(
-      user_id: User.find_by(email: email).id
+      user_id: User.find_by(email: email).id,
+      validates: false
     )
   end
   

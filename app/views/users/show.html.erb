@@ -1,4 +1,5 @@
  <section class="py-0" id="page-shop" data-zanim-xs='{"delay":0.4,"animation":"zoom-out"}' data-zanim-trigger="scroll">
+
   <div class="bg-holder" style="background-image:url(https://images.pexels.com/photos/4429141/pexels-photo-4429141.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);"></div>
 
   <div class="container">
@@ -19,81 +20,194 @@
   </div>
 
 </section>
-<section class="text-center" id="software-features">
-  <div class="container">
-    <div class="row justify-content-between">
+<br>
+    <div class="fancy-tab">
+	<div class="nav-bar nav-bar-center">
+		<div class="nav-bar-item active"><span class="fas fa-home fs-2"></span><br>Home</div>
+		<div class="nav-bar-item"><span class="fas fa-user fs-2"></span><br>Profile</div>
+	</div>
 
-<div class="col-lg-4 mb-5" data-zanim-timeline='{"delay":0.1}' data-zanim-trigger="scroll">
-        <img class="rounded-soft img-fluid" src="https://images.pexels.com/photos/1174170/pexels-photo-1174170.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
-        alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' />
-        <div class="overflow-hidden">
-          <h4 class="mt-4" data-zanim-xs='{"delay":0.2}'>VOTRE PROFIL SPORTIF</h4>
-        </div>
-        <div class="overflow-hidden">
-          <p data-zanim-xs='{"delay":0.3}'>
-            <%= current_user.profile.first_name %>
-            <%= current_user.profile.last_name %>  
-          </p>
-          <p data-zanim-xs='{"delay":0.3}'><%= current_user.email %></p>
-          <p data-zanim-xs='{"delay":0.3}'>
-            <span>Inscrit depuis: </span>
-            <%= current_user.created_at %>
-          </p>
-          <div><%= link_to "Compte utilisateur", edit_user_registration_path, class:"btn btn-outline-dark btn-sm" %></div>
-          <div>
-            <%= link_to "Editer Profile Sportif", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-dark btn-sm mt-3"%>
-          </div>
-        </div>
-      </div>
+	<div class="tab-contents">
+		<div class="tab-content active">
 
-      <div class="col-lg-4 mb-5" data-zanim-timeline='{"delay":0.2}' data-zanim-trigger="scroll">
-        <img class="rounded-soft img-fluid" src="https://images.pexels.com/photos/1030794/pexels-photo-1030794.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" 
-        alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' />
-        <div class="overflow-hidden">
-          <h4 class="mt-4" data-zanim-xs='{"delay":0.2}'>VOTRE PROGRAMME</h4>
-        </div>
-        <div class="overflow-hidden">
-          <p data-zanim-xs='{"delay":0.3}'>The ability to switch perspective lets you see clearly, and to know where to take the next step. With sparrow, 
-          you can work on a portfolio, business website, or shop.</p>
-            <%if current_user.sub_id.present?%>
+    <div class="container mb-4">
+
+        <div class="card-deck">
+      <div class="card">
+          <img class="rounded-soft img-fluid" src="https://images.pexels.com/photos/421160/pexels-photo-421160.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" 
+            alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' />
+        <div class="card-body">
+          <h5 class="card-title">ENTRAINEMENT DU JOUR</h5>
+          <%if current_user.sub_id.present?%>
                 <% if @exist_program == true %>
                   <%= link_to "voir mon Programme", workout_programs_path, class:"btn btn-outline-dark btn-sm"%>
                   <%= link_to "effacer mon Programme", workout_program_path, method: 'delete', class:"btn btn-dark btn-sm mt-3"%>
+                <p data-zanim-xs='{"delay":0.3}'>Merci de créer votre programme d'entraînement. Cliquez sur le button "Créer mon Programme"</p>
+                  <%= link_to "Jour 1", workout_program_path(program_id: @ex1, day: 1), class:"btn btn-lg btn-outline-dark mt-3"%>
+                  <%= link_to "Jour 2", workout_program_path(program_id: @ex2, day: 2), class:"btn btn-lg btn-outline-dark mt-3"%>
+                  <%= link_to "Jour 3", workout_program_path(program_id: @ex3, day: 3), class:"btn btn-lg btn-outline-dark mt-3"%>
                 <% else %>
-                  <%if current_user.profile.sport_role.nil? && current_user.profile.level.nil? %>
-                  <div><%= link_to "Créer mon Programme", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-warning btn-sm"%></div><br>
-                  <%else%>
-                    <div><%= link_to "Créer mon Programme", new_workout_program_path, class:"btn btn-warning btn-sm"%></div><br>
-                  <%end%>
+                  <p data-zanim-xs='{"delay":0.3}'>Merci de créer votre programme d'entraînement. Cliquez sur le button "Créer mon Programme"</p>                
+                <% end %>
+                <%else%>
+                  <p data-zanim-xs='{"delay":0.3}'>Passes au niveau supérieur en profitant d'entrainement spécialement conçu pour toi !</p>
+                  <%= link_to "S'abonner", success_charges_path, class:"btn btn-success btn-sm"%>
+                  </><br>
                 <%end%>
-              <%else%>
-                  <div><%= link_to "Créer mon Programme", success_charges_path, class:"btn btn-warning btn-sm"%></div><br>
-              <%end%>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
         </div>
       </div>
 
-      <div class="col-lg-4 mb-5" data-zanim-timeline='{"delay":0.3}' data-zanim-trigger="scroll">
-        <img class="rounded-soft img-fluid" src="https://images.pexels.com/photos/421160/pexels-photo-421160.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" 
-        alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' />
-        <div class="overflow-hidden">
-          <h4 class="mt-4" data-zanim-xs='{"delay":0.2}'>VOTRE ENTRAINEMENT</h4>
+      <div class="card">
+            <img class="rounded-soft img-fluid" src="https://images.pexels.com/photos/1030794/pexels-photo-1030794.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" 
+            alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' />
+        <div class="card-body">
+          <h5 class="card-title">VOTRE PROGRAMME</h5>
+              <p data-zanim-xs='{"delay":0.3}'>The ability to switch perspective lets you see clearly, <br>and to know where to take the next step. With sparrow, 
+              you can work on a portfolio, business website, or shop.</p>
+                <%if current_user.sub_id.present?%>
+                    <% if @exist_program == true %>
+                      <%= link_to "voir mon Programme", workout_programs_path, class:"btn btn-warning btn-sm"%>
+                      <%# <%= link_to "supprimer programme", workout_programs_path, class:"btn btn-warning btn-sm"%> %>
+                    <% else %>
+                      <%if current_user.profile.sport_role.nil? && current_user.profile.level.nil? %>
+                        <div><%= link_to "Créer mon Programme", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-warning btn-sm"%></div><br>
+                      <%else%>
+                        <div><%= link_to "Créer mon Programme", new_workout_program_path, class:"btn btn-warning btn-sm"%></div><br>
+                      <%end%>
+                    <%end%>
+                <%else%>
+                  <div> <%= link_to "Créer mon Programme", success_charges_path, class:"btn btn-warning btn-sm"%></div><br>
+                <%end%>
         </div>
-        <div class="overflow-hidden">
-          <%if current_user.sub_id.present?%>
-            <% if @exist_program == true %>
-            <p data-zanim-xs='{"delay":0.3}'>Merci de créer votre programme d'entraînement. Cliquez sur le button "Créer mon Programme"</p>
-              <%= link_to "Jour 1", workout_program_path(program_id: @ex1, day: 1), class:"btn btn-lg btn-outline-dark mt-3"%>
-              <%= link_to "Jour 2", workout_program_path(program_id: @ex2, day: 2), class:"btn btn-lg btn-outline-dark mt-3"%>
-              <%= link_to "Jour 3", workout_program_path(program_id: @ex3, day: 3), class:"btn btn-lg btn-outline-dark mt-3"%>
-            <% else %>
-              <p data-zanim-xs='{"delay":0.3}'>Merci de créer votre programme d'entraînement. Cliquez sur le button "Créer mon Programme"</p>                
-            <% end %>
-          <%end%>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
         </div>
       </div>
+
+      </div>
       
+
     </div>
-  </div>
-  
-  </section>
+
+		</div>
+		<div class="tab-content">
+    <div class="container mb-4">
+      <div class="row mb-4">
+
+            <div class="col-sm-8">
+            <div class="card">
+              <div class="card-header">
+              <h6>PROFILE SPORT</h6>
+              </div>
+              <div class="card-body">
+                <p>Sport :
+                <%unless current_user.profile.sport.nil?%>
+                <%=current_user.profile.sport%>
+                <%else%>
+                <span class="font-italic">Renseignes ton profil</span>
+                <%end%>
+                </p>
+
+                <p>Poste :
+                <%unless current_user.profile.sport_role.nil?%>
+                <%=current_user.profile.sport_role%>
+                <%else%>
+                <span class="font-italic">Renseignes ton profil</span>
+                <%end%>
+                </p>
+
+
+                <p>Taille :
+                <%unless current_user.profile.height.nil?%>
+                <%=current_user.profile.height%> cm
+                <%else%>
+                <span class="font-italic">Renseignes ton profil</span>
+                <%end%>
+                </p>
+
+                <p>Poids :
+                <%unless current_user.profile.weight.nil?%>
+                <%=current_user.profile.weight%> kg
+                <%else%>
+                <span class="font-italic">Renseignes ton profil</span>
+                <%end%>
+                </p>
+
+                <p>Niveau :
+                <%unless current_user.profile.level.nil?%>
+                <%=current_user.profile.level%>
+                <%else%>
+                <span class="font-italic">Renseignes ton profil</span>
+                <%end%>
+                </p>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="card" style="width: 18rem;">
+              <div class="card-header">
+                <h6>COMPTEUR</h6>
+              </div>
+              <div class="card-body text-center">
+                <h1 class="card-title text-center"><span data-countup="659">0</span></h1>
+                <p>Entrainements effectués</p>
+                <h1 class="card-title text-center"><span data-countup="1350">0</span></h1>
+                <p>Kilomètres parcourus</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+
+            <div class="card" style="width: 18rem;">
+              <div class="card-header">
+                <h6>EDITER PROFIL SPORT</h6>
+              </div>
+              <div class="card-body text-center">
+                <%= link_to "Modifier son profil sport", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-warning btn-sm"%>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-sm">
+          
+            <div class="card" style="width: 18rem;">
+              <div class="card-header">
+                <h6>EDITER COMPTE UTILISATEUR</h6>
+              </div>
+              <div class="card-body text-center">
+                <%= link_to "Modifier son compte utilisateur", edit_user_registration_path, class:"btn btn-warning btn-sm"%>
+              </div>
+            </div>
+          
+          </div>
+          <div class="col-sm">
+
+            <div class="card" style="width: 18rem;">
+              <div class="card-header">
+                <h6>DECONNEXION</h6>
+              </div>
+              <div class="card-body text-center">
+                <%= link_to "Déconnexion", destroy_admin_session_path, method: 'delete', class:"btn btn-warning btn-sm"%>
+              </div>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+</div>
+
+
+
+
+
+
 

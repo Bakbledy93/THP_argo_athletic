@@ -21,17 +21,19 @@
     </div>
     <div class="fancynavbar-collapse audioButton">
       <ul class="fancynavbar-nav">
-          
             <div class="fancy-dropdown-menu">
               <div class="row pb-4 pt-3">
                 <div class="col-sm-auto pr-4">
+                  <hr>
                   <!-- user -->
                   <% if user_signed_in? %>
                     <!-- user -->
                       <!-- picture -->
+                      <!--
                         <%= image_tag user_avatar(current_user, 20), 
                             class: "rounded-circle" 
                         %>
+                      -->
                         <!-- dashboard -->
                         <%= link_to "Dashboard",
                             authenticated_user_root_path,

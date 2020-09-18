@@ -51,8 +51,17 @@
                     </div>
                   </div>
                   <div class="row mb-4 flex">
-                    <div class="col">Votre poids
+                    <div class="col">Votre poids (kg)
                           <%= f.text_field :weight, 
+                          class:"form-control border-300 bg-light",
+                          placeholder: "Votre poids" 
+                      %> 
+                    </div>
+                  </div>
+
+                  <div class="row mb-4 flex">
+                    <div class="col">Votre hauteur (m)
+                          <%= f.text_field :height, 
                           class:"form-control border-300 bg-light",
                           placeholder: "Votre poids" 
                       %> 

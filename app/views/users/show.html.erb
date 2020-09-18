@@ -100,7 +100,7 @@
               <div class="card-body">
                 <p>Sport :
                 <%unless current_user.profile.sport.nil?%>
-                <%=current_user.profile.sport%>
+                <%=current_user.profile.sport.humanize %>
                 <%else%>
                 <span class="font-italic">Renseignes ton profil</span>
                 <%end%>
@@ -108,7 +108,7 @@
 
                 <p>Poste :
                 <%unless current_user.profile.sport_role.nil?%>
-                <%=current_user.profile.sport_role%>
+                <%=current_user.profile.sport_role.humanize %>
                 <%else%>
                 <span class="font-italic">Renseignes ton profil</span>
                 <%end%>
@@ -133,7 +133,7 @@
 
                 <p>Niveau :
                 <%unless current_user.profile.level.nil?%>
-                <%=current_user.profile.level%>
+                <%=current_user.profile.level.humanize %>
                 <%else%>
                 <span class="font-italic">Renseignes ton profil</span>
                 <%end%>

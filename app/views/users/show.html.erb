@@ -47,7 +47,7 @@
                       <%end%>
                     <%end%>
                 <%else%>
-                  <div> <%= link_to "Créer mon Programme", success_charges_path, class:"btn btn-danger btn-sm"%></div><br>
+                  <div> <%= link_to "S'abonner pour créer mon programmme", success_charges_path, class:"btn btn-danger btn-sm"%></div><br>
                 <%end%>
         </div>
         <div class="d2">
@@ -73,7 +73,8 @@
                 <%unless current_user.profile.sport.nil?%>
                 <%=current_user.profile.sport.humanize %>
                 <%else%>
-                <span class="font-italic">Renseignes ton profil</span>
+                <span class="font-italic"><%= link_to "Renseigner votre profil", edit_user_profile_path(id: @profile, user_id: @id)%>
+</span>
                 <%end%>
                 </p>
 
@@ -81,7 +82,8 @@
                 <%unless current_user.profile.sport_role.nil?%>
                 <%=current_user.profile.sport_role.humanize %>
                 <%else%>
-                <span class="font-italic">Renseignes ton profil</span>
+                <span class="font-italic"><%= link_to "Renseigner votre profil", edit_user_profile_path(id: @profile, user_id: @id)%>
+</span>
                 <%end%>
                 </p>
 
@@ -90,7 +92,8 @@
                 <%unless current_user.profile.height.nil?%>
                 <%=current_user.profile.height%> cm
                 <%else%>
-                <span class="font-italic">Renseignes ton profil</span>
+                <span class="font-italic"><%= link_to "Renseigner votre profil", edit_user_profile_path(id: @profile, user_id: @id)%>
+</span>
                 <%end%>
                 </p>
 
@@ -98,7 +101,8 @@
                 <%unless current_user.profile.weight.nil?%>
                 <%=current_user.profile.weight%> kg
                 <%else%>
-                <span class="font-italic">Renseignes ton profil</span>
+                <span class="font-italic"><%= link_to "Renseigner votre profilt", edit_user_profile_path(id: @profile, user_id: @id)%>
+</span>
                 <%end%>
                 </p>
 
@@ -106,7 +110,8 @@
                 <%unless current_user.profile.level.nil?%>
                 <%=current_user.profile.level.humanize %>
                 <%else%>
-                <span class="font-italic">Renseignes ton profil</span>
+                <span class="font-italic"><%= link_to "Renseigner votre profil", edit_user_profile_path(id: @profile, user_id: @id)%>
+</span>
                 <%end%>
                 </p>
 

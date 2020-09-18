@@ -86,7 +86,7 @@ module WorkoutProgramHelper
     @mg_id1 = @rolesMGcap1.first.muscular_group_id
     @muscles1 = Muscle.where(muscular_group_id: @mg_id1)
 
-    @rolesMGcap2 = roleMGcap_definition(@role_id, 1)
+    @rolesMGcap2 = roleMGcap_definition(@role_id, 2)
     @cap_id2 = @rolesMGcap2.first.capacity_id
     @training_methods2 = TrainingMethod.where(capacity_id: @cap_id2)
     @mg_id2 = @rolesMGcap2.first.muscular_group_id
@@ -99,36 +99,26 @@ module WorkoutProgramHelper
     @muscles3 = Muscle.where(muscular_group_id: @mg_id3)
   end
 
+  
+  
   def creating_array_exercises(training_method, muscles)
 
-    ex_array_A = []
-    begin
+    ex_array = []
+    until ex_array.length > 5
+      ex_array_A = []
       training_method.sample.exercises.uniq.each do |t|
         ex_array_A << t.name
       end
-    rescue
-      retry if ex_array_A.length < 5
-      puts "Retrying method "*10
-      puts "Retrying method "*10
-      puts "Retrying method "*10
-    end
-
-    ex_array_B = []
-    begin
+      
+      ex_array_B = []
       muscles.each do |m|
         m.exercises.each do |x|
           ex_array_B  << x.name
         end 
       end
-    rescue
-      retry if ex_array_B.length < 5
-      puts "Retrying muscles "*10
-      puts "Retrying muscles "*10
-      puts "Retrying muscles "*10
+
+      ex_array = ex_array_A & ex_array_B
     end
-
-    ex_array = ex_array_A & ex_array_B
-
   end 
 
   def creating_array_variants(ex_array)

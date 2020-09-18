@@ -5,41 +5,48 @@
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-<section class="py-0" id="page-signup">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-6 px-0">
-              <div class="sticky-top vh-lg-100 py-9">
-                <div class="bg-holder" style="background-image:url(<%= image_path 'key-image.png' %>)" 
-                data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right","delay":0.4}'></div>
-              </div>
-            </div>
-            <div class="col-lg-6 bg-white py-6">
-              <div class="row h-100 align-items-center justify-content-center">
-                <div class="col-sm-8 col-md-6 col-lg-10 col-xl-8" data-zanim-xs='{"delay":0.5,"animation":"slide-right"}' data-zanim-trigger="scroll">
-                  <h3 class="display-4 fs-2"> Parfait pour les compétiteurs amateurs,
-                    <br/>professionnels &amp; autres sportifs.</h3>
-                  <h6 class="text-danger mt-3"> Spécialement conçue pour les compétieurs pour leur préparation physique. </h6>
-                  <form class="mt-5">                
-                    <div class="row mb-4">
-                    <div class="col">
-                    <%= f.email_field :email, class:"form-control border-300 bg-light", autofocus: true, placeholder: 'Votre email' %> 
+  <section class="py-0" id="page-signup">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6 px-0">
+          <div class="sticky-top vh-lg-100 py-9">
+            <div class="bg-holder" style="background-image:url(<%= image_path 'key-image.png' %>)" 
+            data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right","delay":0.4}'></div>
+          </div>
+        </div>
+        <div class="col-lg-6 bg-white py-6">
+          <div class="row h-100 align-items-center justify-content-center">
+            <div class="col-sm-8 col-md-6 col-lg-10 col-xl-8" data-zanim-xs='{"delay":0.5,"animation":"slide-right"}' data-zanim-trigger="scroll">
+              <div class="card text-center border-light">
+                <h2 class="display-4 fs-2 card-title">
+                  Argo Athletic
+                  <hr class="special-black-border striped-border">
+                  Inscription
+                </h2>
+                <h6 class="text-danger mt-3">
+                  Inscris-toi pour commencer ta préparation physique sans plus tarder. 
+                </h6>
+                <form class="mt-5">                
+                  <div class="row mb-4">
+                  <div class="col">
+                  <%= f.email_field :email, class:"form-control border-300 bg-light", autofocus: true, placeholder: 'Votre email' %> 
+                  </div>
+                  </div>
+                  <div class="row mb-4 align-items-center">
+                    <div class="col-auto">
+                    <%= f.submit :"Demander un nouveau mot de passe", class:"btn btn-dark btn-block mt-3", autofocus: true %>                       
                     </div>
+                    <div class="col-sm">
+                      <p class="fs--1 text-700 mb-0 text-sans-serif mt-2 mt-lg-0">Recevez la procédure par mail</p>
                     </div>
-                    <div class="row mb-4 align-items-center">
-                      <div class="col-auto">
-                      <%= f.submit :"Demander un nouveau mot de passe", class:"btn btn-dark btn-block mt-3", autofocus: true %>                       
-                      </div>
-                      <div class="col-sm">
-                        <p class="fs--1 text-700 mb-0 text-sans-serif mt-2 mt-lg-0">Recevez la procédure par mail</p>
-                      </div>
-                        <%= link_to "Retour à l'accueil", root_path, class: "btn btn-dark btn-block mt-3 fancy-feature-button audioButton" %>
-                    </div>
-                  </form>
-                </div>
+                      <%= link_to "Retour à l'accueil", root_path, class: "btn btn-dark btn-block mt-3 fancy-feature-button audioButton" %>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
 <% end %>
-</div></div>
-</section>

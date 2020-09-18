@@ -1,4 +1,16 @@
-  <div class="fancy-tab">
+<section class="py-0" id="page-shop" data-zanim-xs='{"delay":0.4,"animation":"zoom-out"}' data-zanim-trigger="scroll">
+
+  <div class="bg-holder" style="background-image:url(https://images.pexels.com/photos/4429141/pexels-photo-4429141.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);"></div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-9 pt-11 pb-5">
+          <%= image_tag("argo-logo.png", class: "logodash", alt: "logo officiel d'argo athletic")%>  
+      </div>
+    </div>
+  </div>
+</section>
+    <div class="fancy-tab">
 	<div class="nav-bar nav-bar-center">
 		<div class="nav-bar-item active"><span class="fas fa-home fs-2"></span><br>Home</div>
 		<div class="nav-bar-item"><span class="fas fa-user fs-2"></span><br>Profil</div>
@@ -21,13 +33,13 @@
                       <%= link_to "Suprimer  Programme", workout_program_path, method: 'delete', class:"btn btn-dark btn-sm"%>
                     <% else %>
                       <%if current_user.profile.sport_role.nil? && current_user.profile.level.nil? %>
-                        <div><%= link_to "Créer mon Programme", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-danger btn-sm"%></div><br>
+                        <div><%= link_to "Créer mon Programme", edit_user_profile_path(id: @profile, user_id: @id),autofocus:"true", class:"btn btn-danger btn-sm"%></div><br>
                       <%else%>
-                        <div><%= link_to "Créer mon Programme", new_workout_program_path, class:"btn btn-danger btn-sm"%></div><br>
+                        <div><%= link_to "Créer mon Programme", new_workout_program_path, autofocus:"true", class:"btn btn-danger btn-sm"%></div><br>
                       <%end%>
                     <%end%>
                 <%else%>
-                  <div> <%= link_to "S'abonner pour créer mon programmme", success_charges_path, class:"btn btn-danger btn-sm"%></div><br>
+                  <div> <%= link_to "S'abonner pour créer mon programmme", success_charges_path, autofocus:"true", class:"btn btn-danger btn-sm"%></div><br>
                 <%end%>
         </div>
         <div class="d2">
@@ -46,7 +58,7 @@
             <div class="col-sm-8">
             <div class="card">
               <div class="d3">
-              <p class="titred3">PROFIL SPORT</p>
+              <p class="titred3">PROFILE SPORT</p>
               </div>
               <div class="card-body">
                 <p>Sport :

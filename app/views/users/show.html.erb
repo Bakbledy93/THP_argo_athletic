@@ -101,7 +101,7 @@
                 <%unless current_user.profile.weight.nil?%>
                 <%=current_user.profile.weight%> kg
                 <%else%>
-                <span class="font-italic"><%= link_to "Renseigner votre profilt", edit_user_profile_path(id: @profile, user_id: @id)%>
+                <span class="font-italic"><%= link_to "Renseigner votre profil", edit_user_profile_path(id: @profile, user_id: @id)%>
 </span>
                 <%end%>
                 </p>

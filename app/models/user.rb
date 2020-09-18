@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  validates_confirmation_of :password
   has_one :profile, dependent: :destroy
   has_many :messages, dependent: :destroy
 
@@ -11,7 +11,7 @@ class User < ApplicationRecord
   
   after_create :welcome_send, :profile_creation
 
-  # validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
   def welcome_send
     UserMailer.welcome_email(self).deliver_now

@@ -81,6 +81,7 @@ class ChargesController < ApplicationController
     #we are creating a new subscription with the plan_id we took from our form
     current_user.update(:sub_id => subscription.id)
     subscription.save
+    UserMailer.sub_email(current_user).deliver_now
     redirect_to root_path, notice: "Félicitation ! Vous êtes abonnés !"
   end
 

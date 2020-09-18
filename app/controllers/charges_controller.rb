@@ -27,7 +27,7 @@ class ChargesController < ApplicationController
       card_token = params[:stripeToken]
       #it's the stripeToken that we added in the hidden input
       if card_token.nil?
-       redirect_to request.referrer, error: "Oops"
+      redirect_to request.referrer, error: "Oops"
       end
       #checking if a card was giving.
 
@@ -38,7 +38,7 @@ class ChargesController < ApplicationController
       if @params = @plan_id
         subscribe
       else
-      redirect_to request.referrer
+      redirect_to request.referrer, notice: "Moyen de paiement ajouté"
     end
   end
 
@@ -81,7 +81,8 @@ class ChargesController < ApplicationController
     #we are creating a new subscription with the plan_id we took from our form
     current_user.update(:sub_id => subscription.id)
     subscription.save
-    redirect_to root_path
+    UserMailer.sub_email(current_user).deliver_now
+    redirect_to root_path, notice: "Félicitation ! Vous êtes abonnés !"
   end
 
   def cancel_subscription
@@ -94,7 +95,7 @@ class ChargesController < ApplicationController
     Stripe::Subscription.delete(current_user.sub_id)
     current_user.update(:sub_id => nil)
 
-    redirect_to edit_user_registration_path
+    redirect_to edit_user_registration_path, notice: "Votre abonnement est bien résilié !"
   end
 
 end

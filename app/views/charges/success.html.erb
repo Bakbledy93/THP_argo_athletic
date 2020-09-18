@@ -2,7 +2,6 @@
 <section class="pricing py-5">
   <div class="container">
     <div class="row">
-      <!-- Free Tier -->
       <div class="col-lg-4">
         <div class="card mb-5 mb-lg-0">
           <div class="card-body">
@@ -21,74 +20,14 @@
             </ul>
           <%if current_user.stripe_id.nil? || customer_card_id.nil?%>
             <%= form_tag create_card_charges_path(:plan_id => @plan_1.id), id: "billing-create-payment-method" do  %>
-              <%= link_to "M'abonner", new_card_charges_path, remote: true, class: "btn btn-success" %>
+              <%= link_to "M'abonner", new_card_charges_path, remote: true, class: "btn btn-success" %> | <%= link_to "Back",root_path, class: "btn btn-warning btn-sm" %>
             <% end %>
             <%else%>
             <%= form_tag subscribe_charges_path do  %>
-              <%= link_to "M'abonner", subscribe_charges_path(:plan_id => @plan_1.id),method: :post, class: "btn btn-success" %>
+              <%= link_to "M'abonner", subscribe_charges_path(:plan_id => @plan_1.id),method: :post, class: "btn btn-success" %> | <%= link_to "Back",root_path, class: "btn btn-warning btn-sm" %>
             <%end%>    
             <%end%>                
           </div>
         </div>
       </div>
-      <!-- Plus Tier -->
-      <div class="col-lg-4">
-        <div class="card mb-5 mb-lg-0">
-          <div class="card-body">
-            <h5 class="card-title text-muted text-uppercase text-center">GOLGOTH</h5>
-            <h6 class="card-price text-center">20 €<span class="period">/mois</span></h6>
-            <hr>
-            <ul class="fa-ul">
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Programme personnalisé</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Exercices illimités</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Nutrition sportive</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Récupération</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Option 1</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Option 2</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Option 3</li>
-              <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>option 4</li>
-            </ul>
-    <%if current_user.stripe_id.nil? || customer_card_id.nil?%>
-            <%= form_tag create_card_charges_path(:plan_id => @plan_1.id), id: "billing-create-payment-method" do  %>
-              <%= link_to "M'abonner", new_card_charges_path, remote: true, class: "btn btn-success" %>
-            <% end %>
-            <%else%>
-            <%= form_tag subscribe_charges_path do  %>
-              <%= link_to "M'abonner", subscribe_charges_path(:plan_id => @plan_1.id),method: :post, class: "btn btn-success" %>
-            <%end%>    
-            <%end%>           
-            </div>
-        </div>
-      </div>
-      <!-- Pro Tier -->
-      <div class="col-lg-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title text-muted text-uppercase text-center">SPARTIATE</h5>
-            <h6 class="card-price text-center">40 €<span class="period">/mois</span></h6>
-            <hr>
-            <ul class="fa-ul">
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Programme personnalisé</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Exercices illimités</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Nutrition sportive</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Récupération</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Option 1</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Option 2</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Option 3</li>
-              <li><span class="fa-li"><i class="fas fa-check"></i></span>Option 4</li>
-            </ul>
-            <%if current_user.stripe_id.nil? || customer_card_id.nil?%>
-            <%= form_tag create_card_charges_path(:plan_id => @plan_1.id), id: "billing-create-payment-method" do  %>
-              <%= link_to "M'abonner", new_card_charges_path, remote: true, class: "btn btn-success" %>
-            <% end %>
-            <%else%>
-            <%= form_tag subscribe_charges_path do  %>
-              <%= link_to "M'abonner", subscribe_charges_path(:plan_id => @plan_1.id),method: :post, class: "btn btn-success" %>
-            <%end%>    
-            <%end%>           
-            </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>

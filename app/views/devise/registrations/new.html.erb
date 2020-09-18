@@ -44,7 +44,7 @@
                 </div>
                 <div class="field <% if resource.errors[:password].present? %>error<% end %>">
                   <%= f.label :password_confirmation, "Confirmer mot de passe" %><em class="required-label">*</em>                
-                  <%= f.password_field :password, class:"form-control border-300 bg-light", placeholder: 'mot de passe', required: true %> 
+                  <%= f.password_field :password_confirmation, class:"form-control border-300 bg-light", placeholder: 'mot de passe', required: true %> 
                 </div>
               </div>
               <%= f.submit :"Inscription", class:"btn btn-danger btn-block mt-3 fancy-feature-button audioButton" %> 

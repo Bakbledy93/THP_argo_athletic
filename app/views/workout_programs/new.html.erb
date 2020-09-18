@@ -19,18 +19,46 @@
             Créez votre programme personalisée
           </h2>
         
-          <h5 class="text-center mb-5">Vous allez créer votre programme d'entrainement avec les données: </h5>
-          <div class="ml-5">
-            <h4>Niveau: </h4>
-            <h5 class="ml-5"><%= @level %></h5>
+          <h5 class="text-center mb-5">Vous allez créer votre programme d'entrainement avec les informations suivantes: </h5>
 
-            <h4>Sport:</h4>
-            <h5 class="ml-5"><%= @sport %></h5>
-
-            <h4>Role:</h4>
-            <h5 class="ml-5"><%= @role%></h5>
-          </div>
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <th scope="row">
+                  <h4 class="text-center font-weight-bold">Niveau: </h4>
+                </th>
+              <tr>
+              </tr>
+                <td>
+                  <h5 class="text-center mb-4"><%= @level.humanize %></h5>
+                </td>
+                              <tr>
+              </tr>
+                <td>
+                  <h4 class="text-center font-weight-bold">Sport:</h4>
+                </td>
+                              <tr>
+              </tr>
+                <td>
+                  <h5 class="text-center mb-4"><%= @sport.humanize %></h5>
+                </td>
+                              <tr>
+              </tr>
+                <td>
+                  <h4 class="text-center font-weight-bold">Role:</h4>
+                </td>
+                              <tr>
+              </tr>
+                <td>
+                  <h5 class="text-center mb-4"><%= @role.humanize %></h5>
+                </td>
+              </tr>
+            </tbody>
+          </table>
           <%= button_to "Creation de Programme", workout_programs_path, method: 'post', class:"btn btn-dark btn-block mt-5"%>
+
+          <%= link_to "Retour à l'accueil", root_path, class: "btn btn-dark btn-block mt-3 fancy-feature-button audioButton" %>
+
         </div>
       </div>
     </div>

@@ -17,12 +17,6 @@ class WorkoutProgramsController < ApplicationController
     end
   end
 
-  def check_if_exists(data)
-    if data.count > 0
-      return true
-    end
-  end
-
   def show
     @current_program_id = params[:program_id]
     @day = params[:day]

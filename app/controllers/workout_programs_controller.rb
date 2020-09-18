@@ -6,6 +6,21 @@ class WorkoutProgramsController < ApplicationController
     @workout_programs = WorkoutProgram.all
     declaring_variables_array
     program_and_variant_arr_definition  
+    @profile_id = current_user.profile.id
+    @workoutprogram = WorkoutProgram.where(profile_id: @profile_id)
+    
+    @exist_program = check_if_exists(@workoutprogram)
+    if @exist_program == true
+      @ex1 = @workoutprogram.first.id
+      @ex2 = @workoutprogram.second.id
+      @ex3 = @workoutprogram.third.id
+    end
+  end
+
+  def check_if_exists(data)
+    if data.count > 0
+      return true
+    end
   end
 
   def show

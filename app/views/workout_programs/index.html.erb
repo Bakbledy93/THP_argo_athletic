@@ -1,53 +1,56 @@
-<h1>WorkoutPrograms#index</h1>
-
-<div class="table-responsive mt-3">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Jour</th>
-        <th>Exercice 1</th>
-        <th>Variant</th>
-        <th>Exercice 2</th>
-        <th>Variant</th>
-        <th>Exercice 3</th>
-        <th>Variant</th>
-      </tr>
-    </thead>
-    <tbody>
+<div class="container">
+  <h1 class="mt-5">WorkoutPrograms</h1>
+  <br>
+  <div class="table-responsive mt-3">
+    <table class="table table-striped">
+      <thead>
         <tr>
-          <td>1</td>
-          <td><%= @program1[0] %></td>
-          <td><%= @variant1[0] %></td>
-
-          <td><%= @program1[1] %></td>
-          <td><%= @variant1[1] %></td>
-
-          <td><%= @program1[2] %></td>
-          <td><%= @variant1[2] %></td>
+          <th>Jour</th>
+          <th>Exercice 1</th>
+          <th>Variant</th>
+          <th>Exercice 2</th>
+          <th>Variant</th>
+          <th>Exercice 3</th>
+          <th>Variant</th>
         </tr>
-        <tr>
-          <td>2</td>
-          <td><%= @program2[0] %></td>
-          <td><%= @variant2[0] %></td>
+      </thead>
+      <tbody>
+          <tr>
+            <td><%= link_to "Jour 1", workout_program_path(program_id: @ex1, id: @ex1, day: 1), class:"btn btn-sm btn-dark mt-3"%></td>
+            <td><%= @program1[0] %></td>
+            <td><%= @variant1[0] %></td>
 
-          <td><%= @program2[1] %></td>
-          <td><%= @variant2[1] %></td>
+            <td><%= @program1[1] %></td>
+            <td><%= @variant1[1] %></td>
 
-          <td><%= @program2[2] %></td>
-          <td><%= @variant2[2] %></td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td><%= @program3[0] %></td>
-          <td><%= @variant3[0] %></td>
+            <td><%= @program1[2] %></td>
+            <td><%= @variant1[2] %></td>
+          </tr>
+          <tr>
+            <td><%= link_to "Jour 2", workout_program_path(program_id: @ex2, id: @ex2, day: 1), class:"btn btn-sm btn-dark mt-3"%></td>
+            <td><%= @program2[0] %></td>
+            <td><%= @variant2[0] %></td>
 
-          <td><%= @program3[1] %></td>
-          <td><%= @variant3[1] %></td>
+            <td><%= @program2[1] %></td>
+            <td><%= @variant2[1] %></td>
 
-          <td><%= @program3[2] %></td>
-          <td><%= @variant3[2] %></td>
-        </tr>
-    </tbody>
-  </table>
+            <td><%= @program2[2] %></td>
+            <td><%= @variant2[2] %></td>
+          </tr>
+          <tr>
+            <td><%= link_to "Jour 3", workout_program_path(program_id: @ex3, id: @ex3, day: 1), class:"btn btn-sm btn-dark mt-3"%></td>
+            <td><%= @program3[0] %></td>
+            <td><%= @variant3[0] %></td>
+
+            <td><%= @program3[1] %></td>
+            <td><%= @variant3[1] %></td>
+
+            <td><%= @program3[2] %></td>
+            <td><%= @variant3[2] %></td>
+          </tr>
+      </tbody>
+    </table>
+    <br>
+    <%= link_to "Dashboard", user_path(current_user.id), class:"btn btn-outline-dark mb-5" %>
+  </div>
 </div>
-

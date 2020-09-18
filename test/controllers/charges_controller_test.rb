@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class MuscleVariantTest < ActiveSupport::TestCase
+class ChargesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

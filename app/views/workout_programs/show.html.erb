@@ -1,9 +1,122 @@
-<h1 class="hidden">
-  <%= title 'Carte Programme' %>
-</h1>
-<h1>WorkoutPrograms#show</h1>
-<p>Find me in app/views/workout_programs/show.html.erb</p>
-<p>ID: <%= @workout_program.id %></p>
-<p>Exercise: <%= @workout_program.exercise %></p>
-<p>Training Method: <%= @workout_program.training_method %></p>
-<p>Level: <%= @workout_program.level %></p>
+ <section class="py-0" id="page-shop" data-zanim-xs='{"delay":0.4,"animation":"zoom-out"}' data-zanim-trigger="scroll">
+        <div class="bg-holder" style="background-image:url(https://images.pexels.com/photos/3775164/pexels-photo-3775164.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);"></div>
+        <!--/.bg-holder-->
+        <div class="container">
+          <div class="row">
+            <div class="col-9 pt-11 pb-5">
+              <div class="media"><span class="fas fa-gift text-white fs-6"></span>
+                <div class="media-body pl-3">
+                  <div class="overflow-hidden">
+                    <h2 class="fs-4 text-white display-4 text-serif" data-zanim-xs='{"delay":0.6}' data-zanim-trigger="scroll"><span class="font-italic">Argo Athletic</span></h2>
+                  </div>
+                  <div class="overflow-hidden">
+                    <h6 class="mb-0 text-white ls-2 text-uppercase" data-zanim-xs='{"delay":0.8}' data-zanim-trigger="scroll">VOTRE PROGRAMME D'ENTRAINEMENT</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+      </section>
+<section class="border-top border-300" id="default-process">
+        <div class="container">
+          <div class="row justify-content-center text-center mb-6">
+            <div class="col-lg-6">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 pl-lg-7">
+              <div class="row align-items-end">
+                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 pb-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
+                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">GO</span>
+                    <h3>Jour <%= @day %></h3>
+                    <p>Once the Blueprint is approved, we create wireframes and a design comp for your review. This process involves various reviews, approvals, and close communication between you and our creative team. We begin with the Homepage to set
+                      style, image and branding standards, then move toward interior layouts.</p>
+                    <%= link_to "Retour", user_path(:id), class:"btn btn-outline-dark btn-sm mt-3" %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8">
+                  <img class="img-fluid" src="https://images.pexels.com/photos/4720268/pexels-photo-4720268.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" width="400" />
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
+                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">01</span>
+                    <h3>Exercice 1</h3>
+                    <h4><%= @program[0] %></h4>
+                    <h5>Variant: <%= @variant[0] %></h5>
+                    <p>Once the Blueprint is approved, we create wireframes and a design comp for your review. This process involves various reviews, approvals, and close communication between you and our creative team. We begin with the Homepage to set
+                      style, image and branding standards, then move toward interior layouts.</p>
+              
+                    <p><b>Repetitions : </b><%= @repetition %></p>
+                    <p><b>Series : </b><%= @serie %></p>
+                    <p><b>Temps de répos : </b><%= @recuperation %> min</p>
+       
+                    <%= link_to "Retour", user_path(:id), class:"btn btn-outline-dark btn-sm mt-3" %>
+
+                
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6 order-lg-2 text-center align-self-center">
+                  <img class="img-fluid" src="https://images.pexels.com/photos/4720321/pexels-photo-4720321.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" width="400" />
+                </div>
+                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
+                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">02</span>
+                    <h3>Exercice 2</h3>
+                    <h4><%= @program[1] %></h4>
+                    <h5>Variant: <%= @variant[1] %></h5>
+                    <p>With the blueprint &amp; design comps as our guide, the development team begins to create your website with the state of the earth tools. Our entire team works to add content, final design elements, review, &amp; test your website
+                      for quality.</p>
+                    <p><b>Repetitions : </b><%= @repetition %></p>
+                    <p><b>Series : </b><%= @serie %></p>
+                    <p><b>Temps de répos : </b><%= @recuperation %> min</p>
+                    <%= link_to "Retour", user_path(:id), class:"btn btn-outline-dark btn-sm mt-3" %>
+                  </div>
+                </div>
+              </div>
+              <div class="row overflow-hidden pb-1">
+                <div class="col-lg-6 border-lg-right border-300 text-center py-lg-8">
+                  <img class="img-fluid" src="https://images.pexels.com/photos/3253501/pexels-photo-3253501.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" width="400" />
+                </div>
+                <div class="col-lg-6 align-self-center mt-4 mt-lg-0 mt-lg-8">
+                  <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">03</span>
+                    <h3>Exercice 3</h3>
+                    <h4><%= @program[2] %></h4>
+                    <h5>Variant: <%= @variant[2] %></h5>
+                    <p><b>Repetitions : </b><%= @repetition %></p>
+                    <p><b>Series : </b><%= @serie %></p>
+                    <p><b>Temps de répos : </b><%= @recuperation %> min</p>
+                    <p>After testing and review, we present your new website. Upon your approval, your website will be launched, promoted and optimized for search engines such as Google &amp; Bing.</p>
+                    <%= link_to "Retour", user_path(:id), class:"btn btn-outline-dark btn-sm mt-3" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 order-lg-2 text-center align-self-center">
+                  <img class="img-fluid" src="https://images.pexels.com/photos/3771805/pexels-photo-3771805.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=5000" alt="" width="400" />
+                </div>
+                <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
+                  <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">04</span>
+                    <h3>Exercice 4</h3>
+                    <h4><%= @program[3] %></h4>
+                    <h5>Variant: <%= @variant[3] %></h5>
+                    <p><b>Repetitions : </b><%= @repetition %></p>
+                    <p><b>Series : </b><%= @serie %></p>
+                    <p><b>Temps de répos : </b><%= @recuperation %> min</p>
+                    <p>With the blueprint &amp; design comps as our guide, the development team begins to create your website with the state of the earth tools. Our entire team works to add content, final design elements, review, &amp; test your website
+                      for quality.</p>
+                    <%= link_to "Retour", user_path(:id), class:"btn btn-outline-dark btn-sm mt-3" %>
+                  </div>
+                </div>
+            </div>
+        <!-- end of .container-->
+      </section>
+
+
+
+
+
+        </div>

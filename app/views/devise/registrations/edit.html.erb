@@ -2,103 +2,166 @@
   <%= title 'Paramètres compte' %>
 </h1>
 <!-- form for registration -->
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-    <section class="py-0" id="page-signup">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-6 px-0">
-            <div class="sticky-top vh-lg-100 py-9">
-              <div class="bg-holder" 
-                  style="background-image:url(<%= image_path 'https://images.pexels.com/photos/186076/pexels-photo-186076.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260' %>)" 
-                  data-zanim-trigger="scroll"
-                  data-zanim-lg='{"animation":"zoom-out-slide-right"}'>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6 bg-white py-6">
-            <div class="row h-100 align-items-center justify-content-center">
-              <div class="col-sm-8 col-md-6 col-lg-10 col-xl-8"
-                  data-zanim-xs='{"animation":"slide-right"}'
-                  data-zanim-trigger="scroll">
-
-                <h2>
-                Editer mon compte <%= resource_name.to_s.humanize %>
-                </h2>
-
-                <h6 class="text-danger mt-3">
-                  Spécialement conçue pour les compétieurs pour leur préparation physique.
-                </h6>
-
-                <div class="row mb-4">
-                  <div class="col">
-                    <%= f.email_field :email,
-                        class:"form-control border-300 bg-light",
-                        autofocus: true,
-                        placeholder: 'e-mail' 
-                    %> 
-                  </div>
-                </div>
-
-                <div class="row mb-4">
-                  <div class="col">
-                    <%= f.label :new_password %>
-                    <%= f.password_field :password,
-                        class:"form-control border-300 bg-light",
-                        autocomplete: "new-password" 
-                    %> 
-                  </div>
-                  <div class="col">
-                    <%= f.label :password_confirmation %>
-                    <%= f.password_field :password_confirmation,
-                        class:"form-control border-300 bg-light",
-                        autocomplete: "new-password" 
-                    %>
-                  </div>
-                </div>  
-
-                <div class="col">
-                  <%= f.label :current_password %>
-                  <%= f.password_field :current_password,
-                      class:"form-control border-300 bg-light",
-                      autocomplete: "current-password" 
-                  %>
-                </div>
-
-                <div class="row mb-4 align-items-center">
-                  <div class="col-auto">
-                    <%= f.submit :"Editer mon Compte",
-                        class:"btn btn-success btn-block mt-3",
-                        autofocus: true 
-                    %>                      
-                  </div>
-                  <div class="col-sm">
-                    <p class="fs--1 text-700 mb-0 text-sans-serif mt-2 mt-lg-0">
-                      En validant votre compte, vous acceptez nos conditions d&rsquo;utilisation.
-                    </p>
-                  </div>
-                </div>
-                
-              </div>
-            </div>
+<%#= render "devise/shared/error_messages", resource: resource %>
+    
+<section class="py-0" id="page-signup">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 px-0">
+        <div class="sticky-top vh-lg-100 py-9">
+          <div class="bg-holder" 
+              style="background-image:url(<%= image_path 'https://images.pexels.com/photos/186076/pexels-photo-186076.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260' %>)" 
+              data-zanim-trigger="scroll"
+              data-zanim-lg='{"animation":"zoom-out-slide-right"}'>
           </div>
         </div>
       </div>
-    </section>
 
-      <!-- cancelling account -->
-    
-<% end %>
-<div class="row mb-4 align-items-center">
-                  <div class="col-auto">
-                      <br><br>
-                      <h3 class="display-4 fs-2">
-                          Supprimer mon compte
-                      </h3>
-                    <%= button_to "Supprimer mon compte", registration_path(resource_name),class:"btn btn-danger btn-block mt-3", 
-                      data: { confirm: "Etes-vous sur ?" }, method: :delete %>
-                  <div class="btn btn-block">
-                      <%= link_to "Retour", :root %>
+      <div class="col-lg-5 bg-white py-6">
+        <div class="row h-100 align-items-center justify-content-center">
+          <div class="col-sm-8 col-md-6 col-lg-10 col-xl-8"
+              data-zanim-xs='{"animation":"slide-right"}'
+              data-zanim-trigger="scroll">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+              <h2>
+                Editer mon compte <%= current_user.email %>
+              </h2>
+
+              <h6 class="text-danger mt-3">
+                Spécialement conçue pour les compétieurs pour leur préparation physique.
+              </h6>
+
+              <div class="row mb-4">
+                <div class="col">
+                  <%= f.email_field :email,
+                      class:"form-control border-300 bg-light",
+                      autofocus: true,
+                      placeholder: 'e-mail' 
+                  %> 
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                <div class="col">
+                  <%= f.label :password %>
+                  <%= f.password_field :password,
+                      class:"form-control border-300 bg-light",
+                      autocomplete: "new-password" 
+                  %> 
+                </div>
+                <div class="col">
+                  <%= f.label :password_confirmation %>
+                  <%= f.password_field :password_confirmation,
+                      class:"form-control border-300 bg-light",
+                      autocomplete: "new-password" 
+                  %>
+                </div>
+              </div>  
+
+              <div class="col">
+                <%= f.label :current_password %>
+                <%= f.password_field :current_password,
+                    class:"form-control border-300 bg-light",
+                    autocomplete: "current-password" 
+                %>
+              </div>
+
+                <div class="col-sm btn btn-block">
+                  <%= f.submit :"Editer mon Compte",
+                      class:"btn btn-success btn-sm mt-3",
+                      autofocus: true 
+                  %>
+<!-- DELETE -->
+
+                <%= button_to "Supprimer", registration_path(resource_name),class:"btn btn-danger btn-sm mt-3", 
+                  data: { confirm: "Etes-vous sur de vouloir supprimer votre compte ?" }, method: :delete %>
+              
+                <%= link_to "Retour", user_path(current_user.id), class:"btn btn-dark btn-sm mt-3" %>
+
+              </div>
+          <!-- /DELETE  -->
+
+                <p>En validant votre compte, vous acceptez,<%= link_to "nos conditions d'utilisation.", terms_home_index_path, method: :get %></p> 
+
+          <!-- ABONNEMENT -->
+          <div class="card" style="width: 100%;">
+            <div class="d3">
+            <p class=titred4> Abonnement</p>
+            </div>
+            <div class="card-body">
+            <%if current_user.sub_id.present?%>
+              Souscription : <%=customer_subscription_time%><br>
+              Prix : <%= customer_subscription_price/100%>€/mois<br>
+
+            <div class="btn-block text-center">
+              <%= link_to "Supprimer", cancel_subscription_charges_path, method: :post%>
+              <%else%>
+                  <%= link_to "M'abonner", success_charges_path, class: "btn btn-success btn-sm" %>
+              <%end%>
+            
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" >Editer Données de Paiement</button>
+            </div>
+          <!-- ABONNEMENT -->
+
+            <%end%>
+            </div> 
+          </div> 
+        </div> 
+       </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+
+<section class="py-0" id="page-signup">
+  <div class="container-fluid">
+    <div class="row">
+
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header d3">
+                      <h5 class="modal-title titred4" id="exampleModalLabel">Gérer votre abonnement</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="d-flex justify-content-center">
+                        <div class="card" style="width: 18rem;">
+                            <% unless current_user.stripe_id.nil? or customer_card_id.nil?  %>
+                              <p class="card-text">Card :  **** **** ****  <%=customer_card_details.last4%>
+                              <%if customer_card_details.brand == 'Visa'%>
+                                <i class="fab fa-cc-visa"></i>
+                              <%elsif customer_card_details.brand == 'Mastercard'%>
+                                <i class="fab fa-cc-mastercard"></i>
+                              <%end%>
+                                </p>
+                                <p class="card-text">exp :            
+                                  <%=customer_card_details.exp_month%>/
+                                  <%=customer_card_details.exp_year%>
+                                  <br>
+                                </p>
+                                <%= link_to "Supprimer", delete_card_charges_path, method: :post, class:"btn btn-danger btn-sm mt-3" %>
+                              <%else%>
+                                <%= form_tag create_card_charges_path, id: "billing-create-payment-method" do  %>
+                                <%= link_to "Ajouter une carte", new_card_charges_path, remote: true, class: "btn btn-success" %>
+                              <% end %>
+                            <%end%>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">X</button>
+                    </div>
                   </div>
                 </div>
+              </div>
+              <!-- /MODAL -->
+                </div>
+                </div>
+              </div>

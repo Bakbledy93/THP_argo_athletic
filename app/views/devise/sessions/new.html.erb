@@ -1,7 +1,8 @@
+<!-- title shown on tab -->
 <h1 class="hidden">
   <%= title 'Connexion' %>
 </h1>
-
+<!-- sign in form -->
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <section class="py-0" id="page-signin">
     <div class="container-fluid">
@@ -11,7 +12,7 @@
             <div class="bg-holder"
                data-zanim-trigger="scroll"
                data-zanim-lg='{"animation":"zoom-out-slide-right"}'
-               style="background-image: url(<%= image_path 'https://images.pexels.com/photos/221210/pexels-photo-221210.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260' %>)"
+               style="background-image: url(<%= image_path 'sign-in-image.png' %>)"
             >
             </div>
           </div>
@@ -22,49 +23,31 @@
                  data-zanim-xs='{"animation":"slide-right"}'
                  data-zanim-trigger="scroll"
             >
-            <h3 class="display-4 fs-2">
-              Parfait pour les compétiteurs amateurs,
-              <br/>professionnels &amp; autres sportifs.
-            </h3>
-            <h6 class="text-danger mt-3">
-              Spécialement conçue pour les compétieurs pour leur préparation physique.
-            </h6>
-            <form class="mt-5">
+            <div class="card text-center border-light">
+              <h2 class="display-4 fs-2 card-title">
+                Argo Athletic
+                <hr class="special-black-border striped-border">
+                Connexion
+              </h2>
+              <h6 class="text-danger mt-3">
+                Connecte toi pour commencer ta préparation physique sans plus tarder. 
+              </h6>
               <div class="form-group">
-                <%= render "devise/shared/error_messages", resource: resource %>
                 <div class="field <% if resource.errors[:email].present? %>error<% end %>">
-                  <%= f.label :email, "E-mail:" %>
-                  <%= f.email_field :email, class:"form-control border-300 bg-light", autofocus: true, placeholder: 'e-mail' %> 
-                </div>
-              <div class="form-group">
-                <%= f.password_field :password, class:"form-control border-300 bg-light", autofocus: true, placeholder: 'mot de passe' %> 
-              </div>
-              <div class="form-group">
-                <%= f.submit :"Connexion", class:"btn btn-dark btn-block mt-3", autofocus: true %> 
-              </div>
-              <!--
-              <div class="form-group mb-0">
-                <div class="row no-gutters">
-                  <div class="col-6 pr-1">
-                    <a class="btn btn-outline-danger btn-sm btn-block mt-2" href="#">
-                      <span class="fab fa-google-plus-g mr-2" data-fa-transform="grow-8">
-                      </span>
-                       google
-                    </a>
-                  </div>
-                  <div class="col-6 pl-1">
-                    <a class="btn btn-outline-primary btn-sm btn-block mt-2" href="#">
-                      <span class="fab fa-facebook mr-2" data-fa-transform="grow-8">
-                      </span>
-                      facebook
-                    </a>
-                  </div>
+                  <%= f.label :email, "E-mail" %><em class="required-label">*</em>
+                  <%= f.email_field :email, class:"form-control border-300 bg-light", autofocus: true, placeholder: 'e-mail', pattern: '[^@]+@[^@]+\.[a-zA-Z]{2,6}', required: true %> 
                 </div>
               </div>
-              -->
-            </form>
+             <div class="form-group">
+                <div class="field <% if resource.errors[:password].present? %>error<% end %>">
+                  <%= f.label :password, "Mot de passe" %><em class="required-label">*</em>                
+                  <%= f.password_field :password, class:"form-control border-300 bg-light", placeholder: 'mot de passe', required: true %> 
+                </div>
+              </div>
+              <%= f.submit :"Connexion", class:"btn btn-danger btn-block mt-3 fancy-feature-button audioButton" %> 
+            </div>
+            <!-- links to other forms -->
             <%= render "devise/shared/links" %>
-          </div>
         </div>
       </div>
     </div>

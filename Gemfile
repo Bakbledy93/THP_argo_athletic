@@ -90,3 +90,9 @@ gem 'bootstrap-sass-extras'
 gem 'bootstrap-cdn-rails'
 # Adds meta-tags
 gem 'meta-tags'
+# Adds activerecord-reset-pk-sequence
+gem 'activerecord-reset-pk-sequence'
+# Adds flash_rails_messages
+gem 'flash_rails_messages'
+# Adds Stripe
+gem 'stripe'

@@ -1,252 +1,208 @@
-<h1 class="hidden">
-  <%= title 'Dashboard Utilisateur' %>
-</h1>
-<section>
-<div class="container">
-<div class="text-center d-none d-md-inline">
-<button class="rounded-circle border-0" id="sidebarToggle"></button>
+ <section class="py-0" id="page-shop" data-zanim-xs='{"delay":0.4,"animation":"zoom-out"}' data-zanim-trigger="scroll">
+
+  <div class="bg-holder" style="background-image:url(https://images.pexels.com/photos/4429141/pexels-photo-4429141.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);"></div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-9 pt-11 pb-5">
+          <%= image_tag("argo-logo.png", class: "logodash", alt: "logo officiel d'argo athletic")%>  
+          <div class="media-body pl-3">
+            </div>
+              <p class="titred3" class="mb-0 text-white ls-2 text-uppercase" data-zanim-xs='{"delay":0.8}' data-zanim-trigger="scroll">Bienvenue dans votre Dashboard</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<br>
+    <div class="fancy-tab">
+	<div class="nav-bar nav-bar-center">
+		<div class="nav-bar-item active"><span class="fas fa-home fs-2"></span><br>Home</div>
+		<div class="nav-bar-item"><span class="fas fa-user fs-2"></span><br>Profil</div>
+	</div>
+
+	<div class="tab-contents">
+		<div class="tab-content active">
+
+    <div class="container mb-4">
+
+        <div class="card-deck">
+      <div class="card">
+          <img class="rounded-soft img-fluid" src="https://images.pexels.com/photos/421160/pexels-photo-421160.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" 
+            alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' />
+        <div class="card-body d01">
+          <h5 class="card-title">ENTRAINEMENT DU JOUR</h5>
+          <%if current_user.sub_id.present?%>
+                <% if @exist_program == true %>
+                <p data-zanim-xs='{"delay":0.3}'>Merci de créer votre programme d'entraînement. Cliquez sur le button "Créer mon Programme"</p>
+                  <%= link_to "Jour 1", workout_program_path(program_id: @ex1, day: 1), class:"btn btn-lg btn-outline-dark mt-3"%>
+                  <%= link_to "Jour 2", workout_program_path(program_id: @ex2, day: 2), class:"btn btn-lg btn-outline-dark mt-3"%>
+                  <%= link_to "Jour 3", workout_program_path(program_id: @ex3, day: 3), class:"btn btn-lg btn-outline-dark mt-3"%>
+                <% else %>
+                  <p data-zanim-xs='{"delay":0.3}'>Merci de créer votre programme d'entraînement. Cliquez sur le button "Créer mon Programme"</p>                
+                <% end %>
+                <%else%>
+                  <p data-zanim-xs='{"delay":0.3}'>Passes au niveau supérieur en profitant d'entrainement spécialement conçu pour toi !</p>
+                  <%= link_to "S'abonner", success_charges_path, class:"btn btn-danger btn-sm"%>
+                  </><br>
+                <%end%>
+        </div>
+        <div class="d2">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
       </div>
 
-    </ul>
-    <!-- End of Sidebar -->
+      <div class="card">
+            <img class="rounded-soft img-fluid" src="https://images.pexels.com/photos/1030794/pexels-photo-1030794.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" 
+            alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' />
+        <div class="card-body">
+          <h5 class="card-title">VOTRE PROGRAMME</h5>
+              <p data-zanim-xs='{"delay":0.3}'>The ability to switch perspective lets you see clearly, <br>and to know where to take the next step. With sparrow, 
+              you can work on a portfolio, business website, or shop.</p>
+                <%if current_user.sub_id.present?%>
+                    <% if @exist_program == true %>
+                      <%= link_to "voir mon Programme", workout_programs_path, class:"btn btn-danger btn-sm mb-3"%>
+                      <%= link_to "Suprimer  Programme", workout_program_path, method: 'delete', class:"btn btn-dark btn-sm"%>
+                    <% else %>
+                      <%if current_user.profile.sport_role.nil? && current_user.profile.level.nil? %>
+                        <div><%= link_to "Créer mon Programme", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-danger btn-sm"%></div><br>
+                      <%else%>
+                        <div><%= link_to "Créer mon Programme", new_workout_program_path, class:"btn btn-danger btn-sm"%></div><br>
+                      <%end%>
+                    <%end%>
+                <%else%>
+                  <div> <%= link_to "Créer mon Programme", success_charges_path, class:"btn btn-danger btn-sm"%></div><br>
+                <%end%>
+        </div>
+        <div class="d2">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+      </div>
 
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+      </div>
+      
 
-      <!-- Main Content -->
-      <div id="content">
+    </div>
 
+		</div>
+		<div class="tab-content">
+    <div class="container mb-4">
+      <div class="row mb-4">
 
-
-        <!-- Begin Page Content -->
-        <div class="container-fluid, %">
-
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard de l'utilisateur</h1>
-          </div>
-
-          <!-- Content Row -->
-          <div class="row">
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Nombre de sportif</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">52 362</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
+            <div class="col-sm-8">
+            <div class="card">
+              <div class="d3">
+              <p class="titred3">PROFILE SPORT</p>
               </div>
-            </div>
+              <div class="card-body">
+                <p>Sport :
+                <%unless current_user.profile.sport.nil?%>
+                <%=current_user.profile.sport%>
+                <%else%>
+                <span class="font-italic">Renseignes ton profil</span>
+                <%end%>
+                </p>
 
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Nombre d'application</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">35 000 €</div>            <div> Adresse e-mail : <%= current_user.email%></div><br>
+                <p>Poste :
+                <%unless current_user.profile.sport_role.nil?%>
+                <%=current_user.profile.sport_role%>
+                <%else%>
+                <span class="font-italic">Renseignes ton profil</span>
+                <%end%>
+                </p>
 
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Nombre de programme</div>
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">12 350</div>
-                        </div>
-                        <div class="col">
-                          <div class="progress progress-sm mr-2">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 82%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                <p>Taille :
+                <%unless current_user.profile.height.nil?%>
+                <%=current_user.profile.height%> cm
+                <%else%>
+                <span class="font-italic">Renseignes ton profil</span>
+                <%end%>
+                </p>
 
-            <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-comments fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
+                <p>Poids :
+                <%unless current_user.profile.weight.nil?%>
+                <%=current_user.profile.weight%> kg
+                <%else%>
+                <span class="font-italic">Renseignes ton profil</span>
+                <%end%>
+                </p>
+
+                <p>Niveau :
+                <%unless current_user.profile.level.nil?%>
+                <%=current_user.profile.level%>
+                <%else%>
+                <span class="font-italic">Renseignes ton profil</span>
+                <%end%>
+                </p>
+
               </div>
             </div>
           </div>
 
-          <!-- Content Row -->
-
-          <div class="row">
-
-            <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Accéder à vos comptes</h6>
-                  
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-area">
-                    
-                    <div class="profile-userbuttons"><br>
-                      <div><%= link_to "Compte utilisateur", edit_user_registration_path, class:"btn btn-primary" %></div><br>
-                      <div><%= link_to "Editer Profile Sportif", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-success"%></div><br>
-                      <div><%= link_to "Créer mon Program", new_workout_program_path, class:"btn btn-warning"%></div><br>
-                    </div>
-                  </div>
-                </div>
+          <div class="col-sm-4">
+            <div class="card" style="width: 18rem;">
+              <div class="d3">
+                <p class="titred4">COMPTEUR</p>
               </div>
-            </div>
-
-            <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Détails du compte</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div> 
-        Adresse e-mail : <%= current_user.email%>
-        </div>
-        <div>Prénom : 
-        <% if !current_user.profile.first_name.blank? %>
-          <%= current_user.profile.first_name %>
-        <% else %>
-          <%= link_to "Mettre jour son compte", edit_user_profile_path(id: @profile, user_id: @id), class:"link-primary" %>     
-        <% end %>
-        </div>
-        <div>
-        Nom : 
-        <% if !current_user.profile.last_name.blank? %>
-        <%= current_user.profile.last_name %>
-        <% else %>
-        <%= link_to "Mettre jour son compte", edit_user_profile_path(id: @profile, user_id: @id), class:" link-primary" %>
-        <% end %>
-        </div>
-        <div>Photo de profil : </div><br>
-        <div><%= image_tag user_avatar(current_user, 20), class: "rounded-circle", alt:"image de profil" %></div>
-                </div>                 
-                </div>
+              <div class="card-body text-center">
+                <h1 class="card-title text-center"><span data-countup="659">0</span></h1>
+                <p>Entrainements effectués</p>
+                <h1 class="card-title text-center"><span data-countup="1350">0</span></h1>
+                <p>Kilomètres parcourus</p>
               </div>
             </div>
           </div>
-</div>
-</div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
 
-<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Listes de vos entrainements</h6>
-                  
-                </div>
-          <div class="row">
+            <div class="card" style="width: 18rem;">
+              <div class="d3">
+                <p class="titred4">EDITER PROFIL SPORT</p>
+              </div>
+              <div class="card-body text-center">
+                <%= link_to "Modifier son profil sport", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-danger btn-sm"%>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-sm">
           
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-              
-            <div class="bg-holder" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right"}' style="background-image: url(<%= image_path 'https://images.pexels.com/photos/221210/pexels-photo-221210.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260' %>)"></div>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-secondary">Suivre ce programme</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
+            <div class="card" style="width: 18rem;">
+              <div class="d3">
+                <p class="titred4">EDITER COMPTE UTILISATEUR</p>
+              </div>
+              <div class="card-body text-center">
+                <%= link_to "Modifier son compte utilisateur", edit_user_registration_path, class:"btn btn-danger btn-sm"%>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-            <div class="bg-holder" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right"}' style="background-image: url(<%= image_path 'https://images.pexels.com/photos/221210/pexels-photo-221210.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260' %>)"></div>
-
-            <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-secondary">Suivre ce programme</button>
-                    </div>
-                    <small class="text-primary">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <div class="bg-holder" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right"}' style="background-image: url(<%= image_path 'https://images.pexels.com/photos/221210/pexels-photo-221210.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260' %>)"></div>
-                  <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-secondary">Suivre ce programme</button>
-                      </div>
-                      <div>
-                        <small class="text-muted">9 mins</small>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          <div class="row">
-            <% current_user.profile.workout_programs.each do |workout| %>
-              <div class="col-md-6">
-                <div class="card shadow mb-5">
-                  <img src="https://images.pexels.com/photos/221210/pexels-photo-221210.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" class="card-img-top" alt="...">
-                  <div class="card-body p-5">
-                    <h3 class="card-title pb-2"><%= workout.exercise.capitalize %></h3>
-                    <p><b>Workout ID:</b> <%= workout.id %></p>
-                    <p><b>Exercise:</b> <%= workout.exercise.capitalize %></p>
-                    <p><b>Training Method:</b> <%= workout.training_method.capitalize %></p>
-                    <p><b>Level:</b> <%= workout.level.capitalize %></p>
-                    <p><b>Description:</b></p>
-                    <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <button class="btn btn-info btn-sm">Plus d'info</button>
-                  </div>
-                  <div class="card-footer text-muted d-flex justify-content-between">
-                    <p class="card-text"><small>Repetitions: 10</small></p>
-                    <p>Mark as done: <i class="fas fa-check-square"></i></p>
-                  </div>
-                </div>
-              </div>
-            <% end %>
+          
           </div>
-</section>
+          <div class="col-sm">
+
+            <div class="card" style="width: 18rem;">
+              <div class="d3">
+                <p class="titred4">DECONNEXION</p>
+              </div>
+              <div class="card-body text-center">
+                <%= link_to "Déconnexion", destroy_admin_session_path, method: 'delete', class:"btn btn-danger btn-sm"%>
+              </div>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+</div>
+
+
+
+
+
+
+

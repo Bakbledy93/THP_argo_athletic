@@ -1,14 +1,53 @@
-<h1 class="hidden">
-  <%= title 'Programmes' %>
-</h1>
 <h1>WorkoutPrograms#index</h1>
-<p>Find me in app/views/workout_programs/index.html.erb</p>
 
-<ul><% current_user.profile.workout_programs.each do |workout| %>
-  <li>
-  <span><%= workout.id %></span>
-    <%= link_to "Workout Program #{workout.id}", workout_program_path(workout) %>
-  <% end %></li>
-</ul>
+<div class="table-responsive mt-3">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Jour</th>
+        <th>Exercice 1</th>
+        <th>Variant</th>
+        <th>Exercice 2</th>
+        <th>Variant</th>
+        <th>Exercice 3</th>
+        <th>Variant</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>1</td>
+          <td><%= @program1[0] %></td>
+          <td><%= @variant1[0] %></td>
 
-<div><%= link_to 'Create Workout Program', new_workout_program_path %></div>
+          <td><%= @program1[1] %></td>
+          <td><%= @variant1[1] %></td>
+
+          <td><%= @program1[2] %></td>
+          <td><%= @variant1[2] %></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><%= @program2[0] %></td>
+          <td><%= @variant2[0] %></td>
+
+          <td><%= @program2[1] %></td>
+          <td><%= @variant2[1] %></td>
+
+          <td><%= @program2[2] %></td>
+          <td><%= @variant2[2] %></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><%= @program3[0] %></td>
+          <td><%= @variant3[0] %></td>
+
+          <td><%= @program3[1] %></td>
+          <td><%= @variant3[1] %></td>
+
+          <td><%= @program3[2] %></td>
+          <td><%= @variant3[2] %></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+

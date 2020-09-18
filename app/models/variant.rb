@@ -3,10 +3,7 @@ class Variant < ApplicationRecord
 
   has_many :exercise_variants
   has_many :exercises ,through: :exercise_variants
-
-
-  has_many :muscle_variants
-  has_many :muscles, through: :muscle_variants
+  has_many :muscles ,through: :exercise_variants
 
   def self.my_import(file)
     variants=[]

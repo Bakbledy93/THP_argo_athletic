@@ -1,6 +1,7 @@
 <h1 class="hidden">
   <%= title 'Paramètres profil' %>
 </h1>
+
 <%= form_for @profile, url: user_profile_path do |f| %>
     <section class="py-0" id="page-signup">
       <div class="container-fluid">
@@ -69,7 +70,7 @@
                   </div>
 
                   <div class="row mb-4 flex">
-                    <div class="col">Votre hauteur (m)
+                    <div class="col">Votre taille (cm)
                           <%= f.text_field :height, 
                           class:"form-control border-300 bg-light",
                           placeholder: "Votre poids" 
@@ -77,6 +78,8 @@
                     </div>
                   </div>
 
+                  <p>Afin de générer votre programme, merci de renseigner ces informations</p>
+                  <p>vous pourrez les modifier ultérieurement, en éditant votre profil </p>
 
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">

@@ -95,7 +95,7 @@
               Prix : <%= customer_subscription_price/100%>€/mois<br>
 
             <div class="btn-block text-center">
-              <%= link_to "Supprimer", cancel_subscription_charges_path, method: :post%>
+              <%= link_to "Supprimer", cancel_subscription_charges_path, data: { confirm: "Etes-vous sur de vous désabonner ?" }, method: :post%>
               <%else%>
                   <%= link_to "M'abonner", success_charges_path, class: "btn btn-success btn-sm" %>
               <%end%>
@@ -108,7 +108,7 @@
             </div> 
           </div> 
         </div> 
-       </div>
+      </div>
       </div>
     </div>
   </div>
@@ -145,7 +145,7 @@
                                   <%=customer_card_details.exp_year%>
                                   <br>
                                 </p>
-                                <%= link_to "Supprimer", delete_card_charges_path, method: :post, class:"btn btn-danger btn-sm mt-3" %>
+                                <%= link_to "Supprimer", delete_card_charges_path, data: { confirm: "Etes-vous sur de vouloir supprimer votre compte ?" }, method: :post, class:"btn btn-danger btn-sm mt-3" %>
                               <%else%>
                                 <%= form_tag create_card_charges_path, id: "billing-create-payment-method" do  %>
                                 <%= link_to "Ajouter une carte", new_card_charges_path, remote: true, class: "btn btn-success" %>

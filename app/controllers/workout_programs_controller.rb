@@ -54,7 +54,7 @@ class WorkoutProgramsController < ApplicationController
     create_workout_program
 
     flash[:notice] = "Le programme d'entraînement à été crée"
-    redirect_to user_path(current_user.id)
+    redirect_to workout_programs_path
   end
 
   def edit

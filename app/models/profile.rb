@@ -5,17 +5,6 @@ class Profile < ApplicationRecord
   has_many :sports, through: :sport_profiles
   has_many :workout_programs
 
-  validates :first_name,
-    presence: true,
-    format: { with: /\A[a-z ]+\z/i , message: "Les numéros et les caractères spéciaux ne sont pas autorisés" }
-  validates :last_name,
-    presence: true,
-    format: { with: /\A[a-z ]+\z/i , message: "Les numéros et les caractères spéciaux ne sont pas autorisés" }
-  validates :weight, 
-    presence: true,
-    numericality: {only_float: true}
-  validates :date_of_birth, presence: true
-  validate :validate_birth_date
 
   def self.sport_array_creator
     sports = Sport.all

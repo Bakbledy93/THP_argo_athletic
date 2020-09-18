@@ -7,6 +7,8 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     # super
+    puts " / "*50
+    puts " / "*50
     unless admin_signed_in?
       redirect_to root_path
     end

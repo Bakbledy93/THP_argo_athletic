@@ -67,109 +67,71 @@
                 %>
               </div>
 
-              <div class="col mb-4 align-items-center">
                 <div class="col-sm btn btn-block">
                   <%= f.submit :"Editer mon Compte",
-                      class:"btn btn-success mt-3",
+                      class:"btn btn-success btn-sm mt-3",
                       autofocus: true 
                   %>
-                </div>                  
+<!-- DELETE -->
 
-                <p class="fs--1 text-700 mb-0 text-sans-serif mt-2 mt-lg-0 text-center">
-                  En validant votre compte, vous acceptez<%= link_to "Nos conditions d'utilisation", 
-                  terms_home_index_path,
-                    class: "text-sans-serif text-uppercase text-warning font-weight-black fs-1",
-                    method: :get
-                %>
-                </p>              
-              </div>
-
-            
-
-            <%end%>
-          </div>
-          
-          <!-- DELETE -->
-          <div class="col mb-4 align-items-left">
-            <div class="col-auto">
-              <br>
-              <div class="btn btn-block">
-                <%= button_to "Supprimer mon compte", registration_path(resource_name),class:"btn btn-danger mt-3", 
-                  data: { confirm: "Etes-vous sur ?" }, method: :delete %>
+                <%= button_to "Supprimer", registration_path(resource_name),class:"btn btn-danger btn-sm mt-3", 
+                  data: { confirm: "Etes-vous sur de vouloir supprimer votre compte ?" }, method: :delete %>
               
-                <%= link_to "Retour", user_path(current_user.id), class:"btn btn-dark mt-3" %>
+                <%= link_to "Retour", user_path(current_user.id), class:"btn btn-dark btn-sm mt-3" %>
 
               </div>
-            </div>
-          </div>
           <!-- /DELETE  -->
 
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="py-0" id="page-signup">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-6 px-0">
-
-      </div>
-    </div>
-  </div>
-
-                  <!-- EDITER DONNES -->
-                    <div class="col mb-4 align-items-left">
-                      <div class="col-auto">
-                        <br>
-                        <div class="btn btn-block">
-                          <!-- Button trigger modal -->
-                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            Editer Données de Paiement
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  <!-- /EDITER DONNES -->
+                <p>En validant votre compte, vous acceptez,<%= link_to "nos conditions d'utilisation.", terms_home_index_path, method: :get %></p> 
 
           <!-- ABONNEMENT -->
-          <div class="card" style="width: 18rem;">
-            <div class="card-header">
-              Abonnement
+          <div class="card" style="width: 100%;">
+            <div class="d3">
+            <p class=titred4> Abonnement</p>
             </div>
             <div class="card-body">
             <%if current_user.sub_id.present?%>
               Souscription : <%=customer_subscription_time%><br>
               Prix : <%= customer_subscription_price/100%>€/mois<br>
+
+            <div class="btn-block text-center">
               <%= link_to "Supprimer", cancel_subscription_charges_path, method: :post%>
               <%else%>
-                  <%= link_to "M'abonner", success_charges_path, class: "btn btn-success" %>
+                  <%= link_to "M'abonner", success_charges_path, class: "btn btn-success btn-sm" %>
               <%end%>
+            
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" >Editer Données de Paiement</button>
             </div>
-          </div>
-          <!-- /ABONNEMENT -->
+          <!-- ABONNEMENT -->
 
+            <%end%>
+            </div> 
+          </div> 
+        </div> 
+       </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-              <!-- MODAL -->
+<!-- MODAL -->
+
+<section class="py-0" id="page-signup">
+  <div class="container-fluid">
+    <div class="row">
+
               <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <div class="modal-header d3">
+                      <h5 class="modal-title titred4" id="exampleModalLabel">Gérer votre abonnement</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
                     <div class="modal-body">
                       <div class="d-flex justify-content-center">
-
                         <div class="card" style="width: 18rem;">
-                          <div class="card-header">
-                            <h5>Carte de paiment</h5>
-                          </div>
-                          <div class="card-body">
                             <% unless current_user.stripe_id.nil? or customer_card_id.nil?  %>
                               <p class="card-text">Card :  **** **** ****  <%=customer_card_details.last4%>
                               <%if customer_card_details.brand == 'Visa'%>
@@ -177,7 +139,7 @@
                               <%elsif customer_card_details.brand == 'Mastercard'%>
                                 <i class="fab fa-cc-mastercard"></i>
                               <%end%>
-                                <br></p>
+                                </p>
                                 <p class="card-text">exp :            
                                   <%=customer_card_details.exp_month%>/
                                   <%=customer_card_details.exp_year%>
@@ -194,9 +156,12 @@
                       </div>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">X</button>
                     </div>
                   </div>
                 </div>
               </div>
               <!-- /MODAL -->
+                </div>
+                </div>
+              </div>

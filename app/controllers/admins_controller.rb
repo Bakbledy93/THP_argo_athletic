@@ -1,5 +1,5 @@
 class AdminsController < ApplicationController
-  before_action :authenticate_admin, only: [:index, :import, :show]
+  before_action :authenticate_admin, only: [:index, :import, :show, :new, :edit]
 
   def authenticate_admin
     unless current_admin
@@ -9,15 +9,20 @@ class AdminsController < ApplicationController
   end
 
   def index
+    puts "hello"
     @admins = Admin.all
+    @disable_footer = true
+    @users = User.all
+    count_sub
+    numb_tables
   end
 
   def new
-    @admin = Admin.new
+    @admin = Admin.new   
   end
 
   def show
-    redirect_to root_path
+    # redirect_to root_path
   end
 
   def create
@@ -45,6 +50,7 @@ class AdminsController < ApplicationController
 
 
   def import
+    @disable_footer = true
     @admin = current_admin
     @sports = Sport.all
     @sportrole = SportRole.all
@@ -77,4 +83,21 @@ class AdminsController < ApplicationController
   def admin_params
     params.require(:admin).permit(:email, :password)
   end
+
+  def count_sub
+    x = 0
+    @users = User.all
+    @users.each do|user|
+      if user.sub_id.present?
+        x+=1
+        @count_sub = x
+      end
+      puts @count_sub
+    end
+  end
+
+  def numb_tables
+    @numb = ActiveRecord::Base.connection.tables.count
+  end
+
 end

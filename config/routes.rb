@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions", passwords: "admins/passwords", registrations: "admins/registrations"}
   devise_for :users, path: 'users', controllers: { sessions: "users/sessions", passwords: "users/passwords", registrations: "users/registrations"}
 
-  resources :workout_programs, only: [:index, :show, :new, :create, :edit, :update]
+  resources :workout_programs
 
   authenticated :user do
     root to: 'users#show', as: :authenticated_user_root
@@ -21,13 +21,13 @@ Rails.application.routes.draw do
     collection {get :workout_program}
   end
 
-  resources :admins do [:index]
-    collection {get :import}
+  namespace :admins do
+    resources :users, only: [:index, :show, :new, :create, :update, :edit]
+    resources :profile, only: [:index, :show, :new, :create, :update, :edit]
   end
 
-  namespace :admins do
-    resources :users
-    resources :profile, only: [:index, :show, :new, :create, :update, :edit]
+  resources :admins do [:index]
+    collection {get :import}
   end
 
   resources :sports do

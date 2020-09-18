@@ -1,6 +1,15 @@
 <h1 class="hidden">
   <%= title 'Paramètres profil' %>
 </h1>
+
+              <h2>
+              Editer votre profil
+              </h2>
+
+              <h6 class="text-danger mt-3">
+                Spécialement conçue pour les compétieurs pour leur préparation physique.
+              </h6>
+
 <%= form_for @profile, url: user_profile_path do |f| %>
     <section class="py-0" id="page-signup">
       <div class="container-fluid">
@@ -77,6 +86,8 @@
                     </div>
                   </div>
 
+                  <p>Afin de générer votre programme, merci de renseigner ces informations</p>
+                  <p>vous pourrez les modifier ultérieurement, en éditant votre profil </p>
 
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">

@@ -29,7 +29,7 @@
     <!-- jumbotron -->
     <%= yield %>
     <!-- footer -->
-    <%= render "layouts/footer" %>
+    <%= render "layouts/footer" unless @disable_footer %>
     <!-- js here -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'https://checkout.stripe.com/checkout.js' %>

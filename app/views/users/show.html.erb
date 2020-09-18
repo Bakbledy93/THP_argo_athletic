@@ -114,13 +114,22 @@
           <div class="col-sm-4">
             <div class="card" style="width: 18rem;">
               <div class="d3">
-                <p class="titred4">COMPTEUR</p>
+                <p class="titred4">COMPTE UTILISATEUR</p>
               </div>
               <div class="card-body text-center">
-                <h1 class="card-title text-center"><span data-countup="659">0</span></h1>
-                <p>Entrainements effectués</p>
-                <h1 class="card-title text-center"><span data-countup="1350">0</span></h1>
-                <p>Kilomètres parcourus</p>
+                <p>Email : <%=current_user.email%></p>
+                <p>Inscription : <%=current_user.created_at.to_date%>
+                <p>Abonnement : 
+                <%if current_user.sub_id.present?%>
+                Oui
+               <p>Date de souscription :
+                <%= customer_subscription_time%>
+                </p>
+                <%else%>
+                Non
+                <%end%>
+                <br>
+                <br>
               </div>
             </div>
           </div>

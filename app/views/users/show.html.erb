@@ -1,4 +1,4 @@
- <section class="py-0" id="page-shop" data-zanim-xs='{"delay":0.4,"animation":"zoom-out"}' data-zanim-trigger="scroll">
+<section class="py-0" id="page-shop" data-zanim-xs='{"delay":0.4,"animation":"zoom-out"}' data-zanim-trigger="scroll">
 
   <div class="bg-holder" style="background-image:url(https://images.pexels.com/photos/4429141/pexels-photo-4429141.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);"></div>
 
@@ -6,18 +6,10 @@
     <div class="row">
       <div class="col-9 pt-11 pb-5">
           <%= image_tag("argo-logo.png", class: "logodash", alt: "logo officiel d'argo athletic")%>  
-          <div class="media-body pl-3">
-            </div>
-              <p class="titred3" class="mb-0 text-white ls-2 text-uppercase" data-zanim-xs='{"delay":0.8}' data-zanim-trigger="scroll">Bienvenue dans votre Dashboard</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
-
 </section>
-<br>
     <div class="fancy-tab">
 	<div class="nav-bar nav-bar-center">
 		<div class="nav-bar-item active"><span class="fas fa-home fs-2"></span><br>Home</div>
@@ -28,7 +20,7 @@
 		<div class="tab-content active">
 
     <div class="container mb-4">
-
+    <div class="col-6">
       <div class="card">
             <img class="rounded-soft img-fluid" src="https://images.pexels.com/photos/1030794/pexels-photo-1030794.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" 
             alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' />
@@ -41,18 +33,18 @@
                       <%= link_to "Suprimer  Programme", workout_program_path, method: 'delete', class:"btn btn-dark btn-sm"%>
                     <% else %>
                       <%if current_user.profile.sport_role.nil? && current_user.profile.level.nil? %>
-                        <div><%= link_to "Créer mon Programme", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-danger btn-sm"%></div><br>
+                        <div><%= link_to "Créer mon Programme", edit_user_profile_path(id: @profile, user_id: @id),autofocus:"true", class:"btn btn-danger btn-sm"%></div><br>
                       <%else%>
-                        <div><%= link_to "Créer mon Programme", new_workout_program_path, class:"btn btn-danger btn-sm"%></div><br>
+                        <div><%= link_to "Créer mon Programme", new_workout_program_path, autofocus:"true", class:"btn btn-danger btn-sm"%></div><br>
                       <%end%>
                     <%end%>
                 <%else%>
-                  <div> <%= link_to "S'abonner pour créer mon programmme", success_charges_path, class:"btn btn-danger btn-sm"%></div><br>
+                  <div> <%= link_to "S'abonner pour créer mon programmme", success_charges_path, autofocus:"true", class:"btn btn-danger btn-sm"%></div><br>
                 <%end%>
         </div>
         <div class="d2">
           <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
+        </div>  </div>
       </div>
       
 

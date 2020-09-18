@@ -2,40 +2,78 @@
   <%= title 'Base de données' %>
 </h1>
 
-<h1>Data from Database</h1>
-<h3>User Data + Profile</h3>
+<h1>
+  Données de la base de données
+</h1>
+
+<h3>
+  Données utilisateur et profil
+</h3>
+
 <table class="table mb-5">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Email</th>
-      <th scope="col">Date of Birth</th>
-      <th scope="col">Height</th>
-      <th scope="col">Weight</th>
-      <th scope="col">Created at</th>
-      <th scope="col">Sport</th>
+      <th scope="col">
+        #
+      </th>
+      <th scope="col">
+        E-mail
+      </th>
+      <th scope="col">
+        Date de naissance
+      </th>
+      <th scope="col">
+        Taille
+      </th>
+      <th scope="col">
+        Poids
+      </th>
+      <th scope="col">
+        Crée à 
+      </th>
+      <th scope="col">
+        Sport
+      </th>
     </tr>
   </thead>
   <tbody>
-  <% @users.each do |user| %>
-    <tr>
-      <th scope="row"><%= @user.id %></th>
-      <td><%= @user.email %></td>
-      <td><%= @user.profile.date_of_birth %></td>
-      <td><%= @user.profile.height %></td>
-      <td><%= @user.profile.weight %></td>
-      <td><%= @user.profile.created_at %></td>
-      <td><%= @user.profile.sports %></td>
-    </tr>
-    <% end %>
+    <% @users.each do |user| %>
+      <tr>
+        <th scope="row">
+          <%= @user.id %>
+        </th>
+        <td>
+          <%= @user.email %>
+        </td>
+        <td>
+          <%= @user.profile.date_of_birth %>
+       </td>
+       <td>
+          <%= @user.profile.height %>
+       </td>
+       <td>
+         <%= @user.profile.weight %>
+       </td>
+       <td>
+         <%= @user.profile.created_at %>
+       </td>
+       <td>
+        <%= @user.profile.sports %>
+       </td>
+      </tr>
+     <% end %>
   </tbody>
 </table>
 
-<h3>Sport + Sport Roles</h3>
+<h3>
+  Sport et Roles
+</h3>
 <table class="table mb-5">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">
+        #
+      </th>
       <th scope="col">Name</th>
       <th scope="col">Team Sport</th>
       <th scope="col">Roles</th>
@@ -105,9 +143,6 @@
     <% end %>
   </tbody>
 </table>
-
-
-
 
 <h3>Training Method</h3>
 <table class="table mb-5">
@@ -181,7 +216,6 @@
     <% end %>
   </tbody>
 </table>
-
 
 
 <h3>Training Method Intensities</h3>

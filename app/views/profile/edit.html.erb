@@ -2,14 +2,6 @@
   <%= title 'Paramètres profil' %>
 </h1>
 
-              <h2>
-              Editer votre profil
-              </h2>
-
-              <h6 class="text-danger mt-3">
-                Spécialement conçue pour les compétieurs pour leur préparation physique.
-              </h6>
-
 <%= form_for @profile, url: user_profile_path do |f| %>
     <section class="py-0" id="page-signup">
       <div class="container-fluid">
@@ -78,7 +70,7 @@
                   </div>
 
                   <div class="row mb-4 flex">
-                    <div class="col">Votre hauteur (m)
+                    <div class="col">Votre taille (cm)
                           <%= f.text_field :height, 
                           class:"form-control border-300 bg-light",
                           placeholder: "Votre poids" 

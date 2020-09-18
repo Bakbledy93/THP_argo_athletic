@@ -29,39 +29,12 @@
 
     <div class="container mb-4">
 
-        <div class="card-deck">
-      <div class="card">
-          <img class="rounded-soft img-fluid" src="https://images.pexels.com/photos/421160/pexels-photo-421160.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" 
-            alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' />
-        <div class="card-body d01">
-          <h5 class="card-title">ENTRAINEMENT DU JOUR</h5>
-          <%if current_user.sub_id.present?%>
-                <% if @exist_program == true %>
-                <p data-zanim-xs='{"delay":0.3}'>Merci de créer votre programme d'entraînement. Cliquez sur le button "Créer mon Programme"</p>
-                  <%= link_to "Jour 1", workout_program_path(program_id: @ex1, day: 1), class:"btn btn-lg btn-outline-dark mt-3"%>
-                  <%= link_to "Jour 2", workout_program_path(program_id: @ex2, day: 2), class:"btn btn-lg btn-outline-dark mt-3"%>
-                  <%= link_to "Jour 3", workout_program_path(program_id: @ex3, day: 3), class:"btn btn-lg btn-outline-dark mt-3"%>
-                <% else %>
-                  <p data-zanim-xs='{"delay":0.3}'>Merci de créer votre programme d'entraînement. Cliquez sur le button "Créer mon Programme"</p>                
-                <% end %>
-                <%else%>
-                  <p data-zanim-xs='{"delay":0.3}'>Passes au niveau supérieur en profitant d'entrainement spécialement conçu pour toi !</p>
-                  <%= link_to "S'abonner", success_charges_path, class:"btn btn-danger btn-sm"%>
-                  </><br>
-                <%end%>
-        </div>
-        <div class="d2">
-          <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-      </div>
-
       <div class="card">
             <img class="rounded-soft img-fluid" src="https://images.pexels.com/photos/1030794/pexels-photo-1030794.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" 
             alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' />
         <div class="card-body">
           <h5 class="card-title">VOTRE PROGRAMME</h5>
-              <p data-zanim-xs='{"delay":0.3}'>The ability to switch perspective lets you see clearly, <br>and to know where to take the next step. With sparrow, 
-              you can work on a portfolio, business website, or shop.</p>
+              <p data-zanim-xs='{"delay":0.3}'>Créer ton programme personnalisé et améliore ta préparation physique</p>
                 <%if current_user.sub_id.present?%>
                     <% if @exist_program == true %>
                       <%= link_to "voir mon Programme", workout_programs_path, class:"btn btn-danger btn-sm mb-3"%>
@@ -74,14 +47,12 @@
                       <%end%>
                     <%end%>
                 <%else%>
-                  <div> <%= link_to "Créer mon Programme", success_charges_path, class:"btn btn-danger btn-sm"%></div><br>
+                  <div> <%= link_to "S'abonner pour créer mon programmme", success_charges_path, class:"btn btn-danger btn-sm"%></div><br>
                 <%end%>
         </div>
         <div class="d2">
           <small class="text-muted">Last updated 3 mins ago</small>
         </div>
-      </div>
-
       </div>
       
 
@@ -102,7 +73,8 @@
                 <%unless current_user.profile.sport.nil?%>
                 <%=current_user.profile.sport.humanize %>
                 <%else%>
-                <span class="font-italic">Renseignes ton profil</span>
+                <span class="font-italic"><%= link_to "Renseigner votre profil", edit_user_profile_path(id: @profile, user_id: @id)%>
+</span>
                 <%end%>
                 </p>
 
@@ -110,7 +82,8 @@
                 <%unless current_user.profile.sport_role.nil?%>
                 <%=current_user.profile.sport_role.humanize %>
                 <%else%>
-                <span class="font-italic">Renseignes ton profil</span>
+                <span class="font-italic"><%= link_to "Renseigner votre profil", edit_user_profile_path(id: @profile, user_id: @id)%>
+</span>
                 <%end%>
                 </p>
 
@@ -119,7 +92,8 @@
                 <%unless current_user.profile.height.nil?%>
                 <%=current_user.profile.height%> cm
                 <%else%>
-                <span class="font-italic">Renseignes ton profil</span>
+                <span class="font-italic"><%= link_to "Renseigner votre profil", edit_user_profile_path(id: @profile, user_id: @id)%>
+</span>
                 <%end%>
                 </p>
 
@@ -127,7 +101,8 @@
                 <%unless current_user.profile.weight.nil?%>
                 <%=current_user.profile.weight%> kg
                 <%else%>
-                <span class="font-italic">Renseignes ton profil</span>
+                <span class="font-italic"><%= link_to "Renseigner votre profilt", edit_user_profile_path(id: @profile, user_id: @id)%>
+</span>
                 <%end%>
                 </p>
 
@@ -135,7 +110,8 @@
                 <%unless current_user.profile.level.nil?%>
                 <%=current_user.profile.level.humanize %>
                 <%else%>
-                <span class="font-italic">Renseignes ton profil</span>
+                <span class="font-italic"><%= link_to "Renseigner votre profil", edit_user_profile_path(id: @profile, user_id: @id)%>
+</span>
                 <%end%>
                 </p>
 

@@ -5,13 +5,10 @@
   <div class="container">
     <div class="row">
       <div class="col-9 pt-11 pb-5">
-        <div class="media"><span class="fas fa-gift text-white fs-6"></span>
+          <%= image_tag("argo-logo.png", class: "logodash", alt: "logo officiel d'argo athletic")%>  
           <div class="media-body pl-3">
-            <div class="overflow-hidden">
-              <h2 class="fs-4 text-white display-4 text-serif" data-zanim-xs='{"delay":0.6}' data-zanim-trigger="scroll"><span class="font-italic">Argo Athletic</span></h2>
             </div>
-            <div class="overflow-hidden">
-              <h6 class="mb-0 text-white ls-2 text-uppercase" data-zanim-xs='{"delay":0.8}' data-zanim-trigger="scroll">Bienvenue dans votre Dashboard</h6>
+              <p class="titred3" class="mb-0 text-white ls-2 text-uppercase" data-zanim-xs='{"delay":0.8}' data-zanim-trigger="scroll">Bienvenue dans votre Dashboard</p>
             </div>
           </div>
         </div>
@@ -24,7 +21,7 @@
     <div class="fancy-tab">
 	<div class="nav-bar nav-bar-center">
 		<div class="nav-bar-item active"><span class="fas fa-home fs-2"></span><br>Home</div>
-		<div class="nav-bar-item"><span class="fas fa-user fs-2"></span><br>Profile</div>
+		<div class="nav-bar-item"><span class="fas fa-user fs-2"></span><br>Profil</div>
 	</div>
 
 	<div class="tab-contents">
@@ -36,7 +33,7 @@
       <div class="card">
           <img class="rounded-soft img-fluid" src="https://images.pexels.com/photos/421160/pexels-photo-421160.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" 
             alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' />
-        <div class="card-body">
+        <div class="card-body d01">
           <h5 class="card-title">ENTRAINEMENT DU JOUR</h5>
           <%if current_user.sub_id.present?%>
                 <% if @exist_program == true %>
@@ -49,11 +46,11 @@
                 <% end %>
                 <%else%>
                   <p data-zanim-xs='{"delay":0.3}'>Passes au niveau supérieur en profitant d'entrainement spécialement conçu pour toi !</p>
-                  <%= link_to "S'abonner", success_charges_path, class:"btn btn-success btn-sm"%>
+                  <%= link_to "S'abonner", success_charges_path, class:"btn btn-danger btn-sm"%>
                   </><br>
                 <%end%>
         </div>
-        <div class="card-footer">
+        <div class="d2">
           <small class="text-muted">Last updated 3 mins ago</small>
         </div>
       </div>
@@ -67,20 +64,20 @@
               you can work on a portfolio, business website, or shop.</p>
                 <%if current_user.sub_id.present?%>
                     <% if @exist_program == true %>
-                      <%= link_to "voir mon Programme", workout_programs_path, class:"btn btn-warning btn-sm mb-3"%>
+                      <%= link_to "voir mon Programme", workout_programs_path, class:"btn btn-danger btn-sm mb-3"%>
                       <%= link_to "Suprimer  Programme", workout_program_path, method: 'delete', class:"btn btn-dark btn-sm"%>
                     <% else %>
                       <%if current_user.profile.sport_role.nil? && current_user.profile.level.nil? %>
-                        <div><%= link_to "Créer mon Programme", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-warning btn-sm"%></div><br>
+                        <div><%= link_to "Créer mon Programme", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-danger btn-sm"%></div><br>
                       <%else%>
-                        <div><%= link_to "Créer mon Programme", new_workout_program_path, class:"btn btn-warning btn-sm"%></div><br>
+                        <div><%= link_to "Créer mon Programme", new_workout_program_path, class:"btn btn-danger btn-sm"%></div><br>
                       <%end%>
                     <%end%>
                 <%else%>
-                  <div> <%= link_to "Créer mon Programme", success_charges_path, class:"btn btn-warning btn-sm"%></div><br>
+                  <div> <%= link_to "Créer mon Programme", success_charges_path, class:"btn btn-danger btn-sm"%></div><br>
                 <%end%>
         </div>
-        <div class="card-footer">
+        <div class="d2">
           <small class="text-muted">Last updated 3 mins ago</small>
         </div>
       </div>
@@ -97,8 +94,8 @@
 
             <div class="col-sm-8">
             <div class="card">
-              <div class="card-header">
-              <h6>PROFILE SPORT</h6>
+              <div class="d3">
+              <p class="titred3">PROFILE SPORT</p>
               </div>
               <div class="card-body">
                 <p>Sport :
@@ -148,8 +145,8 @@
 
           <div class="col-sm-4">
             <div class="card" style="width: 18rem;">
-              <div class="card-header">
-                <h6>COMPTEUR</h6>
+              <div class="d3">
+                <p class="titred4">COMPTEUR</p>
               </div>
               <div class="card-body text-center">
                 <h1 class="card-title text-center"><span data-countup="659">0</span></h1>
@@ -164,11 +161,11 @@
           <div class="col-sm">
 
             <div class="card" style="width: 18rem;">
-              <div class="card-header">
-                <h6>EDITER PROFIL SPORT</h6>
+              <div class="d3">
+                <p class="titred4">EDITER PROFIL SPORT</p>
               </div>
               <div class="card-body text-center">
-                <%= link_to "Modifier son profil sport", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-warning btn-sm"%>
+                <%= link_to "Modifier son profil sport", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-danger btn-sm"%>
               </div>
             </div>
 
@@ -176,11 +173,11 @@
           <div class="col-sm">
           
             <div class="card" style="width: 18rem;">
-              <div class="card-header">
-                <h6>EDITER COMPTE UTILISATEUR</h6>
+              <div class="d3">
+                <p class="titred4">EDITER COMPTE UTILISATEUR</p>
               </div>
               <div class="card-body text-center">
-                <%= link_to "Modifier son compte utilisateur", edit_user_registration_path, class:"btn btn-warning btn-sm"%>
+                <%= link_to "Modifier son compte utilisateur", edit_user_registration_path, class:"btn btn-danger btn-sm"%>
               </div>
             </div>
           
@@ -188,11 +185,11 @@
           <div class="col-sm">
 
             <div class="card" style="width: 18rem;">
-              <div class="card-header">
-                <h6>DECONNEXION</h6>
+              <div class="d3">
+                <p class="titred4">DECONNEXION</p>
               </div>
               <div class="card-body text-center">
-                <%= link_to "Déconnexion", destroy_admin_session_path, method: 'delete', class:"btn btn-warning btn-sm"%>
+                <%= link_to "Déconnexion", destroy_admin_session_path, method: 'delete', class:"btn btn-danger btn-sm"%>
               </div>
             </div>
           

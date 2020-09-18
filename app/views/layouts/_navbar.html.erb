@@ -21,7 +21,29 @@
     </div>
     <div class="fancynavbar-collapse audioButton">
       <ul class="fancynavbar-nav">
+           <!-- common to all types of users -->
             <div class="fancy-dropdown-menu">
+              <div class="row pb-4 pt-3">
+                <div class="col-sm-auto pr-4">
+                  <% if !user_signed_in? && !admin_signed_in? %>
+                    <%= link_to "Accueil",
+                        home_index_path,
+                        method: 'get',
+                        class: "fancy-dropdown-item audioButton" 
+                    %>
+                    <%= link_to "Team",
+                        team_home_index_path,
+                        method: 'get',
+                        class:"fancy-dropdown-item audioButton"
+                    %>
+                    <%= link_to "Nous contacter",
+                        contact_home_index_path,
+                        method: 'get',
+                        class:"fancy-dropdown-item audioButton"
+                    %>
+                  <% end %>
+                </div>
+              </div>
               <div class="row pb-4 pt-3">
                 <div class="col-sm-auto pr-4">
                   <!-- dashboard -->
@@ -56,18 +78,10 @@
                         %>
                   <% else %>
                       <!-- unknown visitor -->
-                      <%= link_to "Accueil", home_index_path, methode: 'get', class: "fancy-dropdown-item audioButton" %>
                       <%= link_to "S'inscrire", new_user_registration_path, method: 'get', class: "fancy-dropdown-item audioButton" %>
                       <%= link_to "Se connecter", new_user_session_path, method: 'get', class: "fancy-dropdown-item audioButton" %>
                   <% end %>
                 </div>
-                <% if !user_signed_in? && !admin_signed_in? %>
-                  <!-- common to all tyoes of users -->
-                  <%= link_to "Nous contacter",
-                      contact_home_index_path,
-                      method: 'get',
-                      class:"fancy-dropdown-item audioButton"
-                  %>
               </div>
             </div>
       </ul>

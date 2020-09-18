@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   end
 
   
-  resources :home, only: [:index, :show, :perso] do
+  resources :home, only: [:index] do
     collection {get :import}
     collection {get :contact}
     collection {get :terms}

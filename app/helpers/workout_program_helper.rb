@@ -45,6 +45,12 @@ module WorkoutProgramHelper
       i += 1
     end
 
+    def check_if_exists(data)
+      if data.count > 0
+        return true
+      end
+    end
+
   end 
 
     ## SHOW ##

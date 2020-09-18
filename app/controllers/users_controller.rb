@@ -15,17 +15,7 @@ class UsersController < ApplicationController
     @id = current_user.id
     @profile = current_user.profile.id
     @profile_id = current_user.profile.id
-    @workoutprogram = WorkoutProgram.where(profile_id: @profile_id)
-    @exist_program = check_if_exists(@workoutprogram)
-    if @exist_program == true
-      @ex1 = @workoutprogram.first.id
-      @ex2 = @workoutprogram.second.id
-      @ex3 = @workoutprogram.third.id
-    end
-    puts '*'*150
-    p @id
-    p @profile
-    puts '*'*150
+
     set_meta_tags title: current_user.email,
                   site: 'Argo Athletic',
                   reverse: false,
@@ -38,10 +28,5 @@ class UsersController < ApplicationController
     flash[:alert] = "User not found."
   end
 
-  def check_if_exists(data)
-    if data.count > 0
-      return true
-    end
-  end
   
 end

@@ -2,7 +2,9 @@
   <%= title 'Paramètres compte' %>
 </h1>
 <!-- form for registration -->
-<% render "devise/shared/error_messages", resource: resource %>
+<div id="flash-wrapper">
+  <%= render "devise/shared/error_messages", resource: resource %>
+</div>
     
 <section class="py-0" id="page-signup">
   <div class="container-fluid">
@@ -67,45 +69,46 @@
                 %>
               </div>
 
-                <div class="col-sm btn btn-block">
-                  <%= f.submit :"Editer mon Compte",
-                      class:"btn btn-success btn-sm mt-3",
-                      autofocus: true 
-                  %>
-<!-- DELETE -->
-
-                <%= button_to "Supprimer", registration_path(resource_name),class:"btn btn-danger btn-sm mt-3", 
-                  data: { confirm: "Etes-vous sur de vouloir supprimer votre compte ?" }, method: :delete %>
-              
-                <%= link_to "Retour", user_path(current_user.id), class:"btn btn-dark btn-sm mt-3" %>
-
+              <div class="col-sm btn btn-block">
+                <%= f.submit :"Editer mon Compte",
+                    class:"btn btn-success btn-sm mt-3",
+                    autofocus: true 
+                %>
               </div>
-          <!-- /DELETE  -->
-
-                <p>En validant votre compte, vous acceptez,<%= link_to "nos conditions d'utilisation.", terms_home_index_path, method: :get %></p> 
-
-          <!-- ABONNEMENT -->
-          <div class="card" style="width: 100%;">
-            <div class="d3">
-            <p class=titred4> Abonnement</p>
-            </div>
-            <div class="card-body">
-            <%if current_user.sub_id.present?%>
-              Souscription : <%=customer_subscription_time%><br>
-              Prix : <%= customer_subscription_price/100%>€/mois<br>
-
-            <div class="btn-block text-center">
-              <%= link_to "Supprimer", cancel_subscription_charges_path, data: { confirm: "Etes-vous sur de vous désabonner ?" }, method: :post%>
-              <%else%>
-                  <%= link_to "M'abonner", success_charges_path, class: "btn btn-success btn-sm" %>
-              <%end%>
-            
-            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" >Editer Données de Paiement</button>
-            </div>
-          <!-- ABONNEMENT -->
-
             <%end%>
-            </div> 
+
+            <!-- DELETE -->
+            <div class="col-sm btn btn-block">
+              <%= button_to "Supprimer", registration_path(resource_name),class:"btn btn-danger btn-sm mt-3", 
+                data: { confirm: "Etes-vous sur de vouloir supprimer votre compte ?" }, method: :delete %>
+            
+              <%= link_to "Retour", user_path(current_user.id), class:"btn btn-dark btn-sm mt-3" %>
+
+            </div>
+            <!-- /DELETE  -->
+
+            <p>En validant votre compte, vous acceptez,<%= link_to "nos conditions d'utilisation.", terms_home_index_path, method: :get %></p> 
+
+            <!-- ABONNEMENT -->
+            <div class="card" style="width: 100%;">
+              <div class="d3">
+              <p class=titred4> Abonnement</p>
+              </div>
+              <div class="card-body">
+              <%if current_user.sub_id.present?%>
+                Souscription : <%=customer_subscription_time%><br>
+                Prix : <%= customer_subscription_price/100%>€/mois<br>
+
+              <div class="btn-block text-center">
+                <%= link_to "Supprimer", cancel_subscription_charges_path, method: :post%>
+                <%else%>
+                    <%= link_to "M'abonner", success_charges_path, class: "btn btn-success btn-sm" %>
+                <%end%>
+              
+              <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" >Editer Données de Paiement</button>
+            </div>
+            <!-- ABONNEMENT -->
+
           </div> 
         </div> 
       </div>

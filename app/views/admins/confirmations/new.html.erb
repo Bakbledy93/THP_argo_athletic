@@ -1,17 +1,19 @@
+<!-- title for tab -->
 <h1 class="hidden">
   <%= title 'Récupérer compte' %>
 </h1>
-
+<!-- title for page -->
 <h2>Resend confirmation instructions</h2>
-
+<!-- form -->
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+  <!-- render error messsages -->
   <%= render "admins/shared/error_messages", resource: resource %>
-
+  <!-- email label and field -->
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
   </div>
-
+  <!-- submit button -->
   <div class="actions">
     <%= f.submit "Resend confirmation instructions" %>
   </div>

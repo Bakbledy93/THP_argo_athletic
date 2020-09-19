@@ -1,6 +1,6 @@
 <section class="py-0" id="page-shop" data-zanim-xs='{"delay":0.4,"animation":"zoom-out"}' data-zanim-trigger="scroll">
 
-  <div class="bg-holder" style="background-image:url(https://images.pexels.com/photos/4429141/pexels-photo-4429141.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);"></div>
+  <div class="bg-holder" style="background-image:url(<%= image_path 'user-dash-background.png' %>);"></div>
 
   <div class="container">
     <div class="row">
@@ -22,8 +22,12 @@
     <div class="container special-flex-container">
     <div class="col-6">
       <div class="card content-align-center">
-            <img class="rounded-soft img-fluid" src="https://images.pexels.com/photos/1030794/pexels-photo-1030794.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" 
-            alt="" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}' />
+       <div data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}'>
+        <%= image_tag 'jump-dash-user.png', 
+            class: "rounded-soft img-fluid",
+            alt: "homme qui saute"
+        %>
+        </div>
         <div class="card-body text-center">
           <h5 class="card-title">VOTRE PROGRAMME</h5>
               <p data-zanim-xs='{"delay":0.3}'>Créer ton programme personnalisé et améliore ta préparation physique</p>

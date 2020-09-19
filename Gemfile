@@ -94,5 +94,3 @@ gem 'meta-tags'
 gem 'activerecord-reset-pk-sequence'
 # Adds flash_rails_messages
 gem 'flash_rails_messages'
-# Adds Stripe
-gem 'stripe'

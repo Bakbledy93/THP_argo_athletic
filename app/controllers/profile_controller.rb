@@ -1,11 +1,22 @@
 class ProfileController < ApplicationController
-  def index
-    @profiles = Profile.all
+
+  before_action :authenticate_user, only: [:edit]
+  before_action :authenticate_current_user, only: [:edit]
+
+  def authenticate_user
+    unless current_user
+      flash[:alert] = "Accès non autorisé"
+      redirect_to root_path
+    end
   end
 
-  def show
+  def authenticate_current_user
+    @profile = Profile.find(params[:id])
+    unless current_user.profile.id == @profile.id
+      redirect_to edit_user_profile_path(id: current_user.profile.id, user_id: current_user.id), notice: "Accès non autorisé"
+    end
   end
-  
+
   def edit
     @profile = Profile.find(params[:id])
     @sports_array = Profile.sport_array_creator
@@ -29,16 +40,14 @@ class ProfileController < ApplicationController
   end
 
   def update
-    @id = current_user.id
     @weight = params[:weight]
     @sports = Sport.all
-    @profile = Profile.find(params[:id])
     if @profile.update(profile_params)
       flash[:alert] = "Le Profil à été mis à jour"
       redirect_to user_path(params[:id])
     else
       flash[:error] = "S'il vous plait, completez tous les champs du formulaire avec le format correct"
-      redirect_to edit_user_profile_path(id: @profile, user_id: @id)
+      redirect_to edit_user_profile_path(id: current_user.profile.id, user_id: current_user.id)
     end
   end
 

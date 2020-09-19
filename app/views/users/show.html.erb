@@ -34,7 +34,7 @@
                 <%if current_user.sub_id.present?%>
                     <% if @exist_program == true %>
                       <%= link_to "voir mon Programme", workout_programs_path, class:"btn btn-danger btn-sm mb-3"%>
-                      <%#= link_to "Suprimer  Programme", workout_program_path, method: 'delete', class:"btn btn-dark btn-sm"%>
+                      <%= link_to "Suprimer  Programme", workout_program_path, method: 'delete', data: { confirm: "Etes-vous sur de vouloir supprimer votre programme ?" }, class:"btn btn-dark btn-sm"%>
                     <% else %>
                       <%if current_user.profile.sport_role.nil? && current_user.profile.level.nil? %>
                         <div><%= link_to "Créer mon Programme", edit_user_profile_path(id: @profile, user_id: @id),autofocus:"true", class:"btn btn-danger btn-sm"%></div><br>

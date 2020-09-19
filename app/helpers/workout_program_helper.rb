@@ -14,6 +14,21 @@ module WorkoutProgramHelper
     @variant3 = []
   end
 
+  def check_if_exists(data)
+    if data.count > 0
+      return true
+    end
+  end
+
+  def checking_existence(program_data)
+    @exist_program = check_if_exists(program_data)
+    if @exist_program == true
+      @ex1 = @workoutprogram.first.id
+      @ex2 = @workoutprogram.second.id
+      @ex3 = @workoutprogram.third.id
+    end
+  end
+
   def ex_creator(program, i)
     program.exercise.split(',')[i][2...-1].humanize
   end
@@ -45,15 +60,18 @@ module WorkoutProgramHelper
       i += 1
     end
 
-    def check_if_exists(data)
-      if data.count > 0
-        return true
-      end
-    end
-
   end 
 
-    ## SHOW ##
+  # def program_definition(program_data)
+  #   arr = []
+  #   program_data.each do |ex|
+  #     arr << ex_creator(ex, i)
+  #     i += 1
+  #   end
+  #   return arr
+  # end
+
+  ## SHOW ##
 
   def array_humanize(array)
     new_array = []
@@ -66,38 +84,14 @@ module WorkoutProgramHelper
 
   ## CREATE ##
   def roleMGcap_definition(role_id, priority)
-    #return 1 option par pritority et par role 
-      #Priorities number goes from 4 to 6 (4 is good for all roles)
     RolesMuscularGroupCapacity.where(sport_role_id: role_id).where(priority: priority)
   end
 
   def muscles_training_methods_definition(priority)
-    ######### ALTERNATIVA ###############
-
-
-        # #Trying to get The TrainingMethod filter by Muscular Groups
-        # @rolesMGcap_alt = roleMGcap_definition(@role_id, priority)
-        # @mg_alt_id = @rolesMGcap_alt.first.muscular_group_id
-        # @mg_alt = MuscularGroup.find(@mg_alt_id)
-        # @mg_alt.capacities.each do |c|
-        #   c.training_methods.each do |t|
-        #     puts "€ € "*15
-        #     p c.name
-        #     p t.name
-        #     puts "€ € "*15
-        #   end
-
-        # end
-
-
-
-    ######### ALTERNATIVA ###############
-
 
     @rolesMGcap = roleMGcap_definition(@role_id, priority)
-      #return 1 element
-    capacities_array = [] # 1 element
-    muscles_array = [] # N elements
+    capacities_array = [] 
+    muscles_array = [] 
     @rolesMGcap.each do |rmg|
       capacities_array << Capacity.find(rmg.capacity_id).id
       muscles = Muscle.where(muscular_group_id: rmg.muscular_group_id)
@@ -105,18 +99,6 @@ module WorkoutProgramHelper
         muscles_array << m
       end
     end
-      #return 2 Arrays with
-        # capaci 1 or Many elements each 
-
-      # every Capacity can have 1 or many muscular groups
-    puts "Capacities Array ** "*5
-    puts capacities_array
-    puts "Muscles Array ** "*5
-    puts muscles_array
-    puts "END Array ** "*5
-    
-    # @cap_id = @rolesMGcap.first.capacity_id
-      #return 1 element (the first)
 
     @cap_id = capacities_array[0]
     @training_methods = TrainingMethod.where(capacity_id: @cap_id)
@@ -125,73 +107,13 @@ module WorkoutProgramHelper
         training_method_array << tmeth.id
     end
 
-    puts "training_methods Array ** "*5
-    puts training_method_array
-    puts "END Array ** "*5
-    #For 1 capacity we can have MANY Training Methods
-    # @training_methods = TrainingMethod.where(capacity_id: @cap_id)
-      #return many elements
-        # BY CAPACITIES:
-          # anaerobic_alactic => 2
-          # anaerobic_lactic => 2
-          # aerobic => 7
-          # max_strength => 6
-          # explosive_strength => 7
-          # acyclic => 2
-          # hpertrophy => 10
-          # muscle_endurance => 3
-
-
-    # Muscles: return 2 or 4 elements
-      #For 'Football' muscular group can have 4 options:
-        # abs, back, inferior member, superior member (only for goalkeeper)
-          #=> 4 Muscles for 'inferior member'
-          #=> 2 Muscles for 'abs'
-            # abs, obliques
-          #=> 2 Muscles for 'back'
-            # lowe back, middle back
-          #=> 4 Muscles for 'inferior member'
-            # calves, quadriceps, hamstring, glutes
-          #=> 4 Muscles for 'superior member' (only for goalkeeper)
-            # biceps, triceps, forearms, chest (only for goalkeeper)
-
-    #Options:
-      # I can use the variables @
-      # or
-      # I can make an Array with all the data with 
-        # Array TrainingMethod inside the main Array
-        # Array Muscles inside the main Array
-
-    ## Array with MANY Exercises
-      puts "START Methods => Exercises  "*3
       exercises_array = []
       training_method_array.each do |t|
         exercises = TrainingMethod.find(t).exercises
         exercises.each do |ex|
           exercises_array << ex.name
         end
-        puts "exercises_array Array ** "*5
-        puts exercises_array.uniq
-        puts "END Array ** "*5
       end
-
-          # @training_methods.each do |method|
-          #   exercises_array << method.exercises
-          #   puts "Method Name : #{method.name}"
-          #   puts "Method Exercises : #{method.exercises}"
-          #   # p method.exercises
-          #   puts "Array Exercises: #{exercises_array}"
-          #   # p exercises_array
-          # end 
-      # puts exercises.uniq
-      # p exercises.uniq
-      
-      # puts "MIDDLE Methods => Exercises  "*3
-      # exercises.uniq.each do |ex|
-      #   puts ex.first.name
-      # end
-      # puts exercises.uniq
-      # puts "END => Exercises  "*3
 
       exercises_by_muscles_array = []
       muscles_array.each do |m|
@@ -199,49 +121,14 @@ module WorkoutProgramHelper
           exercises_by_muscles_array  << x.name
         end 
       end
-      puts "exercises_by_muscles_array Array ** "*5
-      puts exercises_by_muscles_array.uniq
-      puts "END Array ** "*5
 
       exercises_array_final = exercises_array & exercises_by_muscles_array
       puts "FINAL Array ** "*5
-      puts exercises_array_final.uniq
+      puts exercises_array_final
       puts "END Array ** "*5
 
       return exercises_array_final
   end
-
-  def creating_array_exercises(training_method, muscles)
-
-    ex_array_A = []
-    begin
-      training_method.sample.exercises.uniq.each do |t|
-        ex_array_A << t.name
-      end
-    rescue
-      retry if ex_array_A.length < 5
-      puts "Retrying method "*10
-      puts "Retrying method "*10
-      puts "Retrying method "*10
-    end
-
-    ex_array_B = []
-    begin
-      muscles.each do |m|
-        m.exercises.each do |x|
-          ex_array_B  << x.name
-        end 
-      end
-    rescue
-      retry if ex_array_B.length < 5
-      puts "Retrying muscles "*10
-      puts "Retrying muscles "*10
-      puts "Retrying muscles "*10
-    end
-
-    ex_array = ex_array_A & ex_array_B
-
-  end 
 
   def getting_training_method(name)
     Exercise.where(name: name).first.training_methods.sample.name
@@ -278,12 +165,9 @@ module WorkoutProgramHelper
   def create_workout_program
 
     program_array = []
-    program_array << muscles_training_methods_definition(1)
-    program_array << muscles_training_methods_definition(2)
-    program_array << muscles_training_methods_definition(3)
-    program_array << muscles_training_methods_definition(4)
-    program_array << muscles_training_methods_definition(5)
-    program_array << muscles_training_methods_definition(6)
+    [1...6].each do |x|
+      program_array << muscles_training_methods_definition(x)
+    end
 
     program_array.delete_if {|n| n == []}
     program_array = program_array.join(",").split(",").uniq
@@ -312,8 +196,6 @@ module WorkoutProgramHelper
     @var_array2 = creating_array(var_array, 4)
     @var_array3 = creating_array(var_array, 8)
 
-
-    redirect_to new_workout_program_path
 
     if program_array.length > 11 
       @workout_program1 = WorkoutProgram.create!(
@@ -350,7 +232,7 @@ module WorkoutProgramHelper
       )
 
       flash[:notice] = "Le programme d'entraînement à été crée"
-    #  redirect_to workout_programs_path
+      redirect_to workout_programs_path
     else
       flash[:notice] = "Une errer s'est produite dans la céation du programme. S'il vous plait essayez à nouveau"
       redirect_to new_workout_program_path

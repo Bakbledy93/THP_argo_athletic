@@ -18,6 +18,10 @@ module Argo
     config.action_cable.mount_path = "/cable"
     config.assets.initialize_on_precompile = false
 
+    config.exceptions_app = self.routes
+    config.exceptions_app = ->(env) { ExceptionController.action(:show).call(env) }
+
+
   end
 end
 

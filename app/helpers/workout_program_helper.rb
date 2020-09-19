@@ -239,6 +239,16 @@ module WorkoutProgramHelper
     @var_array3 = creating_array_variants(@ex_array3)
   end
 
+  def creating_array_exercises(program_array, index)
+    ex_array = []
+    4.times do |i|
+      puts " $ "*30
+      ex_array << program_array[index]
+      index += 1
+    end
+    return ex_array
+  end
+
   def create_workout_program
     # @ex_array1 = ["uno", "dos"]
     # @ex_array2 = ["uno", "dos"]
@@ -256,52 +266,73 @@ module WorkoutProgramHelper
     program_array << muscles_training_methods_definition(4)
     program_array << muscles_training_methods_definition(5)
     program_array << muscles_training_methods_definition(6)
+
+    program_array.delete_if {|n| n == []}
+    program_array = program_array.join(",").split(",").uniq
+    array_to_add = program_array
+
     puts " $ "*30
-    puts program_array
-    puts program_array.count
+    p program_array
+    p program_array.length
+
+    5.times do |t|
+      program_array << array_to_add.shuffle
+    end
+
+
     puts " $ "*30
+    program_array = program_array.join(",").split(",")
+    p program_array
+    p program_array.length
+    puts " $ "*30
+
+    @ex_array1 = creating_array_exercises(program_array, 0)
+    @ex_array2 = creating_array_exercises(program_array, 4)
+    @ex_array3 = creating_array_exercises(program_array, 8)
+
+
     redirect_to new_workout_program_path
 
-    # if @ex_array1.length > 3 && @ex_array2.length > 3 && @ex_array3.length > 3 
-    #   @workout_program1 = WorkoutProgram.create!(
-    #     exercise: @ex_array1, 
+    if program_array.length > 11 
+      @workout_program1 = WorkoutProgram.create!(
+        exercise: @ex_array1, 
     #     training_method: @training_methods1.sample.name, 
     #     level:  @level, 
     #     repetition: @repetitions, 
     #     recuperation: @recuperation , 
-    #     profile_id: @profile_id, 
+        profile_id: @profile_id, 
     #     serie: @serie, 
     #     variant: @var_array1 
-    #   )
+      )
 
-    #   @workout_program2 = WorkoutProgram.create!(
-    #     exercise: @ex_array2, 
+      @workout_program2 = WorkoutProgram.create!(
+        exercise: @ex_array2, 
     #     training_method: @training_methods2.sample.name, 
     #     level:  @level, 
     #     repetition: @repetitions, 
     #     recuperation: @recuperation , 
-    #     profile_id: @profile_id, 
+        profile_id: @profile_id, 
     #     serie: @serie, 
     #     variant: @var_array2 
-    #   )
+      )
 
-    #   @workout_program3 = WorkoutProgram.create!(
-    #     exercise: @ex_array3, 
+      @workout_program3 = WorkoutProgram.create!(
+        exercise: @ex_array3, 
     #     training_method: @training_methods3.sample.name, 
     #     level:  @level, 
     #     repetition: @repetitions, 
     #     recuperation: @recuperation , 
-    #     profile_id: @profile_id, 
+        profile_id: @profile_id, 
     #     serie: @serie, 
     #     variant: @var_array3 
-    #   )
+      )
 
-    #   flash[:notice] = "Le programme d'entraînement à été crée"
-    #   redirect_to workout_programs_path
-    # else
-    #   flash[:notice] = "Une errer s'est produite dans la céation du programme. S'il vous plait essayez à nouveau"
-    #   redirect_to new_workout_program_path
-    # end
+      flash[:notice] = "Le programme d'entraînement à été crée"
+    #  redirect_to workout_programs_path
+    else
+      flash[:notice] = "Une errer s'est produite dans la céation du programme. S'il vous plait essayez à nouveau"
+      redirect_to new_workout_program_path
+    end
   end
 
 

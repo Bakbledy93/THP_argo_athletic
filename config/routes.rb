@@ -115,4 +115,10 @@ Rails.application.routes.draw do
     collection {post :cancel_subscription}
   end
 
+  if Rails.env.production?
+    get '404', :to => 'application#page_not_found'
+    get '422', to: 'application#server_error'
+    get '500', to: 'application#server_error'
+  end
+
 end

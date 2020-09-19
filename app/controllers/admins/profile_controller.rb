@@ -1,4 +1,13 @@
 class Admins::ProfileController < ApplicationController
+  before_action :authenticate_admin, only: [:index, :edit, :show]
+
+  def authenticate_admin
+    unless current_admin
+      flash[:alert] = "Accès non autorisé"
+      redirect_to root_path
+    end
+  end
+
   def index
     @disable_footer = true
 

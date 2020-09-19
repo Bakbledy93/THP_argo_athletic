@@ -72,6 +72,28 @@ module WorkoutProgramHelper
   end
 
   def muscles_training_methods_definition(priority)
+    ######### ALTERNATIVA ###############
+
+
+        # #Trying to get The TrainingMethod filter by Muscular Groups
+        # @rolesMGcap_alt = roleMGcap_definition(@role_id, priority)
+        # @mg_alt_id = @rolesMGcap_alt.first.muscular_group_id
+        # @mg_alt = MuscularGroup.find(@mg_alt_id)
+        # @mg_alt.capacities.each do |c|
+        #   c.training_methods.each do |t|
+        #     puts "€ € "*15
+        #     p c.name
+        #     p t.name
+        #     puts "€ € "*15
+        #   end
+
+        # end
+
+
+
+    ######### ALTERNATIVA ###############
+
+
     @rolesMGcap = roleMGcap_definition(@role_id, priority)
       #return 1 element
     capacities_array = [] # 1 element
@@ -221,6 +243,10 @@ module WorkoutProgramHelper
 
   end 
 
+  def getting_training_method(name)
+    Exercise.where(name: name).first.training_methods.sample.name
+  end
+
   def creating_array_variants(ex_array)
     var_array = []
     ex_array.each do |ex|
@@ -292,7 +318,7 @@ module WorkoutProgramHelper
     if program_array.length > 11 
       @workout_program1 = WorkoutProgram.create!(
         exercise: @ex_array1, 
-    #     training_method: @training_methods1.sample.name, 
+        training_method: getting_training_method(@ex_array1[0]), 
         level:  @level, 
         repetition: @repetitions, 
         recuperation: @recuperation , 
@@ -303,7 +329,7 @@ module WorkoutProgramHelper
 
       @workout_program2 = WorkoutProgram.create!(
         exercise: @ex_array2, 
-    #     training_method: @training_methods2.sample.name, 
+        training_method: getting_training_method(@ex_array2[0]), 
         level:  @level, 
         repetition: @repetitions, 
         recuperation: @recuperation , 
@@ -314,7 +340,7 @@ module WorkoutProgramHelper
 
       @workout_program3 = WorkoutProgram.create!(
         exercise: @ex_array3, 
-    #     training_method: @training_methods3.sample.name, 
+        training_method: getting_training_method(@ex_array3[0]), 
         level:  @level, 
         repetition: @repetitions, 
         recuperation: @recuperation , 

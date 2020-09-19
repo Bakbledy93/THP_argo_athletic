@@ -165,7 +165,7 @@ module WorkoutProgramHelper
   def create_workout_program
 
     program_array = []
-    [1...6].each do |x|
+    (1..6).each do |x|
       program_array << muscles_training_methods_definition(x)
     end
 
@@ -187,6 +187,9 @@ module WorkoutProgramHelper
     p program_array.length
     puts " $ "*30
 
+    @ex_array = []
+    
+    @ex_array << 
     @ex_array1 = creating_array(program_array, 0)
     @ex_array2 = creating_array(program_array, 4)
     @ex_array3 = creating_array(program_array, 8)

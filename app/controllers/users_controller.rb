@@ -1,15 +1,12 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user, only: [:index, :new, :edit]
+  before_action :authenticate_user, only: [:index, :new, :edit, :show]
 
   def authenticate_user
     unless current_user
-      flash[:alert] = "Accès non autorisée"
+      flash[:alert] = "Accès non autorisé"
       redirect_to root_path
     end
-  end
-
-  def index
-  end
+  end  
 
   def show
     @id = current_user.id
@@ -22,11 +19,5 @@ class UsersController < ApplicationController
                   description: 'page utilisateur',
                   keywords: ['user', 'users']
   end
-
-  def edit
-    puts " Edit "*25
-    flash[:alert] = "User not found."
-  end
-
   
 end

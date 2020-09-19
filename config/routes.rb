@@ -22,8 +22,8 @@ Rails.application.routes.draw do
   end
 
   namespace :admins do
-    resources :users, only: [:index, :show, :new, :create, :update, :edit]
-    resources :profile, only: [:index, :show, :new, :create, :update, :edit]
+    resources :users, only: [:index, :new, :create, :update, :edit]
+    resources :profile, only: [:index, :new, :create, :update, :edit]
   end
 
   resources :admins do [:index]
@@ -113,6 +113,12 @@ Rails.application.routes.draw do
     collection {post :delete_card}
     collection {post :subscribe}
     collection {post :cancel_subscription}
+  end
+
+  if Rails.env.production?
+    get '404', :to => 'application#page_not_found'
+    get '422', to: 'application#server_error'
+    get '500', to: 'application#server_error'
   end
 
 end

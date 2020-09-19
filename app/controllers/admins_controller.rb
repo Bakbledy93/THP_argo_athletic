@@ -3,7 +3,7 @@ class AdminsController < ApplicationController
 
   def authenticate_admin
     unless current_admin
-      flash[:alert] = "Unauthorized section"
+      flash[:alert] = "Accès non autorisé"
       redirect_to root_path
     end
   end

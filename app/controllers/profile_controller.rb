@@ -40,6 +40,7 @@ class ProfileController < ApplicationController
   end
 
   def update
+    @profile = current_user.profile
     @weight = params[:weight]
     @sports = Sport.all
     if @profile.update(profile_params)

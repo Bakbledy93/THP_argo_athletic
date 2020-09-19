@@ -239,25 +239,17 @@ module WorkoutProgramHelper
     @var_array3 = creating_array_variants(@ex_array3)
   end
 
-  def creating_array_exercises(program_array, index)
-    ex_array = []
+  def creating_array(array, index)
+    new_array = []
     4.times do |i|
       puts " $ "*30
-      ex_array << program_array[index]
+      new_array << array[index]
       index += 1
     end
-    return ex_array
+    return new_array
   end
 
   def create_workout_program
-    # @ex_array1 = ["uno", "dos"]
-    # @ex_array2 = ["uno", "dos"]
-    # @ex_array3 = ["uno", "dos"]
-    # puts "Length  "*10
-    # puts @ex_array1.length
-    # puts @ex_array2.length
-    # puts @ex_array3.length
-    # puts "Length  "*10
 
     program_array = []
     program_array << muscles_training_methods_definition(1)
@@ -279,16 +271,20 @@ module WorkoutProgramHelper
       program_array << array_to_add.shuffle
     end
 
-
     puts " $ "*30
     program_array = program_array.join(",").split(",")
     p program_array
     p program_array.length
     puts " $ "*30
 
-    @ex_array1 = creating_array_exercises(program_array, 0)
-    @ex_array2 = creating_array_exercises(program_array, 4)
-    @ex_array3 = creating_array_exercises(program_array, 8)
+    @ex_array1 = creating_array(program_array, 0)
+    @ex_array2 = creating_array(program_array, 4)
+    @ex_array3 = creating_array(program_array, 8)
+
+    var_array = creating_array_variants(program_array)
+    @var_array1 = creating_array(var_array, 0)
+    @var_array2 = creating_array(var_array, 4)
+    @var_array3 = creating_array(var_array, 8)
 
 
     redirect_to new_workout_program_path
@@ -302,7 +298,7 @@ module WorkoutProgramHelper
         recuperation: @recuperation , 
         profile_id: @profile_id, 
         serie: @serie, 
-    #     variant: @var_array1 
+        variant: @var_array1 
       )
 
       @workout_program2 = WorkoutProgram.create!(
@@ -313,7 +309,7 @@ module WorkoutProgramHelper
         recuperation: @recuperation , 
         profile_id: @profile_id, 
         serie: @serie, 
-    #     variant: @var_array2 
+        variant: @var_array2 
       )
 
       @workout_program3 = WorkoutProgram.create!(
@@ -324,7 +320,7 @@ module WorkoutProgramHelper
         recuperation: @recuperation , 
         profile_id: @profile_id, 
         serie: @serie, 
-    #     variant: @var_array3 
+        variant: @var_array3 
       )
 
       flash[:notice] = "Le programme d'entraînement à été crée"

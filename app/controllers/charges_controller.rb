@@ -35,6 +35,8 @@ class ChargesController < ApplicationController
       customer.source = card_token
       #we're attaching the card to the stripe customer
       customer.save
+
+      #redirection
       if @params = @plan_id
         subscribe
       else
@@ -46,12 +48,12 @@ class ChargesController < ApplicationController
   end
 
   def delete_card
-    puts     Stripe::Customer.retrieve(current_user.stripe_id).default_source
+
     Stripe::Customer.delete_source(
       current_user.stripe_id,
       Stripe::Customer.retrieve(current_user.stripe_id).default_source,
     )
-    redirect_to edit_user_registration_path
+    redirect_to edit_user_registration_path, notice: "Votre moyen de paiment est bien supprimé !"
   end
 
   def success
@@ -64,24 +66,30 @@ class ChargesController < ApplicationController
   def subscribe
     @plan_id = params[:plan_id]
     customer = Stripe::Customer.new current_user.stripe_id
+    
     #we define our customer
     subscriptions = Stripe::Subscription.list(customer: customer.id)
     subscriptions.each do |subscription|
       subscription.delete
     end
+
     #we delete all subscription that the customer has. We do this because we don't want that our customer to have multiple subscriptions
     if @@plan_id.nil?
       @plan_id = params[:plan_id]
     else
       @@plan_id = @plan_id
     end
+
     subscription = Stripe::Subscription.create({
       customer: customer,
       items: [{plan: @plan_id}], })
     #we are creating a new subscription with the plan_id we took from our form
     current_user.update(:sub_id => subscription.id)
     subscription.save
-    UserMailer.sub_email(current_user).deliver_now
+
+    #send subcription confirmation to user
+    sub_mail
+
     redirect_to root_path, notice: "Félicitation ! Vous êtes abonnés !"
   end
 
@@ -89,13 +97,25 @@ class ChargesController < ApplicationController
     #Deleting Trainings linked to current_user
     @user_id = current_user.id
     @profile_id = Profile.where(user_id: @user_id).first.id
-    WorkoutProgram.all.where(profile_id: @profile_id).destroy_all
 
+    #destroy the  user workout program
+    workout_destroy
+    
     #Deleting Stripe Subscription
     Stripe::Subscription.delete(current_user.sub_id)
     current_user.update(:sub_id => nil)
 
     redirect_to edit_user_registration_path, notice: "Votre abonnement est bien résilié !"
+  end
+
+  private
+
+  def sub_mail
+    UserMailer.sub_email(current_user).deliver_now
+  end
+
+  def workout_destroy
+    WorkoutProgram.all.where(profile_id: @profile_id).destroy_all
   end
 
 end

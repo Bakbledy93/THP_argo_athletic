@@ -1,5 +1,5 @@
 class Admins::ProfileController < ApplicationController
-  before_action :authenticate_admin, only: [:index, :edit, :show]
+  before_action :authenticate_admin, only: [:index, :edit]
 
   def authenticate_admin
     unless current_admin
@@ -19,9 +19,6 @@ class Admins::ProfileController < ApplicationController
     @sports_array = Profile.sport_array_creator
     @roles_array = Profile.sport_role_array_creator
     @levels_array = Profile.level_array_creator
-  end
-
-  def show
   end
 
   def update

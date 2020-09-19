@@ -297,33 +297,33 @@ module WorkoutProgramHelper
       @workout_program1 = WorkoutProgram.create!(
         exercise: @ex_array1, 
     #     training_method: @training_methods1.sample.name, 
-    #     level:  @level, 
-    #     repetition: @repetitions, 
-    #     recuperation: @recuperation , 
+        level:  @level, 
+        repetition: @repetitions, 
+        recuperation: @recuperation , 
         profile_id: @profile_id, 
-    #     serie: @serie, 
+        serie: @serie, 
     #     variant: @var_array1 
       )
 
       @workout_program2 = WorkoutProgram.create!(
         exercise: @ex_array2, 
     #     training_method: @training_methods2.sample.name, 
-    #     level:  @level, 
-    #     repetition: @repetitions, 
-    #     recuperation: @recuperation , 
+        level:  @level, 
+        repetition: @repetitions, 
+        recuperation: @recuperation , 
         profile_id: @profile_id, 
-    #     serie: @serie, 
+        serie: @serie, 
     #     variant: @var_array2 
       )
 
       @workout_program3 = WorkoutProgram.create!(
         exercise: @ex_array3, 
     #     training_method: @training_methods3.sample.name, 
-    #     level:  @level, 
-    #     repetition: @repetitions, 
-    #     recuperation: @recuperation , 
+        level:  @level, 
+        repetition: @repetitions, 
+        recuperation: @recuperation , 
         profile_id: @profile_id, 
-    #     serie: @serie, 
+        serie: @serie, 
     #     variant: @var_array3 
       )
 

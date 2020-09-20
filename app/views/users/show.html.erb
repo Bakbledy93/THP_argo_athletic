@@ -8,8 +8,11 @@
 	<div class="tab-contents">
 		<div class="tab-content active">
 
-    <div class="container special-flex-container">
-    <div class="col-6">
+    <div class="container">
+    <div class="row">
+    <div class="col-4">
+    </div>
+    <div class="col-4">
       <div class="card content-align-center">
        <div data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}'>
         <%= image_tag 'jump-dash-user.png', 
@@ -37,6 +40,8 @@
                   <div> <%= link_to "S'abonner pour créer mon programmme", success_charges_path, autofocus:"true", class:"btn btn-danger btn-sm"%></div><br>
                 <%end%>
         </div>
+        <div class="col-4">
+        </div>
         <div class="d2 text-center">
           <small class="text-muted">
           <%if current_user.sub_id.present? && @exist_program == true%>
@@ -45,7 +50,7 @@
           </small>
         </div>  </div>
       </div>
-      
+    </div>  
 
     </div>
 
@@ -121,7 +126,7 @@
                 <p>Abonnement : 
                 <%if current_user.sub_id.present?%>
                 Oui
-               <p>Date de souscription :
+              <p>Date de souscription :
                 <%= customer_subscription_time%>
                 </p>
                 <%else%>

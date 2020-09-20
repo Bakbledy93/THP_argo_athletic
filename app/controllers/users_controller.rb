@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @id = current_user.id
     @profile = current_user.profile.id
     @profile_id = current_user.profile.id
-    
+    @workout1 = WorkoutProgram.find_by(profile_id: @profile_id)
     @workoutprogram = WorkoutProgram.where(profile_id: @profile_id)
     @exist_program = check_if_exists(@workoutprogram)
 

@@ -1,35 +1,39 @@
+<%= render "layouts/jumbotron" %>
+
 <section class="py-0" id="page-contact">
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
-      <div class="col-lg-6 bg-white pt-8 pb-4 pt-lg-8">
-        <div class="row h-100 align-items-center justify-content-center">
-          <div class="col-lg-8" data-zanim-lg='{"animation":"slide-left","delay":0.6}' data-zanim-trigger="scroll">
-            <h1 class="text-underline d-inline-block mb-4 mb-lg-6">
-              Contact
-            </h1>
-            <p class="font-weight-bold mb-0">
-              Adresse :
-              <span class="ml-2 font-weight-normal">
-                Rue des spartiates - Paris, France
-              </span>
-            </p>
-            <p class="font-weight-bold mb-0">
-              Téléphone : 
-              <span class="ml-2 font-weight-normal">
-                <p>+06 00 00 00 00</p>
-              </span>
-            </p>
-            <p class="font-weight-bold mb-4">
-              E-mail:
-              <span class="ml-2 font-weight-normal font-italic">
-                <p>
-                  argo-athletic@spartiates.com
-                </p>
-              </span>
-            </p>
+      <div class="col-6">
+
+            <h2>Venez prendre le café</h2>
+            
+            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content.</p>
+
+                <div  class="linkcontact">
+                Société : <%= link_to "Argo Athletic", "#", rel: "nofollow" %> 
+                </div>
+                
+                <div  class="linkcontact">
+                  Address : <%= link_to "28 AV. des Champs-Elysées", "#", rel: "nofollow" %>
+                </div>
+
+                <div  class="linkcontact">
+                  Phone :  <%= link_to "0610 610 610", "#", rel: "nofollow" %>
+                </div>
+                
+                <div  class="linkcontact">
+                  Website : <%= link_to "https://argo-athletic.com", "#", rel: "nofollow" %>
+                </div>
+
+                <div  class="linkcontact">
+                  Horaires : <%= link_to "7/7 - 24/24", "#", rel: "nofollow" %>
+                </div>
           </div>
+        <div class="col-6">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d164.02535530322652!2d2.308535518071937!3d48.86954236353192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fc453aae803%3A0xf3c1e9d538733937!2s28%20Av.%20des%20Champs-%C3%89lys%C3%A9es%2C%2075008%20Paris!5e0!3m2!1sfr!2sfr!4v1600584747645!5m2!1sfr!2sfr" 
+          width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+          </iframe>
         </div>
       </div>
-    </div>
   </div>
 </section>

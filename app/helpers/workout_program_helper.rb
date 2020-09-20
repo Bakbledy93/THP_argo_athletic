@@ -155,7 +155,6 @@ module WorkoutProgramHelper
   def creating_array(array, index)
     new_array = []
     4.times do |i|
-      puts " $ "*30
       new_array << array[index]
       index += 1
     end
@@ -173,19 +172,11 @@ module WorkoutProgramHelper
     program_array = program_array.join(",").split(",").uniq
     array_to_add = program_array
 
-    puts " $ "*30
-    p program_array
-    p program_array.length
-
     5.times do |t|
       program_array << array_to_add.shuffle
     end
 
-    puts " $ "*30
     program_array = program_array.join(",").split(",")
-    p program_array
-    p program_array.length
-    puts " $ "*30
 
     @ex_array1 = creating_array(program_array, 0)
     @ex_array2 = creating_array(program_array, 4)

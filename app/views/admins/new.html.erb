@@ -1,3 +1,5 @@
+<%= render "layouts/jumbotron" %>
+<div class="container mt-4">
 
 <h1 class="hidden">
 <%= title 'Ajouter Admin' %>
@@ -5,7 +7,7 @@
 
 <div class="row d-flex flex-column justify-content-center m-5">
 
-  <h3>Add New Admin</h3>
+  <h3>Créer un nouvel administrateur</h3>
 
   <%= form_with(model: @admin, local:true, class:"mt-5") do |f| %>
 
@@ -35,14 +37,16 @@
       </div>  
       <div class="row mb-4 align-items-center">
         <div class="col-auto">
-          <%= f.submit :"New Admin",
+          <%= f.submit :"Ajouter un admin",
               class:"btn btn-dark btn-block mt-3",
               autofocus: true 
           %>                      
         </div>
       </div>
     </form>
+<%= link_to "Retour", root_path, class:"btn btn-outline-dark btn-block mt-3" %>            
 
   <% end %>
+</div>
 </div>
 

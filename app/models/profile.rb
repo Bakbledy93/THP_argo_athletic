@@ -42,14 +42,4 @@ class Profile < ApplicationRecord
     arr_levels
   end
 
-  def validate_birth_date
-    if date_of_birth.present? && date_of_birth > 18.years.ago.to_date
-      errors.add(:date_of_birth, "Il faut avoir 18 ans")
-      puts "* # "*15
-      puts date_of_birth
-      puts date_of_birth.to_date
-      puts "* # "*15
-    end
-  end
-
 end

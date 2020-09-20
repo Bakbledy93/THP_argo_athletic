@@ -1,17 +1,33 @@
 <h1 class="hidden">
   <%= title 'Récupérer compte' %>
 </h1>
-<h2>Change your password</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <%= f.hidden_field :reset_password_token %>
 
+<section class="py-0" id="page-signup">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6 px-0">
+          <div class="sticky-top vh-lg-100 py-9">
+            <div class="bg-holder" style="background-image:url(<%= image_path 'key-image.png' %>)" 
+            data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right","delay":0.4}'></div>
+          </div>
+        </div>
+        <div class="col-lg-6 bg-white py-6">
+          <div class="row h-100 align-items-center justify-content-center">
+            <div class="col-sm-8 col-md-6 col-lg-10 col-xl-8" data-zanim-xs='{"delay":0.5,"animation":"slide-right"}' data-zanim-trigger="scroll">
+              <div class="card text-center border-light">
+                <h2 class="display-4 fs-2 card-title">
+                  Argo Athletic
+                  <hr class="special-black-border striped-border">
+                  Change ton mot de passe 
+                </h2>
+
   <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
+    <%= f.label :password, "New password" %>
+    <% if @minimum_password_length %><em>(<%= @minimum_password_length %> characters minimum)</em><br /><% end %>
     <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
   </div>
 
@@ -20,9 +36,22 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
+  <div class="col-auto">
+    <%= f.submit :"Changer le mot de passe", class:"btn btn-dark btn-block mt-3", autofocus: true %>                       
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  <%= link_to "Retour à l'accueil", root_path, class: "btn btn-dark btn-block mt-3 fancy-feature-button audioButton" %>
+
+</div>
+</div>
+
+<% end %>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+

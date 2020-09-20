@@ -35,6 +35,7 @@
               <form class="mt-5">
                 <div class="row mb-4">
                   <div class="col">
+                    <%= f.label :email, "Prénom" %><em class="required-label">*</em>
                     <%= f.text_field :first_name,
                         class:"form-control border-300 bg-light",
                         autofocus: true,
@@ -45,6 +46,7 @@
 
                   <div class="row mb-4">
                     <div class="col">
+                    <%= f.label :email, "Nom" %><em class="required-label">*</em>
                       <%= f.text_field :last_name,
                           class:"form-control border-300 bg-light",
                           autofocus: true,
@@ -53,8 +55,9 @@
                     </div>
                   </div>
                   <div class="row mb-4">
-                    <div class="col">Date de naissance
-                        <%= f.date_field :date_of_birth, as: :date, 
+                    <div class="col">
+                      <em>Date de naissance</em>
+                      <%= f.date_field :date_of_birth, as: :date, 
                           class:"form-control border-300 bg-light",
                           autofocus: true,
                           placeholder: 'date de naissance' 
@@ -62,7 +65,8 @@
                     </div>
                   </div>
                   <div class="row mb-4 flex">
-                    <div class="col">Votre poids (kg)
+                    <div class="col">
+                          <%= f.label :email, "Votre poids (kg)" %><em class="required-label">*</em>
                           <%= f.text_field :weight, 
                           class:"form-control border-300 bg-light",
                           placeholder: "Votre poids" 
@@ -71,7 +75,8 @@
                   </div>
 
                   <div class="row mb-4 flex">
-                    <div class="col">Votre taille (cm)
+                    <div class="col">
+                          <%= f.label :email, "Votre taille (cm)" %><em class="required-label">*</em>
                           <%= f.text_field :height, 
                           class:"form-control border-300 bg-light",
                           placeholder: "Votre taille" 
@@ -81,7 +86,10 @@
 
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <label class="input-group-text" for="inputGroupSelect01">Choix du sport</label>
+                      <label class="input-group-text" for="inputGroupSelect01">
+                        Choix du sport
+                        <em class="required-label">*</em>
+                      </label>
                     </div>
                     <%= f.select :sport, @sports_array, 
                         class:"form-control border-300 bg-light btn",
@@ -92,7 +100,10 @@
 
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <label class="input-group-text" for="inputGroupSelect01">Choix du poste</label>
+                      <label class="input-group-text" for="inputGroupSelect01">
+                        Choix du poste
+                        <em class="required-label">*</em>                     
+                      </label>
                     </div>
                     <%= f.select :sport_role, @roles_array, 
                         class:"form-control border-300 bg-light btn",
@@ -102,7 +113,10 @@
 
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <label class="input-group-text" for="inputGroupSelect01">Niveau</label>
+                      <label class="input-group-text" for="inputGroupSelect01">
+                        Niveau
+                        <em class="required-label">*</em>
+                      </label>
                     </div>
                     <%= f.select :level, @levels_array, 
                         class:"form-control border-300 bg-light btn",

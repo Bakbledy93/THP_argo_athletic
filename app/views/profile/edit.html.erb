@@ -28,9 +28,10 @@
                   Profil Sportif
                 </h2>
                 <h6 class="text-danger mt-3">
-                  Renseigne ton profil pour obtenir un entraînement personalisé 
+                  Renseigne ton profil pour obtenir un entraînement personalisé.
                 </h6>
               </div>
+                  <p class="text-danger text-center mt-3">Afin de générer votre programme, merci de renseigner ces informations.<br>Vous pourrez toujours les modifier ultérieurement, en éditant votre profil. </p>
               <form class="mt-5">
                 <div class="row mb-4">
                   <div class="col">
@@ -52,7 +53,7 @@
                     </div>
                   </div>
                   <div class="row mb-4">
-                    <div class="col">date de naissance
+                    <div class="col">Date de naissance
                         <%= f.date_field :date_of_birth, as: :date, 
                           class:"form-control border-300 bg-light",
                           autofocus: true,
@@ -77,9 +78,6 @@
                       %> 
                     </div>
                   </div>
-
-                  <p>Afin de générer votre programme, merci de renseigner ces informations</p>
-                  <p>vous pourrez les modifier ultérieurement, en éditant votre profil </p>
 
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">

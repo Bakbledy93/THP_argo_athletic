@@ -703,7 +703,6 @@ section .section-title {
   display: flex;
   align-items: center;
   height: 350px;
-  background-image: url("background-index-image.png");
   background-size: cover;
   background-position: center;
 }

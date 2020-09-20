@@ -49,7 +49,11 @@
                 <%end%>
         </div>
         <div class="d2 text-center">
-          <small class="text-muted">Last updated 3 mins ago</small>
+          <small class="text-muted">
+          <%if current_user.sub_id.present? && @exist_program == true%>
+          <p>Programme créé le <%= @workout1.created_at.to_date%></p>
+          <%end%>
+          </small>
         </div>  </div>
       </div>
       

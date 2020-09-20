@@ -1,3 +1,5 @@
+<%= render "layouts/jumbotron" %>
+<div class="container">
           <%= form_for @user, url: admins_user_path do |f| %>
 
               <h2>
@@ -33,7 +35,7 @@
 
               <div class="col mb-4 align-items-center">
                 <div class="col-sm btn btn-block">
-                  <%= f.submit :"Editer mon Compte",
+                  <%= f.submit :"Editer ce Compte",
                       class:"btn btn-success mt-3",
                       autofocus: true 
                   %>
@@ -41,3 +43,4 @@
               <%= link_to "Retour", admins_users_path, class:"btn btn-outline-dark btn-block mt-3" %>            
 
                 <%end%>
+                </div>  

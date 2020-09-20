@@ -5,6 +5,15 @@ class Profile < ApplicationRecord
   has_many :sports, through: :sport_profiles
   has_many :workout_programs
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :height, 
+    presence: true,
+    numericality: true
+  validates :weight, 
+    presence: true,
+    numericality: true
+
 
   def self.sport_array_creator
     sports = Sport.all

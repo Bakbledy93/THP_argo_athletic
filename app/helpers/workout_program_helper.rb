@@ -62,14 +62,6 @@ module WorkoutProgramHelper
 
   end 
 
-  # def program_definition(program_data)
-  #   arr = []
-  #   program_data.each do |ex|
-  #     arr << ex_creator(ex, i)
-  #     i += 1
-  #   end
-  #   return arr
-  # end
 
   ## SHOW ##
 
@@ -140,16 +132,6 @@ module WorkoutProgramHelper
       var_array << Exercise.where(name: ex).first.variants.uniq.sample.name 
     end
     var_array
-  end
-
-  def exercises_and_variants_array_creation
-    @ex_array1 = creating_array_exercises(@training_methods1, @muscles1)
-    @ex_array2 = creating_array_exercises(@training_methods2, @muscles2)
-    @ex_array3 = creating_array_exercises(@training_methods3, @muscles3)
-
-    @var_array1 = creating_array_variants(@ex_array1)
-    @var_array2 = creating_array_variants(@ex_array2)
-    @var_array3 = creating_array_variants(@ex_array3)
   end
 
   def creating_array(array, index)

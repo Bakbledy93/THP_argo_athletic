@@ -61,6 +61,10 @@ class ChargesController < ApplicationController
     @plan_1 = Stripe::Plan.retrieve(
       'price_1HRfEKJz7TPSTY9W03MPLnl9',
     )
+
+    unless current_user.sub_id.nil?
+      redirect_to root_path
+    end
   end
 
   def subscribe

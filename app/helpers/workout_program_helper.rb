@@ -165,7 +165,7 @@ module WorkoutProgramHelper
   def create_workout_program
 
     program_array = []
-    [1...6].each do |x|
+    (1..6).each do |x|
       program_array << muscles_training_methods_definition(x)
     end
 

@@ -29,6 +29,11 @@ class WorkoutProgramsController < ApplicationController
     @level = @user.profile.level
     @sport = @user.profile.sport
     @role = @user.profile.sport_role
+
+
+    if WorkoutProgram.where(profile_id: @profile_id) == 0
+      redirect_to user_path(current_user.id)
+    end
   end
 
   def create

@@ -1,71 +1,80 @@
 <%= render "layouts/jumbotron" %>
-    <div class="fancy-tab">
-	    <div class="nav-bar nav-bar-center">
-		    <div class="nav-bar-item active"><span class="fas fa-home fs-2"></span><br>Home</div>
-		      <div class="nav-bar-item"><span class="fas fa-user fs-2"></span><br>Profil</div>
-          </div>
-	
 
-	          <div class ="tab-contents">
-		          <div class="tab-content active">
-              
-                <div class="container d-flex justify-content-center">
-                  
+<div class="fancy-tab">
+
+  <div class="nav-bar nav-bar-center">
+    <div class="nav-bar-item active"><span class="fas fa-home fs-2"></span><br>Home</div>
+    <div class="nav-bar-item"><span class="fas fa-user fs-2"></span><br>Profil</div>
+  </div>
+
+  <div class ="tab-contents">
+    <div class="tab-content active">
+
+      <div class="container">
+      <!-- Two equal columns -->
+        <div class="row justify-content-center">
+          <div class="col-12 col-sm-12 col-md-10 col-lg-7">
+            <div class="d-flex justify-content-center">
+              <div class="cardshow col-12 justify-content-center">  
+                <%= image_tag 'jump-dash-user.png', class: "rounded-soft img-fluid width: auto", alt: "homme qui saute" %>
+
+                <div class="d3">
+                  <div class="titled4 my-2 py-1">VOTRE PROGRAMME</div>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <p class="col-8 text-center">Créer ton programme personnalisé et améliore ta préparation physique</p>
+                </div>
+                <div class="mb-5">
+                  <%if current_user.sub_id.present?%>
+                    <% if @exist_program == true %>
+                      <div class="d-flex">
+                          <%= link_to "voir mon Programme", workout_programs_path, class:"btn btn-danger btn-sm mt-2 btn-block mx-1"%>
+                          <%= link_to "Suprimer  Programme", workout_program_path(@workoutprogram.ids), method: 'delete', data: { confirm: "Etes-vous sur de vouloir supprimer votre programme ?" }, class:"btn btn-dark btn-sm mt-2 btn-block mx-1"%>
+                      </div>
+                    <% else %>
+                        <%if current_user.profile.sport_role.nil? && current_user.profile.level.nil? %>
+                            <%= link_to "Créer mon Programme", edit_user_profile_path(id: @profile, user_id: @id),autofocus:"true", class:"btn btn-danger btn-sm btn-block"%>
+                        <%else%>
+                          <%= link_to "Créer mon Programme", new_workout_program_path, autofocus:"true", class:"btn btn-danger btn-sm btn-block py-1 btn-block"%>
+                        <%end%>
+
+                    <%end%>
                     
-<div class="cardshow">  
+                  <%else%>
+                      <%= link_to "S'abonner pour créer mon programmme", success_charges_path, autofocus:"true", class:"btn btn-danger btn-sm"%>
+                  <%end%>
+                </div>
 
-                          <%= image_tag 'jump-dash-user.png', class: "rounded-soft img-fluid", alt: "homme qui saute" %>
-
-
-                          <div class="d3">
-                          <div class=titled4>VOTRE PROGRAMME</div>
-                          </div>
-
-                              <p>Créer ton programme personnalisé et améliore ta préparation physique</p>
-                                    <%if current_user.sub_id.present?%>
-                                    <% if @exist_program == true %>
-          
-                                            <%= link_to "voir mon Programme", workout_programs_path, class:"btn btn-danger btn-sm mt-2"%>
-                                            <%= link_to "Suprimer  Programme", workout_program_path(@workoutprogram.ids), method: 'delete', data: { confirm: "Etes-vous sur de vouloir supprimer votre programme ?" }, class:"btn btn-dark btn-sm mt-2"%>
-                        
-                                    <% else %>
-                                          <%if current_user.profile.sport_role.nil? && current_user.profile.level.nil? %>
-                                              <%= link_to "Créer mon Programme", edit_user_profile_path(id: @profile, user_id: @id),autofocus:"true", class:"btn btn-danger btn-sm"%>
-                                          <%else%>
-                                            <%= link_to "Créer mon Programme", new_workout_program_path, autofocus:"true", class:"btn btn-danger btn-sm"%>
-                                          <%end%>
-
-                                          <%end%>
-                                          
-                                          <%else%>
-                                            <%= link_to "S'abonner pour créer mon programmme", success_charges_path, autofocus:"true", class:"btn btn-danger btn-sm"%>
-                                          <%end%>
-
-                                          <%if current_user.sub_id.present? && @exist_program == true%>
-                                          <p>Programme créé le <%= @workout1.created_at.to_date%></p>
-                                          <%end%>
-                      </div>                      
-                    </div>
-          
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
               
-</div>     
+    </div>
+
+    
                   
 		<div class="tab-content">
-    <div class="container mb-4">
-      <div class="row mb-4">
 
-            <div class="col-sm-8">
-            <div class="card">
+      <div class="container">
+        <!-- Two equal columns -->
+        <div class="row justify-content-center mb-3">
+
+          <div class="col-12 col-md-6 col-lg-5 mb-3">
+            <div class="card h-100">
+
               <div class="d3">
-              <p class="titled3">PROFILE SPORT</p>
+                <p class="titled3 text-center text-md-left ml-3">PROFILE SPORT</p>
               </div>
-              <div class="card-body">
+
+              <div class="card-body text-center text-md-left">
                 <p>Sport :
                 <%unless current_user.profile.sport.nil?%>
                 <%=current_user.profile.sport.humanize %>
                 <%else%>
                 <span class="font-italic"><%= link_to "Renseigner votre profil", edit_user_profile_path(id: @profile, user_id: @id)%>
-</span>
+                </span>
                 <%end%>
                 </p>
 
@@ -74,7 +83,7 @@
                 <%=current_user.profile.sport_role.humanize %>
                 <%else%>
                 <span class="font-italic"><%= link_to "Renseigner votre profil", edit_user_profile_path(id: @profile, user_id: @id)%>
-</span>
+                </span>
                 <%end%>
                 </p>
 
@@ -84,7 +93,7 @@
                 <%=current_user.profile.height%> cm
                 <%else%>
                 <span class="font-italic"><%= link_to "Renseigner votre profil", edit_user_profile_path(id: @profile, user_id: @id)%>
-</span>
+                </span>
                 <%end%>
                 </p>
 
@@ -93,7 +102,7 @@
                 <%=current_user.profile.weight%> kg
                 <%else%>
                 <span class="font-italic"><%= link_to "Renseigner votre profil", edit_user_profile_path(id: @profile, user_id: @id)%>
-</span>
+                </span>
                 <%end%>
                 </p>
 
@@ -102,75 +111,83 @@
                 <%=current_user.profile.level.humanize %>
                 <%else%>
                 <span class="font-italic"><%= link_to "Renseigner votre profil", edit_user_profile_path(id: @profile, user_id: @id)%>
-</span>
+                  </span>
                 <%end%>
                 </p>
-
               </div>
+              <%# End Card %>
+
             </div>
           </div>
 
-          <div class="col-sm-4">
-            <div class="card" style="width: 18rem;">
+          <div class="col-12 col-md-6 col-lg-5 mb-3">
+            <div class="card h-100">
+
               <div class="d3">
-                <p class="titled4">COMPTE UTILISATEUR</p>
+                <p class="titled3 text-center">COMPTE UTILISATEUR</p>
               </div>
+
               <div class="card-body text-center">
                 <p>Email : <%=current_user.email%></p>
                 <p>Inscription : <%=current_user.created_at.to_date%>
                 <p>Abonnement : 
                 <%if current_user.sub_id.present?%>
-                Oui
-              <p>Date de souscription :
-                <%= customer_subscription_time%>
-                </p>
+                  Oui
+                  <p>Date de souscription :
+                  <%= customer_subscription_time%>
+                  </p>
                 <%else%>
-                Non
+                  Non
                 <%end%>
                 <br>
                 <br>
               </div>
+
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-sm mb">
 
-            <div class="card" style="width: 18rem;">
+        </div>
+
+        <div class="row">
+          <div class="col-12 col-md-4 mb-3">
+            <div class="card h-100">
               <div class="d3">
-                <p class="titled4">EDITER PROFIL SPORT</p>
+                <p class="titled3 text-center">EDITER PROFIL SPORT</p>
               </div>
+
               <div class="card-body text-center">
                 <%= link_to "Modifier son profil sport", edit_user_profile_path(id: @profile, user_id: @id), class:"btn btn-danger btn-sm"%>
               </div>
             </div>
-
           </div>
-          <div class="col-sm">
-          
-            <div class="card" style="width: 18rem;">
+
+          <div class="col-12 col-md-4 mb-3">
+            <div class="card h-100">
               <div class="d3">
-                <p class="titled4">EDITER COMPTE UTILISATEUR</p>
+                <p class="titled3 text-center">EDITER COMPTE UTILISATEUR</p>
               </div>
+
               <div class="card-body text-center">
                 <%= link_to "Modifier son compte utilisateur", edit_user_registration_path, class:"btn btn-danger btn-sm"%>
               </div>
             </div>
-          
           </div>
-          <div class="col-sm">
 
-            <div class="card" style="width: 18rem;">
+          <div class="col-12 col-md-4 mb-3">
+            <div class="card h-100">
               <div class="d3">
-                <p class="titled4">DECONNEXION</p>
+                <p class="titled3 text-center">DECONNEXION</p>
               </div>
+
               <div class="card-body text-center">
                 <%= link_to "Déconnexion", destroy_admin_session_path, method: 'delete', class:"btn btn-danger btn-sm"%>
               </div>
             </div>
           </div>
         </div>
+
       </div>
+
     </div>
 	</div>
 </div>
